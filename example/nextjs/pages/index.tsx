@@ -1,11 +1,10 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
 import { Thing } from '../../../dist/promo-dashboard.esm.js';
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div className="">
       <Head>
         <title>Promo Button Demo</title>
         <meta
@@ -15,8 +14,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
+      <main className="my-8">
+        <h1 className="text-3xl font-bold text-center">
           Welcome to the <a href="https://tincre.dev/promo">Promo Dashboard</a>{' '}
           demo!
         </h1>
@@ -25,83 +24,30 @@ const Home: NextPage = () => {
           <p style={{ marginTop: '20px', marginBottom: '10px' }}>
             <code>npm install @tincre/promo-dashboard</code>
           </p>
-          <p
-            className={styles.card}
-            style={{
-              marginTop: '2rem',
-              marginBottom: '2rem',
-              fontWeight: 'bold',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              textAlign: 'center',
-            }}
-          >
+          <p className="py-4">
             <a
               target="_blank"
               rel="noreferrer noopener"
               href="https://tincre.dev/docs"
+              className="border border-1 border-indigo-300 hover:border-indigo-700 py-3 px-5 rounded-md hover:bg-indigo-700 hover:text-indigo-100"
             >
               Read the docs
             </a>
           </p>
-          <p
-            className={styles.card}
-            style={{
-              marginTop: '2rem',
-              marginBottom: '2rem',
-              fontWeight: 'bold',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              textAlign: 'center',
-            }}
-          >
+          <p className="py-4">
             <a
               target="_blank"
               rel="noreferrer noopener"
               href="https://community.tincre.dev/c/promo-button"
+              className="border border-1 border-indigo-300 hover:border-indigo-700 py-3 px-5 rounded-md hover:bg-indigo-700 hover:text-indigo-100"
             >
               Abuse your community
             </a>
           </p>
         </div>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
       </main>
 
-      <footer className={styles.footer}>
+      <footer className="text-center w-full absolute bottom-0 pb-12">
         <a
           href="https://tincre.com"
           target="_blank"
