@@ -1,8 +1,8 @@
 {
-  "name": "promo-dashboard",
-  "version": "0.1.0",
-  "license": "MIT",
-  "author": "Jason R. Stevens, CFA",
+  "name": "@tincre/promo-dashboard",
+  "version": "0.0.1",
+  "license": "MPL-2.0",
+  "author": "Jason R. Stevens, CFA on behalf of Tincre <jason@tincre.com> (https://tincre.com)",
   "main": "dist/index.js",
   "module": "dist/promo-dashboard.esm.js",
   "typings": "dist/index.d.ts",
