@@ -1,0 +1,56 @@
+# You can override the included template(s) by including variable overrides
+# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
+# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
+# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
+cache:
+  paths:
+  - node_modules/
+  - ".yarn"
+before_script:
+- apt-get update -qq && apt-get install
+stages:
+- unit-test
+- test
+unit-test:
+  stage: unit-test
+  image: node:16
+  tags:
+  - cicd
+  - test
+  - tincre
+  before_script:
+  - yarn config set cache-folder .yarn
+  - yarn install --frozen-lockfile
+  script:
+  - yarn run test --ci --coverage --maxWorkers=2
+sast:
+  cache: {}
+  stage: test
+  image: ubuntu:latest 
+  tags:
+    - cicd
+    - tincre
+include:
+- template: Security/SAST.gitlab-ci.yml
+
+semgrep-report:
+  image: returntocorp/semgrep-agent:v1
+  tags:
+    - cicd
+  script:
+    # SEMGREP_APP_TOKEN can be obtained from semgrep.dev/manage/settings.
+    # The SEMGREP_APP_TOKEN should be treated like a secret and not hard-coded into your code.
+    - semgrep-agent --publish-token $SEMGREP_APP_TOKEN
+  rules:
+  # Scan changed files in MRs, block on new issues only (existing issues ignored)
+  - if: $CI_MERGE_REQUEST_IID
+  # Scan all files on default branch, block on any issues
+  # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+  variables:
+    SEMGREP_AGENT_DEBUG: 1
+    # Gives Semgrep permission to post inline comments
+    GITLAB_TOKEN: $PAT
