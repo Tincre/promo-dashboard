@@ -34,7 +34,8 @@
     "testEnvironment": "jsdom"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=16",
+    "tailwindcss": ">=3"
   },
   "engines": {
     "node": ">=12"
