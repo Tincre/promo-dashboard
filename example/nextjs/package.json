@@ -1,0 +1,32 @@
+{
+  "name": "nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^13.0.0",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@headlessui/react": "^1.6.0",
+    "@react-icons/all-files": "^4.1.0",
+    "@tincre/promo-button": "^0.2.2",
+    "@tincre/promo-button-node": "^0.0.6",
+    "@types/node": "^17.0.25",
+    "@types/react": "^18.0.6",
+    "@types/react-dom": "^18.0.2",
+    "autoprefixer": "^10.4.13",
+    "encoding": "^0.1.13",
+    "eslint": "^8.14.0",
+    "eslint-config-next": "^12.1.5",
+    "postcss": "^8.4.18",
+    "tailwindcss": "^3.2.1",
+    "typescript": "^4.6.3"
+  }
+}
