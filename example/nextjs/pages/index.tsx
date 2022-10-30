@@ -1,11 +1,10 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
 import { Thing } from '../../../dist/promo-dashboard.esm.js';
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div className="">
       <Head>
         <title>Promo Button Demo</title>
         <meta
@@ -15,8 +14,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
+      <main className="">
+        <h1 className="">
           Welcome to the <a href="https://tincre.dev/promo">Promo Dashboard</a>{' '}
           demo!
         </h1>
@@ -26,7 +25,7 @@ const Home: NextPage = () => {
             <code>npm install @tincre/promo-dashboard</code>
           </p>
           <p
-            className={styles.card}
+            className=""
             style={{
               marginTop: '2rem',
               marginBottom: '2rem',
@@ -45,7 +44,7 @@ const Home: NextPage = () => {
             </a>
           </p>
           <p
-            className={styles.card}
+            className=""
             style={{
               marginTop: '2rem',
               marginBottom: '2rem',
@@ -65,25 +64,24 @@ const Home: NextPage = () => {
           </p>
         </div>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
+        <p className="">
+          Get started by editing <code className="">pages/index.tsx</code>
         </p>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
+        <div className="">
+          <a href="https://nextjs.org/docs" className="">
             <h2>Documentation &rarr;</h2>
             <p>Find in-depth information about Next.js features and API.</p>
           </a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
+          <a href="https://nextjs.org/learn" className="">
             <h2>Learn &rarr;</h2>
             <p>Learn about Next.js in an interactive course with quizzes!</p>
           </a>
 
           <a
             href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
+            className=""
           >
             <h2>Examples &rarr;</h2>
             <p>Discover and deploy boilerplate example Next.js projects.</p>
@@ -91,7 +89,7 @@ const Home: NextPage = () => {
 
           <a
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
+            className=""
           >
             <h2>Deploy &rarr;</h2>
             <p>
@@ -101,7 +99,7 @@ const Home: NextPage = () => {
         </div>
       </main>
 
-      <footer className={styles.footer}>
+      <footer className="">
         <a
           href="https://tincre.com"
           target="_blank"
