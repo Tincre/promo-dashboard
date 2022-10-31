@@ -53,7 +53,7 @@ export function Campaign({
     }
 
     setSupportLink(getSupportLink(data));
-  }, []);
+  }, [data]);
   useEffect(() => {
     setIsActiveClassName(
       isActive
@@ -67,7 +67,6 @@ export function Campaign({
         <div className="relative flex flex-1 flex-col px-2 pt-10 pb-6 group-hover:rounded-tr-md group-hover:rounded-tl-sm group-hover:bg-slate-900">
           <IsActivePill isActive={isActive} />
           <img
-            suppressHydrationWarning={true}
             className="mx-auto h-32 w-full flex-shrink-0 rounded-b-md rounded-t-sm object-cover px-2"
             src={imageUrl}
             alt={adTitle}
