@@ -64,7 +64,7 @@ export function CampaignDetail({
       <AdPreviewDetail data={data} />
       <StatsHighlights stats={data?.stats || []} />
       {/*@ts-ignore*/}
-      <Button 
+      <Button
         className="mx-2 mt-4 mb-2 sm:hidden"
         onClick={handleCampaignDetailOnClick}
       >
