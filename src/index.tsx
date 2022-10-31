@@ -1,7 +1,7 @@
 import { useState, ReactNode } from 'react';
 import { Campaign } from './components/Campaign';
-import { Profile } from './components/DashboardProfile';
-import { CampaignDetail } from './components/DashboardCampaignDetail';
+import { Profile } from './components/Profile';
+import { CampaignDetail } from './components/CampaignDetail';
 
 interface CampaignData {
   pid?: string;
