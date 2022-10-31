@@ -1,10 +1,11 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { Thing } from '../../../dist/promo-dashboard.esm.js';
+import { PromoDashboard } from '../../../dist/promo-dashboard.esm.js';
+import { campaignStubData } from '../cms.data';
 
 const Home: NextPage = () => {
   return (
-    <div className="">
+    <div className="" suppressHydrationWarning={true}>
       <Head>
         <title>Promo Button Demo</title>
         <meta
@@ -15,16 +16,12 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="my-8">
-        <h1 className="text-3xl font-bold text-center">
-          Welcome to the <a href="https://tincre.dev/promo">Promo Dashboard</a>{' '}
-          demo!
-        </h1>
-        <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <Thing />
-          <p style={{ marginTop: '20px', marginBottom: '10px' }}>
-            <code>npm install @tincre/promo-dashboard</code>
-          </p>
-          <p className="py-4">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold text-center">
+            Welcome to the{' '}
+            <a href="https://tincre.dev/promo">Promo Dashboard</a> demo!
+          </h1>
+          <p className="pt-8 pb-4">
             <a
               target="_blank"
               rel="noreferrer noopener"
@@ -45,9 +42,15 @@ const Home: NextPage = () => {
             </a>
           </p>
         </div>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <p style={{ marginTop: '20px', marginBottom: '10px' }}>
+            <code>npm install @tincre/promo-dashboard</code>
+          </p>
+          <PromoDashboard campaignsData={campaignStubData} />
+        </div>
       </main>
 
-      <footer className="text-center w-full absolute bottom-0 pb-12">
+      <footer className="text-center w-full bottom-0 pb-12">
         <a
           href="https://tincre.com"
           target="_blank"

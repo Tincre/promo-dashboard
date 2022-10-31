@@ -35,10 +35,14 @@
   },
   "peerDependencies": {
     "react": ">=16",
-    "tailwindcss": ">=3"
+    "tailwindcss": ">=3",
+    "chart.js": ">=3.9",
+    "react-chartjs-2": ">=4.3",
+    "@heroicons/react": ">=2.0",
+    "yup": ">=0.32"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "size-limit": [
     {
@@ -51,17 +55,22 @@
     }
   ],
   "devDependencies": {
+    "@heroicons/react": "^2.0.12",
     "@size-limit/preset-small-lib": "^8.1.0",
     "@tsconfig/create-react-app": "^1.0.2",
     "@tsconfig/recommended": "^1.0.1",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
+    "chart.js": "^3.9.1",
+    "clsx": "^1.2.1",
     "dts-cli": "^1.6.0",
     "husky": "^8.0.1",
     "react": "^18.2.0",
+    "react-chartjs-2": "^4.3.1",
     "react-dom": "^18.2.0",
     "size-limit": "^8.1.0",
     "tslib": "^2.4.0",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "yup": "^0.32.11"
   }
 }
