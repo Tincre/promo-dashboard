@@ -1,9 +1,10 @@
 import { useState, ReactNode } from 'react';
-import { Campaign } from './components/DashboardCampaign';
+import { Campaign } from './components/Campaign';
 import { Profile } from './components/DashboardProfile';
 import { CampaignDetail } from './components/DashboardCampaignDetail';
 
 interface CampaignData {
+  pid?: string;
   adTitle?: string;
   budget?: string | number;
   description?: string;
@@ -11,6 +12,7 @@ interface CampaignData {
   adCopy?: string;
   adCallToAction?: string;
   buttonText?: string;
+  isActive?: boolean;
 }
 
 export function PromoDashboard({
@@ -55,14 +57,14 @@ export function PromoDashboard({
   const handleCampaignDetailOnClick = () => {
     setIsCampaignClicked(false);
   };
-
+  const sortedCampaignsData = sortCampaignDataOnIsActive(campaignsData);
   return (
     <>
       <DashboardContainer>
         {!isCampaignClicked ? (
           <>
             <CampaignList
-              data={campaignsData}
+              data={sortedCampaignsData}
               handleRepeatButtonOnClick={handleRepeatButtonOnClick}
               handleCampaignClick={handleCampaignClick}
             />
@@ -89,11 +91,13 @@ export function DashboardContainer({ children }: { children?: ReactNode }) {
   );
 }
 
-function sortCampaignDataOnIsActive(data: any) {
+function sortCampaignDataOnIsActive(data: CampaignData[]) {
   if (!Array.isArray(data)) {
     throw new Error('Data in sortCampaignDataOnIsActive is not an array!');
   }
-  let newArray = data.sort((campaign) => (campaign?.isActive ? -1 : 1));
+  let newArray = data.sort((campaign: CampaignData) =>
+    campaign?.isActive ? -1 : 1
+  );
   return newArray;
 }
 
@@ -102,25 +106,26 @@ export function CampaignList({
   handleRepeatButtonOnClick,
   handleCampaignClick,
 }: {
-  data: any;
+  data: CampaignData[];
   handleRepeatButtonOnClick: Function;
   handleCampaignClick: Function;
 }) {
-  if (!Array.isArray(data)) return null;
-  const sortedData = sortCampaignDataOnIsActive(data);
   return (
     <ul
       role="list"
       className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
     >
-      {sortedData.map((campaignData, index) => (
-        <Campaign
-          key={`${index}-${campaignData.pid}`}
-          data={campaignData}
-          handleRepeatButtonOnClick={handleRepeatButtonOnClick}
-          handleCampaignClick={handleCampaignClick}
-        />
-      ))}
+      {data.map((campaignData: CampaignData, index) => {
+        const key = `${index}-${campaignData.pid}`;
+        return (
+          <Campaign
+            key={key}
+            data={campaignData}
+            handleRepeatButtonOnClick={handleRepeatButtonOnClick}
+            handleCampaignClick={handleCampaignClick}
+          />
+        );
+      })}
     </ul>
   );
 }
