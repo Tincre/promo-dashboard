@@ -112,14 +112,14 @@ export function Profile({
               <h3 className="text-lg font-medium leading-6 text-gray-900">
                 Profile | Settings
               </h3>
-              <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
+              <div className="text-left sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
                 <label
                   htmlFor="image"
-                  className="inline-block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                  className="inline-block text-sm font-medium text-gray-700 mt-4 sm:pt-2"
                 >
                   Avatar{' '}
                 </label>
-                <div className="mt-1 sm:col-span-2 sm:mt-0">
+                <div className="mt-2 sm:col-span-2">
                   <input
                     disabled={isUpdatingInternalSettings}
                     id="image"
@@ -127,7 +127,7 @@ export function Profile({
                     placeholder="https://www.gravatar.com/avatar/"
                     type="url"
                     pattern="https://.*"
-                    className="inline-block w-4/5 lg:w-full max-w-sm sm:max-w-md rounded-md border border-gray-300 py-2 pl-1 font-mono text-xs shadow-sm focus:border-blue-700 focus:ring-blue-700 lg:text-sm"
+                    className="inline-block w-4/5 lg:w-3/5 rounded-md border border-gray-300 py-2 pl-1 font-mono text-xs shadow-sm focus:border-blue-700 focus:ring-blue-700 lg:text-sm"
                     value={settingsData?.image || ''}
                     maxLength={360}
                     onChange={(e) => {
@@ -141,11 +141,11 @@ export function Profile({
                 </div>
                 <label
                   htmlFor="fullName"
-                  className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                  className="block text-sm font-medium text-gray-700 mt-4 sm:pt-2"
                 >
                   Your full name
                 </label>
-                <div className="mt-1 sm:col-span-2 sm:mt-0">
+                <div className="mt-2 sm:col-span-2">
                   <input
                     disabled={isUpdatingInternalSettings}
                     placeholder="Fost Palone, Esq."
@@ -161,11 +161,11 @@ export function Profile({
                 </div>
                 <label
                   htmlFor="userName"
-                  className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
+                  className="block text-sm font-medium text-gray-700 mt-4 sm:pt-2"
                 >
                   User name
                 </label>
-                <div className="mt-1 sm:col-span-2 sm:mt-0">
+                <div className="mt-2 sm:col-span-2">
                   <input
                     disabled={isUpdatingInternalSettings}
                     id="userName"
