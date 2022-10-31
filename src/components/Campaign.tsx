@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { EnvelopeIcon, ArrowPathIcon } from '@heroicons/react/20/solid';
 import { IsActivePill } from './DashboardIsActivePill';
 const supportDomain = 'tincre.dev';
@@ -13,40 +14,88 @@ export function Campaign({
   handleRepeatButtonOnClick: Function;
   handleCampaignClick: Function;
 }) {
-  const isActiveClassName = data?.isActive
-    ? 'group col-span-1 flex flex-col divide-y divide-slate-200 rounded-b-lg rounded-t-sm bg-slate-100 text-center shadow-md'
-    : 'group col-span-1 flex flex-col divide-y divide-slate-200 rounded-b-lg rounded-t-sm bg-slate-50 text-center shadow-md';
-  const supportLink = getSupportLink(data);
+  const [isActive, setIsActive] = useState<boolean>(data?.isActive || false);
+  const [imageUrl, setImageUrl] = useState<string>(data?.imageUrl || '');
+  const [promoId, setPromoId] = useState<string>(data?.promoId || '');
+  const [budget, setBudget] = useState<string | number>(data?.budget || '250');
+  const [adTitle, setAdTitle] = useState<string>(data?.adTitle || '');
+  const [adCopy, setAdCopy] = useState<string>(data?.adCopy || '');
+  const [isActiveClassName, setIsActiveClassName] = useState<string>('');
+  const [dollarAmount, setDollarAmount] = useState<string>('');
+  const [supportLink, setSupportLink] = useState<string>('');
+
+  useEffect(() => {
+    if (data?.isActive && typeof data?.isActive) {
+      setIsActive(data?.isActive);
+    }
+    if (data?.imageUrl && typeof data?.imageUrl !== 'undefined') {
+      setImageUrl(data.imageUrl);
+    }
+    if (data?.pid && typeof data?.pid !== 'undefined') {
+      setPromoId(data.pid);
+    }
+    if (data?.budget && typeof data?.budget !== 'undefined') {
+      setBudget(data.budget);
+    }
+    if (data?.adTitle && typeof data?.adTitle !== 'undefined') {
+      setAdTitle(data.adTitle);
+    }
+    if (data?.adCopy && typeof data?.adCopy !== 'undefined') {
+      setAdCopy(data.adCopy);
+    }
+    if (
+      typeof data?.budget !== 'undefined' &&
+      typeof data?.budget !== 'undefined' &&
+      data?.budget &&
+      data?.currency
+    ) {
+      setDollarAmount(`${data.budget} ${data.currency}`);
+    }
+
+    setSupportLink(getSupportLink(data));
+  }, []);
+  useEffect(() => {
+    setIsActiveClassName(
+      isActive
+        ? 'group col-span-1 flex flex-col divide-y divide-slate-200 rounded-b-lg rounded-t-sm bg-slate-100 text-center shadow-md'
+        : 'group col-span-1 flex flex-col divide-y divide-slate-200 rounded-b-lg rounded-t-sm bg-slate-50 text-center shadow-md'
+    );
+  }, [isActive]);
   return (
     <li key={data.email} className={isActiveClassName}>
       <button onClick={() => handleCampaignClick(data)}>
         <div className="relative flex flex-1 flex-col px-2 pt-10 pb-6 group-hover:rounded-tr-md group-hover:rounded-tl-sm group-hover:bg-slate-900">
-          <IsActivePill isActive={data?.isActive} />
+          <IsActivePill isActive={isActive} />
           <img
+            suppressHydrationWarning={true}
             className="mx-auto h-32 w-full flex-shrink-0 rounded-b-md rounded-t-sm object-cover px-2"
-            src={data.imageUrl}
-            alt={data.adTitle}
+            src={imageUrl}
+            alt={adTitle}
           />
           <h3 className="mt-6 text-sm font-medium text-slate-900 group-hover:text-slate-200">
-            {data.adTitle}
+            {adTitle}
           </h3>
           <dl className="mt-1 flex flex-grow flex-col justify-between">
             <dt className="sr-only">Ad Description</dt>
-            <dd className="text-sm text-slate-500">{data.description}</dd>
+            <dd className="text-sm text-slate-500">{adCopy}</dd>
             <span className="grid grid-cols-2">
               {' '}
               <dt className="sr-only">Promo ID</dt>
               <dd className="mt-3">
                 <span className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800">
-                  {data.pid}
+                  {promoId}
                 </span>
               </dd>
-              <dt className="sr-only">Budget</dt>
-              <dd className="mt-3">
-                <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-800">
-                  {`${data.budget} ${data.currency}`}
-                </span>
-              </dd>
+              {dollarAmount !== '' ? (
+                <>
+                  <dt className="sr-only">Budget</dt>
+                  <dd className="mt-3">
+                    <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-800">
+                      {dollarAmount}{' '}
+                    </span>
+                  </dd>
+                </>
+              ) : null}
             </span>
           </dl>
         </div>
