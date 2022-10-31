@@ -77,7 +77,7 @@ export function AdPreviewDetailImage({ imageUrl }: { imageUrl: string }) {
   return (
     <div className="relative h-56 sm:h-72 md:h-96">
       {' '}
-      <img src={imageUrl} className="rounded-lg object-contain" />
+      <img src={imageUrl} className="rounded-lg object-contain" alt="" />
     </div>
   );
 }
