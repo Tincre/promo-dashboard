@@ -136,7 +136,8 @@ export function Profile({
                   />
                   <img
                     src={settingsData?.image || '/default-gravatar.jpg'}
-                    className="mx-4 inline-block h-8 rounded-full"
+                    className="inline-block mx-4 xl:mx-2 h-8 rounded-full content-center"
+                    alt=""
                   />
                 </div>
                 <label
