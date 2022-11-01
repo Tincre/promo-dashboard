@@ -34,11 +34,11 @@
     "testEnvironment": "jsdom"
   },
   "peerDependencies": {
-    "react": ">=16",
-    "tailwindcss": ">=3",
-    "chart.js": ">=3.9",
-    "react-chartjs-2": ">=4.3",
     "@heroicons/react": ">=2.0",
+    "chart.js": ">=3.9",
+    "react": ">=16",
+    "react-chartjs-2": ">=4.3",
+    "tailwindcss": ">=3",
     "yup": ">=0.32"
   },
   "engines": {

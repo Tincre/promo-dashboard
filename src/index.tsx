@@ -1,17 +1,8 @@
 import { useState, ReactNode } from 'react';
-import { Campaign } from './components/DashboardCampaign';
-import { Profile } from './components/DashboardProfile';
-import { CampaignDetail } from './components/DashboardCampaignDetail';
-
-interface CampaignData {
-  adTitle?: string;
-  budget?: string | number;
-  description?: string;
-  target?: string;
-  adCopy?: string;
-  adCallToAction?: string;
-  buttonText?: string;
-}
+import { Profile } from './components/Profile';
+import { CampaignDetail } from './components/CampaignDetail';
+import { CampaignData } from './lib/types';
+import { CampaignList } from './components/CampaignList';
 
 export function PromoDashboard({
   campaignsData,
@@ -29,6 +20,7 @@ export function PromoDashboard({
   const [isCampaignClicked, setIsCampaignClicked] = useState<boolean>(false);
   const [hasUpdatedSettings, setHasUpdatedSettings] = useState<boolean>(false);
   const [isUpdatingSettings, setIsUpdatingSettings] = useState<boolean>(false);
+
   const handleRepeatButtonOnClick = (data: CampaignData) => {
     setPromoData({
       adTitle: data?.adTitle,
@@ -50,19 +42,21 @@ export function PromoDashboard({
   const handleCampaignClick = (data: CampaignData) => {
     setPromoData(data);
     setIsCampaignClicked(true);
+    console.debug(`Set isCampaignClicked to true`);
   };
 
   const handleCampaignDetailOnClick = () => {
     setIsCampaignClicked(false);
+    console.debug(`Set isCampaignClicked to false`);
   };
-
+  const sortedCampaignsData = sortCampaignDataOnIsActive(campaignsData);
   return (
     <>
       <DashboardContainer>
         {!isCampaignClicked ? (
           <>
             <CampaignList
-              data={campaignsData}
+              data={sortedCampaignsData}
               handleRepeatButtonOnClick={handleRepeatButtonOnClick}
               handleCampaignClick={handleCampaignClick}
             />
@@ -89,38 +83,12 @@ export function DashboardContainer({ children }: { children?: ReactNode }) {
   );
 }
 
-function sortCampaignDataOnIsActive(data: any) {
+function sortCampaignDataOnIsActive(data: CampaignData[]) {
   if (!Array.isArray(data)) {
     throw new Error('Data in sortCampaignDataOnIsActive is not an array!');
   }
-  let newArray = data.sort((campaign) => (campaign?.isActive ? -1 : 1));
-  return newArray;
-}
-
-export function CampaignList({
-  data,
-  handleRepeatButtonOnClick,
-  handleCampaignClick,
-}: {
-  data: any;
-  handleRepeatButtonOnClick: Function;
-  handleCampaignClick: Function;
-}) {
-  if (!Array.isArray(data)) return null;
-  const sortedData = sortCampaignDataOnIsActive(data);
-  return (
-    <ul
-      role="list"
-      className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-    >
-      {sortedData.map((campaignData, index) => (
-        <Campaign
-          key={`${index}-${campaignData.pid}`}
-          data={campaignData}
-          handleRepeatButtonOnClick={handleRepeatButtonOnClick}
-          handleCampaignClick={handleCampaignClick}
-        />
-      ))}
-    </ul>
+  let newArray = data.sort((campaign: CampaignData) =>
+    campaign?.isActive ? -1 : 1
   );
+  return newArray;
 }
