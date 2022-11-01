@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { EnvelopeIcon, ArrowPathIcon } from '@heroicons/react/20/solid';
 import { IsActivePill } from './IsActivePill';
+import { CampaignData } from '../lib/types';
 
 const supportDomain = 'tincre.dev';
 const getSupportLink = (data: any) =>
@@ -11,13 +12,13 @@ export function Campaign({
   handleRepeatButtonOnClick,
   handleCampaignClick,
 }: {
-  data: any;
+  data: CampaignData;
   handleRepeatButtonOnClick: Function;
   handleCampaignClick: Function;
 }) {
   const [isActive, setIsActive] = useState<boolean>(data?.isActive || false);
   const [imageUrl, setImageUrl] = useState<string>(data?.imageUrl || '');
-  const [promoId, setPromoId] = useState<string>(data?.promoId || '');
+  const [promoId, setPromoId] = useState<string>(data?.pid || '');
   const [budget, setBudget] = useState<string | number>(data?.budget || '250');
   const [adTitle, setAdTitle] = useState<string>(data?.adTitle || '');
   const [adCopy, setAdCopy] = useState<string>(data?.adCopy || '');
