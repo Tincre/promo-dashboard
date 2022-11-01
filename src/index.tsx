@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
 import { CampaignData } from './lib/types';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
+import { sortCampaignDataOnIsActive } from './lib/sort';
 
 export function PromoDashboard({
   campaignsData,
@@ -77,14 +78,4 @@ export function PromoDashboard({
       </DashboardContainer>
     </>
   );
-}
-
-function sortCampaignDataOnIsActive(data: CampaignData[]) {
-  if (!Array.isArray(data)) {
-    throw new Error('Data in sortCampaignDataOnIsActive is not an array!');
-  }
-  let newArray = data.sort((campaign: CampaignData) =>
-    campaign?.isActive ? -1 : 1
-  );
-  return newArray;
 }
