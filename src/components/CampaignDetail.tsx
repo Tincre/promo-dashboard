@@ -1,6 +1,7 @@
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid';
 import { Button } from './Button';
 import { LineChart } from './LineChart';
+import { MouseEventHandler } from 'react';
 
 const tsData = {
   stockFullName: 'SW Limited.',
@@ -46,7 +47,7 @@ export function CampaignDetail({
   handleCampaignDetailOnClick,
 }: {
   data: any;
-  handleCampaignDetailOnClick: Function;
+  handleCampaignDetailOnClick: MouseEventHandler<HTMLButtonElement>;
 }) {
   return (
     <>
