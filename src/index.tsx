@@ -31,6 +31,7 @@ export function PromoDashboard({
   const [isCampaignClicked, setIsCampaignClicked] = useState<boolean>(false);
   const [hasUpdatedSettings, setHasUpdatedSettings] = useState<boolean>(false);
   const [isUpdatingSettings, setIsUpdatingSettings] = useState<boolean>(false);
+
   const handleRepeatButtonOnClick = (data: CampaignData) => {
     setPromoData({
       adTitle: data?.adTitle,
@@ -52,10 +53,12 @@ export function PromoDashboard({
   const handleCampaignClick = (data: CampaignData) => {
     setPromoData(data);
     setIsCampaignClicked(true);
+    console.debug(`Set isCampaignClicked to true`);
   };
 
   const handleCampaignDetailOnClick = () => {
     setIsCampaignClicked(false);
+    console.debug(`Set isCampaignClicked to false`);
   };
   const sortedCampaignsData = sortCampaignDataOnIsActive(campaignsData);
   return (
