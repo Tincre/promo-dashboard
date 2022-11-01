@@ -1,19 +1,8 @@
 import { useState, ReactNode } from 'react';
-import { Campaign } from './components/Campaign';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
-
-interface CampaignData {
-  pid?: string;
-  adTitle?: string;
-  budget?: string | number;
-  description?: string;
-  target?: string;
-  adCopy?: string;
-  adCallToAction?: string;
-  buttonText?: string;
-  isActive?: boolean;
-}
+import { CampaignData } from './lib/types';
+import { CampaignList } from './components/CampaignList';
 
 export function PromoDashboard({
   campaignsData,
@@ -102,33 +91,4 @@ function sortCampaignDataOnIsActive(data: CampaignData[]) {
     campaign?.isActive ? -1 : 1
   );
   return newArray;
-}
-
-export function CampaignList({
-  data,
-  handleRepeatButtonOnClick,
-  handleCampaignClick,
-}: {
-  data: CampaignData[];
-  handleRepeatButtonOnClick: Function;
-  handleCampaignClick: Function;
-}) {
-  return (
-    <ul
-      role="list"
-      className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-    >
-      {data.map((campaignData: CampaignData, index) => {
-        const key = `${index}-${campaignData.pid}`;
-        return (
-          <Campaign
-            key={key}
-            data={campaignData}
-            handleRepeatButtonOnClick={handleRepeatButtonOnClick}
-            handleCampaignClick={handleCampaignClick}
-          />
-        );
-      })}
-    </ul>
-  );
 }
