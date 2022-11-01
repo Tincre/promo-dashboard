@@ -11,4 +11,5 @@ export interface CampaignData {
   buttonText?: string;
   isActive?: boolean;
   currency?: string;
+  stats?: object[];
 }
