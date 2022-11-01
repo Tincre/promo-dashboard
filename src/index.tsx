@@ -1,8 +1,9 @@
-import { useState, ReactNode } from 'react';
+import { useState, useEffect } from 'react';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
 import { CampaignData } from './lib/types';
 import { CampaignList } from './components/CampaignList';
+import { DashboardContainer } from './components/DashboardContainer';
 
 export function PromoDashboard({
   campaignsData,
@@ -20,6 +21,9 @@ export function PromoDashboard({
   const [isCampaignClicked, setIsCampaignClicked] = useState<boolean>(false);
   const [hasUpdatedSettings, setHasUpdatedSettings] = useState<boolean>(false);
   const [isUpdatingSettings, setIsUpdatingSettings] = useState<boolean>(false);
+  const [sortedCampaignsData] = useState<CampaignData[]>(
+    sortCampaignDataOnIsActive(campaignsData)
+  );
 
   const handleRepeatButtonOnClick = (data: CampaignData) => {
     setPromoData({
@@ -49,7 +53,6 @@ export function PromoDashboard({
     setIsCampaignClicked(false);
     console.debug(`Set isCampaignClicked to false`);
   };
-  const sortedCampaignsData = sortCampaignDataOnIsActive(campaignsData);
   return (
     <>
       <DashboardContainer>
@@ -65,21 +68,14 @@ export function PromoDashboard({
               setIsUpdatingSettings={setIsUpdatingSettings}
             />
           </>
-        ) : (
+        ) : typeof promoData !== 'undefined' ? (
           <CampaignDetail
             data={promoData}
             handleCampaignDetailOnClick={handleCampaignDetailOnClick}
           />
-        )}
+        ) : null}
       </DashboardContainer>
     </>
-  );
-}
-export function DashboardContainer({ children }: { children?: ReactNode }) {
-  return (
-    <div className="mx-auto max-w-7xl px-2 py-2 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
-      {children}
-    </div>
   );
 }
 
