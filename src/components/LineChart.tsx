@@ -10,7 +10,7 @@ import {
 
 ChartJS.register(LineElement, PointElement, LinearScale, Title, CategoryScale);
 
-const buildData = ({ chartData }: { chartData: any }) => ({
+export const buildData = ({ chartData }: { chartData: any }) => ({
   labels: chartData.labels,
   datasets: [
     {
@@ -63,7 +63,6 @@ const options = {
 
 export function LineChart({ info }: { info: any }) {
   const data = buildData(info);
-
   return (
     <>
       <div className="h-full w-full overflow-hidden sm:flex pb-4 sm:pb-0">
