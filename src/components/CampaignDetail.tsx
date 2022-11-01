@@ -107,14 +107,17 @@ export function StatsHighlights({ stats }: { stats: any[] }) {
             className="relative overflow-hidden rounded-lg bg-slate-50 px-4 pt-5 pb-0 shadow sm:px-6 sm:pt-6"
           >
             <dt>
-              <div className="absolute mt-1 rounded-md bg-blue-600 p-3">
-                <item.icon className="h-6 w-6 text-white" aria-hidden="true" />
+              <div className="absolute rounded-md bg-blue-600 p-3">
+                <item.icon
+                  className="h-6 w-6 md:h-7 md:w-7 lg:h-8 lg:w-8 xl:h-10 xl:w-10 text-white"
+                  aria-hidden="true"
+                />
               </div>
-              <p className="ml-16 truncate text-sm font-medium text-gray-600">
+              <p className="ml-16 lg:ml-20 truncate text-sm font-medium md:text-lg lg:text-xl xl:text-2xl text-gray-600 text-left">
                 {item.name}
               </p>
             </dt>
-            <dd className="ml-16 flex items-baseline pb-3 sm:pb-4">
+            <dd className="ml-16 lg:ml-20 flex items-baseline pb-3 sm:pb-4">
               <p className="text-2xl font-semibold text-gray-900">
                 {item.stat}
               </p>
@@ -123,7 +126,7 @@ export function StatsHighlights({ stats }: { stats: any[] }) {
                   item.changeType === 'increase'
                     ? 'text-green-600'
                     : 'text-red-600',
-                  'ml-2 flex items-baseline text-sm font-semibold'
+                  'ml-2 flex items-baseline text-sm font-semibold sm:text-md md:text-lg lg:text-xl xl:text-2xl'
                 )}
               >
                 {item.changeType === 'increase' ? (
