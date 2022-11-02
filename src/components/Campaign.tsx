@@ -18,7 +18,7 @@ export function Campaign({
 }) {
   const [isActive, setIsActive] = useState<boolean>(data?.isActive || false);
   const [imageUrl, setImageUrl] = useState<string>(data.imageUrl || '');
-  const [promoId, setPromoId] = useState<string>(data?.pid || '');
+  const [promoId, setPromoId] = useState<string>('');
   const [budget, setBudget] = useState<string | number>(data?.budget || '250');
   const [adTitle, setAdTitle] = useState<string>(data?.adTitle || '');
   const [adCopy, setAdCopy] = useState<string>(data?.adCopy || '');
