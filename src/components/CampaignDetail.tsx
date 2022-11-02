@@ -77,16 +77,20 @@ export function CampaignDetail({
 }
 export function AdPreviewDetailImage({ imageUrl }: { imageUrl: string }) {
   return (
-    <div className="relative h-56 sm:h-72 md:h-96">
+    <div className="relative ">
       {' '}
-      <img src={imageUrl} className="rounded-lg object-contain" alt="" />
+      <img
+        src={imageUrl}
+        className="rounded-lg object-cover w-full h-56 sm:h-72 md:h-96"
+        alt=""
+      />
     </div>
   );
 }
 export function AdPreviewDetail({ data }: { data: any }) {
   return (
     <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
-      <div className="relative overflow-hidden rounded-lg bg-slate-50 px-4 py-5 pb-0 shadow sm:px-6 sm:py-6">
+      <div className="relative overflow-hidden rounded-lg bg-slate-50 px-4 py-5 shadow sm:px-6 sm:py-6">
         <AdPreviewDetailImage
           imageUrl={data.imageUrl /* TODO update w/cloudinary array */}
         />
