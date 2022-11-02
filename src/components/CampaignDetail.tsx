@@ -4,40 +4,6 @@ import { LineChart } from './LineChart';
 import { MouseEventHandler } from 'react';
 import { CampaignData } from '../lib/types';
 
-const tsData = {
-  stockFullName: 'SW Limited.',
-  stockShortName: 'ASX:SFW',
-  price: {
-    current: 2.32,
-    open: 2.23,
-    low: 2.215,
-    high: 2.325,
-    cap: 93765011,
-    ratio: 20.1,
-    dividend: 1.67,
-  },
-  chartData: {
-    labels: [
-      '10:00',
-      '',
-      '',
-      '',
-      '12:00',
-      '',
-      '',
-      '',
-      '2:00',
-      '',
-      '',
-      '',
-      '4:00',
-    ],
-    data: [
-      2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325, 2.325,
-      2.32,
-    ],
-  },
-};
 /* @ts-ignore */
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -63,7 +29,7 @@ export function CampaignDetail({
           {data.pid}
         </h1>
       </div>
-      <AdPreviewDetail data={data} />
+      <CampaignImageChart data={data} />
       <StatsHighlights stats={data?.stats || []} />
       {/*@ts-ignore*/}
       <Button
@@ -87,7 +53,7 @@ export function AdPreviewDetailImage({ imageUrl }: { imageUrl: string }) {
     </div>
   );
 }
-export function AdPreviewDetail({ data }: { data: any }) {
+export function CampaignImageChart({ data }: { data: any }) {
   return (
     <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
       <div className="relative overflow-hidden rounded-lg bg-slate-50 px-4 py-5 shadow sm:px-6 sm:py-6">
@@ -96,7 +62,7 @@ export function AdPreviewDetail({ data }: { data: any }) {
         />
       </div>
       <div className="relative overflow-hidden rounded-lg bg-slate-50 px-4 py-5 pb-0 shadow sm:px-6 sm:py-6">
-        <LineChart info={tsData} />
+        <LineChart info={data.stats[0]} />
       </div>
     </div>
   );
