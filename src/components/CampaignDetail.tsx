@@ -3,6 +3,7 @@ import { MouseEventHandler } from 'react';
 import { CampaignData } from '../lib/types';
 import { StatsHighlights } from './StatsHighlights';
 import { CampaignImageChart } from './CampaignImageChart';
+import { DownloadCampaignButton } from './DownloadButton';
 
 export function CampaignDetail({
   data,
@@ -26,9 +27,12 @@ export function CampaignDetail({
         >
           Back
         </Button>
-        <h1 className="mt-auto mr-2 w-full text-right align-text-bottom text-2xl font-bold">
+        <h1 className="mt-auto mx-2 w-full text-center align-text-bottom text-2xl font-bold">
           {data.pid}
         </h1>
+        <span className="mt-auto mx-2">
+          <DownloadCampaignButton campaignData={data} />
+        </span>
       </div>
       <CampaignImageChart
         data={data}
