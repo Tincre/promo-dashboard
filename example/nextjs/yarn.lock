@@ -209,10 +209,10 @@
   dependencies:
     cross-fetch "^3.1.5"
 
-"@tincre/promo-dashboard@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@tincre/promo-dashboard/-/promo-dashboard-0.0.1.tgz#c84e967d90277fee38694896099c28e3dc67132d"
-  integrity sha512-fqb7EBbKWRQaK2VzhL5MuBcKq1sJyo7d2ipmq+HFED34xHvu1YcVLAN9g4A6fAVKmCT1n1ZMUCZ0TSmDQJpAqw==
+"@tincre/promo-dashboard@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@tincre/promo-dashboard/-/promo-dashboard-0.0.2.tgz#70489bef55d4d065c3ea0f23dc56d1393e3c1ae5"
+  integrity sha512-XVmr+fUZX+xlmu9vdmuQRoNzJDZZ+KJ7lGkntDQnZLnPIXLQ6bDyAooQY9xoihd+FnSDfngrZxjGlm/5FsinlA==
 
 "@types/json5@^0.0.29":
   version "0.0.29"
