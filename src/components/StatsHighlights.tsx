@@ -1,19 +1,30 @@
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid';
+import { MouseEventHandler } from 'react';
 
 /* @ts-ignore */
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-
-export function StatsHighlights({ stats }: { stats: any[] }) {
+export function StatsHighlights({
+  stats,
+  handleStatsHighlightClick,
+}: {
+  stats: any[];
+  handleStatsHighlightClick?: Function;
+}) {
   return (
     <div>
       <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {stats.map((item) => (
-          <div
+          <button
             key={item.id}
-            className="relative overflow-hidden rounded-lg bg-slate-50 px-4 pt-5 pb-0 shadow sm:px-6 sm:pt-6"
+            className="relative overflow-hidden rounded-lg bg-slate-50 px-4 pt-5 pb-0 shadow sm:px-6 sm:pt-6 hover:bg-slate-200 hover:shadow-lg"
+            onClick={() => {
+              if (typeof handleStatsHighlightClick !== 'undefined') {
+                handleStatsHighlightClick(item);
+              }
+            }}
           >
             <dt>
               <div className="absolute rounded-md bg-blue-600 p-3">
@@ -60,7 +71,7 @@ export function StatsHighlights({ stats }: { stats: any[] }) {
                 {item.change}
               </p>
             </dd>
-          </div>
+          </button>
         ))}
       </dl>
     </div>
