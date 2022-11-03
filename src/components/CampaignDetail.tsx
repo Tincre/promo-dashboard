@@ -1,16 +1,21 @@
 import { Button } from './Button';
 import { LineChart } from './LineChart';
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, } from 'react';
 import { CampaignData } from '../lib/types';
 import { StatsHighlights } from './StatsHighlights';
 
 export function CampaignDetail({
   data,
+  statsHighlightTimeseries,
   handleCampaignDetailOnClick,
+  handleStatsHighlightClick,
 }: {
   data: CampaignData;
+  statsHighlightTimeseries?: object;
   handleCampaignDetailOnClick: MouseEventHandler<HTMLButtonElement>;
+  handleStatsHighlightClick?: Function;
 }) {
+
   return (
     <>
       <div className="inline-flex w-full">
@@ -24,8 +29,14 @@ export function CampaignDetail({
           {data.pid}
         </h1>
       </div>
-      <CampaignImageChart data={data} />
-      <StatsHighlights stats={data?.stats || []} />
+      <CampaignImageChart
+        data={data}
+        statsHighlightTimeseries={statsHighlightTimeseries}
+      />
+      <StatsHighlights
+        stats={data?.stats || []}
+        handleStatsHighlightClick={handleStatsHighlightClick}
+      />
       {/*@ts-ignore*/}
       <Button
         className="mx-2 mt-4 mb-2 sm:hidden"
@@ -48,7 +59,13 @@ export function AdPreviewDetailImage({ imageUrl }: { imageUrl: string }) {
     </div>
   );
 }
-export function CampaignImageChart({ data }: { data: any }) {
+export function CampaignImageChart({
+  data,
+  statsHighlightTimeseries,
+}: {
+  data: any; // TODO add typing
+  statsHighlightTimeseries?: object; // TODO add typing
+}) {
   return (
     <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
       <div className="relative overflow-hidden rounded-lg bg-slate-50 px-4 py-5 shadow sm:px-6 sm:py-6">
@@ -57,9 +74,8 @@ export function CampaignImageChart({ data }: { data: any }) {
         />
       </div>
       <div className="relative overflow-hidden rounded-lg bg-slate-50 px-4 py-5 pb-0 shadow sm:px-6 sm:py-6">
-        <LineChart info={data.stats[0]} />
+        <LineChart info={statsHighlightTimeseries || data.stats[0]} />
       </div>
     </div>
   );
 }
-
