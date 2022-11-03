@@ -1,21 +1,22 @@
 import { Button } from './Button';
 import { LineChart } from './LineChart';
-import { MouseEventHandler, } from 'react';
+import { MouseEventHandler } from 'react';
 import { CampaignData } from '../lib/types';
 import { StatsHighlights } from './StatsHighlights';
 
 export function CampaignDetail({
   data,
   statsHighlightTimeseries,
+  statsHighlightMetricName,
   handleCampaignDetailOnClick,
   handleStatsHighlightClick,
 }: {
   data: CampaignData;
   statsHighlightTimeseries?: object;
+  statsHighlightMetricName?: string;
   handleCampaignDetailOnClick: MouseEventHandler<HTMLButtonElement>;
   handleStatsHighlightClick?: Function;
 }) {
-
   return (
     <>
       <div className="inline-flex w-full">
@@ -36,6 +37,7 @@ export function CampaignDetail({
       <StatsHighlights
         stats={data?.stats || []}
         handleStatsHighlightClick={handleStatsHighlightClick}
+        statsHighlightMetricsName={statsHighlightMetricName || 'Spend'}
       />
       {/*@ts-ignore*/}
       <Button
