@@ -1526,6 +1526,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-json-to-csv@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@types/react-json-to-csv/-/react-json-to-csv-1.0.0.tgz#e305c689fa8ead3008fd9098e109fcc7337970ff"
+  integrity sha512-qhGpu8I9VJOBzXalnNHENBY+BvlekD/WLHObJE9hp6gT83/ihO4Zf6SY1t6cR1rYzHURTrZNPwKF9GXyPZ16gw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@^18.0.24":
   version "18.0.24"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.24.tgz#2f79ed5b27f08d05107aab45c17919754cc44c20"
@@ -4275,6 +4282,11 @@ json-stable-stringify-without-jsonify@^1.0.1:
   resolved "https://registry.yarnpkg.com/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
   integrity sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==
 
+json-to-csv-export@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/json-to-csv-export/-/json-to-csv-export-2.1.0.tgz#9d0dd47582ac4b7b75f07bea758b76a7546c63ac"
+  integrity sha512-xAkBf6f0uLqG7gtCuulqp6BtbIswYMiSTCJ2ctuh2w1W5XvQKywX4Ppkr5Tgm3JUHLgeOspli8zA9Hy494X5WA==
+
 json5@2.x, json5@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.1.tgz#655d50ed1e6f95ad1a3caababd2b0efda10b395c"
@@ -4962,6 +4974,13 @@ react-is@^17.0.1:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+
+react-json-to-csv@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-json-to-csv/-/react-json-to-csv-1.1.0.tgz#78fc8894a214c4b80a1ef4b2cf6caebf9853e77d"
+  integrity sha512-2j4V1jAx9a3iuOyEM8d2Pxx9zZnZcJqThnuaX4qiunr57dYYS9gk7bzM39GbsPmnRwptLAEfH7iTEPyZ2kZ2Ew==
+  dependencies:
+    json-to-csv-export "2.1.0"
 
 react@^18.2.0:
   version "18.2.0"

@@ -38,6 +38,7 @@
     "chart.js": ">=3.9",
     "react": ">=16",
     "react-chartjs-2": ">=4.3",
+    "react-json-to-csv": ">=1.1",
     "tailwindcss": ">=3",
     "yup": ">=0.32"
   },
@@ -62,6 +63,7 @@
     "@tsconfig/recommended": "^1.0.1",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
+    "@types/react-json-to-csv": "^1.0.0",
     "chart.js": "^3.9.1",
     "clsx": "^1.2.1",
     "dts-cli": "^1.6.0",
@@ -69,6 +71,7 @@
     "react": "^18.2.0",
     "react-chartjs-2": "^4.3.1",
     "react-dom": "^18.2.0",
+    "react-json-to-csv": "^1.1.0",
     "size-limit": "^8.1.0",
     "tslib": "^2.4.0",
     "typescript": "^4.8.4",
