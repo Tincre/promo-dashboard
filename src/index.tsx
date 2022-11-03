@@ -84,7 +84,7 @@ export function PromoDashboard({
     console.debug(`Set isCampaignClicked to true`);
   };
 
-  const handleCampaignDetailOnClick = () => {
+  const handleCampaignDetailBackOnClick = () => {
     setIsCampaignClicked(false);
     setIsPromoButtonOpenInternal(false);
     console.debug(`Set isCampaignClicked to false`);
@@ -109,7 +109,7 @@ export function PromoDashboard({
             data={promoData}
             statsHighlightTimeseries={statsHighlightTimeseries}
             statsHighlightMetricName={clickedStatsClassName}
-            handleCampaignDetailOnClick={handleCampaignDetailOnClick}
+            handleCampaignDetailBackOnClick={handleCampaignDetailBackOnClick}
             handleStatsHighlightClick={handleStatsHighlightClick}
           />
         ) : null}

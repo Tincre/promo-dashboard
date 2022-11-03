@@ -8,13 +8,13 @@ export function CampaignDetail({
   data,
   statsHighlightTimeseries,
   statsHighlightMetricName,
-  handleCampaignDetailOnClick,
+  handleCampaignDetailBackOnClick,
   handleStatsHighlightClick,
 }: {
   data: CampaignData;
   statsHighlightTimeseries?: object;
   statsHighlightMetricName?: string;
-  handleCampaignDetailOnClick: MouseEventHandler<HTMLButtonElement>;
+  handleCampaignDetailBackOnClick: MouseEventHandler<HTMLButtonElement>;
   handleStatsHighlightClick?: Function;
 }) {
   return (
@@ -22,7 +22,7 @@ export function CampaignDetail({
       <div className="inline-flex w-full">
         <Button
           className="mx-2 mt-2 inline"
-          onClick={handleCampaignDetailOnClick}
+          onClick={handleCampaignDetailBackOnClick}
         >
           Back
         </Button>
@@ -42,7 +42,7 @@ export function CampaignDetail({
       {/*@ts-ignore*/}
       <Button
         className="mx-2 mt-4 mb-2 sm:hidden"
-        onClick={handleCampaignDetailOnClick}
+        onClick={handleCampaignDetailBackOnClick}
       >
         Back
       </Button>
