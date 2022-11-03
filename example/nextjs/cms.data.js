@@ -5,7 +5,15 @@ import {
   CurrencyDollarIcon,
   VideoCameraIcon,
 } from '@heroicons/react/24/outline';
-import { generateSpend, generateClicks } from './lib/gen-data';
+
+import {
+  generateSpend,
+  generateClicks,
+  generateViews,
+  generateCPC,
+  generateCPM,
+  generateCTR,
+} from './lib/gen-data';
 
 export const campaignStubData = [
   {
@@ -87,6 +95,7 @@ export const campaignStubData = [
         change: '1012',
         changeType: 'increase',
         chartData: {
+          data: generateViews(12909 - 1012, 12909),
           labels: [
             '10:00',
             '',
@@ -101,21 +110,18 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
       {
         id: 4,
         name: 'CPM',
-        stat: '58.16%',
+        stat: '$5.16',
         icon: EnvelopeOpenIcon,
-        change: '5.4%',
+        change: '$.4',
         changeType: 'increase',
         chartData: {
+          data: generateCPM(5.16 - 0.4, 5.16),
           labels: [
             '10:00',
             '',
@@ -130,10 +136,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -145,6 +147,7 @@ export const campaignStubData = [
         change: '.2%',
         changeType: 'decrease',
         chartData: {
+          data: generateCTR(4.57 + 0.2, 4.57),
           labels: [
             '10:00',
             '',
@@ -159,10 +162,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -174,6 +173,7 @@ export const campaignStubData = [
         change: '.01',
         changeType: 'decrease',
         chartData: {
+          data: generateCPC(0.03 + 0.01, 0.03),
           labels: [
             '10:00',
             '',
@@ -188,10 +188,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -277,6 +273,7 @@ export const campaignStubData = [
         change: '3491',
         changeType: 'increase',
         chartData: {
+          data: generateViews(132909 - 3491, 132909),
           labels: [
             '10:00',
             '',
@@ -291,10 +288,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -303,9 +296,10 @@ export const campaignStubData = [
         name: 'CPM',
         stat: '$4.16',
         icon: EnvelopeOpenIcon,
-        change: '5.4%',
+        change: '$.54',
         changeType: 'decrease',
         chartData: {
+          data: generateCPM(4.16 + 0.54, 4.16),
           labels: [
             '10:00',
             '',
@@ -320,10 +314,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -335,6 +325,7 @@ export const campaignStubData = [
         change: '.2%',
         changeType: 'increase',
         chartData: {
+          data: generateCTR(6.71 - 0.2, 6.71),
           labels: [
             '10:00',
             '',
@@ -349,10 +340,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -364,6 +351,7 @@ export const campaignStubData = [
         change: '.01',
         changeType: 'decrease',
         chartData: {
+          data: generateCPC(0.42 + 0.01, 0.42),
           labels: [
             '10:00',
             '',
@@ -378,10 +366,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -466,6 +450,7 @@ export const campaignStubData = [
         change: '16',
         changeType: 'increase',
         chartData: {
+          data: generateViews(16 - 16, 16),
           labels: [
             '10:00',
             '',
@@ -480,21 +465,18 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
       {
         id: 4,
         name: 'CPM',
-        stat: '$18.16',
+        stat: '$12.16',
         icon: EnvelopeOpenIcon,
-        change: '10.0%',
-        changeType: 'increase',
+        change: '$2.1',
+        changeType: 'decrease',
         chartData: {
+          data: generateCPM(12.16 + 2.1, 12.16),
           labels: [
             '10:00',
             '',
@@ -509,10 +491,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -524,6 +502,7 @@ export const campaignStubData = [
         change: '.5%',
         changeType: 'increase',
         chartData: {
+          data: generateCTR(1.84 - 0.5, 1.84),
           labels: [
             '10:00',
             '',
@@ -538,10 +517,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -567,10 +542,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -655,6 +626,7 @@ export const campaignStubData = [
         change: '1012',
         changeType: 'increase',
         chartData: {
+          data: generateViews(12909 - 1012, 12909),
           labels: [
             '10:00',
             '',
@@ -669,10 +641,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -681,9 +649,10 @@ export const campaignStubData = [
         name: 'CPM',
         stat: '$5.10',
         icon: EnvelopeOpenIcon,
-        change: '3.1%',
+        change: '$3.1',
         changeType: 'increase',
         chartData: {
+          data: generateCPM(5.1 - 3.1, 5.1),
           labels: [
             '10:00',
             '',
@@ -698,10 +667,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -713,6 +678,7 @@ export const campaignStubData = [
         change: '.3%',
         changeType: 'decrease',
         chartData: {
+          data: generateCTR(3.33 + 0.3, 3.33),
           labels: [
             '10:00',
             '',
@@ -727,10 +693,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -742,6 +704,7 @@ export const campaignStubData = [
         change: '.03',
         changeType: 'decrease',
         chartData: {
+          data: generateCPC(1.25 + 0.03, 1.25),
           labels: [
             '10:00',
             '',
@@ -756,10 +719,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -845,6 +804,7 @@ export const campaignStubData = [
         change: '5042',
         changeType: 'increase',
         chartData: {
+          data: generateViews(62909 - 5042, 62090),
           labels: [
             '10:00',
             '',
@@ -859,21 +819,18 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
       {
         id: 4,
         name: 'CPM',
-        stat: '$8.16',
+        stat: '$2.50',
         icon: EnvelopeOpenIcon,
-        change: '5.4%',
-        changeType: 'decrease',
+        change: '$.05',
+        changeType: 'increase',
         chartData: {
+          data: generateCPM(2.5 - 0.05, 2.5),
           labels: [
             '10:00',
             '',
@@ -888,10 +845,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -918,10 +871,6 @@ export const campaignStubData = [
             '',
             '4:00',
           ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
-          ],
         },
       },
       {
@@ -932,6 +881,7 @@ export const campaignStubData = [
         change: '.13',
         changeType: 'increase',
         chartData: {
+          data: generateCPC(0.51 - 0.13, 0.51),
           labels: [
             '10:00',
             '',
@@ -946,10 +896,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -1035,6 +981,7 @@ export const campaignStubData = [
         change: '0',
         changeType: 'increase',
         chartData: {
+          data: generateViews(0, 0),
           labels: [
             '10:00',
             '',
@@ -1049,10 +996,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -1061,9 +1004,10 @@ export const campaignStubData = [
         name: 'CPM',
         stat: '$5.42',
         icon: EnvelopeOpenIcon,
-        change: '1.2%',
+        change: '$.30',
         changeType: 'increase',
         chartData: {
+          data: generateCPM(6.29 - 0.3, 6.29),
           labels: [
             '10:00',
             '',
@@ -1078,10 +1022,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -1093,6 +1033,7 @@ export const campaignStubData = [
         change: '.3%',
         changeType: 'decrease',
         chartData: {
+          data: generateCTR(3.57 + 0.3, 3.57),
           labels: [
             '10:00',
             '',
@@ -1107,10 +1048,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },
@@ -1122,6 +1059,7 @@ export const campaignStubData = [
         change: '.03',
         changeType: 'increase',
         chartData: {
+          data: generateCPC(0.16 - 0.03, 0.16),
           labels: [
             '10:00',
             '',
@@ -1136,10 +1074,6 @@ export const campaignStubData = [
             '',
             '',
             '4:00',
-          ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
           ],
         },
       },

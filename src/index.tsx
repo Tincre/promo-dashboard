@@ -83,6 +83,13 @@ export function PromoDashboard({
     setPromoData(data);
     setIsCampaignClicked(true);
     setIsPromoButtonOpenInternal(false);
+    if (typeof data?.stats !== 'undefined') {
+      data.stats.map((campaignStats: any) => {
+        if (campaignStats.name === options.defaultStatName) {
+          setStatsHighlightTimeseries(campaignStats);
+        }
+      });
+    }
     console.debug(`Set isCampaignClicked to true`);
   };
 
@@ -90,6 +97,7 @@ export function PromoDashboard({
     setIsCampaignClicked(false);
     setIsPromoButtonOpenInternal(false);
     setClickedStatsClassName(options.defaultStatName); // default
+
     console.debug(`Set isCampaignClicked to false`);
   };
   return (
