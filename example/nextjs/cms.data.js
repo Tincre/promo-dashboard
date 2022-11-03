@@ -5,12 +5,13 @@ import {
   CurrencyDollarIcon,
   VideoCameraIcon,
 } from '@heroicons/react/24/outline';
+import { generateSpend } from './lib/gen-data';
 
 export const campaignStubData = [
   {
     name: 'Jane Cooper',
     adTitle: 'Easier taxes 👉️ taxpal.com',
-    budget: 1250,
+    budget: '$1450',
     description: 'Accounting made simple for small businesses.',
     pid: 'abcdefgh',
     target: 'https://tincre.dev/promo',
@@ -29,7 +30,7 @@ export const campaignStubData = [
       {
         id: 1,
         name: 'Spend',
-        stat: '1283',
+        stat: '$1283',
         icon: CurrencyDollarIcon,
         change: '122',
         changeType: 'increase',
@@ -49,10 +50,7 @@ export const campaignStubData = [
             '',
             '4:00',
           ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
-          ],
+          data: generateSpend(1283 - 122, 1283, 13),
         },
       },
       {
@@ -206,7 +204,7 @@ export const campaignStubData = [
   {
     name: 'Jane Cooper',
     adTitle: 'Easier taxes 👉️ taxpal.com',
-    budget: 3500,
+    budget: '$3500',
     description: 'Accounting made simple for small businesses.',
     pid: 'defghijk',
     target: 'https://tincre.dev/promo',
@@ -225,7 +223,7 @@ export const campaignStubData = [
       {
         id: 1,
         name: 'Spend',
-        stat: '2892',
+        stat: '$2892',
         icon: CurrencyDollarIcon,
         change: '74',
         changeType: 'increase',
@@ -245,10 +243,7 @@ export const campaignStubData = [
             '',
             '4:00',
           ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
-          ],
+          data: generateSpend(2892 - 74, 2892, 13),
         },
       },
       {
@@ -401,7 +396,7 @@ export const campaignStubData = [
   {
     name: 'Jane Cooper',
     adTitle: 'Easier taxes 👉️ taxpal.com',
-    budget: 1000,
+    budget: '$1000',
     description: 'Accounting made simple for small businesses.',
     pid: 'efghijkl',
     target: 'https://tincre.dev/promo',
@@ -420,9 +415,9 @@ export const campaignStubData = [
       {
         id: 1,
         name: 'Spend',
-        stat: '6',
+        stat: '$6',
         icon: CurrencyDollarIcon,
-        change: '6',
+        change: '$6',
         changeType: 'increase',
         chartData: {
           labels: [
@@ -440,10 +435,7 @@ export const campaignStubData = [
             '',
             '4:00',
           ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
-          ],
+          data: generateSpend(0, 6, 13),
         },
       },
       {
@@ -615,9 +607,9 @@ export const campaignStubData = [
       {
         id: 1,
         name: 'Spend',
-        stat: '1283',
+        stat: '$7283',
         icon: CurrencyDollarIcon,
-        change: '122',
+        change: '322',
         changeType: 'increase',
         chartData: {
           labels: [
@@ -635,10 +627,7 @@ export const campaignStubData = [
             '',
             '4:00',
           ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
-          ],
+          data: generateSpend(7283 - 322, 7283, 13), 
         },
       },
       {
@@ -811,7 +800,7 @@ export const campaignStubData = [
       {
         id: 1,
         name: 'Spend',
-        stat: '8725',
+        stat: '$8725',
         icon: CurrencyDollarIcon,
         change: '219',
         changeType: 'increase',
@@ -831,10 +820,7 @@ export const campaignStubData = [
             '',
             '4:00',
           ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
-          ],
+          data: generateSpend(8725-219, 8725, 13),
         },
       },
       {
@@ -1027,10 +1013,7 @@ export const campaignStubData = [
             '',
             '4:00',
           ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
-          ],
+          data: generateSpend(250 - 9, 250, 13),
         },
       },
       {
