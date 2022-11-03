@@ -528,6 +528,7 @@ export const campaignStubData = [
         change: '.02',
         changeType: 'decrease',
         chartData: {
+          data: generateCPC(0.14 + 0.02, 0.14),
           labels: [
             '10:00',
             '',
