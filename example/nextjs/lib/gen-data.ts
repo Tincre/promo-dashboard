@@ -1,8 +1,20 @@
 import { rando } from '@nastyox/rando.js';
 
+export function generateCPC(start: number, end: number, length: number = 13) {
+  const result = generateFloats(start, end, length);
+  console.debug(`generateCTR: ${JSON.stringify(result)}`);
+  return result;
+}
+
+export function generateCTR(start: number, end: number, length: number = 13) {
+  const result = generateFloats(start, end, length);
+  console.debug(`generateCTR: ${JSON.stringify(result)}`);
+  return result;
+}
+
 export function generateCPM(start: number, end: number, length: number = 13) {
   const result = generateFloats(start, end, length);
-  console.debug(`generateFloats: ${JSON.stringify(result)}`);
+  console.debug(`generateCPM: ${JSON.stringify(result)}`);
   return result;
 }
 
