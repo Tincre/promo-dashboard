@@ -5,7 +5,7 @@ import {
   CurrencyDollarIcon,
   VideoCameraIcon,
 } from '@heroicons/react/24/outline';
-import { generateSpend } from './lib/gen-data';
+import { generateSpend, generateClicks } from './lib/gen-data';
 
 export const campaignStubData = [
   {
@@ -76,10 +76,7 @@ export const campaignStubData = [
             '',
             '4:00',
           ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
-          ],
+          data: generateClicks(1092 - 202, 1092, 13),
         },
       },
       {
@@ -269,10 +266,7 @@ export const campaignStubData = [
             '',
             '4:00',
           ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
-          ],
+          data: generateClicks(11593 - 121, 11593, 13),
         },
       },
       {
@@ -461,10 +455,7 @@ export const campaignStubData = [
             '',
             '4:00',
           ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
-          ],
+          data: generateSpend(0, 0, 13),
         },
       },
       {
@@ -627,7 +618,7 @@ export const campaignStubData = [
             '',
             '4:00',
           ],
-          data: generateSpend(7283 - 322, 7283, 13), 
+          data: generateSpend(7283 - 322, 7283, 13),
         },
       },
       {
@@ -653,10 +644,7 @@ export const campaignStubData = [
             '',
             '4:00',
           ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
-          ],
+          data: generateClicks(1092 - 202, 1092, 13),
         },
       },
       {
@@ -820,7 +808,7 @@ export const campaignStubData = [
             '',
             '4:00',
           ],
-          data: generateSpend(8725-219, 8725, 13),
+          data: generateSpend(8725 - 219, 8725, 13),
         },
       },
       {
@@ -846,10 +834,7 @@ export const campaignStubData = [
             '',
             '4:00',
           ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
-          ],
+          data: generateClicks(21944 - 421, 21944, 13),
         },
       },
       {
@@ -1039,10 +1024,7 @@ export const campaignStubData = [
             '',
             '4:00',
           ],
-          data: [
-            2.23, 2.215, 2.22, 2.25, 2.245, 2.27, 2.28, 2.29, 2.3, 2.29, 2.325,
-            2.325, 2.32,
-          ],
+          data: generateClicks(451 - 20, 451, 13),
         },
       },
       {
