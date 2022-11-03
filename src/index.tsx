@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
 import { CampaignData } from './lib/types';
@@ -14,7 +14,7 @@ export function PromoDashboard({
   campaignDetailData?: CampaignData;
 }) {
   const [promoData, setPromoData] = useState<CampaignData | undefined>(
-    campaignDetailData || undefined
+    undefined
   );
   const [isPromoButtonOpen, setIsPromoButtonOpen] = useState<boolean>(false);
   const [isRepeatButtonClicked, setIsRepeatButtonClicked] =
@@ -22,9 +22,27 @@ export function PromoDashboard({
   const [isCampaignClicked, setIsCampaignClicked] = useState<boolean>(false);
   const [hasUpdatedSettings, setHasUpdatedSettings] = useState<boolean>(false);
   const [isUpdatingSettings, setIsUpdatingSettings] = useState<boolean>(false);
-  const [sortedCampaignsData] = useState<CampaignData[]>(
-    sortCampaignDataOnIsActive(campaignsData)
-  );
+  const [sortedCampaignsData, setSortedCampaignsData] = useState<
+    CampaignData[]
+  >(sortCampaignDataOnIsActive(campaignsData));
+  const [statsHighlightTimeseries, setStatsHighlightTimeseries] = useState<
+    object | undefined
+  >(undefined);
+  useEffect(() => {
+    if (typeof campaignsData !== 'undefined') {
+      setSortedCampaignsData(campaignsData);
+    }
+  }, [campaignsData, setSortedCampaignsData]);
+
+  useEffect(() => {
+    if (typeof campaignDetailData !== 'undefined') {
+      setPromoData(campaignDetailData);
+    }
+  }, [campaignDetailData, setPromoData]);
+
+  const handleStatsHighlightClick = (campaignData: CampaignData) => {
+    setStatsHighlightTimeseries(campaignData);
+  };
 
   const handleRepeatButtonOnClick = (data: CampaignData) => {
     setPromoData({
@@ -72,7 +90,9 @@ export function PromoDashboard({
         ) : typeof promoData !== 'undefined' ? (
           <CampaignDetail
             data={promoData}
+            statsHighlightTimeseries={statsHighlightTimeseries}
             handleCampaignDetailOnClick={handleCampaignDetailOnClick}
+            handleStatsHighlightClick={handleStatsHighlightClick}
           />
         ) : null}
       </DashboardContainer>
