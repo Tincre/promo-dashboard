@@ -17,8 +17,8 @@ export function Campaign({
   handleCampaignClick: Function;
 }) {
   const [isActive, setIsActive] = useState<boolean>(data?.isActive || false);
-  const [imageUrl, setImageUrl] = useState<string>(data?.imageUrl || '');
-  const [promoId, setPromoId] = useState<string>(data?.pid || '');
+  const [imageUrl, setImageUrl] = useState<string>(data.imageUrl || '');
+  const [promoId, setPromoId] = useState<string>('');
   const [budget, setBudget] = useState<string | number>(data?.budget || '250');
   const [adTitle, setAdTitle] = useState<string>(data?.adTitle || '');
   const [adCopy, setAdCopy] = useState<string>(data?.adCopy || '');
@@ -69,6 +69,7 @@ export function Campaign({
         <div className="relative flex flex-1 flex-col px-2 pt-10 pb-6 group-hover:rounded-tr-md group-hover:rounded-tl-sm group-hover:bg-slate-900">
           <IsActivePill isActive={isActive} />
           <img
+            suppressHydrationWarning={true}
             className="mx-auto h-32 w-full flex-shrink-0 rounded-b-md rounded-t-sm object-cover px-2"
             src={imageUrl}
             alt={adTitle}

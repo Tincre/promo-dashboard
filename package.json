@@ -17,7 +17,7 @@
     "prepare": "dts build",
     "size": "size-limit",
     "start": "dts watch",
-    "test": "dts test --passWithNoTests"
+    "test": "dts test --passWithNoTests --coverage"
   },
   "husky": {
     "hooks": {
@@ -56,6 +56,7 @@
   ],
   "devDependencies": {
     "@heroicons/react": "^2.0.12",
+    "@nastyox/rando.js": "^2.0.5",
     "@size-limit/preset-small-lib": "^8.1.0",
     "@tsconfig/create-react-app": "^1.0.2",
     "@tsconfig/recommended": "^1.0.1",

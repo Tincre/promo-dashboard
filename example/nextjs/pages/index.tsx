@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { PromoDashboard } from '../../../dist/promo-dashboard.esm.js';
+import { PromoDashboard } from '@tincre/promo-dashboard';
 import { campaignStubData } from '../cms.data';
 
 const Home: NextPage = () => {

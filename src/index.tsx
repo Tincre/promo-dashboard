@@ -1,25 +1,62 @@
-import { useState, ReactNode } from 'react';
+import { useState, useEffect } from 'react';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
 import { CampaignData } from './lib/types';
 import { CampaignList } from './components/CampaignList';
+import { DashboardContainer } from './components/DashboardContainer';
+import { sortCampaignDataOnIsActive } from './lib/sort';
+import { options } from './lib/options';
 
 export function PromoDashboard({
   campaignsData,
   campaignDetailData,
+  isPromoButtonOpen,
 }: {
   campaignsData: CampaignData[];
   campaignDetailData?: CampaignData;
+  isPromoButtonOpen?: boolean;
 }) {
   const [promoData, setPromoData] = useState<CampaignData | undefined>(
-    campaignDetailData || undefined
+    undefined
   );
-  const [isPromoButtonOpen, setIsPromoButtonOpen] = useState<boolean>(false);
+  const [isPromoButtonOpenInternal, setIsPromoButtonOpenInternal] =
+    useState<boolean>(false);
   const [isRepeatButtonClicked, setIsRepeatButtonClicked] =
     useState<boolean>(false);
   const [isCampaignClicked, setIsCampaignClicked] = useState<boolean>(false);
   const [hasUpdatedSettings, setHasUpdatedSettings] = useState<boolean>(false);
   const [isUpdatingSettings, setIsUpdatingSettings] = useState<boolean>(false);
+  const [sortedCampaignsData, setSortedCampaignsData] = useState<
+    CampaignData[]
+  >(sortCampaignDataOnIsActive(campaignsData));
+  const [statsHighlightTimeseries, setStatsHighlightTimeseries] = useState<
+    object | undefined
+  >(undefined);
+  const [clickedStatsClassName, setClickedStatsClassName] = useState<string>(
+    options.defaultStatName
+  );
+  useEffect(() => {
+    if (typeof campaignsData !== 'undefined') {
+      setSortedCampaignsData(campaignsData);
+    }
+  }, [campaignsData, setSortedCampaignsData]);
+
+  useEffect(() => {
+    if (typeof campaignDetailData !== 'undefined') {
+      setPromoData(campaignDetailData);
+    }
+  }, [campaignDetailData, setPromoData]);
+
+  useEffect(() => {
+    if (typeof isPromoButtonOpen !== 'undefined') {
+      setIsPromoButtonOpenInternal(isPromoButtonOpen);
+    }
+  }, [isPromoButtonOpen, setIsPromoButtonOpenInternal]);
+
+  const handleStatsHighlightClick = (campaignData: any) => {
+    setStatsHighlightTimeseries(campaignData);
+    setClickedStatsClassName(campaignData.name || 'Spend');
+  };
 
   const handleRepeatButtonOnClick = (data: CampaignData) => {
     setPromoData({
@@ -37,19 +74,24 @@ export function PromoDashboard({
       setIsRepeatButtonClicked(!isRepeatButtonClicked);
       console.debug(`Repeat button was set to ${!isRepeatButtonClicked}.`);
     }
+    if (typeof isPromoButtonOpen !== 'undefined') {
+      setIsPromoButtonOpenInternal(true);
+    }
   };
 
   const handleCampaignClick = (data: CampaignData) => {
     setPromoData(data);
     setIsCampaignClicked(true);
+    setIsPromoButtonOpenInternal(false);
     console.debug(`Set isCampaignClicked to true`);
   };
 
-  const handleCampaignDetailOnClick = () => {
+  const handleCampaignDetailBackOnClick = () => {
     setIsCampaignClicked(false);
+    setIsPromoButtonOpenInternal(false);
+    setClickedStatsClassName(options.defaultStatName); // default
     console.debug(`Set isCampaignClicked to false`);
   };
-  const sortedCampaignsData = sortCampaignDataOnIsActive(campaignsData);
   return (
     <>
       <DashboardContainer>
@@ -65,30 +107,16 @@ export function PromoDashboard({
               setIsUpdatingSettings={setIsUpdatingSettings}
             />
           </>
-        ) : (
+        ) : typeof promoData !== 'undefined' ? (
           <CampaignDetail
             data={promoData}
-            handleCampaignDetailOnClick={handleCampaignDetailOnClick}
+            statsHighlightTimeseries={statsHighlightTimeseries}
+            statsHighlightMetricName={clickedStatsClassName}
+            handleCampaignDetailBackOnClick={handleCampaignDetailBackOnClick}
+            handleStatsHighlightClick={handleStatsHighlightClick}
           />
-        )}
+        ) : null}
       </DashboardContainer>
     </>
   );
-}
-export function DashboardContainer({ children }: { children?: ReactNode }) {
-  return (
-    <div className="mx-auto max-w-7xl px-2 py-2 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
-      {children}
-    </div>
-  );
-}
-
-function sortCampaignDataOnIsActive(data: CampaignData[]) {
-  if (!Array.isArray(data)) {
-    throw new Error('Data in sortCampaignDataOnIsActive is not an array!');
-  }
-  let newArray = data.sort((campaign: CampaignData) =>
-    campaign?.isActive ? -1 : 1
-  );
-  return newArray;
 }
