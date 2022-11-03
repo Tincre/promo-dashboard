@@ -28,6 +28,8 @@ export function PromoDashboard({
   const [statsHighlightTimeseries, setStatsHighlightTimeseries] = useState<
     object | undefined
   >(undefined);
+  const [clickedStatsClassName, setClickedStatsClassName] =
+    useState<string>('Spend');
   useEffect(() => {
     if (typeof campaignsData !== 'undefined') {
       setSortedCampaignsData(campaignsData);
@@ -40,8 +42,9 @@ export function PromoDashboard({
     }
   }, [campaignDetailData, setPromoData]);
 
-  const handleStatsHighlightClick = (campaignData: CampaignData) => {
+  const handleStatsHighlightClick = (campaignData: any) => {
     setStatsHighlightTimeseries(campaignData);
+    setClickedStatsClassName(campaignData.name || 'Spend');
   };
 
   const handleRepeatButtonOnClick = (data: CampaignData) => {
@@ -91,6 +94,7 @@ export function PromoDashboard({
           <CampaignDetail
             data={promoData}
             statsHighlightTimeseries={statsHighlightTimeseries}
+            statsHighlightMetricName={clickedStatsClassName}
             handleCampaignDetailOnClick={handleCampaignDetailOnClick}
             handleStatsHighlightClick={handleStatsHighlightClick}
           />
