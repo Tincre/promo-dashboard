@@ -579,7 +579,7 @@ export const campaignStubData = [
   {
     name: 'Jane Cooper',
     adTitle: 'Easier taxes 👉️ taxpal.com',
-    budget: 18150,
+    budget: '$18150',
     description: 'Accounting made simple for small businesses.',
     pid: 'fghijklm',
     target: 'https://tincre.dev/promo',
@@ -768,7 +768,7 @@ export const campaignStubData = [
   {
     name: 'Jane Cooper',
     adTitle: 'Easier taxes 👉️ taxpal.com',
-    budget: 8725,
+    budget: '$8725',
     description: 'Accounting made simple for small businesses.',
     pid: 'bcdefghi',
     target: 'https://tincre.dev/promo',
@@ -958,7 +958,7 @@ export const campaignStubData = [
   {
     name: 'Jane Cooper',
     adTitle: 'Easier taxes 👉️ taxpal.com',
-    budget: 250,
+    budget: '$250',
     description: 'Accounting made simple for small businesses.',
     pid: 'cdefghij',
     target: 'https://tincre.dev/promo',
