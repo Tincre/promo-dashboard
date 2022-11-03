@@ -1,5 +1,26 @@
 import { rando } from '@nastyox/rando.js';
 
+export function generateViews(start: number, end: number, length: number = 13) {
+  const result = generateIntegers(start, end, length);
+  console.debug(`generateClicks: ${JSON.stringify(result)}`);
+  return result;
+}
+export function generateClicks(
+  start: number,
+  end: number,
+  length: number = 13
+) {
+  const result = generateIntegers(start, end, length);
+  console.debug(`generateClicks: ${JSON.stringify(result)}`);
+  return result;
+}
+
+export function generateSpend(start: number, end: number, length: number = 10) {
+  const result = generateIntegers(start, end, length);
+  console.debug(`generateSpend: ${JSON.stringify(result)}`);
+  return result;
+}
+
 function generateIntegers(start: number, end: number, length: number = 13) {
   // generate sequence array in 10s
   const interval = Math.round((end - start) / length);
@@ -16,19 +37,5 @@ function generateIntegers(start: number, end: number, length: number = 13) {
       result[i] = rando(lastVal, lastVal + target);
     }
   }
-  return result;
-}
-export function generateClicks(
-  start: number,
-  end: number,
-  length: number = 13
-) {
-  const result = generateIntegers(start, end, length);
-  console.debug(`generateClicks: ${JSON.stringify(result)}`);
-  return result;
-}
-export function generateSpend(start: number, end: number, length: number = 10) {
-  const result = generateIntegers(start, end, length);
-  console.debug(`generateSpend: ${JSON.stringify(result)}`);
   return result;
 }
