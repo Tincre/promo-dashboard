@@ -6,6 +6,7 @@ import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
 import { sortCampaignDataOnIsActive } from './lib/sort';
 import { options } from './lib/options';
+import { DownloadAllCampaignsButton } from './components/DownloadButton';
 
 export function PromoDashboard({
   campaignsData,
@@ -110,6 +111,7 @@ export function PromoDashboard({
               handleRepeatButtonOnClick={handleRepeatButtonOnClick}
               handleCampaignClick={handleCampaignClick}
             />
+            <DownloadAllCampaignsButton campaignsData={sortedCampaignsData} />
             <Profile
               setHasUpdatedSettings={setHasUpdatedSettings}
               setIsUpdatingSettings={setIsUpdatingSettings}
