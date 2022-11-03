@@ -5,6 +5,7 @@ import { CampaignData } from './lib/types';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
 import { sortCampaignDataOnIsActive } from './lib/sort';
+import { options } from './lib/options';
 
 export function PromoDashboard({
   campaignsData,
@@ -31,8 +32,9 @@ export function PromoDashboard({
   const [statsHighlightTimeseries, setStatsHighlightTimeseries] = useState<
     object | undefined
   >(undefined);
-  const [clickedStatsClassName, setClickedStatsClassName] =
-    useState<string>('Spend');
+  const [clickedStatsClassName, setClickedStatsClassName] = useState<string>(
+    options.defaultStatName
+  );
   useEffect(() => {
     if (typeof campaignsData !== 'undefined') {
       setSortedCampaignsData(campaignsData);
@@ -87,6 +89,7 @@ export function PromoDashboard({
   const handleCampaignDetailBackOnClick = () => {
     setIsCampaignClicked(false);
     setIsPromoButtonOpenInternal(false);
+    setClickedStatsClassName(options.defaultStatName); // default
     console.debug(`Set isCampaignClicked to false`);
   };
   return (

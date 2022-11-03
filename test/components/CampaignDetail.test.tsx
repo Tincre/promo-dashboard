@@ -10,7 +10,7 @@ describe('CampaignDetail', () => {
     root.render(
       <CampaignDetail
         data={campaignStubData[0]}
-        handleCampaignDetailOnClick={() => null}
+        handleCampaignDetailBackOnClick={() => null}
       />
     );
     root.unmount();
