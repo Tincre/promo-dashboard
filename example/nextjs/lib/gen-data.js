@@ -4,11 +4,10 @@ function generateIntegers(start, end, length = 13) {
   const interval = Math.round((end - start) / length);
   const upperIndexBound = length - 2;
   let result = new Array(length, 0);
-  let lastVal;
+  let lastVal = start;
   for (let i = 0; i < length; i += 1) {
     if (i < 1) {
       result[i] = start;
-      lastVal = start;
     } else if (i > upperIndexBound) {
       result[i] = end;
     } else {
