@@ -325,6 +325,7 @@ export const campaignStubData = [
         change: '.2%',
         changeType: 'increase',
         chartData: {
+          data: generateCTR(6.71 - 0.2, 6.71),
           labels: [
             '10:00',
             '',
