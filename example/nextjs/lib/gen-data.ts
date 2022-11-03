@@ -1,10 +1,11 @@
 import { rando } from '@nastyox/rando.js';
-function generateIntegers(start, end, length = 13) {
+
+function generateIntegers(start: number, end: number, length: number = 13) {
   // generate sequence array in 10s
   const interval = Math.round((end - start) / length);
   const upperIndexBound = length - 2;
-  let result = new Array(length, 0);
-  let lastVal = start;
+  let result = [length, 0];
+  let lastVal: number = start;
   for (let i = 0; i < length; i += 1) {
     if (i < 1) {
       result[i] = start;
@@ -17,13 +18,17 @@ function generateIntegers(start, end, length = 13) {
   }
   return result;
 }
-export function generateClicks(start, end, length = 13) {
+export function generateClicks(
+  start: number,
+  end: number,
+  length: number = 13
+) {
   const result = generateIntegers(start, end, length);
-  console.log(`generateClicks: ${JSON.stringify(result)}`);
+  console.debug(`generateClicks: ${JSON.stringify(result)}`);
   return result;
 }
-export function generateSpend(start, end, length = 10) {
+export function generateSpend(start: number, end: number, length: number = 10) {
   const result = generateIntegers(start, end, length);
-  console.log(`generateSpend: ${JSON.stringify(result)}`);
+  console.debug(`generateSpend: ${JSON.stringify(result)}`);
   return result;
 }
