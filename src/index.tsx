@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, MouseEvent } from 'react';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
 import { CampaignData } from './lib/types';
@@ -11,9 +11,14 @@ import { DownloadAllCampaignsButton } from './components/DownloadButton';
 export function PromoDashboard({
   campaignsData,
   campaignDetailData,
+  handleRepeatButtonClick,
 }: {
   campaignsData: CampaignData[];
   campaignDetailData?: CampaignData;
+  handleRepeatButtonClick?: (
+    event: MouseEvent<HTMLButtonElement>,
+    campaignDetailData: CampaignData
+  ) => void;
 }) {
   const [promoData, setPromoData] = useState<CampaignData | undefined>(
     undefined
@@ -49,7 +54,11 @@ export function PromoDashboard({
     setClickedStatsClassName(campaignData.name || 'Spend');
   };
 
-  const handleRepeatButtonOnClick = (data: CampaignData) => {
+  const handleRepeatButtonOnClick = (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData
+  ) => {
+    console.debug(`handleRepeatButtonOnClick::type ${event.type}`);
     setPromoData({
       adTitle: data?.adTitle,
       budget: data?.budget,
@@ -59,11 +68,17 @@ export function PromoDashboard({
       adCallToAction: data?.adCallToAction,
       buttonText: data?.buttonText,
     });
-    console.debug(`Repeat campaign in process for ${data?.adTitle || ''}.`);
+    console.debug(
+      `handleRepeatButtonOnClick::Campaign in process for ${
+        data?.adTitle || ''
+      }.`
+    );
 
     if (typeof setIsRepeatButtonClicked !== 'undefined') {
       setIsRepeatButtonClicked(!isRepeatButtonClicked);
-      console.debug(`Repeat button was set to ${!isRepeatButtonClicked}.`);
+      console.debug(
+        `handleRepeatButtonOnClick::isRepeatButtonClicked set to ${!isRepeatButtonClicked}.`
+      );
     }
   };
 
@@ -93,7 +108,11 @@ export function PromoDashboard({
           <>
             <CampaignList
               data={sortedCampaignsData}
-              handleRepeatButtonOnClick={handleRepeatButtonOnClick}
+              handleRepeatButtonOnClick={
+                typeof handleRepeatButtonClick !== 'undefined'
+                  ? handleRepeatButtonClick
+                  : handleRepeatButtonOnClick
+              }
               handleCampaignClick={handleCampaignClick}
             />
             <DownloadAllCampaignsButton campaignsData={sortedCampaignsData} />
