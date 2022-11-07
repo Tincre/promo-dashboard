@@ -1,5 +1,6 @@
 import { Campaign } from './Campaign';
 import { CampaignData } from '../lib/types';
+import { MouseEvent } from 'react';
 
 export function CampaignList({
   data,
@@ -7,7 +8,10 @@ export function CampaignList({
   handleCampaignClick,
 }: {
   data: CampaignData[];
-  handleRepeatButtonOnClick: Function;
+  handleRepeatButtonOnClick: (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData
+  ) => void;
   handleCampaignClick: Function;
 }) {
   return (
