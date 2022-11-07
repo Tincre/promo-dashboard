@@ -38,6 +38,94 @@ PROMO_CLIENT_SECRET=
 ```
 ### Usage 
 
+- Import the frontend component
+- Add backend functionality
+- Update the backend property in your frontend from 1
+- Add an environment file, e.g. .env.local
+- Add environment variables to your deployment
+- Deploy!
+
+#### Frontend
+
+```jsx
+import { PromoDashboard } from '@tincre/promo-dashboard';
+
+<PromoDashboard
+  campaignsData={campaignsData}
+  campaignDetailData={campaignDetailData || undefined}
+  handleRepeatButtonClick={handleRepeatButtonClick || undefined}
+/>
+```
+
+##### `campaignsData`
+
+A simple array of [`CampaignData`](/src/lib/types.ts) types.
+
+##### `campaignDetailData`
+
+The [`CampaignData`](/src/lib/types.ts) type.
+
+```ts
+interface CampaignData {
+  pid?: string;
+  email?: string;
+  adTitle?: string;
+  budget?: string | number;
+  description?: string;
+  target?: string;
+  adCopy?: string;
+  imageUrl?: string;
+  adCallToAction?: string;
+  buttonText?: string;
+  isActive?: boolean;
+  currency?: string;
+  stats?: object[];
+}
+```
+
+##### `handleRepeatButtonClick`
+
+In order to fully utilize the `PromoButton` and `PromoDashboard` together, you should provide a handler similar to the below, defined in your parent component.
+
+```jsx
+import { useState } from 'react';
+
+export default Index() {
+  // Add your state hooks
+  const [promoCampaignData, setPromoCampaignData] = useState();
+  const [isRepeatButtonClicked, setIsRepeatButtonClicked] = useState(false);
+  // Add your custom button click callback
+  const handleRepeatButtonClick = (
+    event,
+    data,
+  ) => {
+    // set at least the following parameters, same type as campaignDetailData
+    setPromoCampaignData({
+      adTitle: data?.adTitle,
+      budget: data?.budget,
+      description: data?.description,
+      target: data?.target,
+      adCopy: data?.adCopy || data?.description,
+      adCallToAction: data?.adCallToAction,
+      buttonText: data?.buttonText,
+    });
+    // not required but a useful pattern 
+    // used to open the promo button when isRepeatButtonClicked === true
+    if (typeof setIsRepeatButtonClicked !== 'undefined') {
+      setIsRepeatButtonClicked(!isRepeatButtonClicked);
+    }
+  };
+  return <div>
+    ...
+    <PromoDashboard handleRepeatButtonClick={handleRepeatButtonClick}>
+  </div>
+};
+
+```
+#### Backend
+
+🚧 Features and documentation content updates coming soon!
+
 ## Support 
 
 - Documentation: [tincre.dev/docs](https://tincre.dev/docs)

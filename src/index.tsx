@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, MouseEvent } from 'react';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
 import { CampaignData } from './lib/types';
@@ -11,17 +11,18 @@ import { DownloadAllCampaignsButton } from './components/DownloadButton';
 export function PromoDashboard({
   campaignsData,
   campaignDetailData,
-  isPromoButtonOpen,
+  handleRepeatButtonClick,
 }: {
   campaignsData: CampaignData[];
   campaignDetailData?: CampaignData;
-  isPromoButtonOpen?: boolean;
+  handleRepeatButtonClick?: (
+    event: MouseEvent<HTMLButtonElement>,
+    campaignDetailData: CampaignData
+  ) => void;
 }) {
   const [promoData, setPromoData] = useState<CampaignData | undefined>(
     undefined
   );
-  const [isPromoButtonOpenInternal, setIsPromoButtonOpenInternal] =
-    useState<boolean>(false);
   const [isRepeatButtonClicked, setIsRepeatButtonClicked] =
     useState<boolean>(false);
   const [isCampaignClicked, setIsCampaignClicked] = useState<boolean>(false);
@@ -48,18 +49,16 @@ export function PromoDashboard({
     }
   }, [campaignDetailData, setPromoData]);
 
-  useEffect(() => {
-    if (typeof isPromoButtonOpen !== 'undefined') {
-      setIsPromoButtonOpenInternal(isPromoButtonOpen);
-    }
-  }, [isPromoButtonOpen, setIsPromoButtonOpenInternal]);
-
   const handleStatsHighlightClick = (campaignData: any) => {
     setStatsHighlightTimeseries(campaignData);
     setClickedStatsClassName(campaignData.name || 'Spend');
   };
 
-  const handleRepeatButtonOnClick = (data: CampaignData) => {
+  const handleRepeatButtonOnClick = (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData
+  ) => {
+    console.debug(`handleRepeatButtonOnClick::type ${event.type}`);
     setPromoData({
       adTitle: data?.adTitle,
       budget: data?.budget,
@@ -69,21 +68,23 @@ export function PromoDashboard({
       adCallToAction: data?.adCallToAction,
       buttonText: data?.buttonText,
     });
-    console.debug(`Repeat campaign in process for ${data?.adTitle || ''}.`);
+    console.debug(
+      `handleRepeatButtonOnClick::Campaign in process for ${
+        data?.adTitle || ''
+      }.`
+    );
 
     if (typeof setIsRepeatButtonClicked !== 'undefined') {
       setIsRepeatButtonClicked(!isRepeatButtonClicked);
-      console.debug(`Repeat button was set to ${!isRepeatButtonClicked}.`);
-    }
-    if (typeof isPromoButtonOpen !== 'undefined') {
-      setIsPromoButtonOpenInternal(true);
+      console.debug(
+        `handleRepeatButtonOnClick::isRepeatButtonClicked set to ${!isRepeatButtonClicked}.`
+      );
     }
   };
 
   const handleCampaignClick = (data: CampaignData) => {
     setPromoData(data);
     setIsCampaignClicked(true);
-    setIsPromoButtonOpenInternal(false);
     if (typeof data?.stats !== 'undefined') {
       data.stats.map((campaignStats: any) => {
         if (campaignStats.name === options.defaultStatName) {
@@ -96,7 +97,6 @@ export function PromoDashboard({
 
   const handleCampaignDetailBackOnClick = () => {
     setIsCampaignClicked(false);
-    setIsPromoButtonOpenInternal(false);
     setClickedStatsClassName(options.defaultStatName); // default
 
     console.debug(`Set isCampaignClicked to false`);
@@ -108,7 +108,11 @@ export function PromoDashboard({
           <>
             <CampaignList
               data={sortedCampaignsData}
-              handleRepeatButtonOnClick={handleRepeatButtonOnClick}
+              handleRepeatButtonOnClick={
+                typeof handleRepeatButtonClick !== 'undefined'
+                  ? handleRepeatButtonClick
+                  : handleRepeatButtonOnClick
+              }
               handleCampaignClick={handleCampaignClick}
             />
             <DownloadAllCampaignsButton campaignsData={sortedCampaignsData} />
