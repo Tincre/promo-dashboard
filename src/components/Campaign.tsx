@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, MouseEvent } from 'react';
 import { EnvelopeIcon, ArrowPathIcon } from '@heroicons/react/20/solid';
 import { IsActivePill } from './IsActivePill';
 import { CampaignData } from '../lib/types';
@@ -13,7 +13,10 @@ export function Campaign({
   handleCampaignClick,
 }: {
   data: CampaignData;
-  handleRepeatButtonOnClick: Function;
+  handleRepeatButtonOnClick: (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData
+  ) => void;
   handleCampaignClick: Function;
 }) {
   const [isActive, setIsActive] = useState<boolean>(data?.isActive || false);
@@ -121,7 +124,7 @@ export function Campaign({
           <div className="-ml-px flex w-0 flex-1">
             <button
               type="button"
-              onClick={() => handleRepeatButtonOnClick(data)}
+              onClick={(event) => handleRepeatButtonOnClick(event, data)}
               className="relative inline-flex w-0 flex-1 items-center justify-center rounded-br-lg border border-transparent py-4 text-sm font-medium text-slate-700 hover:bg-slate-300 hover:text-slate-500 group-hover:text-slate-800"
             >
               <ArrowPathIcon
