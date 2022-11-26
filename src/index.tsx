@@ -134,3 +134,4 @@ export function PromoDashboard({
     </>
   );
 }
+export type { CampaignData };
