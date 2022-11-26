@@ -1,9 +1,31 @@
+import { useState, useEffect, MouseEvent } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { PromoDashboard } from '@tincre/promo-dashboard';
+import { PromoDashboard, CampaignData } from '../../../dist';
 import { campaignStubData } from '../cms.data';
 
 const Home: NextPage = () => {
+  const [isRepeatButtonClicked, setIsRepeatButtonClicked] = useState(false);
+  const [promoData, setPromoData] = useState({});
+  const handleRepeatButtonClick = (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData
+  ) => {
+    setIsRepeatButtonClicked(true);
+    console.debug(`handleRepeatButtonClick::type ${event.type}`);
+    console.debug(
+      `handleRepeatButtonClick::Repeat button was clicked, updating state.`
+    );
+    setPromoData({ ...data });
+    console.debug(`handleRepeatButtonClick::data ${JSON.stringify(data)}`);
+  };
+  useEffect(() => {
+    console.debug(`useEffect::promoData::${JSON.stringify(promoData)}`);
+  }, [promoData]);
+
+  useEffect(() => {
+    console.debug(`useEffect::isRepeatButtonClicked::${isRepeatButtonClicked}`);
+  }, [isRepeatButtonClicked]);
   return (
     <div className="" suppressHydrationWarning={true}>
       <Head>
@@ -46,7 +68,10 @@ const Home: NextPage = () => {
           <p style={{ marginTop: '20px', marginBottom: '10px' }}>
             <code>npm install @tincre/promo-dashboard</code>
           </p>
-          <PromoDashboard campaignsData={campaignStubData} />
+          <PromoDashboard
+            campaignsData={campaignStubData}
+            handleRepeatButtonClick={handleRepeatButtonClick}
+          />
         </div>
       </main>
 
