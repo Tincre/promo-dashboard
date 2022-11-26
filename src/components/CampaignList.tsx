@@ -1,6 +1,6 @@
+import { MouseEvent } from 'react';
 import { Campaign } from './Campaign';
 import { CampaignData } from '../lib/types';
-import { MouseEvent } from 'react';
 
 export function CampaignList({
   data,
