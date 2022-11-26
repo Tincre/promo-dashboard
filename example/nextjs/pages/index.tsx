@@ -1,7 +1,7 @@
 import { useState, useEffect, MouseEvent } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { PromoDashboard, CampaignData } from '../../../dist';
+import { PromoDashboard } from '@tincre/promo-dashboard'; //'../../../dist';
 import { campaignStubData } from '../cms.data';
 
 const Home: NextPage = () => {
@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   const [promoData, setPromoData] = useState({});
   const handleRepeatButtonClick = (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: any
   ) => {
     setIsRepeatButtonClicked(true);
     console.debug(`handleRepeatButtonClick::type ${event.type}`);
@@ -69,7 +69,7 @@ const Home: NextPage = () => {
             <code>npm install @tincre/promo-dashboard</code>
           </p>
           <PromoDashboard
-            campaignsData={campaignStubData}
+            campaignsData={campaignStubData /* @ts-ignore */}
             handleRepeatButtonClick={handleRepeatButtonClick}
           />
         </div>
