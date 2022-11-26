@@ -5,6 +5,8 @@ module.exports = {
     // uncomment for npm @tincre/promo-dashboard installation
     './node_modules/@tincre/promo-dashboard/*.{js,ts,jsx,tsx}',
     './node_modules/@tincre/promo-dashboard/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@tincre/promo-button/*',
+    './node_modules/@tincre/promo-button/**/*',
     '../../dist/*.{js,ts,jsx,tsx}', // remove for deployed apps
   ],
   theme: {
