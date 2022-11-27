@@ -1,21 +1,24 @@
-import * as React from 'react';
-import { createRoot } from 'react-dom/client';
+import React, {useState, useEffect} from 'react';
+import { screen, render, fireEvent } from '@testing-library/react';
 import { PromoDashboard } from '../src/index';
 import { campaignStubData } from './cms.data';
 import { CampaignData } from '../src/lib/types';
 
+global.ResizeObserver = require('resize-observer-polyfill');
+
 describe('PromoDashboard', () => {
   it('renders empty array prop without crashing', () => {
-    const div = document.createElement('div');
-    const root = createRoot(div);
-    root.render(<PromoDashboard campaignsData={[]} />);
-    root.unmount();
+    render(<PromoDashboard campaignsData={[]} />);
   });
   it('renders full data without crashing', () => {
-    const div = document.createElement('div');
-    const root = createRoot(div);
-    root.render(<PromoDashboard campaignsData={campaignStubData} />);
-    root.unmount();
+    render(<PromoDashboard campaignsData={campaignStubData} />);
+    const dashboard = screen.getByLabelText('campaign-fghijklm');
+    expect(dashboard).toBeDefined();
+    const dashboardButton = screen.getByLabelText(
+      `campaign-${campaignStubData[0].pid}-button`
+    );
+    expect(dashboardButton).toBeDefined();
+    fireEvent.click(dashboardButton);
   });
   it('renders full data without crashing', () => {
     const setPromoData = (data: any) => data;
@@ -35,28 +38,28 @@ describe('PromoDashboard', () => {
         adCallToAction: data?.adCallToAction,
         buttonText: data?.buttonText,
       });
-      console.debug(
-        `handleRepeatButtonOnClick::Campaign in process for ${
-          data?.adTitle || ''
-        }.`
-      );
 
       if (typeof setIsRepeatButtonClicked !== 'undefined') {
         setIsRepeatButtonClicked(!isRepeatButtonClicked);
-        console.debug(
-          `handleRepeatButtonOnClick::isRepeatButtonClicked set to ${!isRepeatButtonClicked}.`
-        );
       }
     };
 
-    const div = document.createElement('div');
-    const root = createRoot(div);
-    root.render(
+    render(
       <PromoDashboard
         campaignsData={campaignStubData}
         handleRepeatButtonClick={handleRepeatButtonOnClick}
       />
     );
-    root.unmount();
+    const repeatButton = screen.getByLabelText(`campaign-${campaignStubData[0].pid}-repeat-button`)
+    expect(repeatButton).toBeDefined()
+    fireEvent.click(repeatButton)
+    const dashboardButton = screen.getByLabelText(
+      `campaign-${campaignStubData[5].pid}-button`
+    );
+    expect(dashboardButton).toBeDefined();
+    fireEvent.click(dashboardButton);
+    const clicksButton = screen.getByText('Clicks', { exact: false });
+    expect(clicksButton).toBeDefined();
+    fireEvent.click(clicksButton);
   });
 });
