@@ -70,8 +70,15 @@ export function Campaign({
     );
   }, [isActive]);
   return (
-    <li key={data.email} className={isActiveClassName}>
-      <button onClick={() => handleCampaignClick(data)}>
+    <li
+      key={`campaign-${data.pid}`}
+      aria-label={`campaign-${data.pid}`}
+      className={isActiveClassName}
+    >
+      <button
+        onClick={() => handleCampaignClick(data)}
+        aria-label={`campaign-${data.pid}-button`}
+      >
         <div className="relative flex flex-1 flex-col px-2 pt-10 pb-6 group-hover:rounded-tr-md group-hover:rounded-tl-sm group-hover:bg-slate-900">
           <IsActivePill isActive={isActive} />
           <img
