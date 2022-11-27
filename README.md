@@ -2,6 +2,28 @@
 
 A dashboard for Tincre [Promo](https://tincre.dev/promo). Use it in conjunction with the [`promo-button`](https://github.com/Tincre/promo-button).
 
+- [promo-dashboard, by Tincre`.dev`](#promo-dashboard-by-tincredev)
+  - [Installation](#installation)
+    - [Yarn](#yarn)
+    - [Npm](#npm)
+    - [Environment variables](#environment-variables)
+      - [`.env.local` Example](#envlocal-example)
+    - [Usage](#usage)
+      - [Frontend](#frontend)
+        - [`campaignsData`](#campaignsdata)
+        - [`campaignDetailData`](#campaigndetaildata)
+        - [`handleRepeatButtonClick`](#handlerepeatbuttonclick)
+        - [`handleSubmitSaveButtonClick`](#handlesubmitsavebuttonclick)
+        - [`profileSettingsData`](#profilesettingsdata)
+      - [Backend](#backend)
+  - [Support](#support)
+  - [License](#license)
+  - [Development](#development)
+    - [Releases](#releases)
+      - [Release prep](#release-prep)
+        - [Test release](#test-release)
+      - [Release `latest` tag](#release-latest-tag)
+
 ## Installation
 
 Use your favorite package manager to rock installation of `promo-dashboard`.
