@@ -16,7 +16,9 @@ describe('Campaign', () => {
         TestChildren
       </Campaign>
     );
-    let campaign = screen.getByRole('button');
+    let campaign = screen.getByLabelText(
+      `campaign-${campaignStubData[0].pid}-button`
+    );
     const testChildren = screen.getByText(/TestChildren/i);
     expect(testChildren).toBeDefined();
     fireEvent.click(campaign);
@@ -33,7 +35,10 @@ describe('Campaign', () => {
         TestChildren
       </Campaign>
     );
-    let campaign = screen.getByRole('button');
+    let campaign = screen.getByLabelText(
+      `campaign-${campaignStubData[5].pid}-button`
+    );
+
     const testChildren = screen.getByText(/TestChildren/i);
     expect(testChildren).toBeDefined();
     fireEvent.click(campaign);
