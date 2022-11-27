@@ -1,18 +1,16 @@
-import * as React from 'react';
-import { createRoot } from 'react-dom/client';
+import React from 'react';
+import { screen, render } from '@testing-library/react';
 import { IsActivePill } from '../../src/components/IsActivePill';
 
 describe('IsActivePill', () => {
   it('renders false without crashing', () => {
-    const div = document.createElement('div');
-    const root = createRoot(div);
-    root.render(<IsActivePill isActive={false} />);
-    root.unmount();
+    render(<IsActivePill isActive={false} />);
+    const pill = screen.getByText('inactive', { exact: false });
+    expect(pill).toBeDefined();
   });
   it('renders true without crashing', () => {
-    const div = document.createElement('div');
-    const root = createRoot(div);
-    root.render(<IsActivePill isActive={true} />);
-    root.unmount();
+    render(<IsActivePill isActive={true} />);
+    const pill = screen.getByText('active', { exact: false });
+    expect(pill).toBeDefined();
   });
 });

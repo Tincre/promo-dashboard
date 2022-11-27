@@ -1,6 +1,5 @@
-import * as React from 'react';
+import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { createRoot } from 'react-dom/client';
 import { CampaignSupportButton } from '../../src/components/CampaignSupportButton';
 
 describe('CampaignSupportButton', () => {

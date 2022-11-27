@@ -1,19 +1,19 @@
-import * as React from 'react';
-import { createRoot } from 'react-dom/client';
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { CampaignList } from '../../src/components/CampaignList';
 import { campaignStubData } from '../cms.data';
 
 describe('CampaignList', () => {
   it('renders full data without crashing', () => {
-    const div = document.createElement('div');
-    const root = createRoot(div);
-    root.render(
+    render(
       <CampaignList
         data={campaignStubData}
         handleCampaignClick={() => null}
         handleRepeatButtonOnClick={() => null}
       />
     );
-    root.unmount();
+    const campaignListItem = screen.getByText(campaignStubData[0].pid);
+    expect(campaignListItem).toBeDefined();
+    fireEvent.click(campaignListItem);
   });
 });
