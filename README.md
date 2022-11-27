@@ -122,6 +122,41 @@ export default Index() {
 };
 
 ```
+##### `handleSubmitSaveButtonClick`
+
+Callers can add a handler function to be called on click of the "Save" button rendered in the `Profile` component.
+
+For example,
+```tsx
+import { MouseEvent } from 'react';
+import { Settings } from '@tincre/promo-dashboard';
+
+export function MyApp() {
+  const handleSettingsSaveButtonOnClick = (event: MouseEvent, data: Settings) => {
+    // do whatevs, like track state from above
+  }
+  render <PromoDashboard
+    handleSettingsSaveButtonClick={handleSettingsSaveButtonOnClick}
+  />
+}
+```
+
+##### `profileSettingsData`
+
+You can easily provide the settings data yourself and handle it from outside the dashboard. Simply add a `Settings` object to your `PromoDashboard` rendering.
+
+For example,
+
+```jsx
+<PromoDashboard
+  handleSettingsSaveButtonClick={handleSettingsSaveButtonOnClick}
+  profileSettingsData={{
+    userName: 'testUserName',
+    fullName: 'Test McTesterson',
+    image: 'favicon.ico',
+  }}
+/>
+```
 #### Backend
 
 🚧 Features and documentation content updates coming soon!
