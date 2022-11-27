@@ -1,8 +1,10 @@
 import React from 'react';
-import { screen, fireEvent, render } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import { CampaignDetail } from '../../src/components/CampaignDetail';
 import { campaignStubData } from '../cms.data';
+
 global.ResizeObserver = require('resize-observer-polyfill');
+
 describe('CampaignDetail', () => {
   it('renders without crashing', () => {
     render(
