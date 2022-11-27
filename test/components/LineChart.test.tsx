@@ -9,6 +9,6 @@ describe('LineChart', () => {
   it('renders full data without crashing', () => {
     render(<LineChart info={campaignStubData[0]} />);
     const chart = screen.getByRole('img');
-    expect(chart).toBeDefined()
+    expect(chart).toBeDefined();
   });
 });

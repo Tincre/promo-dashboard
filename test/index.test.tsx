@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { screen, render, fireEvent } from '@testing-library/react';
 import { PromoDashboard } from '../src/index';
 import { campaignStubData } from './cms.data';
@@ -50,9 +50,11 @@ describe('PromoDashboard', () => {
         handleRepeatButtonClick={handleRepeatButtonOnClick}
       />
     );
-    const repeatButton = screen.getByLabelText(`campaign-${campaignStubData[0].pid}-repeat-button`)
-    expect(repeatButton).toBeDefined()
-    fireEvent.click(repeatButton)
+    const repeatButton = screen.getByLabelText(
+      `campaign-${campaignStubData[0].pid}-repeat-button`
+    );
+    expect(repeatButton).toBeDefined();
+    fireEvent.click(repeatButton);
     const dashboardButton = screen.getByLabelText(
       `campaign-${campaignStubData[5].pid}-button`
     );

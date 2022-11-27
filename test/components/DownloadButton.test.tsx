@@ -8,8 +8,8 @@ import { campaignStubData } from '../cms.data';
 
 Object.defineProperty(URL, 'createObjectURL', {
   writable: true,
-  value: jest.fn()
-})
+  value: jest.fn(),
+});
 describe('DownloadCampaignButton', () => {
   it('renders without crashing', () => {
     render(<DownloadCampaignButton campaignData={campaignStubData[0]} />);
