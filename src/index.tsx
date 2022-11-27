@@ -1,7 +1,7 @@
 import { useState, useEffect, MouseEvent } from 'react';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
-import { CampaignData } from './lib/types';
+import { CampaignData, Settings } from './lib/types';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
 import { sortCampaignDataOnIsActive } from './lib/sort';
@@ -12,12 +12,17 @@ export function PromoDashboard({
   campaignsData,
   campaignDetailData,
   handleRepeatButtonClick,
+  handleSettingsSaveButtonClick,
 }: {
   campaignsData: CampaignData[];
   campaignDetailData?: CampaignData;
   handleRepeatButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
     campaignDetailData: CampaignData
+  ) => void;
+  handleSettingsSaveButtonClick?: (
+    event: MouseEvent<HTMLButtonElement>,
+    settingsData: Settings
   ) => void;
 }) {
   const [promoData, setPromoData] = useState<CampaignData | undefined>(
@@ -101,6 +106,15 @@ export function PromoDashboard({
 
     console.debug(`Set isCampaignClicked to false`);
   };
+  const handleSettingsSaveButtonOnClick = (
+    event: MouseEvent<HTMLButtonElement>,
+    data: Settings
+  ) => {
+    console.debug(`handleSettingsSaveButtonOnClick::type ${event.type}`);
+    console.debug(
+      `handleSettingsSaveButtonOnClick::data ${JSON.stringify(data)}`
+    );
+  };
   return (
     <>
       <DashboardContainer>
@@ -119,6 +133,11 @@ export function PromoDashboard({
             <Profile
               setHasUpdatedSettings={setHasUpdatedSettings}
               setIsUpdatingSettings={setIsUpdatingSettings}
+              handleSettingsSaveButtonClick={
+                typeof handleSettingsSaveButtonClick !== 'undefined'
+                  ? handleSettingsSaveButtonClick
+                  : handleSettingsSaveButtonOnClick
+              }
             />
           </>
         ) : typeof promoData !== 'undefined' ? (
