@@ -13,3 +13,8 @@ export interface CampaignData {
   currency?: string;
   stats?: object[];
 }
+export interface Settings {
+  fullName?: string;
+  image?: string;
+  userName?: string;
+}

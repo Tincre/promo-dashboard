@@ -1,10 +1,7 @@
 import { useEffect, useState, Dispatch } from 'react';
 import { settingsDetailSchema } from '../lib/yup';
-interface Settings {
-  fullName?: string;
-  image?: string;
-  userName?: string;
-}
+import { Settings } from '../lib/types';
+
 export function Profile({
   image,
   fullName,
