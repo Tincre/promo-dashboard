@@ -1,22 +1,24 @@
-import { useEffect, useState, Dispatch } from 'react';
+import { useEffect, useState, Dispatch, MouseEvent } from 'react';
 import { settingsDetailSchema } from '../lib/yup';
-interface Settings {
-  fullName?: string;
-  image?: string;
-  userName?: string;
-}
+import { Settings } from '../lib/types';
+
 export function Profile({
   image,
   fullName,
   userName,
   setHasUpdatedSettings,
   setIsUpdatingSettings,
+  handleSettingsSaveButtonClick,
 }: {
   image?: string;
   fullName?: string;
   userName?: string;
   setHasUpdatedSettings?: Dispatch<boolean>;
   setIsUpdatingSettings?: Dispatch<boolean>;
+  handleSettingsSaveButtonClick?: (
+    event: MouseEvent<HTMLButtonElement>,
+    settingsData: Settings
+  ) => void;
 }) {
   const [isUpdatingInternalSettings, setIsUpdatingInternalSettings] =
     useState<boolean>(false);
@@ -27,15 +29,18 @@ export function Profile({
     image: image,
     userName: userName,
   });
-
+  const [submitEvent, setSubmitEvent] =
+    useState<MouseEvent<HTMLButtonElement>>();
   useEffect(() => {
-    if (typeof setHasUpdatedSettings !== 'function') return;
-    setHasUpdatedSettings(hasUpdatedInternalSettings);
+    if (typeof setHasUpdatedSettings !== 'undefined') {
+      setHasUpdatedSettings(hasUpdatedInternalSettings);
+    }
   }, [hasUpdatedInternalSettings, setHasUpdatedSettings]);
 
   useEffect(() => {
-    if (typeof setIsUpdatingSettings !== 'function') return;
-    setIsUpdatingSettings(isUpdatingInternalSettings);
+    if (typeof setIsUpdatingSettings !== 'undefined') {
+      setIsUpdatingSettings(isUpdatingInternalSettings);
+    }
   }, [isUpdatingInternalSettings, setIsUpdatingSettings]);
 
   const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,18 +61,20 @@ export function Profile({
       }
     }
   };
-  const handleSubmit = async (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSubmit = async (event: MouseEvent<HTMLButtonElement>) => {
+    setSubmitEvent(event);
     settingsDetailSchema.validate({ ...settingsData }).catch((error: any) => {
       if (error instanceof Error) {
         console.error(`${error.name}: ${error.message}`);
         throw new Error(error.message);
       } else {
         throw new Error(
-          `Unkonwn error in Probile component submission handler.`
+          `Unknown error in Profile component submission handler validation step.`
         );
       }
     });
     event.preventDefault();
+
     try {
       console.debug(`Updating ${userName}`);
       setIsUpdatingInternalSettings(true);
@@ -192,6 +199,12 @@ export function Profile({
                 onClick={(event) => {
                   setIsUpdatingInternalSettings(true);
                   handleSubmit(event);
+                  if (
+                    typeof handleSettingsSaveButtonClick !== 'undefined' &&
+                    typeof settingsData !== 'undefined'
+                  ) {
+                    handleSettingsSaveButtonClick(event, settingsData);
+                  }
                   setIsUpdatingInternalSettings(false);
                 }}
                 className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-blue-700 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-black focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2"

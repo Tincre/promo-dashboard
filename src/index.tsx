@@ -1,7 +1,7 @@
 import { useState, useEffect, MouseEvent } from 'react';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
-import { CampaignData } from './lib/types';
+import { CampaignData, Settings } from './lib/types';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
 import { sortCampaignDataOnIsActive } from './lib/sort';
@@ -11,13 +11,20 @@ import { DownloadAllCampaignsButton } from './components/DownloadButton';
 export function PromoDashboard({
   campaignsData,
   campaignDetailData,
+  profileSettingsData,
   handleRepeatButtonClick,
+  handleSettingsSaveButtonClick,
 }: {
   campaignsData: CampaignData[];
   campaignDetailData?: CampaignData;
+  profileSettingsData?: Settings;
   handleRepeatButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
     campaignDetailData: CampaignData
+  ) => void;
+  handleSettingsSaveButtonClick?: (
+    event: MouseEvent<HTMLButtonElement>,
+    settingsData: Settings
   ) => void;
 }) {
   const [promoData, setPromoData] = useState<CampaignData | undefined>(
@@ -36,6 +43,9 @@ export function PromoDashboard({
   >(undefined);
   const [clickedStatsClassName, setClickedStatsClassName] = useState<string>(
     options.defaultStatName
+  );
+  const [profileData, setProfileData] = useState<undefined | Settings>(
+    profileSettingsData
   );
   useEffect(() => {
     if (typeof campaignsData !== 'undefined') {
@@ -101,6 +111,16 @@ export function PromoDashboard({
 
     console.debug(`Set isCampaignClicked to false`);
   };
+  const handleSettingsSaveButtonOnClick = (
+    event: MouseEvent<HTMLButtonElement>,
+    data: Settings
+  ) => {
+    console.debug(`handleSettingsSaveButtonOnClick::type ${event.type}`);
+    setProfileData({ ...data });
+    console.debug(
+      `handleSettingsSaveButtonOnClick::data ${JSON.stringify(data)}`
+    );
+  };
   return (
     <>
       <DashboardContainer>
@@ -119,6 +139,14 @@ export function PromoDashboard({
             <Profile
               setHasUpdatedSettings={setHasUpdatedSettings}
               setIsUpdatingSettings={setIsUpdatingSettings}
+              handleSettingsSaveButtonClick={
+                typeof handleSettingsSaveButtonClick !== 'undefined'
+                  ? handleSettingsSaveButtonClick
+                  : handleSettingsSaveButtonOnClick
+              }
+              image={profileData?.image}
+              fullName={profileData?.fullName}
+              userName={profileData?.userName}
             />
           </>
         ) : typeof promoData !== 'undefined' ? (
