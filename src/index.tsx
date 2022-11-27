@@ -162,4 +162,4 @@ export function PromoDashboard({
     </>
   );
 }
-export type { CampaignData };
+export type { CampaignData, Settings };
