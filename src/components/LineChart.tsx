@@ -11,11 +11,11 @@ import {
 ChartJS.register(LineElement, PointElement, LinearScale, Title, CategoryScale);
 
 export const buildData = ({ chartData }: { chartData: any }) => ({
-  labels: chartData.labels,
+  labels: chartData?.labels,
   datasets: [
     {
       label: '',
-      data: chartData.data,
+      data: chartData?.data,
       backgroundColor: 'rgba(255, 255, 255, 0.1)',
       borderColor: 'rgba(255, 255, 255, 1)',
       pointBackgroundColor: 'rgba(255, 255, 255, 1)',

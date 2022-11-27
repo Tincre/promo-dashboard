@@ -1,7 +1,8 @@
-import { useState, useEffect, MouseEvent } from 'react';
-import { EnvelopeIcon, ArrowPathIcon } from '@heroicons/react/20/solid';
+import { useState, useEffect, MouseEvent, ReactNode } from 'react';
 import { IsActivePill } from './IsActivePill';
 import { CampaignData } from '../lib/types';
+import { CampaignRepeatButton } from './CampaignRepeatButton';
+import { CampaignSupportButton } from './CampaignSupportButton';
 
 const supportDomain = 'tincre.dev';
 const getSupportLink = (data: any) =>
@@ -11,13 +12,15 @@ export function Campaign({
   data,
   handleRepeatButtonOnClick,
   handleCampaignClick,
+  children,
 }: {
   data: CampaignData;
-  handleRepeatButtonOnClick: (
+  handleRepeatButtonOnClick?: (
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
   ) => void;
   handleCampaignClick: Function;
+  children?: ReactNode;
 }) {
   const [isActive, setIsActive] = useState<boolean>(data?.isActive || false);
   const [imageUrl, setImageUrl] = useState<string>(data.imageUrl || '');
@@ -67,8 +70,15 @@ export function Campaign({
     );
   }, [isActive]);
   return (
-    <li key={data.email} className={isActiveClassName}>
-      <button onClick={() => handleCampaignClick(data)}>
+    <li
+      key={`campaign-${data.pid}`}
+      aria-label={`campaign-${data.pid}`}
+      className={isActiveClassName}
+    >
+      <button
+        onClick={() => handleCampaignClick(data)}
+        aria-label={`campaign-${data.pid}-button`}
+      >
         <div className="relative flex flex-1 flex-col px-2 pt-10 pb-6 group-hover:rounded-tr-md group-hover:rounded-tl-sm group-hover:bg-slate-900">
           <IsActivePill isActive={isActive} />
           <img
@@ -107,33 +117,15 @@ export function Campaign({
       </button>
       <div>
         <div className="-mt-px flex divide-x divide-slate-200 group-hover:divide-slate-300 group-hover:bg-slate-200">
-          <div className="flex w-0 flex-1">
-            <a
-              href={supportLink}
-              target="_blank"
-              rel="noreferrer"
-              className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center rounded-bl-lg border border-transparent py-4 text-sm font-medium text-slate-700 hover:bg-slate-300 hover:text-slate-500 group-hover:text-slate-800"
-            >
-              <EnvelopeIcon
-                className="h-5 w-5 text-slate-400 group-hover:text-slate-500"
-                aria-hidden="true"
-              />
-              <span className="ml-3">Support</span>
-            </a>
-          </div>
-          <div className="-ml-px flex w-0 flex-1">
-            <button
-              type="button"
-              onClick={(event) => handleRepeatButtonOnClick(event, data)}
-              className="relative inline-flex w-0 flex-1 items-center justify-center rounded-br-lg border border-transparent py-4 text-sm font-medium text-slate-700 hover:bg-slate-300 hover:text-slate-500 group-hover:text-slate-800"
-            >
-              <ArrowPathIcon
-                className="h-5 w-5 text-slate-400 group-hover:text-slate-500"
-                aria-hidden="true"
-              />
-              <span className="ml-3">Repeat</span>
-            </button>
-          </div>
+          <CampaignSupportButton supportLink={supportLink}>
+            Support
+          </CampaignSupportButton>
+          <CampaignRepeatButton
+            handleRepeatButtonOnClick={handleRepeatButtonOnClick}
+            data={data}
+          >
+            {children}
+          </CampaignRepeatButton>
         </div>
       </div>
     </li>

@@ -962,8 +962,7 @@ export const campaignStubData = [
     description: 'Accounting made simple for small businesses.',
     pid: 'cdefghij',
     target: 'https://tincre.dev/promo',
-
-    currency: 'USD',
+    currency: 'EUR',
     isActive: false,
     title: 'Paradigm Representative',
     role: 'Admin',

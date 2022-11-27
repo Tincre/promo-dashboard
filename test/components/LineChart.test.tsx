@@ -1,15 +1,14 @@
-import * as React from 'react';
-import { createRoot } from 'react-dom/client';
+import React from 'react';
+import { screen, render } from '@testing-library/react';
 import { LineChart } from '../../src/components/LineChart';
 import { campaignStubData } from '../cms.data';
 
+global.ResizeObserver = require('resize-observer-polyfill');
+
 describe('LineChart', () => {
   it('renders full data without crashing', () => {
-    const div = document.createElement('div');
-    div.id = 'testing';
-    const root = createRoot(div);
-    root.render(<LineChart info={campaignStubData[0]} />);
-    expect(div.id).toBe('testing');
-    root.unmount();
+    render(<LineChart info={campaignStubData[0]} />);
+    const chart = screen.getByRole('img');
+    expect(chart).toBeDefined();
   });
 });
