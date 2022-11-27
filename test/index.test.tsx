@@ -83,4 +83,45 @@ describe('PromoDashboard', () => {
     expect(testData).toBeDefined();
     expect(testEvent).toBeDefined();
   });
+
+  it('renders full data and settings data without crashing', () => {
+    let testEvent: MouseEvent<HTMLButtonElement> | undefined = undefined;
+    let testData: Settings | undefined = undefined;
+    const setPromoData = (data: any) => data;
+    const isRepeatButtonClicked = false;
+    const setIsRepeatButtonClicked = (tf: boolean) => tf;
+    const handleSettingsSaveButtonOnClick = (
+      event: MouseEvent<HTMLButtonElement>,
+      data: Settings
+    ) => {
+      testEvent = event;
+      testData = data;
+    };
+
+    render(
+      <PromoDashboard
+        campaignsData={campaignStubData}
+        handleSettingsSaveButtonClick={handleSettingsSaveButtonOnClick}
+        profileSettingsData={{
+          userName: 'testUserName',
+          fullName: 'Test McTesterson',
+          image: 'favicon.ico',
+        }}
+      />
+    );
+    const imageInput = screen.getByRole('textbox', { name: 'Avatar' });
+    expect(imageInput).toBeDefined();
+    // @ts-ignore
+    expect(imageInput.value).toBe('favicon.ico');
+    const userNameInput = screen.getByRole('textbox', { name: 'User name' });
+    expect(userNameInput).toBeDefined();
+    // @ts-ignore
+    expect(userNameInput.value).toBe('testUserName');
+    const fullNameInput = screen.getByRole('textbox', {
+      name: 'Your full name',
+    });
+    expect(fullNameInput).toBeDefined();
+    // @ts-ignore
+    expect(fullNameInput.value).toBe('Test McTesterson');
+  });
 });

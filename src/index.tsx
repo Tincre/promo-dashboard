@@ -11,11 +11,13 @@ import { DownloadAllCampaignsButton } from './components/DownloadButton';
 export function PromoDashboard({
   campaignsData,
   campaignDetailData,
+  profileSettingsData,
   handleRepeatButtonClick,
   handleSettingsSaveButtonClick,
 }: {
   campaignsData: CampaignData[];
   campaignDetailData?: CampaignData;
+  profileSettingsData?: Settings;
   handleRepeatButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
     campaignDetailData: CampaignData
@@ -41,6 +43,9 @@ export function PromoDashboard({
   >(undefined);
   const [clickedStatsClassName, setClickedStatsClassName] = useState<string>(
     options.defaultStatName
+  );
+  const [profileData, setProfileData] = useState<undefined | Settings>(
+    profileSettingsData
   );
   useEffect(() => {
     if (typeof campaignsData !== 'undefined') {
@@ -111,6 +116,7 @@ export function PromoDashboard({
     data: Settings
   ) => {
     console.debug(`handleSettingsSaveButtonOnClick::type ${event.type}`);
+    setProfileData({ ...data });
     console.debug(
       `handleSettingsSaveButtonOnClick::data ${JSON.stringify(data)}`
     );
@@ -138,6 +144,9 @@ export function PromoDashboard({
                   ? handleSettingsSaveButtonClick
                   : handleSettingsSaveButtonOnClick
               }
+              image={profileData?.image}
+              fullName={profileData?.fullName}
+              userName={profileData?.userName}
             />
           </>
         ) : typeof promoData !== 'undefined' ? (
