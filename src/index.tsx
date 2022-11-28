@@ -4,7 +4,7 @@ import { CampaignDetail } from './components/CampaignDetail';
 import { CampaignData, Settings } from './lib/types';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
-import { sortCampaignDataOnIsActive } from './lib/sort';
+import { sortCampaignDataOnIsActive, numActiveCampaigns } from './lib/sort';
 import { options } from './lib/options';
 import { DownloadAllCampaignsButton } from './components/DownloadButton';
 
@@ -126,6 +126,17 @@ export function PromoDashboard({
       <DashboardContainer>
         {!isCampaignClicked ? (
           <>
+            <div className="inline-flex w-full pb-4">
+              <h1 className="mt-auto mx-2 w-full text-left align-text-middle text-2xl font-bold">
+                {numActiveCampaigns(sortedCampaignsData)} active campaigns
+              </h1>
+              <span className="mt-auto mx-2">
+                <DownloadAllCampaignsButton
+                  campaignsData={sortedCampaignsData}
+                />
+              </span>
+            </div>
+
             <CampaignList
               data={sortedCampaignsData}
               handleRepeatButtonOnClick={
@@ -135,7 +146,6 @@ export function PromoDashboard({
               }
               handleCampaignClick={handleCampaignClick}
             />
-            <DownloadAllCampaignsButton campaignsData={sortedCampaignsData} />
             <Profile
               setHasUpdatedSettings={setHasUpdatedSettings}
               setIsUpdatingSettings={setIsUpdatingSettings}
