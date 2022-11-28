@@ -28,7 +28,8 @@ export const campaignStubData = [
     title: 'Paradigm Representative',
     role: 'Admin',
     email: 'janecooper@example.com',
-    adCopy: 'Accounting made simple and illegal for small businesses.',
+    adCopy:
+      'Accounting made simple and illegal for small businesses. Make this too long and you will lose out.',
     adCallToAction: "🤞 Don't get audited!",
     buttonText: 'Sign up',
     telephone: '+1-202-555-0170',
