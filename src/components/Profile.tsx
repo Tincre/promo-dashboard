@@ -6,6 +6,7 @@ export function Profile({
   image,
   fullName,
   userName,
+  email,
   setHasUpdatedSettings,
   setIsUpdatingSettings,
   handleSettingsSaveButtonClick,
@@ -13,6 +14,7 @@ export function Profile({
   image?: string;
   fullName?: string;
   userName?: string;
+  email?: string;
   setHasUpdatedSettings?: Dispatch<boolean>;
   setIsUpdatingSettings?: Dispatch<boolean>;
   handleSettingsSaveButtonClick?: (
@@ -28,6 +30,7 @@ export function Profile({
     fullName: fullName,
     image: image,
     userName: userName,
+    email: email,
   });
   const [submitEvent, setSubmitEvent] =
     useState<MouseEvent<HTMLButtonElement>>();
@@ -183,6 +186,26 @@ export function Profile({
                     pattern="^[A-Za-z0-9_]{0,15}$"
                     className="block w-full max-w-lg rounded-md border border-gray-300 py-2 pl-1 font-mono text-xs shadow-sm focus:border-blue-700 focus:ring-blue-700 lg:text-sm"
                     value={settingsData?.userName || ''}
+                    onChange={(e) => {
+                      handleChange(e);
+                    }}
+                  />
+                </div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mt-4 sm:pt-2"
+                >
+                  Email
+                </label>
+                <div className="mt-2 sm:col-span-2">
+                  <input
+                    disabled={true}
+                    id="email"
+                    placeholder="hi@taxpal.com"
+                    name="email"
+                    type="email"
+                    className="block w-full max-w-lg rounded-md border border-gray-300 py-2 pl-1 font-mono text-xs shadow-sm focus:border-blue-700 focus:ring-blue-700 lg:text-sm"
+                    value={email || ''}
                     onChange={(e) => {
                       handleChange(e);
                     }}
