@@ -4,7 +4,7 @@ import { CampaignDetail } from './components/CampaignDetail';
 import { CampaignData, Settings } from './lib/types';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
-import { sortCampaignDataOnIsActive } from './lib/sort';
+import { sortCampaignDataOnIsActive, numActiveCampaigns } from './lib/sort';
 import { options } from './lib/options';
 import { DownloadAllCampaignsButton } from './components/DownloadButton';
 
@@ -120,13 +120,6 @@ export function PromoDashboard({
     console.debug(
       `handleSettingsSaveButtonOnClick::data ${JSON.stringify(data)}`
     );
-  };
-  const numActiveCampaigns = (sortedCampaignsData: CampaignData[]) => {
-    let activeCampaigns = 0;
-    sortedCampaignsData.map((campaign) =>
-      campaign.isActive ? (activeCampaigns += 1) : null
-    );
-    return activeCampaigns;
   };
   return (
     <>
