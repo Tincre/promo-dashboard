@@ -92,7 +92,9 @@ export function Campaign({
           </h3>
           <dl className="mt-1 flex flex-grow flex-col justify-between">
             <dt className="sr-only">Ad Description</dt>
-            <dd className="text-sm text-slate-500 h-24 text-elipsis">{adCopy}</dd>
+            <dd className="text-sm text-slate-500 h-24 text-elipsis">
+              {adCopy}
+            </dd>
             <span className="grid grid-cols-2">
               {' '}
               <dt className="sr-only">Promo ID</dt>

@@ -10,6 +10,7 @@ describe('Profile', () => {
         image={campaignStubData[0].imageUrl}
         fullName="Test"
         userName="tester"
+        email="test@example.com"
         setHasUpdatedSettings={undefined}
         setIsUpdatingSettings={undefined}
       />
@@ -20,6 +21,8 @@ describe('Profile', () => {
     expect(profileFullName).toBeDefined();
     const image = screen.getByText('User name');
     expect(image).toBeDefined();
+    const email = screen.getByText('Email', { exact: false });
+    expect(email).toBeDefined();
   });
   it('renders using state setters and full data without crashing', () => {
     let hasUpdatedFlag = false;
