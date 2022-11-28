@@ -195,13 +195,14 @@ export function Profile({
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700 mt-4 sm:pt-2"
                 >
-                  Email
+                  Email{' '}
+                  <span className="text-xs text-gray-500 ">no changes</span>
                 </label>
                 <div className="mt-2 sm:col-span-2">
                   <input
                     disabled={true}
                     id="email"
-                    placeholder="hi@taxpal.com"
+                    placeholder="example@example.com"
                     name="email"
                     type="email"
                     className="block w-full max-w-lg rounded-md border border-gray-300 py-2 pl-1 font-mono text-xs shadow-sm focus:border-blue-700 focus:ring-blue-700 lg:text-sm"
