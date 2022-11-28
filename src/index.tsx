@@ -150,13 +150,27 @@ export function PromoDashboard({
             />
           </>
         ) : typeof promoData !== 'undefined' ? (
-          <CampaignDetail
-            data={promoData}
-            statsHighlightTimeseries={statsHighlightTimeseries}
-            statsHighlightMetricName={clickedStatsClassName}
-            handleCampaignDetailBackOnClick={handleCampaignDetailBackOnClick}
-            handleStatsHighlightClick={handleStatsHighlightClick}
-          />
+          <>
+            <CampaignDetail
+              data={promoData}
+              statsHighlightTimeseries={statsHighlightTimeseries}
+              statsHighlightMetricName={clickedStatsClassName}
+              handleCampaignDetailBackOnClick={handleCampaignDetailBackOnClick}
+              handleStatsHighlightClick={handleStatsHighlightClick}
+            />
+            <Profile
+              setHasUpdatedSettings={setHasUpdatedSettings}
+              setIsUpdatingSettings={setIsUpdatingSettings}
+              handleSettingsSaveButtonClick={
+                typeof handleSettingsSaveButtonClick !== 'undefined'
+                  ? handleSettingsSaveButtonClick
+                  : handleSettingsSaveButtonOnClick
+              }
+              image={profileData?.image}
+              fullName={profileData?.fullName}
+              userName={profileData?.userName}
+            />
+          </>
         ) : null}
       </DashboardContainer>
     </>
