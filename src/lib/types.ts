@@ -17,4 +17,5 @@ export interface Settings {
   fullName?: string;
   image?: string;
   userName?: string;
+  email?: string;
 }

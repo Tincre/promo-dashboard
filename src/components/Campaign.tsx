@@ -87,12 +87,12 @@ export function Campaign({
             src={imageUrl}
             alt={adTitle}
           />
-          <h3 className="mt-6 text-sm font-medium text-slate-900 group-hover:text-slate-200">
+          <h3 className="mt-6 text-sm font-medium text-slate-900 group-hover:text-slate-200 truncate">
             {adTitle}
           </h3>
           <dl className="mt-1 flex flex-grow flex-col justify-between">
             <dt className="sr-only">Ad Description</dt>
-            <dd className="text-sm text-slate-500">{adCopy}</dd>
+            <dd className="text-sm text-slate-500 h-24 text-elipsis">{adCopy}</dd>
             <span className="grid grid-cols-2">
               {' '}
               <dt className="sr-only">Promo ID</dt>
