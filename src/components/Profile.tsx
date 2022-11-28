@@ -206,7 +206,7 @@ export function Profile({
                     name="email"
                     type="email"
                     className="block w-full max-w-lg rounded-md border border-gray-300 py-2 pl-1 font-mono text-xs shadow-sm focus:border-blue-700 focus:ring-blue-700 lg:text-sm"
-                    value={email || ''}
+                    value={settingsData?.email || ''}
                     onChange={(e) => {
                       handleChange(e);
                     }}
