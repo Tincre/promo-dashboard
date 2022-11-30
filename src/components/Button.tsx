@@ -6,20 +6,25 @@ const baseClassName =
 export function Button({
   className,
   onClick,
+  type,
+  form,
   children,
 }: {
   className?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  type?: 'button' | 'submit' | 'reset';
+  form?: string;
   children?: string;
 }) {
   return (
     <button
+      type={type || 'button'}
+      form={form}
       className={
         typeof className !== 'undefined'
           ? baseClassName + className
           : baseClassName
       }
-      type="button"
       onClick={onClick}
     >
       {children}
