@@ -1,6 +1,7 @@
 import { useEffect, useState, Dispatch, MouseEvent } from 'react';
 import { settingsDetailSchema } from '../lib/yup';
 import { Settings } from '../lib/types';
+import { Button } from '../components/Button';
 
 export function Profile({
   image,
@@ -217,7 +218,7 @@ export function Profile({
           </div>
           <div className="pt-5">
             <div className="flex justify-end">
-              <button
+              <Button
                 type="submit"
                 form={`profile-form`}
                 onClick={(event) => {
@@ -231,10 +232,9 @@ export function Profile({
                   }
                   setIsUpdatingInternalSettings(false);
                 }}
-                className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-blue-700 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-black focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2"
               >
                 Save
-              </button>
+              </Button>
             </div>
           </div>
         </div>
