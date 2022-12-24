@@ -77,7 +77,7 @@ export function Campaign({
     >
       <button
         onClick={() => handleCampaignClick(data)}
-        aria-label={`campaign-${data.pid}-button`}
+        aria-label={`campaign-${data?.pid || 'default'}-button`}
       >
         <div className="relative flex flex-1 flex-col px-2 pt-10 pb-6 group-hover:rounded-tr-md group-hover:rounded-tl-sm group-hover:bg-slate-900">
           <IsActivePill isActive={isActive} />
