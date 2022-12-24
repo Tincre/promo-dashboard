@@ -12,15 +12,16 @@ export function DownloadAllCampaignsButton({
   campaignsData: CampaignData[];
 }) {
   const [localCampaignsData, setLocalCampaignsData] = useState<object>({});
+  const [filename, setFileName] = useState<string | undefined>(undefined);
   useEffect(() => {
     console.debug(
       `DownloadCampaignButton component data: ${JSON.stringify(campaignsData)}`
     );
     setLocalCampaignsData(campaignsData);
   }, [setLocalCampaignsData, campaignsData]);
-  /* @ts-ignore */
-  const filename = `all-campaigns_${now()}.csv`;
-
+  useEffect(() => {
+    setFileName(`all-campaigns_${now()}.csv`);
+  }, []);
   return (
     <div className="mt-12">
       <CsvDownload
@@ -39,15 +40,21 @@ export function DownloadCampaignButton({
 }: {
   campaignData: CampaignData;
 }) {
-  const [localCampaignData, setLocalCampaignData] = useState<object>({});
+  const [localCampaignData, setLocalCampaignData] = useState<
+    CampaignData | undefined
+  >();
+  const [filename, setFilename] = useState<string | undefined>();
   useEffect(() => {
     console.debug(
       `DownloadCampaignButton component data: ${JSON.stringify(campaignData)}`
     );
     setLocalCampaignData(campaignData);
   }, [setLocalCampaignData, campaignData]);
-  /* @ts-ignore */
-  const filename = `${localCampaignData.pid}_${now()}.csv`;
+  useEffect(() => {
+    if (typeof localCampaignData !== 'undefined') {
+      setFilename(`${localCampaignData.pid}_${now()}.csv`);
+    }
+  }, [localCampaignData]);
   return (
     <CsvDownload
       className={baseClassName}
