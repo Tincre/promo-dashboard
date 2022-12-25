@@ -212,10 +212,10 @@
     "@tincre/promo-button-node" "^0.0.6"
     cross-fetch "^3.1.5"
 
-"@tincre/promo-dashboard@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@tincre/promo-dashboard/-/promo-dashboard-0.0.2.tgz#70489bef55d4d065c3ea0f23dc56d1393e3c1ae5"
-  integrity sha512-XVmr+fUZX+xlmu9vdmuQRoNzJDZZ+KJ7lGkntDQnZLnPIXLQ6bDyAooQY9xoihd+FnSDfngrZxjGlm/5FsinlA==
+"@tincre/promo-dashboard@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@tincre/promo-dashboard/-/promo-dashboard-0.4.0.tgz#4556fb4de45bba6592b46241c283814c5bd33f18"
+  integrity sha512-3CTwsxf91zboLPntFeGBnzoExObx2qq82JHA5xB2LBOShU3da7N4amXAlT3vGD1AAWSqW5hMT94MP5xUQ3t3zw==
 
 "@types/json5@^0.0.29":
   version "0.0.29"
