@@ -36,7 +36,7 @@ sast:
 include:
   - template: Security/SAST.gitlab-ci.yml
 
-semgrep-report:
+sast:
   image: returntocorp/semgrep-agent:v1
   tags:
     - cicd
