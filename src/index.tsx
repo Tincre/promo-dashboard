@@ -153,18 +153,6 @@ export function PromoDashboard({
               }
               handleCampaignClick={handleCampaignClick}
             />
-            <Profile
-              setHasUpdatedSettings={setHasUpdatedSettings}
-              setIsUpdatingSettings={setIsUpdatingSettings}
-              handleSettingsSaveButtonClick={
-                typeof handleSettingsSaveButtonClick !== 'undefined'
-                  ? handleSettingsSaveButtonClick
-                  : handleSettingsSaveButtonOnClick
-              }
-              image={profileData?.image}
-              fullName={profileData?.fullName}
-              userName={profileData?.userName}
-            />
           </>
         ) : typeof promoData !== 'undefined' ? (
           <>
@@ -175,20 +163,20 @@ export function PromoDashboard({
               handleCampaignDetailBackOnClick={handleCampaignDetailBackOnClick}
               handleStatsHighlightClick={handleStatsHighlightClick}
             />
-            <Profile
-              setHasUpdatedSettings={setHasUpdatedSettings}
-              setIsUpdatingSettings={setIsUpdatingSettings}
-              handleSettingsSaveButtonClick={
-                typeof handleSettingsSaveButtonClick !== 'undefined'
-                  ? handleSettingsSaveButtonClick
-                  : handleSettingsSaveButtonOnClick
-              }
-              image={profileData?.image}
-              fullName={profileData?.fullName}
-              userName={profileData?.userName}
-            />
           </>
         ) : null}
+        <Profile
+          setHasUpdatedSettings={setHasUpdatedSettings}
+          setIsUpdatingSettings={setIsUpdatingSettings}
+          handleSettingsSaveButtonClick={
+            typeof handleSettingsSaveButtonClick !== 'undefined'
+              ? handleSettingsSaveButtonClick
+              : handleSettingsSaveButtonOnClick
+          }
+          image={profileData?.image}
+          fullName={profileData?.fullName}
+          userName={profileData?.userName}
+        />
       </DashboardContainer>
     </>
   );
