@@ -16,7 +16,7 @@ import { options } from './lib/options';
 import { DownloadAllCampaignsButton } from './components/DownloadButton';
 
 export function PromoDashboard({
-  campaignsData,
+  campaignsData = [],
   campaignDetailData,
   profileSettingsData,
   handleRepeatButtonClick,
@@ -44,7 +44,10 @@ export function PromoDashboard({
   const [isUpdatingSettings, setIsUpdatingSettings] = useState<boolean>(false);
   const [sortedCampaignsData, setSortedCampaignsData] = useState<
     CampaignData[]
-  >(sortCampaignDataOnIsActive(campaignsData));
+  >([]);
+  const [numberOfActiveCampaigns, setNumberOfActiveCampaigns] = useState<
+    number | undefined
+  >(undefined);
   const [statsHighlightTimeseries, setStatsHighlightTimeseries] = useState<
     object | undefined
   >(undefined);
@@ -56,7 +59,7 @@ export function PromoDashboard({
   );
   useEffect(() => {
     if (typeof campaignsData !== 'undefined') {
-      setSortedCampaignsData(campaignsData);
+      setSortedCampaignsData(sortCampaignDataOnIsActive(campaignsData));
     }
   }, [campaignsData, setSortedCampaignsData]);
 
@@ -65,6 +68,12 @@ export function PromoDashboard({
       setPromoData(campaignDetailData);
     }
   }, [campaignDetailData, setPromoData]);
+
+  useEffect(() => {
+    if (sortedCampaignsData?.length) {
+      setNumberOfActiveCampaigns(numActiveCampaigns(sortedCampaignsData));
+    }
+  }, [sortedCampaignsData]);
 
   const handleStatsHighlightClick = (campaignData: any) => {
     setStatsHighlightTimeseries(campaignData);
@@ -102,7 +111,7 @@ export function PromoDashboard({
   const handleCampaignClick = (data: CampaignData) => {
     setPromoData(data);
     setIsCampaignClicked(true);
-    if (typeof data?.stats !== 'undefined') {
+    if (data?.stats?.length) {
       data.stats.map((campaignStats: any) => {
         if (campaignStats.name === options.defaultStatName) {
           setStatsHighlightTimeseries(campaignStats);
@@ -134,9 +143,11 @@ export function PromoDashboard({
         {!isCampaignClicked ? (
           <>
             <div className="inline-flex w-full pb-4">
-              <h1 className="mt-auto mx-2 w-full text-left align-text-middle text-2xl font-bold">
-                {numActiveCampaigns(sortedCampaignsData)} active campaigns
-              </h1>
+              {!numberOfActiveCampaigns ? null : (
+                <h1 className="mt-auto mx-2 w-full text-left align-text-middle text-2xl font-bold">
+                  {numberOfActiveCampaigns} active campaigns
+                </h1>
+              )}
               <span className="mt-auto mx-2">
                 <DownloadAllCampaignsButton
                   campaignsData={sortedCampaignsData}
@@ -144,27 +155,17 @@ export function PromoDashboard({
               </span>
             </div>
 
-            <CampaignList
-              data={sortedCampaignsData}
-              handleRepeatButtonOnClick={
-                typeof handleRepeatButtonClick !== 'undefined'
-                  ? handleRepeatButtonClick
-                  : handleRepeatButtonOnClick
-              }
-              handleCampaignClick={handleCampaignClick}
-            />
-            <Profile
-              setHasUpdatedSettings={setHasUpdatedSettings}
-              setIsUpdatingSettings={setIsUpdatingSettings}
-              handleSettingsSaveButtonClick={
-                typeof handleSettingsSaveButtonClick !== 'undefined'
-                  ? handleSettingsSaveButtonClick
-                  : handleSettingsSaveButtonOnClick
-              }
-              image={profileData?.image}
-              fullName={profileData?.fullName}
-              userName={profileData?.userName}
-            />
+            {!sortedCampaignsData ? null : (
+              <CampaignList
+                data={sortedCampaignsData}
+                handleRepeatButtonOnClick={
+                  typeof handleRepeatButtonClick !== 'undefined'
+                    ? handleRepeatButtonClick
+                    : handleRepeatButtonOnClick
+                }
+                handleCampaignClick={handleCampaignClick}
+              />
+            )}
           </>
         ) : typeof promoData !== 'undefined' ? (
           <>
@@ -175,20 +176,20 @@ export function PromoDashboard({
               handleCampaignDetailBackOnClick={handleCampaignDetailBackOnClick}
               handleStatsHighlightClick={handleStatsHighlightClick}
             />
-            <Profile
-              setHasUpdatedSettings={setHasUpdatedSettings}
-              setIsUpdatingSettings={setIsUpdatingSettings}
-              handleSettingsSaveButtonClick={
-                typeof handleSettingsSaveButtonClick !== 'undefined'
-                  ? handleSettingsSaveButtonClick
-                  : handleSettingsSaveButtonOnClick
-              }
-              image={profileData?.image}
-              fullName={profileData?.fullName}
-              userName={profileData?.userName}
-            />
           </>
         ) : null}
+        <Profile
+          setHasUpdatedSettings={setHasUpdatedSettings}
+          setIsUpdatingSettings={setIsUpdatingSettings}
+          handleSettingsSaveButtonClick={
+            typeof handleSettingsSaveButtonClick !== 'undefined'
+              ? handleSettingsSaveButtonClick
+              : handleSettingsSaveButtonOnClick
+          }
+          image={profileData?.image}
+          fullName={profileData?.fullName}
+          userName={profileData?.userName}
+        />
       </DashboardContainer>
     </>
   );

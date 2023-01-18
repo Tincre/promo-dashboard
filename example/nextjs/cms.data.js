@@ -922,7 +922,7 @@ export const campaignStubData = [
     telephone: '+1-202-555-0170',
     imageUrl:
       'https://res.cloudinary.com/tincre/image/upload/v1666907624/tailwindui-salient/taxpal-og_xka3ix_q4ulfc.webp',
-    stats: [
+    /*stats: [
       {
         id: 1,
         name: 'Spend',
@@ -1079,6 +1079,6 @@ export const campaignStubData = [
           ],
         },
       },
-    ],
+    ],*/
   },
 ];
