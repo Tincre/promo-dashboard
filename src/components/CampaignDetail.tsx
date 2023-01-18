@@ -18,7 +18,7 @@ export function CampaignDetail({
   handleCampaignDetailBackOnClick,
   handleStatsHighlightClick,
 }: {
-  data: CampaignData;
+  data?: CampaignData;
   statsHighlightTimeseries?: object;
   statsHighlightMetricName?: string;
   handleCampaignDetailBackOnClick: MouseEventHandler<HTMLButtonElement>;
@@ -30,21 +30,23 @@ export function CampaignDetail({
         <Button
           className="mx-2 mt-2 inline"
           onClick={handleCampaignDetailBackOnClick}
-          aria-label={`campaign-detail-back-${data.pid || ''}`}
+          aria-label={`campaign-detail-back-${data?.pid || ''}`}
         >
           Back
         </Button>
         <h1 className="mt-auto mx-2 w-full text-center align-text-bottom text-2xl font-bold">
-          {data.pid}
+          {data?.pid || ''}
         </h1>
         <span className="mt-auto mx-2">
-          <DownloadCampaignButton campaignData={data} />
+          {!data ? null : <DownloadCampaignButton campaignData={data} />}
         </span>
       </div>
-      <CampaignImageChart
-        data={data}
-        statsHighlightTimeseries={statsHighlightTimeseries}
-      />
+      {!data ? null : (
+        <CampaignImageChart
+          data={data}
+          statsHighlightTimeseries={statsHighlightTimeseries}
+        />
+      )}
       <StatsHighlights
         stats={data?.stats || []}
         handleStatsHighlightClick={handleStatsHighlightClick}
