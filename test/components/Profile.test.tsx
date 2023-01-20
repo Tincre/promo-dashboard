@@ -7,7 +7,7 @@ describe('Profile', () => {
   it('renders full data without crashing', () => {
     render(
       <Profile
-        image={campaignStubData[0].imageUrl}
+        image={campaignStubData[0].creativeUrls[0]}
         fullName="Test"
         userName="tester"
         email="test@example.com"
@@ -40,7 +40,7 @@ describe('Profile', () => {
       }, [isUpdatingSettings]);
       return (
         <Profile
-          image={campaignStubData[0].imageUrl}
+          image={campaignStubData[0].creativeUrls[0]}
           fullName="Test"
           userName="tester"
           setHasUpdatedSettings={setHasUpdatedSettings}
