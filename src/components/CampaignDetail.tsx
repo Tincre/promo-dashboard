@@ -4,6 +4,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
+import { useEffect } from 'react';
 import { Button } from './Button';
 import { MouseEventHandler } from 'react';
 import { CampaignData } from '../lib/types';
@@ -24,6 +25,11 @@ export function CampaignDetail({
   handleCampaignDetailBackOnClick: MouseEventHandler<HTMLButtonElement>;
   handleStatsHighlightClick?: Function;
 }) {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
+  }, []);
   return (
     <>
       <div className="inline-flex w-full">
