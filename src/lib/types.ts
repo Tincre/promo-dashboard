@@ -12,7 +12,7 @@ export interface CampaignData {
   description?: string;
   target?: string;
   adCopy?: string;
-  imageUrl?: string;
+  creativeUris?: string[];
   adCallToAction?: string;
   buttonText?: string;
   isActive?: boolean;
