@@ -5,12 +5,12 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-export function AdPreviewDetailImage({ imageUrl }: { imageUrl: string }) {
+export function AdPreviewDetailImage({ creativeUrl }: { creativeUrl: string }) {
   return (
     <div className="relative ">
       {' '}
       <img
-        src={imageUrl}
+        src={creativeUrl}
         className="rounded-lg object-cover w-full h-56 sm:h-72 md:h-96"
         alt=""
       />
