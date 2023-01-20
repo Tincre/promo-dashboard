@@ -29,7 +29,11 @@ export function Campaign({
   children?: ReactNode;
 }) {
   const [isActive, setIsActive] = useState<boolean>(data?.isActive || false);
-  const [imageUrl, setImageUrl] = useState<string>(data.imageUrl || '');
+  const [creativeUrl, setCreativeUrl] = useState<string>(
+    data?.creativeUrls && data.creativeUrls.length !== 0
+      ? data.creativeUrls[0]
+      : ''
+  );
   const [promoId, setPromoId] = useState<string>('');
   const [budget, setBudget] = useState<string | number>(data?.budget || '250');
   const [adTitle, setAdTitle] = useState<string>(data?.adTitle || '');
@@ -42,8 +46,8 @@ export function Campaign({
     if (data?.isActive && typeof data?.isActive) {
       setIsActive(data?.isActive);
     }
-    if (data?.imageUrl && typeof data?.imageUrl !== 'undefined') {
-      setImageUrl(data.imageUrl);
+    if (data?.creativeUrls && data.creativeUrls.length !== 0) {
+      setCreativeUrl(data.creativeUrls[0]);
     }
     if (data?.pid && typeof data?.pid !== 'undefined') {
       setPromoId(data.pid);
@@ -57,15 +61,9 @@ export function Campaign({
     if (data?.adCopy && typeof data?.adCopy !== 'undefined') {
       setAdCopy(data.adCopy);
     }
-    if (
-      typeof data?.budget !== 'undefined' &&
-      typeof data?.budget !== 'undefined' &&
-      data?.budget &&
-      data?.currency
-    ) {
+    if (data?.budget && data?.currency) {
       setDollarAmount(`${data.budget} ${data.currency}`);
     }
-
     setSupportLink(getSupportLink(data));
   }, [data]);
   useEffect(() => {
@@ -90,7 +88,7 @@ export function Campaign({
           <img
             suppressHydrationWarning={true}
             className="mx-auto h-32 w-full flex-shrink-0 rounded-b-md rounded-t-sm object-cover px-2"
-            src={imageUrl}
+            src={creativeUrl}
             alt={adTitle}
           />
           <h3 className="mt-6 text-sm font-medium text-slate-900 group-hover:text-slate-200 truncate">

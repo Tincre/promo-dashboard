@@ -33,8 +33,9 @@ export const campaignStubData = [
     adCallToAction: "🤞 Don't get audited!",
     buttonText: 'Sign up',
     telephone: '+1-202-555-0170',
-    imageUrl:
+    creativeUrls: [
       'https://res.cloudinary.com/tincre/image/upload/v1666907624/tailwindui-salient/taxpal-og_xka3ix_q4ulfc.webp',
+    ],
     stats: [
       {
         id: 1,
@@ -211,8 +212,9 @@ export const campaignStubData = [
     adCallToAction: "🤞 Don't get audited!",
     buttonText: 'Sign up',
     telephone: '+1-202-555-0170',
-    imageUrl:
+    creativeUrls: [
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
+    ],
     stats: [
       {
         id: 1,
@@ -388,8 +390,9 @@ export const campaignStubData = [
     adCallToAction: "🤞 Don't get audited!",
     buttonText: 'Sign up',
     telephone: '+1-202-555-0170',
-    imageUrl:
+    creativeUrls: [
       'https://res.cloudinary.com/tincre/image/upload/v1666907673/tailwindui-salient/background-faqs_nugiew_m0skue.webp',
+    ],
     stats: [
       {
         id: 1,
@@ -565,8 +568,9 @@ export const campaignStubData = [
     adCallToAction: "🤞 Don't get audited!",
     buttonText: 'Sign up',
     telephone: '+1-202-555-0170',
-    imageUrl:
+    creativeUrls: [
       'https://res.cloudinary.com/tincre/image/upload/v1666907587/tailwindui-salient/screenshots/vat-returns_uhkad6_c8tze2.webp',
+    ],
     stats: [
       {
         id: 1,
@@ -743,8 +747,9 @@ export const campaignStubData = [
     adCallToAction: "🤞 Don't get audited!",
     buttonText: 'Sign up',
     telephone: '+1-202-555-0170',
-    imageUrl:
+    creativeUrls: [
       'https://res.cloudinary.com/tincre/image/upload/v1666907624/tailwindui-salient/taxpal-og_xka3ix_q4ulfc.webp',
+    ],
     stats: [
       {
         id: 1,
@@ -920,8 +925,9 @@ export const campaignStubData = [
     adCallToAction: "🤞 Don't get audited!",
     buttonText: 'Sign up',
     telephone: '+1-202-555-0170',
-    imageUrl:
+    creativeUrls: [
       'https://res.cloudinary.com/tincre/image/upload/v1666907624/tailwindui-salient/taxpal-og_xka3ix_q4ulfc.webp',
+    ],
     /*stats: [
       {
         id: 1,
