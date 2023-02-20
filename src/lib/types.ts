@@ -18,6 +18,7 @@ export interface CampaignData {
   isActive?: boolean;
   currency?: string;
   stats?: object[];
+  data?: object[]; // TODO Update with object of object containing meta, google,
 }
 export interface Settings {
   fullName?: string;
