@@ -54,7 +54,7 @@ export function CampaignDetail({
         />
       )}
       <StatsHighlights
-        stats={data?.stats || []}
+        stats={data?.data || data?.stats || []}
         handleStatsHighlightClick={handleStatsHighlightClick}
         statsHighlightMetricsName={statsHighlightMetricName || 'Spend'}
       />

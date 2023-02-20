@@ -26,8 +26,8 @@ export function CampaignImageChart({
         />
       </div>
       <div className="relative overflow-hidden rounded-lg bg-slate-50 px-4 py-5 pb-0 shadow sm:px-6 sm:py-6">
-        {!data?.stats || !statsHighlightTimeseries ? null : (
-          <LineChart info={statsHighlightTimeseries || data.stats[0]} />
+        {!data?.data || !statsHighlightTimeseries ? null : (
+          <LineChart info={statsHighlightTimeseries || data.data[0]} />
         )}
       </div>
     </div>
