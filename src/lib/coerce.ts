@@ -24,7 +24,8 @@ function generateEmptyPromoApiDataForChartJs(): {
 /*
  * @remarks
  * Return a formatted series for use with the chartDetail timeseries
- * display component with Chart.js under the hood.
+ * display component with Chart.js under the hood. This should be
+ * utilized for a single campaign.
  *
  * Each "series", e.g. 'totals', 'meta', 'google' or 'tiktok', should be
  * separately coerced via this function.
