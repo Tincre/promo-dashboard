@@ -1,5 +1,8 @@
 import { testPromoApiTimeseriesData } from '../cms.data';
-import { coercePromoApiDataForChartJs } from '../../src/lib/coerce';
+import {
+  coercePromoApiDataForChartJs,
+  prepareChartData,
+} from '../../src/lib/coerce';
 
 describe('coercePromoApiDataForChartJs', () => {
   it('coerces data without crashing', () => {
@@ -7,5 +10,20 @@ describe('coercePromoApiDataForChartJs', () => {
       testPromoApiTimeseriesData.data.totals
     );
     expect(coerced.updatedTime[0]).toBe('2023-02-19 14:40:40.002385+00:00');
+  });
+});
+
+describe('prepareChartData', () => {
+  it('prepars data without crashing', () => {
+    const coerced = coercePromoApiDataForChartJs(
+      testPromoApiTimeseriesData.data.totals
+    );
+    const prepared = prepareChartData(coerced);
+    expect(prepared.length).toBe(7);
+    const spend = prepared[0];
+    expect(spend.id).toBe(1);
+    expect(spend.name).toBe('Spend');
+    expect(spend.change).toBe(0);
+    expect(spend.chartData.labels.length > 0).toBeTruthy();
   });
 });
