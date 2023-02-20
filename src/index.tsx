@@ -12,6 +12,7 @@ import { CampaignData, Settings } from './lib/types';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
 import { sortCampaignDataOnIsActive, numActiveCampaigns } from './lib/sort';
+import { replaceDataParamForChartData } from './lib/coerce';
 import { options } from './lib/options';
 import { DownloadAllCampaignsButton } from './components/DownloadButton';
 
@@ -59,7 +60,9 @@ export function PromoDashboard({
   );
   useEffect(() => {
     if (typeof campaignsData !== 'undefined') {
-      setSortedCampaignsData(sortCampaignDataOnIsActive(campaignsData));
+      setSortedCampaignsData(
+        replaceDataParamForChartData(sortCampaignDataOnIsActive(campaignsData))
+      );
     }
   }, [campaignsData, setSortedCampaignsData]);
 
@@ -111,8 +114,8 @@ export function PromoDashboard({
   const handleCampaignClick = (data: CampaignData) => {
     setPromoData(data);
     setIsCampaignClicked(true);
-    if (data?.stats?.length) {
-      data.stats.map((campaignStats: any) => {
+    if (data?.data?.length) {
+      data.data.map((campaignStats: any) => { // TODO add proper type
         if (campaignStats.name === options.defaultStatName) {
           setStatsHighlightTimeseries(campaignStats);
         }
