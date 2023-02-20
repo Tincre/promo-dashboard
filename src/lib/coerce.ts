@@ -70,7 +70,7 @@ export function coercePromoApiDataForChartJs(
 }
 export function computeChange(data: (number | null)[]) {
   let last = data[data.length - 1];
-  if (length > 1) {
+  if (data.length > 1) {
     let nextToLast = data[data.length - 2];
     if (last !== null) {
       return nextToLast !== null ? last - nextToLast : 0;
@@ -184,12 +184,13 @@ export function replaceDataParamForChartData(campaignsData: CampaignData[]) {
   const resultArray: CampaignData[] = [];
   campaignsData.forEach((pckg) => {
     resultArray.push({
-      ...pckg,
-      data: prepareChartData(
-        // @ts-ignore TODO remove ts-ignore by adding type for actual Promo Api data
-
-        coercePromoApiDataForChartJs(pckg?.data?.totals || pckg?.data)
-      ),
+      ...pckg, // @ts-ignore
+      data: pckg?.data?.totals
+        ? prepareChartData(
+            // @ts-ignore
+            coercePromoApiDataForChartJs(pckg.data.totals)
+          )
+        : pckg?.data || pckg?.stats,
     });
   });
 
