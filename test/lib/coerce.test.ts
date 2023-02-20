@@ -1,7 +1,8 @@
-import { testPromoApiTimeseriesData } from '../cms.data';
+import { testPromoApiTimeseriesData, campaignStubData } from '../cms.data';
 import {
   coercePromoApiDataForChartJs,
   prepareChartData,
+  replaceDataParamForChartData,
 } from '../../src/lib/coerce';
 
 describe('coercePromoApiDataForChartJs', () => {
@@ -25,5 +26,12 @@ describe('prepareChartData', () => {
     expect(spend.name).toBe('Spend');
     expect(spend.change).toBe(0);
     expect(spend.chartData.labels.length > 0).toBeTruthy();
+  });
+});
+
+describe('prepareChartData', () => {
+  it('prepars data without crashing', () => {
+    const replaced = replaceDataParamForChartData(campaignStubData);
+    expect(replaced.length > 0).toBeTruthy();
   });
 });

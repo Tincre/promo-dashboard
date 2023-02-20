@@ -5,6 +5,8 @@ import {
   CurrencyDollarIcon,
   VideoCameraIcon,
 } from '@heroicons/react/24/outline';
+import { CampaignData } from './types';
+
 function generateEmptyPromoApiDataForChartJs(): {
   updatedTime: (string | null)[];
   spend: (number | null)[];
@@ -176,4 +178,20 @@ export function prepareChartData(chartJsData: {
       },
     },
   ];
+}
+
+export function replaceDataParamForChartData(campaignsData: CampaignData[]) {
+  const resultArray: CampaignData[] = [];
+  campaignsData.forEach((pckg) => {
+    resultArray.push({
+      ...pckg,
+      data: prepareChartData(
+        // @ts-ignore TODO remove ts-ignore by adding type for actual Promo Api data
+
+        coercePromoApiDataForChartJs(pckg?.data?.totals || pckg?.data)
+      ),
+    });
+  });
+
+  return resultArray;
 }
