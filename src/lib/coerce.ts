@@ -56,7 +56,7 @@ export function coercePromoApiDataForChartJs(
   let chartJsData = generateEmptyPromoApiDataForChartJs();
   if (typeof data !== 'undefined') {
     data.forEach((pckg) => {
-      chartJsData.updatedTime.push(pckg?.updated_time || null);
+      chartJsData.updatedTime.push(pckg?.updated_time?.slice(0, 10) || null);
       chartJsData.spend.push(pckg?.spend || null);
       chartJsData.reach.push(pckg?.reach || null);
       chartJsData.cpc.push(pckg?.cpc || null);
