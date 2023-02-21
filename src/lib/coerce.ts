@@ -4,6 +4,7 @@ import {
   UsersIcon,
   CurrencyDollarIcon,
   VideoCameraIcon,
+  FilmIcon,
 } from '@heroicons/react/24/outline';
 import { CampaignData } from './types';
 
@@ -121,7 +122,7 @@ export function prepareChartData(chartJsData: {
       id: 3,
       name: 'Views',
       stat: `$${chartJsData.views[chartJsData.views.length - 1] || '0'}`,
-      icon: CursorArrowRaysIcon,
+      icon: FilmIcon,
       change: computeChange(chartJsData.views),
       changeType: computeChangeType(computeChange(chartJsData.views)),
       chartData: {
@@ -169,7 +170,7 @@ export function prepareChartData(chartJsData: {
       id: 7,
       name: 'CPV',
       stat: `$${chartJsData.cpv[chartJsData.cpv.length - 1] || '0'}`,
-      icon: CursorArrowRaysIcon,
+      icon: VideoCameraIcon,
       change: computeChange(chartJsData.cpv),
       changeType: computeChangeType(computeChange(chartJsData.cpv)),
       chartData: {
