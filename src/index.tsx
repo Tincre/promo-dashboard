@@ -115,7 +115,8 @@ export function PromoDashboard({
     setPromoData(data);
     setIsCampaignClicked(true);
     if (data?.data?.length) {
-      data.data.map((campaignStats: any) => { // TODO add proper type
+      data.data.map((campaignStats: any) => {
+        // TODO add proper type
         if (campaignStats.name === options.defaultStatName) {
           setStatsHighlightTimeseries(campaignStats);
         }
