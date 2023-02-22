@@ -13,6 +13,17 @@ import { modifySingleCampaignDataForDownload } from '../lib/coerce';
 const baseClassName =
   'group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600';
 
+const SINGLE_CAMPAIGN_DOWNLOAD_HEADERS = [
+  'pid',
+  'updatedTime',
+  'spend',
+  'views',
+  'clicks',
+  'cpc',
+  'cpm',
+  'ctr',
+  'cpv',
+];
 export function DownloadAllCampaignsButton({
   campaignsData,
 }: {
@@ -56,8 +67,6 @@ export function DownloadCampaignButton({
   >();
   const [filename, setFilename] = useState<string | undefined>();
   useEffect(() => {
-    // TODO manipulate what needs manipulating
-    // https://gitlab.com/tincre/promo-dashboard/-/issues/9#note_1288818082
     const modifiedCampaignData =
       modifySingleCampaignDataForDownload(campaignData);
     console.debug(
@@ -78,18 +87,7 @@ export function DownloadCampaignButton({
       data={localCampaignData}
       style={{ display: 'inline' }}
       filename={filename}
-      headers={[
-        'pid',
-        'updatedTime',
-        'spend',
-        'reach',
-        'views',
-        'clicks',
-        'cpc',
-        'cpm',
-        'ctr',
-        'cpv',
-      ]}
+      headers={SINGLE_CAMPAIGN_DOWNLOAD_HEADERS}
     >
       Download
     </CsvDownload>
