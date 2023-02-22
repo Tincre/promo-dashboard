@@ -193,6 +193,7 @@ export function PromoDashboard({
           image={profileData?.image}
           fullName={profileData?.fullName}
           userName={profileData?.userName}
+          email={profileData?.email}
         />
       </DashboardContainer>
     </>
