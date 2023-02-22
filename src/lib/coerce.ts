@@ -6,7 +6,12 @@ import {
   VideoCameraIcon,
   FilmIcon,
 } from '@heroicons/react/24/outline';
-import { CampaignData } from './types';
+import {
+  CampaignData,
+  DownloadableCampaignStatsSample,
+  CampaignStatsSample,
+  PromoApiCampaignStatsSample,
+} from './types';
 
 function generateEmptyPromoApiDataForChartJs(): {
   updatedTime: (string | null)[];
@@ -57,14 +62,22 @@ export function coercePromoApiDataForChartJs(
   if (typeof data !== 'undefined') {
     data.forEach((pckg) => {
       chartJsData.updatedTime.push(pckg?.updated_time?.slice(0, 10) || null);
-      chartJsData.spend.push(pckg?.spend || null);
-      chartJsData.reach.push(pckg?.reach || null);
-      chartJsData.cpc.push(pckg?.cpc || null);
-      chartJsData.cpm.push(pckg?.cpm || null);
-      chartJsData.ctr.push(pckg?.ctr || null);
-      chartJsData.cpv.push(pckg?.cpv || null);
-      chartJsData.views.push(pckg?.views || null);
-      chartJsData.clicks.push(pckg?.clicks || null);
+      chartJsData.spend.push(
+        typeof pckg?.spend !== 'undefined' ? pckg.spend : null
+      );
+      chartJsData.reach.push(
+        typeof pckg?.reach !== 'undefined' ? pckg.reach : null
+      );
+      chartJsData.cpc.push(typeof pckg?.cpc !== 'undefined' ? pckg.cpc : null);
+      chartJsData.cpm.push(typeof pckg?.cpm !== 'undefined' ? pckg.cpm : null);
+      chartJsData.ctr.push(typeof pckg?.ctr !== 'undefined' ? pckg.ctr : null);
+      chartJsData.cpv.push(typeof pckg?.cpv !== 'undefined' ? pckg.cpv : null);
+      chartJsData.views.push(
+        typeof pckg?.views !== 'undefined' ? pckg.views : null
+      );
+      chartJsData.clicks.push(
+        typeof pckg?.clicks !== 'undefined' ? pckg.clicks : null
+      );
     });
   }
   return chartJsData;
@@ -196,4 +209,87 @@ export function replaceDataParamForChartData(campaignsData: CampaignData[]) {
   });
 
   return resultArray;
+}
+
+export function modifyCampaignDataForDownload(campaignData: CampaignData) {
+  const modifiedData: DownloadableCampaignStatsSample[] = [];
+  let data: PromoApiCampaignStatsSample[] | object[] | undefined =
+    campaignData?.data || campaignData?.stats;
+  let pid = campaignData.pid;
+  if (typeof data !== 'undefined') {
+    data.forEach((pckg: CampaignStatsSample | object) => {
+      // @ts-ignore
+
+      modifiedData.push({ ...pckg, pid: pid || '' });
+    });
+  }
+  return modifiedData;
+}
+
+export function modifySingleCampaignDataForDownload(
+  campaignData: CampaignData
+) {
+  let data = campaignData?.data || campaignData?.stats;
+  let pid: string[] = [];
+  let chartJsData = generateEmptyPromoApiDataForChartJs();
+  let modifiedData: DownloadableCampaignStatsSample[] = [];
+  if (typeof data !== 'undefined') {
+    data.forEach((pckg: any) => {
+      const chartData = pckg?.chartData;
+      chartJsData.updatedTime = chartData.labels;
+      pid.push(campaignData.pid || '');
+      if (pckg.name === 'Spend') {
+        chartJsData.spend = chartData.data;
+        return;
+      }
+      if (pckg.name === 'Reach') {
+        chartJsData.reach = chartData.data;
+        return;
+      }
+      if (pckg.name === 'Views') {
+        chartJsData.views = chartData.data;
+        return;
+      }
+      if (pckg.name === 'Clicks') {
+        chartJsData.clicks = chartData.data;
+        return;
+      }
+      if (pckg.name === 'CPC') {
+        chartJsData.cpc = chartData.data;
+        return;
+      }
+      if (pckg.name === 'CPM') {
+        chartJsData.cpm = chartData.data;
+        return;
+      }
+      if (pckg.name === 'CTR') {
+        chartJsData.ctr = chartData.data;
+        return;
+      }
+      if (pckg.name === 'CPV') {
+        chartJsData.cpv = chartData.data;
+        return;
+      }
+    });
+    let modifiedObject = {
+      ...chartJsData,
+      pid,
+    };
+
+    pid.forEach((pid, index) => {
+      modifiedData.push({
+        pid: pid,
+        updatedTime: modifiedObject.updatedTime[index] || '',
+        spend: modifiedObject.spend[index],
+        reach: modifiedObject?.reach[index],
+        views: modifiedObject?.views[index],
+        clicks: modifiedObject?.clicks[index],
+        cpc: modifiedObject?.cpc[index],
+        cpm: modifiedObject?.cpm[index],
+        ctr: modifiedObject?.ctr[index],
+        cpv: modifiedObject?.cpv[index],
+      });
+    });
+    return modifiedData;
+  }
 }
