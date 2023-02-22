@@ -8,7 +8,7 @@
 import { useState, useEffect, MouseEvent } from 'react';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
-import { CampaignData, Settings } from './lib/types';
+import { CampaignData, Settings, CampaignStatsData } from './lib/types';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
 import { sortCampaignDataOnIsActive, numActiveCampaigns } from './lib/sort';
@@ -115,8 +115,7 @@ export function PromoDashboard({
     setPromoData(data);
     setIsCampaignClicked(true);
     if (data?.data?.length) {
-      data.data.map((campaignStats: any) => {
-        // TODO add proper type
+      data.data.map((campaignStats: CampaignStatsData) => {
         if (campaignStats.name === options.defaultStatName) {
           setStatsHighlightTimeseries(campaignStats);
         }
