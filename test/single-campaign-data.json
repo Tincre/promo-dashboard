@@ -1,0 +1,96 @@
+{
+  "name": "Jane Cooper",
+  "adTitle": "Easier taxes 👉️ taxpal.com",
+  "budget": "$1450",
+  "description": "Accounting made simple for small businesses.",
+  "pid": "abcdefgh",
+  "target": "https://tincre.dev/promo",
+  "currency": "USD",
+  "isActive": true,
+  "title": "Paradigm Representative",
+  "role": "Admin",
+  "email": "janecooper@example.com",
+  "adCopy": "Accounting made simple and illegal for small businesses.",
+  "adCallToAction": "🤞 Don't get audited!",
+  "buttonText": "Sign up",
+  "telephone": "+1-202-555-0170",
+  "creativeUrls": [
+    "https://res.cloudinary.com/tincre/image/upload/v1666907624/tailwindui-salient/taxpal-og_xka3ix_q4ulfc.webp"
+  ],
+  "data": {
+    "totals": [
+      {
+        "updated_time": "2023-02-19 14:40:40.002385+00:00",
+        "spend": 0,
+        "reach": 0,
+        "cpc": 0,
+        "cpm": 0,
+        "ctr": 0,
+        "cpv": 0,
+        "views": 0,
+        "clicks": 0
+      },
+      {
+        "updated_time": "2023-02-18 14:40:40.002385+00:00",
+        "spend": 0,
+        "reach": 0,
+        "cpc": 0,
+        "cpm": 0,
+        "ctr": 0,
+        "cpv": 0,
+        "views": 0,
+        "clicks": 0
+      },
+
+    ],
+    "meta": [
+      {
+        "updated_time": "2023-02-19 14:40:40.002385+00:00",
+        "spend": 0,
+        "reach": 0,
+        "cpc": 0,
+        "cpm": 0,
+        "ctr": 0,
+        "cpv": 0,
+        "views": 0,
+        "clicks": 0
+      },
+      {
+        "updated_time": "2023-02-18 14:40:40.002385+00:00",
+        "spend": 0,
+        "reach": 0,
+        "cpc": 0,
+        "cpm": 0,
+        "ctr": 0,
+        "cpv": 0,
+        "views": 0,
+        "clicks": 0
+      },
+ 
+    ],
+    "google": [
+      {
+        "updated_time": "2023-02-19 14:40:40.002385+00:00",
+        "spend": 0,
+        "reach": 0,
+        "cpc": 0,
+        "cpm": 0,
+        "ctr": 0,
+        "cpv": 0,
+        "views": 0,
+        "clicks": 0
+      },
+      {
+        "updated_time": "2023-02-18 14:40:40.002385+00:00",
+        "spend": 0,
+        "reach": 0,
+        "cpc": 0,
+        "cpm": 0,
+        "ctr": 0,
+        "cpv": 0,
+        "views": 0,
+        "clicks": 0
+      },
+    ]
+  }
+}
