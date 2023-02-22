@@ -209,7 +209,7 @@ export function Profile({
                   <input
                     disabled={true}
                     id="email"
-                    placeholder="example@example.com"
+                    placeholder={settingsData?.email || 'example@example.com'}
                     name="email"
                     type="email"
                     className="block w-full max-w-lg rounded-md border border-gray-300 py-2 pl-1 font-mono text-xs shadow-sm focus:border-blue-700 focus:ring-blue-700 lg:text-sm"
