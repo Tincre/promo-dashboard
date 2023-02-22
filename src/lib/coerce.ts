@@ -281,7 +281,6 @@ export function modifySingleCampaignDataForDownload(
         pid: pid,
         updatedTime: modifiedObject.updatedTime[index] || '',
         spend: modifiedObject.spend[index],
-        reach: modifiedObject?.reach[index],
         views: modifiedObject?.views[index],
         clicks: modifiedObject?.clicks[index],
         cpc: modifiedObject?.cpc[index],
