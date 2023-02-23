@@ -9,8 +9,8 @@ import {
 import {
   CampaignData,
   DownloadableCampaignStatsSample,
-  CampaignStatsSample,
   PromoApiCampaignStatsSample,
+  DownloadableCampaignMetadataSample,
 } from './types';
 
 function generateEmptyPromoApiDataForChartJs(): {
@@ -217,15 +217,49 @@ export function modifyCampaignDataForDownload(campaignData: CampaignData) {
     campaignData?.data || campaignData?.stats;
   let pid = campaignData.pid;
   if (typeof data !== 'undefined') {
-    data.forEach((pckg: CampaignStatsSample | object) => {
+    data.forEach((pckg: object, index) => {
+      const data = { ...pckg, pid: pid || '' };
       // @ts-ignore
-
-      modifiedData.push({ ...pckg, pid: pid || '' });
+      modifiedData.push(data);
     });
   }
   return modifiedData;
 }
 
+export function modifyMultiCampaignsDataForDownload(
+  campaignsData: CampaignData[]
+) {
+  let modifiedData: DownloadableCampaignMetadataSample[] = [];
+  campaignsData.forEach((pckg) => {
+    let data = modifySingleCampaignDataForDownload(pckg);
+    if (typeof data !== 'undefined') {
+      let { updatedTime, spend, views, clicks, cpc, cpm, ctr, cpv } = data[0];
+      let result = {
+        pid: pckg?.pid || '',
+        updatedTime: updatedTime,
+        spend: spend,
+        views: views,
+        clicks: clicks,
+        cpc: cpc,
+        cpm: cpm,
+        ctr: ctr,
+        cpv: cpv,
+        adTitle: pckg?.adTitle || '',
+        creativeUrl:
+          typeof pckg?.creativeUrls?.length !== 'undefined'
+            ? pckg?.creativeUrls[0]
+            : '',
+        budget: pckg?.budget,
+        target: pckg?.target,
+        isActive: pckg?.isActive,
+        adCallToAction: pckg?.adCallToAction,
+        buttonText: pckg?.buttonText,
+      };
+      modifiedData.push(result);
+    }
+  });
+  return modifiedData;
+}
 export function modifySingleCampaignDataForDownload(
   campaignData: CampaignData
 ) {
