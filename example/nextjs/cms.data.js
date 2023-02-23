@@ -36,7 +36,7 @@ export const campaignStubData = [
     creativeUrls: [
       'https://res.cloudinary.com/tincre/image/upload/v1666907624/tailwindui-salient/taxpal-og_xka3ix_q4ulfc.webp',
     ],
-    data: [
+    stats: [
       {
         id: 1,
         name: 'Spend',
@@ -215,7 +215,7 @@ export const campaignStubData = [
     creativeUrls: [
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
     ],
-    data: [
+    stats: [
       {
         id: 1,
         name: 'Spend',
@@ -393,7 +393,7 @@ export const campaignStubData = [
     creativeUrls: [
       'https://res.cloudinary.com/tincre/image/upload/v1666907673/tailwindui-salient/background-faqs_nugiew_m0skue.webp',
     ],
-    data: [
+    stats: [
       {
         id: 1,
         name: 'Spend',
@@ -571,7 +571,7 @@ export const campaignStubData = [
     creativeUrls: [
       'https://res.cloudinary.com/tincre/image/upload/v1666907587/tailwindui-salient/screenshots/vat-returns_uhkad6_c8tze2.webp',
     ],
-    data: [
+    stats: [
       {
         id: 1,
         name: 'Spend',
@@ -750,7 +750,7 @@ export const campaignStubData = [
     creativeUrls: [
       'https://res.cloudinary.com/tincre/image/upload/v1666907624/tailwindui-salient/taxpal-og_xka3ix_q4ulfc.webp',
     ],
-    data: [
+    stats: [
       {
         id: 1,
         name: 'Spend',
@@ -863,6 +863,7 @@ export const campaignStubData = [
         change: '.4%',
         changeType: 'decrease',
         chartData: {
+          data: generateCTR(4.85, 4.17, 4.17),
           labels: [
             '10:00',
             '',
@@ -928,7 +929,7 @@ export const campaignStubData = [
     creativeUrls: [
       'https://res.cloudinary.com/tincre/image/upload/v1666907624/tailwindui-salient/taxpal-og_xka3ix_q4ulfc.webp',
     ],
-    /*data: [
+    /*stats: [
       {
         id: 1,
         name: 'Spend',
