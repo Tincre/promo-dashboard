@@ -211,21 +211,6 @@ export function replaceDataParamForChartData(campaignsData: CampaignData[]) {
   return resultArray;
 }
 
-export function modifyCampaignDataForDownload(campaignData: CampaignData) {
-  const modifiedData: DownloadableCampaignStatsSample[] = [];
-  let data: PromoApiCampaignStatsSample[] | object[] | undefined =
-    campaignData?.data || campaignData?.stats;
-  let pid = campaignData.pid;
-  if (typeof data !== 'undefined') {
-    data.forEach((pckg: object, index) => {
-      const data = { ...pckg, pid: pid || '' };
-      // @ts-ignore
-      modifiedData.push(data);
-    });
-  }
-  return modifiedData;
-}
-
 export function modifyMultiCampaignsDataForDownload(
   campaignsData: CampaignData[]
 ) {
