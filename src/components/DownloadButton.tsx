@@ -4,11 +4,18 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
-import { CampaignData, DownloadableCampaignStatsSample } from '../lib/types';
+import {
+  CampaignData,
+  DownloadableCampaignStatsSample,
+  DownloadableCampaignMetadataSample,
+} from '../lib/types';
 import { useState, useEffect } from 'react';
 import CsvDownload from 'react-json-to-csv';
 import { now } from '../lib/date';
-import { modifySingleCampaignDataForDownload } from '../lib/coerce';
+import {
+  modifySingleCampaignDataForDownload,
+  modifyMultiCampaignsDataForDownload,
+} from '../lib/coerce';
 
 const baseClassName =
   'group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600';
@@ -24,36 +31,46 @@ const SINGLE_CAMPAIGN_DOWNLOAD_HEADERS = [
   'ctr',
   'cpv',
 ];
+
 export function DownloadAllCampaignsButton({
   campaignsData,
 }: {
   campaignsData: CampaignData[];
 }) {
   const [localCampaignsData, setLocalCampaignsData] = useState<
-    object | undefined
+    DownloadableCampaignMetadataSample[] | undefined
   >();
   const [filename, setFileName] = useState<string | undefined>(undefined);
   useEffect(() => {
     console.debug(
-      `DownloadCampaignButton component data: ${JSON.stringify(campaignsData)}`
+      `DownloadAllCampaignsButton raw component data: ${JSON.stringify(
+        campaignsData
+      )}`
     );
-    // TODO manipulate what needs manipulating
-    // https://gitlab.com/tincre/promo-dashboard/-/issues/9#note_1288818082
-    setLocalCampaignsData(campaignsData);
+    const modified = modifyMultiCampaignsDataForDownload(campaignsData);
+    console.debug(
+      `DownloadAllCampaignButton modified component data: ${JSON.stringify(
+        modified
+      )}`
+    );
+    setLocalCampaignsData(modified);
   }, [setLocalCampaignsData, campaignsData]);
   useEffect(() => {
     setFileName(`all-campaigns_${now()}.csv`);
   }, []);
   return (
     <div className="mt-12">
-      <CsvDownload
-        className={baseClassName}
-        data={[localCampaignsData]}
-        style={{ display: 'inline' }}
-        filename={filename}
-      >
-        Download Data
-      </CsvDownload>
+      {typeof localCampaignsData !== 'undefined' ? (
+        <CsvDownload
+          className={baseClassName}
+          data={localCampaignsData}
+          delimiter=","
+          style={{ display: 'inline' }}
+          filename={filename}
+        >
+          Download Data
+        </CsvDownload>
+      ) : null}
     </div>
   );
 }
