@@ -77,3 +77,31 @@ function generateFloats(start: number, end: number, length: number = 13) {
   }
   return result;
 }
+/* https://stackoverflow.com/a/70064391/5369706
+ */
+export function generateDateRange(
+  startDate: Date,
+  endDate?: Date,
+  includeEndDate?: boolean
+) {
+  const dates = [];
+  const currentDate = startDate;
+  if (typeof endDate === 'undefined') endDate = new Date();
+  while (currentDate < endDate) {
+    dates.push(new Date(currentDate));
+    currentDate.setDate(currentDate.getDate() + 1);
+  }
+  if (includeEndDate) dates.push(endDate);
+  return dates;
+}
+
+export function generateDates(length: number, endDate?: Date) {
+  const dates: string[] = [];
+  const currentDate = endDate || new Date();
+  for (let i: number = length; i > 0; i--) {
+    let tmpDate = new Date(currentDate);
+    dates.push(tmpDate.toISOString().slice(0, 10));
+    currentDate.setDate(currentDate.getDate() - 1);
+  }
+  return dates.reverse();
+}
