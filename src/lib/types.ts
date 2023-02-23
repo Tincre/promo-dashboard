@@ -44,14 +44,14 @@ export interface PromoApiCampaignStatsData {
 
 export interface DownloadableCampaignStats {
   updatedTime: (string | null)[];
-  spend: (number | null)[];
+  spend?: (number | null)[];
   reach?: (number | null)[];
-  views: (number | null)[];
-  clicks: (number | null)[];
-  cpc: (number | null)[];
-  cpm: (number | null)[];
-  ctr: (number | null)[];
-  cpv: (number | null)[];
+  views?: (number | null)[];
+  clicks?: (number | null)[];
+  cpc?: (number | null)[];
+  cpm?: (number | null)[];
+  ctr?: (number | null)[];
+  cpv?: (number | null)[];
   pid: (string | null)[];
 }
 
