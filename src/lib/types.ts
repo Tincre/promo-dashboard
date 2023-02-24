@@ -78,6 +78,7 @@ export interface CampaignData {
   adCallToAction?: string;
   buttonText?: string;
   isActive?: boolean;
+  receiptId?: string;
   currency?: string;
   stats?: CampaignStatsData[];
   data?: CampaignStatsData[];
