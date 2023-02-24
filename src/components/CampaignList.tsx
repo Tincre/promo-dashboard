@@ -12,6 +12,7 @@ export function CampaignList({
   data,
   handleRepeatButtonOnClick,
   handleCampaignClick,
+  handleGeneratePaymentLinkButtonClick,
 }: {
   data: CampaignData[];
   handleRepeatButtonOnClick: (
@@ -19,6 +20,10 @@ export function CampaignList({
     data: CampaignData
   ) => void;
   handleCampaignClick: Function;
+  handleGeneratePaymentLinkButtonClick: (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData
+  ) => void;
 }) {
   return (
     <ul
@@ -33,6 +38,9 @@ export function CampaignList({
             data={campaignData}
             handleRepeatButtonOnClick={handleRepeatButtonOnClick}
             handleCampaignClick={handleCampaignClick}
+            handleGeneratePaymentLinkButtonClick={
+              handleGeneratePaymentLinkButtonClick
+            }
           />
         );
       })}
