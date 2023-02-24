@@ -8,7 +8,14 @@
 import { useState, useEffect, MouseEvent } from 'react';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
-import { CampaignData, Settings, CampaignStatsData } from './lib/types';
+import {
+  CampaignData,
+  Settings,
+  CampaignStatsData,
+  DownloadableCampaignStats,
+  DownloadableCampaignMetadataSample,
+  PromoApiCampaignStatsData,
+} from './lib/types';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
 import { sortCampaignDataOnIsActive, numActiveCampaigns } from './lib/sort';
@@ -198,4 +205,11 @@ export function PromoDashboard({
     </>
   );
 }
-export type { CampaignData, Settings };
+export type {
+  CampaignData,
+  Settings,
+  DownloadableCampaignStats,
+  DownloadableCampaignMetadataSample,
+  PromoApiCampaignStatsData,
+  CampaignStatsData,
+};
