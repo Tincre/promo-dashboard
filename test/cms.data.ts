@@ -848,6 +848,7 @@ export const campaignStubData = [
     budget: '$1450',
     description: 'Accounting made simple for small businesses.',
     pid: 'abcdefgh',
+    receiptId: 'ijklmnopqr4242',
     target: 'https://tincre.dev/promo',
     currency: 'USD',
     isActive: true,
