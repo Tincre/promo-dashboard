@@ -57,7 +57,7 @@ export function PromoDashboard({
     number | undefined
   >(undefined);
   const [statsHighlightTimeseries, setStatsHighlightTimeseries] = useState<
-    object | undefined
+    CampaignStatsData | undefined
   >(undefined);
   const [clickedStatsClassName, setClickedStatsClassName] = useState<string>(
     options.defaultStatName
