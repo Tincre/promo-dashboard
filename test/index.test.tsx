@@ -11,7 +11,12 @@ describe('PromoDashboard', () => {
     render(<PromoDashboard campaignsData={[]} />);
   });
   it('renders full data without crashing', () => {
-    render(<PromoDashboard campaignsData={campaignStubData} />);
+    render(
+      <PromoDashboard
+        campaignsData={campaignStubData}
+        handleGeneratePaymentLinkButtonClick={() => null}
+      />
+    );
     const dashboard = screen.getByLabelText('campaign-fghijklm');
     expect(dashboard).toBeDefined();
     const dashboardButton = screen.getByLabelText(
@@ -19,6 +24,21 @@ describe('PromoDashboard', () => {
     );
     expect(dashboardButton).toBeDefined();
     fireEvent.click(dashboardButton);
+  });
+  it('renders the dashboard payment button without crashing', () => {
+    render(
+      <PromoDashboard
+        campaignsData={campaignStubData}
+        handleGeneratePaymentLinkButtonClick={() => null}
+      />
+    );
+    const dashboard = screen.getByLabelText('campaign-fghijklm');
+    expect(dashboard).toBeDefined();
+    const dashboardPaymentButton = screen.getByLabelText(
+      `campaign-${campaignStubData[1].pid}-payment-button`
+    );
+    expect(dashboardPaymentButton).toBeDefined();
+    fireEvent.click(dashboardPaymentButton);
   });
   it('renders full data without crashing', () => {
     let testEvent: MouseEvent<HTMLButtonElement> | undefined = undefined;
@@ -52,10 +72,13 @@ describe('PromoDashboard', () => {
         setIsRepeatButtonClicked(!isRepeatButtonClicked);
       }
     };
-
+    const addedReceiptIdsCampaignData: CampaignData[] = [];
+    campaignStubData.forEach((pckg) => {
+      addedReceiptIdsCampaignData.push({ ...pckg, receiptId: 'blahblahblah' });
+    });
     render(
       <PromoDashboard
-        campaignsData={campaignStubData}
+        campaignsData={addedReceiptIdsCampaignData}
         handleRepeatButtonClick={handleRepeatButtonOnClick}
         handleSettingsSaveButtonClick={handleSettingsSaveButtonOnClick}
       />
