@@ -22,14 +22,14 @@ export interface DownloadableCampaignMetadataSample
 
 export interface PromoApiCampaignStatsSample {
   updatedTime: string;
-  spend?: number | null;
-  reach?: number | null;
-  views?: number | null;
-  clicks?: number | null;
-  cpc?: number | null;
-  ctr?: number | null;
-  cpm?: number | null;
-  cpv?: number | null;
+  spend?: number | string | null;
+  reach?: number | string | null;
+  views?: number | string | null;
+  clicks?: number | string | null;
+  cpc?: number | string | null;
+  ctr?: number | string | null;
+  cpm?: number | string | null;
+  cpv?: number | string | null;
 }
 
 export interface CampaignStatsSample {
@@ -44,17 +44,16 @@ export interface PromoApiCampaignStatsData {
 
 export interface DownloadableCampaignStats {
   updatedTime: (string | null)[];
-  spend?: (number | null)[];
-  reach?: (number | null)[];
-  views?: (number | null)[];
-  clicks?: (number | null)[];
-  cpc?: (number | null)[];
-  cpm?: (number | null)[];
-  ctr?: (number | null)[];
-  cpv?: (number | null)[];
+  spend?: (number | string | null)[];
+  reach?: (number | string | null)[];
+  views?: (number | string | null)[];
+  clicks?: (number | string | null)[];
+  cpc?: (number | string | null)[];
+  cpm?: (number | string | null)[];
+  ctr?: (number | string | null)[];
+  cpv?: (number | string | null)[];
   pid: (string | null)[];
 }
-
 export interface CampaignStatsData {
   id: number;
   name: string;
@@ -80,7 +79,7 @@ export interface CampaignData {
   buttonText?: string;
   isActive?: boolean;
   currency?: string;
-  stats?: object[];
+  stats?: CampaignStatsData[];
   data?: CampaignStatsData[];
 }
 
