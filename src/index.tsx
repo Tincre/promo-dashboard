@@ -85,7 +85,7 @@ export function PromoDashboard({
     }
   }, [sortedCampaignsData]);
 
-  const handleStatsHighlightClick = (campaignData: any) => {
+  const handleStatsHighlightClick = (campaignData: CampaignStatsData) => {
     setStatsHighlightTimeseries(campaignData);
     setClickedStatsClassName(campaignData.name || 'Spend');
   };
