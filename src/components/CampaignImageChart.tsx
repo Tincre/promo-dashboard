@@ -6,12 +6,13 @@
  */
 import { AdPreviewDetailImage } from './AdPreviewDetailImage';
 import { LineChart } from './LineChart';
+import { CampaignData } from '../lib/types';
 
 export function CampaignImageChart({
   data,
   statsHighlightTimeseries,
 }: {
-  data: any; // TODO add typing
+  data: CampaignData;
   statsHighlightTimeseries?: object; // TODO add typing
 }) {
   return (
@@ -21,7 +22,7 @@ export function CampaignImageChart({
           creativeUrl={
             data && data?.creativeUrls && data.creativeUrls.length !== 0
               ? data.creativeUrls[0]
-              : undefined /* TODO update w/cloudinary array */
+              : '' /* TODO update w/cloudinary array */
           }
         />
       </div>
