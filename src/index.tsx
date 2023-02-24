@@ -94,7 +94,6 @@ export function PromoDashboard({
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
   ) => {
-    console.debug(`handleRepeatButtonOnClick::type ${event.type}`);
     setPromoData({
       adTitle: data?.adTitle,
       budget: data?.budget,
@@ -104,17 +103,8 @@ export function PromoDashboard({
       adCallToAction: data?.adCallToAction,
       buttonText: data?.buttonText,
     });
-    console.debug(
-      `handleRepeatButtonOnClick::Campaign in process for ${
-        data?.adTitle || ''
-      }.`
-    );
-
     if (typeof setIsRepeatButtonClicked !== 'undefined') {
       setIsRepeatButtonClicked(!isRepeatButtonClicked);
-      console.debug(
-        `handleRepeatButtonOnClick::isRepeatButtonClicked set to ${!isRepeatButtonClicked}.`
-      );
     }
   };
 
@@ -128,24 +118,17 @@ export function PromoDashboard({
         }
       });
     }
-    console.debug(`Set isCampaignClicked to true`);
   };
 
   const handleCampaignDetailBackOnClick = () => {
     setIsCampaignClicked(false);
     setClickedStatsClassName(options.defaultStatName); // default
-
-    console.debug(`Set isCampaignClicked to false`);
   };
   const handleSettingsSaveButtonOnClick = (
     event: MouseEvent<HTMLButtonElement>,
     data: Settings
   ) => {
-    console.debug(`handleSettingsSaveButtonOnClick::type ${event.type}`);
     setProfileData({ ...data });
-    console.debug(
-      `handleSettingsSaveButtonOnClick::data ${JSON.stringify(data)}`
-    );
   };
   return (
     <>
