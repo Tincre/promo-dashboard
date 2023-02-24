@@ -82,13 +82,13 @@ export function coercePromoApiDataForChartJs(
   }
   return chartJsData;
 }
-export function computeChange(data: (number | null)[]) {
+export function computeChange(data: (string | number | null)[]) {
   let last = data[data.length - 1];
+  if (typeof last !== 'number') last = Number(last);
   if (data.length > 1) {
     let nextToLast = data[data.length - 2];
-    if (last !== null) {
-      return nextToLast !== null ? last - nextToLast : 0;
-    }
+    if (typeof nextToLast !== 'number') nextToLast = Number(nextToLast);
+    return nextToLast !== null ? last - nextToLast : 0;
   }
   return 0;
 }
@@ -97,14 +97,14 @@ export function computeChangeType(changeAmount: number) {
 }
 export function prepareChartData(chartJsData: {
   updatedTime: (string | null)[];
-  spend: (number | null)[];
-  reach: (number | null)[];
-  views: (number | null)[];
-  clicks: (number | null)[];
-  cpc: (number | null)[];
-  cpm: (number | null)[];
-  ctr: (number | null)[];
-  cpv: (number | null)[];
+  spend: (number | string | null)[];
+  reach: (number | string | null)[];
+  views: (number | string | null)[];
+  clicks: (number | string | null)[];
+  cpc: (number | string | null)[];
+  cpm: (number | string | null)[];
+  ctr: (number | string | null)[];
+  cpv: (number | string | null)[];
 }) {
   return [
     {
