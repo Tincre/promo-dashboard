@@ -150,7 +150,7 @@ export function Campaign({
           <CampaignSupportButton supportLink={supportLink}>
             Support
           </CampaignSupportButton>
-          {!isPaid ? (
+          {!!isPaid ? (
             <CampaignRepeatButton
               handleRepeatButtonOnClick={handleRepeatButtonOnClick}
               data={data}
