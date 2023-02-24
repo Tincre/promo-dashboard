@@ -6,6 +6,7 @@
  */
 import { useState, useEffect, MouseEvent, ReactNode } from 'react';
 import { IsActivePill } from './IsActivePill';
+import { IsPaidPill } from './IsPaidPill';
 import { CampaignData } from '../lib/types';
 import { CampaignRepeatButton } from './CampaignRepeatButton';
 import { CampaignSupportButton } from './CampaignSupportButton';
@@ -49,6 +50,7 @@ export function Campaign({
   const [promoId, setPromoId] = useState<string>('');
   const [budget, setBudget] = useState<string | number>(data?.budget || '250');
   const [adTitle, setAdTitle] = useState<string>(data?.adTitle || '');
+  const [isPaid, setIsPaid] = useState<boolean>(data?.receiptId ? true : false);
   const [adCopy, setAdCopy] = useState<string>(data?.adCopy || '');
   const [isActiveClassName, setIsActiveClassName] = useState<string>('');
   const [dollarAmount, setDollarAmount] = useState<string>('');
@@ -76,6 +78,9 @@ export function Campaign({
     if (data?.budget && data?.currency) {
       setDollarAmount(`${data.budget} ${data.currency}`);
     }
+    if (data?.receiptId) {
+      setIsPaid(true);
+    }
     setSupportLink(getSupportLink(data));
   }, [data]);
   useEffect(() => {
@@ -97,6 +102,7 @@ export function Campaign({
       >
         <div className="relative flex flex-1 flex-col px-2 pt-10 pb-6 group-hover:rounded-tr-md group-hover:rounded-tl-sm group-hover:bg-slate-900">
           <IsActivePill isActive={isActive} />
+          <IsPaidPill isPaid={isPaid} />
           <img
             suppressHydrationWarning={true}
             className="mx-auto h-32 w-full flex-shrink-0 rounded-b-md rounded-t-sm object-cover px-2"
