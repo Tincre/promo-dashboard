@@ -29,6 +29,7 @@ export const campaignStubData = [
     title: 'Paradigm Representative',
     role: 'Admin',
     email: 'janecooper@example.com',
+    receiptId: 'asdflkjerkjefkjef',
     adCopy:
       'Accounting made simple and illegal for small businesses. Make this too long and you will lose out.',
     adCallToAction: "🤞 Don't get audited!",
@@ -125,6 +126,7 @@ export const campaignStubData = [
     title: 'Paradigm Representative',
     role: 'Admin',
     email: 'janecooper@example.com',
+    receiptId: '',
     adCopy: 'Accounting made simple and illegal for small businesses.',
     adCallToAction: "🤞 Don't get audited!",
     buttonText: 'Sign up',
