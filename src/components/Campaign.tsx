@@ -10,6 +10,7 @@ import { IsPaidPill } from './IsPaidPill';
 import { CampaignData } from '../lib/types';
 import { CampaignRepeatButton } from './CampaignRepeatButton';
 import { CampaignSupportButton } from './CampaignSupportButton';
+import { CampaignPaymentButton } from './CampaignPaymentButton';
 
 const supportDomain = 'tincre.dev';
 const getSupportLink = (data: any) =>
@@ -31,6 +32,7 @@ export function Campaign({
   data,
   handleRepeatButtonOnClick,
   handleCampaignClick,
+  handleGeneratePaymentLinkButtonClick,
   children,
 }: {
   data: CampaignData;
@@ -39,6 +41,10 @@ export function Campaign({
     data: CampaignData
   ) => void;
   handleCampaignClick: Function;
+  handleGeneratePaymentLinkButtonClick?: (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData
+  ) => void;
   children?: ReactNode;
 }) {
   const [isActive, setIsActive] = useState<boolean>(data?.isActive || false);
@@ -144,12 +150,21 @@ export function Campaign({
           <CampaignSupportButton supportLink={supportLink}>
             Support
           </CampaignSupportButton>
-          <CampaignRepeatButton
-            handleRepeatButtonOnClick={handleRepeatButtonOnClick}
-            data={data}
-          >
-            {children}
-          </CampaignRepeatButton>
+          {!isPaid ? (
+            <CampaignRepeatButton
+              handleRepeatButtonOnClick={handleRepeatButtonOnClick}
+              data={data}
+            >
+              {children}
+            </CampaignRepeatButton>
+          ) : (
+            <CampaignPaymentButton
+              handleGeneratePaymentLinkButtonClick={
+                handleGeneratePaymentLinkButtonClick
+              }
+              data={data}
+            ></CampaignPaymentButton>
+          )}
         </div>
       </div>
     </li>
