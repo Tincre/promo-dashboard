@@ -9,20 +9,20 @@ import {
 import {
   CampaignData,
   DownloadableCampaignStatsSample,
-  PromoApiCampaignStatsSample,
   DownloadableCampaignMetadataSample,
+  CampaignStatsData,
 } from './types';
 
 function generateEmptyPromoApiDataForChartJs(): {
   updatedTime: (string | null)[];
-  spend: (number | null)[];
-  reach: (number | null)[];
-  views: (number | null)[];
-  clicks: (number | null)[];
-  cpc: (number | null)[];
-  cpm: (number | null)[];
-  ctr: (number | null)[];
-  cpv: (number | null)[];
+  spend: (number | string | null)[];
+  reach: (number | string | null)[];
+  views: (number | string | null)[];
+  clicks: (number | string | null)[];
+  cpc: (number | string | null)[];
+  cpm: (number | string | null)[];
+  ctr: (number | string | null)[];
+  cpv: (number | string | null)[];
 } {
   return {
     spend: [],
@@ -248,12 +248,13 @@ export function modifyMultiCampaignsDataForDownload(
 export function modifySingleCampaignDataForDownload(
   campaignData: CampaignData
 ) {
-  let data = campaignData?.data || campaignData?.stats;
+  let data: CampaignStatsData[] | undefined =
+    campaignData?.data || campaignData?.stats;
   let pid: string[] = [];
   let chartJsData = generateEmptyPromoApiDataForChartJs();
   let modifiedData: DownloadableCampaignStatsSample[] = [];
   if (typeof data !== 'undefined') {
-    data.forEach((pckg: any) => {
+    data.forEach((pckg: CampaignStatsData) => {
       const chartData = pckg?.chartData;
       chartJsData.updatedTime = chartData.labels;
       pid.push(campaignData.pid || '');
