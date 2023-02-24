@@ -29,6 +29,7 @@ export function PromoDashboard({
   profileSettingsData,
   handleRepeatButtonClick,
   handleSettingsSaveButtonClick,
+  handleGeneratePaymentLinkButtonClick,
 }: {
   campaignsData: CampaignData[];
   campaignDetailData?: CampaignData;
@@ -41,11 +42,17 @@ export function PromoDashboard({
     event: MouseEvent<HTMLButtonElement>,
     settingsData: Settings
   ) => void;
+  handleGeneratePaymentLinkButtonClick?: (
+    event: MouseEvent<HTMLButtonElement>,
+    campaignData: CampaignData
+  ) => void;
 }) {
   const [promoData, setPromoData] = useState<CampaignData | undefined>(
     undefined
   );
   const [isRepeatButtonClicked, setIsRepeatButtonClicked] =
+    useState<boolean>(false);
+  const [isPaymentButtonClicked, setIsPaymentButtonClicked] =
     useState<boolean>(false);
   const [isCampaignClicked, setIsCampaignClicked] = useState<boolean>(false);
   const [hasUpdatedSettings, setHasUpdatedSettings] = useState<boolean>(false);
@@ -107,7 +114,40 @@ export function PromoDashboard({
       setIsRepeatButtonClicked(!isRepeatButtonClicked);
     }
   };
-
+  const handleGeneratePaymentLinkButtonOnClick = async (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData
+  ) => {
+    event.preventDefault();
+    try {
+      if (!data?.pid)
+        throw new Error(
+          'Payment ID pid not present therefore no payment link can be generated.'
+        );
+      console.debug(`Generating payment link for ${data.pid}`);
+      const response = await fetch('/api/promo-pay', {
+        body: JSON.stringify({ budget: data?.budget || null, pid: data.pid }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'PUT',
+      });
+      if (response?.status === 200) {
+        console.debug(`Payment link for ${data.pid} received`);
+      } else {
+        console.warn(`Payment link for ${data.pid} not received`);
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error(error.message);
+      } else {
+        console.log(`Unkonwn error after payment link generator handler.`);
+      }
+    }
+    if (typeof setIsPaymentButtonClicked !== 'undefined') {
+      setIsPaymentButtonClicked(!isPaymentButtonClicked);
+    }
+  };
   const handleCampaignClick = (data: CampaignData) => {
     setPromoData(data);
     setIsCampaignClicked(true);
@@ -157,6 +197,11 @@ export function PromoDashboard({
                     : handleRepeatButtonOnClick
                 }
                 handleCampaignClick={handleCampaignClick}
+                handleGeneratePaymentLinkButtonClick={
+                  typeof handleGeneratePaymentLinkButtonClick !== 'undefined'
+                    ? handleGeneratePaymentLinkButtonClick
+                    : handleGeneratePaymentLinkButtonOnClick
+                }
               />
             )}
           </>
