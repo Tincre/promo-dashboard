@@ -163,7 +163,9 @@ export function Campaign({
                 handleGeneratePaymentLinkButtonClick
               }
               data={data}
-            ></CampaignPaymentButton>
+            >
+              {children}
+            </CampaignPaymentButton>
           )}
         </div>
       </div>
