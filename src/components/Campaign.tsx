@@ -150,12 +150,13 @@ export function Campaign({
       </button>
       <div>
         <div className="-mt-px flex divide-x divide-slate-200 group-hover:divide-slate-300 group-hover:bg-slate-200">
-          <CampaignSupportButton supportLink={supportLink}>
+          <CampaignSupportButton id={id} supportLink={supportLink}>
             Support
           </CampaignSupportButton>
           {!!isPaid ? (
             <CampaignRepeatButton
               handleRepeatButtonOnClick={handleRepeatButtonOnClick}
+              id={id}
               data={data}
             >
               {children}
@@ -165,6 +166,7 @@ export function Campaign({
               handleGeneratePaymentLinkButtonClick={
                 handleGeneratePaymentLinkButtonClick
               }
+              id={id}
               data={data}
             >
               {children}
