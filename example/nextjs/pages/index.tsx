@@ -3,10 +3,12 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { PromoDashboard } from '@tincre/promo-dashboard'; //'../../../dist';
 import { campaignStubData } from '../cms.data';
+import { useTour } from '@reactour/tour';
 
 const Home: NextPage = () => {
   const [isRepeatButtonClicked, setIsRepeatButtonClicked] = useState(false);
   const [promoData, setPromoData] = useState({});
+  const { setIsOpen } = useTour();
   const handleRepeatButtonClick = (
     event: MouseEvent<HTMLButtonElement>,
     data: any
@@ -37,7 +39,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="my-8">
+      <main className="my-8" id="main">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-center">
             Welcome to the{' '}
@@ -66,7 +68,17 @@ const Home: NextPage = () => {
         </div>
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
           <p style={{ marginTop: '20px', marginBottom: '10px' }}>
-            <code>npm install @tincre/promo-dashboard</code>
+            <code className="font-bold">
+              npm install @tincre/promo-dashboard
+            </code>
+          </p>
+          <p className="py-4">
+            <button
+              onClick={() => setIsOpen(true)}
+              className="text-indigo-50 hover:text-indigo-900 border border-1 border-indigo-700 hover:border-indigo-300 py-3 px-5 rounded-md hover:bg-indigo-100 hover:text-indigo-700 bg-indigo-700"
+            >
+              Start tour
+            </button>
           </p>
           <PromoDashboard
             campaignsData={campaignStubData /* @ts-ignore */}
