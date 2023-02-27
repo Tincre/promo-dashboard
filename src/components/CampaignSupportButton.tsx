@@ -10,12 +10,17 @@ import { EnvelopeIcon } from '@heroicons/react/20/solid';
 export function CampaignSupportButton({
   supportLink,
   children,
+  id,
 }: {
   supportLink: string;
   children?: ReactNode;
+  id?: string;
 }) {
   return (
-    <div className="flex w-0 flex-1 promo-dashboard-campaign-support-button">
+    <div
+      className="flex w-0 flex-1 promo-dashboard-campaign-support-button"
+      id={`${id}-support-button`}
+    >
       <a
         href={supportLink}
         target="_blank"

@@ -12,6 +12,7 @@ export function CampaignRepeatButton({
   data,
   handleRepeatButtonOnClick,
   children,
+  id,
 }: {
   data: CampaignData;
   handleRepeatButtonOnClick?: (
@@ -19,10 +20,12 @@ export function CampaignRepeatButton({
     data: CampaignData
   ) => void;
   children?: ReactNode;
+  id?: string;
 }) {
   return (
     <div className="-ml-px flex w-0 flex-1 promo-dashboard-campaign-repeat-button">
       <button
+        id={`${id}-repeat-button`}
         aria-label={`campaign-${data.pid}-repeat-button`}
         type="button"
         onClick={(event) =>
