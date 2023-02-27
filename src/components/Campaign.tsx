@@ -33,6 +33,7 @@ export function Campaign({
   handleRepeatButtonOnClick,
   handleCampaignClick,
   handleGeneratePaymentLinkButtonClick,
+  id,
   children,
 }: {
   data: CampaignData;
@@ -45,6 +46,7 @@ export function Campaign({
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
   ) => void;
+  id?: string;
   children?: ReactNode;
 }) {
   const [isActive, setIsActive] = useState<boolean>(data?.isActive || false);
@@ -99,6 +101,7 @@ export function Campaign({
   return (
     <li
       key={`campaign-${data.pid}`}
+      id={id || `campaign-${data.pid}`}
       aria-label={`campaign-${data.pid}`}
       className={isActiveClassName}
     >
