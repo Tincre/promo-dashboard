@@ -22,6 +22,7 @@ import { sortCampaignDataOnIsActive, numActiveCampaigns } from './lib/sort';
 import { replaceDataParamForChartData } from './lib/coerce';
 import { options } from './lib/options';
 import { DownloadAllCampaignsButton } from './components/DownloadButton';
+import { tourSteps } from './lib/tourSteps';
 
 export function PromoDashboard({
   campaignsData = [],
@@ -233,6 +234,7 @@ export function PromoDashboard({
     </>
   );
 }
+export { tourSteps as PromoDashboardTourSteps };
 export type {
   CampaignData,
   Settings,
