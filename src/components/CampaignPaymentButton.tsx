@@ -11,6 +11,7 @@ import { CreditCardIcon } from '@heroicons/react/20/solid';
 export function CampaignPaymentButton({
   data,
   handleGeneratePaymentLinkButtonClick,
+  id,
   children,
 }: {
   data: CampaignData;
@@ -18,6 +19,7 @@ export function CampaignPaymentButton({
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
   ) => void;
+  id?: string;
   children?: ReactNode;
 }) {
   return (
@@ -25,6 +27,7 @@ export function CampaignPaymentButton({
       <button
         aria-label={`campaign-${data.pid}-payment-button`}
         type="button"
+        id={`${id}-payment-button`}
         onClick={(event) =>
           typeof handleGeneratePaymentLinkButtonClick !== 'undefined'
             ? handleGeneratePaymentLinkButtonClick(event, data)
