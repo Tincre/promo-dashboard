@@ -36,6 +36,7 @@ export function CampaignList({
         return (
           <Campaign
             key={key}
+            id={`campaign-${index}`}
             data={campaignData}
             handleRepeatButtonOnClick={handleRepeatButtonOnClick}
             handleCampaignClick={handleCampaignClick}
