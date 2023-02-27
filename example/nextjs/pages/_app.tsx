@@ -5,7 +5,7 @@ import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <TourProvider steps={[]}>
+    <TourProvider steps={[{ selector: '#main', content: 'Welcome' }]}>
       <Component {...pageProps} />
     </TourProvider>
   );
