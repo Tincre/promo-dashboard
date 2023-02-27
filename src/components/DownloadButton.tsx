@@ -59,7 +59,7 @@ export function DownloadAllCampaignsButton({
     setFileName(`all-campaigns_${now()}.csv`);
   }, []);
   return (
-    <div className="mt-12">
+    <div className="mt-12" id="download-all-campaigns-button">
       {typeof localCampaignsData !== 'undefined' ? (
         <CsvDownload
           className={baseClassName}
