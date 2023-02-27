@@ -234,7 +234,7 @@ export function PromoDashboard({
     </>
   );
 }
-export { tourSteps as PromoDashboardTourSteps };
+export { tourSteps as promoDashboardTourSteps };
 export type {
   CampaignData,
   Settings,
