@@ -125,7 +125,6 @@ export function PromoDashboard({
         throw new Error(
           'Payment ID pid not present therefore no payment link can be generated.'
         );
-      console.debug(`Generating payment link for ${data.pid}`);
       const response = await fetch('/api/promo-pay', {
         body: JSON.stringify({ budget: data?.budget || null, pid: data.pid }),
         headers: {
@@ -134,15 +133,18 @@ export function PromoDashboard({
         method: 'PUT',
       });
       if (response?.status === 200) {
-        console.debug(`Payment link for ${data.pid} received`);
       } else {
-        console.warn(`Payment link for ${data.pid} not received`);
+        console.warn(
+          `promo-dashboard::PromoDashboard::Payment link for ${data.pid} not received`
+        );
       }
     } catch (error) {
       if (error instanceof Error) {
-        console.error(error.message);
+        console.error(`promo-dashboard::PromoDashboard::${error.message}`);
       } else {
-        console.log(`Unkonwn error after payment link generator handler.`);
+        console.warn(
+          `promo-dashboard::PromoDashboard::Unknown error after payment link generator handler.`
+        );
       }
     }
     if (typeof setIsPaymentButtonClicked !== 'undefined') {
