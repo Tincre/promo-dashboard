@@ -42,17 +42,7 @@ export function DownloadAllCampaignsButton({
   >();
   const [filename, setFileName] = useState<string | undefined>(undefined);
   useEffect(() => {
-    console.debug(
-      `DownloadAllCampaignsButton raw component data: ${JSON.stringify(
-        campaignsData
-      )}`
-    );
     const modified = modifyMultiCampaignsDataForDownload(campaignsData);
-    console.debug(
-      `DownloadAllCampaignButton modified component data: ${JSON.stringify(
-        modified
-      )}`
-    );
     setLocalCampaignsData(modified);
   }, [setLocalCampaignsData, campaignsData]);
   useEffect(() => {
@@ -87,11 +77,6 @@ export function DownloadCampaignButton({
   useEffect(() => {
     const modifiedCampaignData =
       modifySingleCampaignDataForDownload(campaignData);
-    console.debug(
-      `DownloadCampaignButton component data: ${JSON.stringify(
-        modifiedCampaignData
-      )}`
-    );
     setLocalCampaignData(modifiedCampaignData);
   }, [setLocalCampaignData, campaignData]);
   useEffect(() => {

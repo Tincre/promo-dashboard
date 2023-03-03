@@ -31,8 +31,8 @@ export function CampaignPaymentButton({
         onClick={(event) =>
           typeof handleGeneratePaymentLinkButtonClick !== 'undefined'
             ? handleGeneratePaymentLinkButtonClick(event, data)
-            : console.debug(
-                `promo-dashboard::CampaignPaymentButton::Undefined handleGeneratePaymentLinkButtonClick`
+            : console.warn(
+                `promo-dashboard::CampaignPaymentButton::Undefined handleGeneratePaymentLinkButtonClick. Please contact the application developer and report this error, thanks!`
               )
         }
         className="relative inline-flex w-0 flex-1 items-center justify-center rounded-br-lg border border-transparent py-4 text-sm font-medium text-slate-700 hover:bg-slate-300 hover:text-slate-500 group-hover:text-slate-800"

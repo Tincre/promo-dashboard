@@ -58,16 +58,15 @@ export function Profile({
     try {
       setIsUpdatingInternalSettings(true);
       let value = event.currentTarget.value;
-      console.debug(JSON.stringify({ [event.currentTarget.name]: value }));
       setSettingsData({ ...settingsData, [event.currentTarget.name]: value });
-      console.debug(JSON.stringify(settingsData));
       setIsUpdatingInternalSettings(false);
     } catch (error) {
       if (error instanceof Error) {
-        console.error(error.message);
+        console.error(`promo-dashboard::Profile::${error.message}`);
         setIsUpdatingInternalSettings(false);
       } else {
-        console.error('Unkonwn error in Profile component change handler.');
+        const message = 'Unkonwn error in Profile component change handler.';
+        console.error(`promo-dashboard::Profile::${message}`);
       }
     }
   };
@@ -86,7 +85,6 @@ export function Profile({
     event.preventDefault();
 
     try {
-      console.debug(`Updating ${userName}`);
       setIsUpdatingInternalSettings(true);
       const data = {
         ...settingsData,
@@ -99,21 +97,22 @@ export function Profile({
         method: 'PUT',
       });
       if (response?.status === 200) {
-        console.debug(`User settings for ${userName} successfully updated`);
         setIsUpdatingInternalSettings(false);
         setHasUpdatedInternalSettings(true);
       } else {
-        console.warn(`User settings for ${userName} not updated`);
+        console.warn(
+          `promo-dashboard::Profile::User settings for ${userName} not updated`
+        );
         setIsUpdatingInternalSettings(false);
         setHasUpdatedInternalSettings(false);
       }
     } catch (error) {
       if (error instanceof Error) {
-        console.error(error.message);
+        console.error(`promo-dashboard::Profile::${error.message}`);
       } else {
-        console.log(
-          `Unkonwn error after submission in Profile component handler.`
-        );
+        const message =
+          'Unkonwn error after submission in Profile component handler.';
+        console.error(`promo-dashboard::Profile::${message}`);
       }
       setIsUpdatingInternalSettings(false);
       setHasUpdatedInternalSettings(false);

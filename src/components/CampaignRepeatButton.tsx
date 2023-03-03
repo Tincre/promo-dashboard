@@ -31,8 +31,8 @@ export function CampaignRepeatButton({
         onClick={(event) =>
           typeof handleRepeatButtonOnClick !== 'undefined'
             ? handleRepeatButtonOnClick(event, data)
-            : console.debug(
-                `promo-dashboard::CampaignRepeatButton::Undefined handleRepeatButtonOnClick`
+            : console.warn(
+                `promo-dashboard::CampaignRepeatButton::Undefined handleRepeatButtonOnClick. Please contact the developer of this application and report this error.`
               )
         }
         className="relative inline-flex w-0 flex-1 items-center justify-center rounded-br-lg border border-transparent py-4 text-sm font-medium text-slate-700 hover:bg-slate-300 hover:text-slate-500 group-hover:text-slate-800"

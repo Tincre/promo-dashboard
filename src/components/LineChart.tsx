@@ -25,9 +25,6 @@ export function LineChart({ info }: { info: any }) {
       setData(buildData(info));
     }
   }, [info]);
-  console.debug(`Line chart raw data: ${JSON.stringify(info)}`);
-
-  console.debug(`Line chart data: ${JSON.stringify(data)}`);
   return (
     <>
       <div className="h-full w-full overflow-hidden sm:flex pb-4 sm:pb-0">
