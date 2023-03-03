@@ -57,7 +57,6 @@ describe('PromoDashboard', () => {
       event: React.MouseEvent<HTMLButtonElement>,
       data: CampaignData
     ) => {
-      console.debug(`handleRepeatButtonOnClick::type ${event.type}`);
       setPromoData({
         adTitle: data?.adTitle,
         budget: data?.budget,

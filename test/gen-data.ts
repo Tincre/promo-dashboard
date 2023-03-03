@@ -24,11 +24,9 @@ export function generateClicks(
   length: number = 13
 ) {
   const result = generateIntegers(start, end, length);
-  console.debug(`generateClicks: ${JSON.stringify(result)}`);
   return result;
 }
 export function generateSpend(start: number, end: number, length: number = 10) {
   const result = generateIntegers(start, end, length);
-  console.debug(`generateSpend: ${JSON.stringify(result)}`);
   return result;
 }
