@@ -8,6 +8,8 @@
 import { useState, useEffect, MouseEvent } from 'react';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
+import { Toaster } from 'react-hot-toast';
+import { successToast, failureToast, infoToast } from './lib/notifications';
 import {
   CampaignData,
   Settings,
@@ -93,6 +95,10 @@ export function PromoDashboard({
     }
   }, [sortedCampaignsData]);
 
+  useEffect(() => {
+    if (hasUpdatedSettings) successToast('Settings successfully updated.');
+  }, [hasUpdatedSettings]);
+
   const handleStatsHighlightClick = (campaignData: CampaignStatsData) => {
     setStatsHighlightTimeseries(campaignData);
     setClickedStatsClassName(campaignData.name || 'Spend');
@@ -146,7 +152,11 @@ export function PromoDashboard({
           `promo-dashboard::PromoDashboard::Unknown error after payment link generator handler.`
         );
       }
+      failureToast(
+        'The payment link was not generated. Please reach out to support.'
+      );
     }
+    successToast('Emailing you a payment link.');
     if (typeof setIsPaymentButtonClicked !== 'undefined') {
       setIsPaymentButtonClicked(!isPaymentButtonClicked);
     }
@@ -172,6 +182,10 @@ export function PromoDashboard({
     data: Settings
   ) => {
     setProfileData({ ...data });
+    setHasUpdatedSettings(true);
+    setTimeout(async () => {
+      setHasUpdatedSettings(false);
+    }, 2000);
   };
   return (
     <>
@@ -233,10 +247,16 @@ export function PromoDashboard({
           email={profileData?.email}
         />
       </DashboardContainer>
+      <Toaster position="bottom-center" />
     </>
   );
 }
-export { tourSteps as promoDashboardTourSteps };
+export {
+  tourSteps as promoDashboardTourSteps,
+  successToast,
+  infoToast,
+  failureToast,
+};
 export type {
   CampaignData,
   Settings,
