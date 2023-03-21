@@ -28,7 +28,10 @@ export function LineChart({ info }: { info: any }) {
   return (
     <>
       <div className="h-full w-full overflow-hidden sm:flex pb-4 sm:pb-0">
-        <div className="flex w-full items-center rounded-lg bg-blue-600 px-5 pb-4 pt-8 text-white">
+        <div
+          id="promo-dashboard-line-chart"
+          className="flex w-full items-center rounded-lg bg-blue-600 px-5 pb-4 pt-8 text-white"
+        >
           {typeof data !== 'undefined' ? (
             <Line data={data} options={options} />
           ) : null}
