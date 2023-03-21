@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
+#promo-dashboard-save-button {
+  @apply bg-red-700 hover:bg-red-900
+}
+#promo-dashboard-download-campaign-button {
+  @apply bg-red-700 hover:bg-red-900
+}
+#promo-dashboard-campaign-detail-back-button {
+  @apply bg-red-700 hover:bg-red-900
+}
+#promo-dashboard-save-button {
+  @apply bg-red-700 hover:bg-red-900
+}
+#promo-dashboard-line-chart {
+  @apply bg-red-700 hover:bg-red-800
+}
+#promo-dashboard-stats-highlights-icon-container {
+  @apply bg-red-700
+}
+#promo-dashboard-stats-highlights-icon {
+  @apply text-slate-900
+}
 @tailwind utilities;
