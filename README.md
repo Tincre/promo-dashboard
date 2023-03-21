@@ -16,6 +16,7 @@ A dashboard for Tincre [Promo](https://tincre.dev/promo). Use it in conjunction 
         - [`handleSubmitSaveButtonClick`](#handlesubmitsavebuttonclick)
         - [`profileSettingsData`](#profilesettingsdata)
       - [Backend](#backend)
+      - [Styling](#styling)
   - [Support](#support)
   - [License](#license)
   - [Development](#development)
@@ -188,6 +189,37 @@ For example,
 #### Backend
 
 🚧 Features and documentation content updates coming soon!
+
+#### Styling
+The Promo dashboard supports limited styling support. Essentially anything
+with a prominent color can be customized within your global imported 
+tailwindcss css file.
+
+See the file `/styles/global.css` in the Next.js example:
+
+```css
+#promo-dashboard-save-button {
+  @apply bg-red-700 hover:bg-red-900
+}
+#promo-dashboard-download-campaign-button {
+  @apply bg-red-700 hover:bg-red-900
+}
+#promo-dashboard-campaign-detail-back-button {
+  @apply bg-red-700 hover:bg-red-900
+}
+#promo-dashboard-save-button {
+  @apply bg-red-700 hover:bg-red-900
+}
+#promo-dashboard-line-chart {
+  @apply bg-red-700 hover:bg-red-800
+}
+#promo-dashboard-stats-highlights-icon-container {
+  @apply bg-red-700
+}
+#promo-dashboard-stats-highlights-icon {
+  @apply text-slate-900
+}
+```
 
 ## Support
 
