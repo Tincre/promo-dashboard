@@ -226,6 +226,7 @@ export function Profile({
               <Button
                 type="submit"
                 form={`profile-form`}
+                id="promo-dashboard-save-button"
                 onClick={(event) => {
                   setIsUpdatingInternalSettings(true);
                   handleSubmit(event);
