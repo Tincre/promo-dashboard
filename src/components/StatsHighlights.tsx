@@ -11,7 +11,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 const isHighlightedClassName =
-  'relative overflow-hidden rounded-lg bg-slate-200 px-4 pt-5 pb-0 shadow sm:px-6 sm:pt-6 hover:bg-slate-200 hover:shadow-lg border border-1 border-blue-700';
+  'relative overflow-hidden rounded-lg bg-slate-200 px-4 pt-5 pb-0 shadow sm:px-6 sm:pt-6 hover:bg-slate-200 hover:shadow-lg border border-1 border-slate-700';
 const isNotHighlightedClassName =
   'relative overflow-hidden rounded-lg bg-slate-50 px-4 pt-5 pb-0 shadow sm:px-6 sm:pt-6 hover:bg-slate-200 hover:shadow-lg border border-1 border-transparent';
 
@@ -31,6 +31,7 @@ export function StatsHighlights({
           return (
             <button
               key={item.id}
+              id={item.id}
               className={
                 item.name !== statsHighlightMetricsName
                   ? isNotHighlightedClassName
@@ -43,8 +44,12 @@ export function StatsHighlights({
               }}
             >
               <dt>
-                <div className="absolute rounded-md bg-blue-600 p-3">
+                <div
+                  className="absolute rounded-md bg-blue-600 p-3"
+                  id="promo-dashboard-stats-highlights-icon-container"
+                >
                   <item.icon
+                    id="promo-dashboard-stats-highlights-icon"
                     className="h-6 w-6 md:h-7 md:w-7 lg:h-8 lg:w-8 xl:h-10 xl:w-10 text-white"
                     aria-hidden="true"
                   />
