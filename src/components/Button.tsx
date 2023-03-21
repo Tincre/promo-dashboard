@@ -14,18 +14,21 @@ export function Button({
   onClick,
   type,
   form,
+  id,
   children,
 }: {
   className?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   type?: 'button' | 'submit' | 'reset';
   form?: string;
+  id?: string;
   children?: string;
 }) {
   return (
     <button
       type={type || 'button'}
       form={form}
+      id={id}
       className={
         typeof className !== 'undefined'
           ? baseClassName + className
