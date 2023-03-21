@@ -91,6 +91,7 @@ export function DownloadCampaignButton({
       style={{ display: 'inline' }}
       filename={filename}
       headers={SINGLE_CAMPAIGN_DOWNLOAD_HEADERS}
+      id="promo-dashboard-download-campaign-button"
     >
       Download
     </CsvDownload>
