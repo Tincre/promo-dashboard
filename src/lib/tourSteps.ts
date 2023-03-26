@@ -13,9 +13,8 @@ export const tourSteps = [
     content: '📈 Download all of your campaign data in one go!',
   },
   {
-    selector: '#campaign-1',
-    content:
-      '🔍️ Click a campaign to see its detail page. Click back to return here.',
+    selector: '#campaign-0',
+    content: '🔍️ Click a campaign to see its detail page.',
   },
   {
     selector: '#campaign-1-support-button',
