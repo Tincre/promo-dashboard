@@ -1,8 +1,7 @@
 export const tourSteps = [
   {
-    selector: '#campaign-0',
-    content:
-      '👋 Welcome to your campaign dashboard. Once you run your first campaign it will show up here.',
+    selector: '#promo-dashboard-container',
+    content: '👋 Welcome to your campaign dashboard.',
   },
   {
     selector: '#campaign-0',
