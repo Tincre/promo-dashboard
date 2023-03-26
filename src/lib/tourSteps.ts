@@ -6,7 +6,7 @@ export const tourSteps = [
   {
     selector: '#campaign-0',
     content:
-      '🌱 Each campaign you run will show up here and update once daily, or as ad platforms return us data.',
+      '🌱 Each campaign you run will show up here and update once daily.',
   },
   {
     selector: '#download-all-campaigns-button',
