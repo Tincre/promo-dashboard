@@ -13,25 +13,15 @@ export const tourSteps = [
     content: '📈 Download all of your campaign data in one go!',
   },
   {
-    selector: '#campaign-0',
-    content: '🔍️ Click a campaign to see its detail page.',
-  },
-  {
-    selector: '#campaign-1-support-button',
-    content:
-      '❓️ Get personalized help quickly with a simple ready-to-go email.',
-  },
-  {
-    selector: '#campaign-1-payment-button',
-    content:
-      '💳️ Regenerate and email a payment form to yourself effortlessly.',
-  },
-  {
-    selector: '#campaign-0-repeat-button',
-    content: '♻️ Repeat campaigns with ease by pressing "repeat".',
+    selector: '#campaign-0-support-button',
+    content: '❓️ Get personalized help quickly via email.',
   },
   {
     selector: '#profile-form',
     content: '👤 Update your information in the settings section.',
+  },
+  {
+    selector: '#campaign-0',
+    content: '🔍️ Click a campaign to see its detail page.',
   },
 ];
