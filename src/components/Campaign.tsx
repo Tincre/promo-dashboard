@@ -27,7 +27,26 @@ const getSupportLink = (data: any) =>
   }%0A%20%20Call%20to%20action%3A%20${
     data?.callToAction || ''
   }%0A%20%20Button%20Text%3A%20${data?.buttonText || ''}`;
-
+const VIDEO_EXTENSIONS = [
+  'm3u8',
+  'ts',
+  'm2ts',
+  'mts',
+  'mov',
+  'mkv',
+  'mp4',
+  'mpeg',
+  'mpd',
+];
+const checkIsVideo = (creativeUrl: string) => {
+  const extension = creativeUrl
+    .split('/')
+    .slice(-1)[0]
+    .split('.')
+    .slice(-1)[0]
+    .toLowerCase();
+  return VIDEO_EXTENSIONS.includes(extension) ? true : false;
+};
 export function Campaign({
   data,
   handleRepeatButtonOnClick,
@@ -63,7 +82,7 @@ export function Campaign({
   const [isActiveClassName, setIsActiveClassName] = useState<string>('');
   const [dollarAmount, setDollarAmount] = useState<string>('');
   const [supportLink, setSupportLink] = useState<string>('');
-
+  const [isVideo, setIsVideo] = useState<boolean | undefined>(undefined);
   useEffect(() => {
     if (data?.isActive && typeof data?.isActive) {
       setIsActive(data?.isActive);
@@ -98,6 +117,13 @@ export function Campaign({
         : 'group col-span-1 flex flex-col divide-y divide-slate-200 rounded-b-lg rounded-t-sm bg-slate-50 text-center shadow-md'
     );
   }, [isActive]);
+  useEffect(() => {
+    if (typeof isVideo === 'undefined') {
+      // TODO add call to check if creativeUrl is video
+      console.log('Checking if isVideo');
+      setIsVideo(checkIsVideo(creativeUrl));
+    }
+  }, [isVideo]);
   return (
     <li
       key={`campaign-${data.pid}`}
@@ -112,12 +138,18 @@ export function Campaign({
         <div className="relative flex flex-1 flex-col px-2 pt-10 pb-6 group-hover:rounded-tr-md group-hover:rounded-tl-sm group-hover:bg-slate-900">
           <IsActivePill isActive={isActive} />
           <IsPaidPill isPaid={isPaid} />
-          <img
-            suppressHydrationWarning={true}
-            className="mx-auto h-32 w-full flex-shrink-0 rounded-b-md rounded-t-sm object-cover px-2"
-            src={creativeUrl}
-            alt={adTitle}
-          />
+          {!isVideo ? (
+            <img
+              suppressHydrationWarning={true}
+              className="mx-auto h-32 w-full flex-shrink-0 rounded-b-md rounded-t-sm object-cover px-2"
+              src={creativeUrl}
+              alt={adTitle}
+            />
+          ) : (
+            <video muted controls className="mx-auto h-32 w-full flex-shrink-0 rounded-b-md rounded-t-sm object-cover px-2">
+              <source src={creativeUrl} type="video/mp4" />
+            </video>
+          )}
           <h3 className="mt-6 text-sm font-medium text-slate-900 group-hover:text-slate-200 truncate">
             {adTitle}
           </h3>
