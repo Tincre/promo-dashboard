@@ -36,6 +36,7 @@ export const campaignStubData = [
     buttonText: 'Sign up',
     telephone: '+1-202-555-0170',
     creativeUrls: [
+      'https://res.cloudinary.com/tincre/video/upload/v1681944299/tincre-assets/ywcdsddla3u3eoekvafn_vllq6l.mp4',
       'https://res.cloudinary.com/tincre/image/upload/v1666907624/tailwindui-salient/taxpal-og_xka3ix_q4ulfc.webp',
     ],
     stats: [
