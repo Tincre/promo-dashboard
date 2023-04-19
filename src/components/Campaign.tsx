@@ -119,8 +119,6 @@ export function Campaign({
   }, [isActive]);
   useEffect(() => {
     if (typeof isVideo === 'undefined') {
-      // TODO add call to check if creativeUrl is video
-      console.log('Checking if isVideo');
       setIsVideo(checkIsVideo(creativeUrl));
     }
   }, [isVideo]);
