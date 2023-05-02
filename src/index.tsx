@@ -20,7 +20,7 @@ import {
 } from './lib/types';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
-import { sortCampaignDataOnIsActive, numActiveCampaigns } from './lib/sort';
+import { sortCampaignDataOnIsActiveAndReceiptId, numActiveCampaigns } from './lib/sort';
 import { replaceDataParamForChartData } from './lib/coerce';
 import { options } from './lib/options';
 import { DownloadAllCampaignsButton } from './components/DownloadButton';
@@ -78,7 +78,7 @@ export function PromoDashboard({
   useEffect(() => {
     if (typeof campaignsData !== 'undefined') {
       setSortedCampaignsData(
-        replaceDataParamForChartData(sortCampaignDataOnIsActive(campaignsData))
+        replaceDataParamForChartData(sortCampaignDataOnIsActiveAndReceiptId(campaignsData))
       );
     }
   }, [campaignsData, setSortedCampaignsData]);
