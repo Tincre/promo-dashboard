@@ -12,7 +12,18 @@ export function sortCampaignDataOnIsActive(data: CampaignData[]) {
   );
   return newArray;
 }
-
+export function sortCampaignDataOnIsActiveAndReceiptId(data: CampaignData[]) {
+  let newArray = data.sort((campaign: CampaignData) =>
+    campaign?.isActive && campaign?.receiptId
+      ? -1
+      : campaign?.isActive
+      ? campaign?.receiptId
+        ? -1
+        : 1
+      : 1
+  );
+  return newArray;
+}
 export const numActiveCampaigns = (sortedCampaignsData: CampaignData[]) => {
   let activeCampaigns = 0;
   sortedCampaignsData.map((campaign) =>
