@@ -1804,6 +1804,7 @@ export const campaignStubData = [
     target: 'https://tincre.dev/promo',
     currency: 'EUR',
     isActive: false,
+    receiptId: 'old-receipt',
     title: 'Paradigm Representative',
     role: 'Admin',
     email: 'janecooper@example.com',
