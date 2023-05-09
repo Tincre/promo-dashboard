@@ -62,7 +62,7 @@ const options = {
     },
   },
   scales: {
-    yAxes: {
+    y: {
       ticks: {
         color: 'rgba(255, 255, 255, 1)',
       },
@@ -72,7 +72,7 @@ const options = {
       },
     },
 
-    xAxes: {
+    x: {
       ticks: {
         color: 'rgba(255, 255, 255, 1)',
       },
