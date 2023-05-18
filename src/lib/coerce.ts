@@ -158,7 +158,7 @@ export function prepareChartData(chartJsData: {
     {
       id: 5,
       name: 'CTR',
-      stat: `$${chartJsData.ctr[chartJsData.ctr.length - 1] || '0'}`,
+      stat: `%${chartJsData.ctr[chartJsData.ctr.length - 1] || '0'}`,
       icon: UsersIcon,
       change: computeChange(chartJsData.ctr),
       changeType: computeChangeType(computeChange(chartJsData.ctr)),
