@@ -80,6 +80,8 @@ export interface CampaignData {
   isActive?: boolean;
   receiptId?: string;
   currency?: string;
+  isFlat?: boolean;
+  usageFee?: string | number;
   stats?: CampaignStatsData[];
   data?: CampaignStatsData[];
 }
