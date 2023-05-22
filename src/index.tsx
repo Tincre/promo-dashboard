@@ -20,7 +20,10 @@ import {
 } from './lib/types';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
-import { sortCampaignDataOnIsActiveAndReceiptId, numActiveCampaigns } from './lib/sort';
+import {
+  sortCampaignDataOnIsActiveAndReceiptId,
+  numActiveCampaigns,
+} from './lib/sort';
 import { replaceDataParamForChartData } from './lib/coerce';
 import { options } from './lib/options';
 import { DownloadAllCampaignsButton } from './components/DownloadButton';
@@ -78,7 +81,9 @@ export function PromoDashboard({
   useEffect(() => {
     if (typeof campaignsData !== 'undefined') {
       setSortedCampaignsData(
-        replaceDataParamForChartData(sortCampaignDataOnIsActiveAndReceiptId(campaignsData))
+        replaceDataParamForChartData(
+          sortCampaignDataOnIsActiveAndReceiptId(campaignsData)
+        )
       );
     }
   }, [campaignsData, setSortedCampaignsData]);
@@ -132,7 +137,12 @@ export function PromoDashboard({
           'Payment ID pid not present therefore no payment link can be generated.'
         );
       const response = await fetch('/api/promo-pay', {
-        body: JSON.stringify({ budget: data?.budget || null, pid: data.pid }),
+        body: JSON.stringify({
+          budget: data?.budget || null,
+          pid: data.pid,
+          isFlat: data?.isFlat,
+          usageFee: data?.usageFee,
+        }),
         headers: {
           'Content-Type': 'application/json',
         },
