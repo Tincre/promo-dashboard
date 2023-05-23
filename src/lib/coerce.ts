@@ -122,7 +122,7 @@ export function prepareChartData(chartJsData: {
     {
       id: 2,
       name: 'Clicks',
-      stat: `$${chartJsData.clicks[chartJsData.clicks.length - 1] || '0'}`,
+      stat: `${chartJsData.clicks[chartJsData.clicks.length - 1] || '0'}`,
       icon: CursorArrowRaysIcon,
       change: computeChange(chartJsData.clicks),
       changeType: computeChangeType(computeChange(chartJsData.clicks)),
@@ -134,7 +134,7 @@ export function prepareChartData(chartJsData: {
     {
       id: 3,
       name: 'Views',
-      stat: `$${chartJsData.views[chartJsData.views.length - 1] || '0'}`,
+      stat: `${chartJsData.views[chartJsData.views.length - 1] || '0'}`,
       icon: FilmIcon,
       change: computeChange(chartJsData.views),
       changeType: computeChangeType(computeChange(chartJsData.views)),
@@ -158,7 +158,7 @@ export function prepareChartData(chartJsData: {
     {
       id: 5,
       name: 'CTR',
-      stat: `%${chartJsData.ctr[chartJsData.ctr.length - 1] || '0'}`,
+      stat: `${chartJsData.ctr[chartJsData.ctr.length - 1] || '0'}%`,
       icon: UsersIcon,
       change: computeChange(chartJsData.ctr),
       changeType: computeChangeType(computeChange(chartJsData.ctr)),
