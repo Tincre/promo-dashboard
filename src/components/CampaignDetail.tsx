@@ -30,6 +30,7 @@ export function CampaignDetail({
   const copyToClipboardEffect = async (toCopy: string) => {
     try {
       await navigator.clipboard.writeText(toCopy);
+      setHasClickedPid(false);
     } catch (err) {
       setHasClickedPid(false);
       failureToast(
@@ -47,7 +48,6 @@ export function CampaignDetail({
     if (hasClickedPid === true && typeof data?.pid !== 'undefined') {
       copyToClipboardEffect(data?.pid);
       copyToast(`Campaign ID successfully copied to your clipboard.`);
-      setHasClickedPid(false);
     }
   }, [hasClickedPid]);
 
