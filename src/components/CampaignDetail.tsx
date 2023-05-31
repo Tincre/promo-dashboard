@@ -4,13 +4,14 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from './Button';
 import { MouseEventHandler } from 'react';
 import { CampaignData } from '../lib/types';
 import { StatsHighlights } from './StatsHighlights';
 import { CampaignImageChart } from './CampaignImageChart';
 import { DownloadCampaignButton } from './DownloadButton';
+import { copyToast, failureToast } from '../lib/notifications';
 
 export function CampaignDetail({
   data,
@@ -25,11 +26,31 @@ export function CampaignDetail({
   handleCampaignDetailBackOnClick: MouseEventHandler<HTMLButtonElement>;
   handleStatsHighlightClick?: Function;
 }) {
+  const [hasClickedPid, setHasClickedPid] = useState<boolean>(false);
+  const copyToClipboardEffect = async (toCopy: string) => {
+    try {
+      await navigator.clipboard.writeText(toCopy);
+    } catch (err) {
+      setHasClickedPid(false);
+      failureToast(
+        `Oh no! Something went wrong and your campaign ID was not copied to your clipboard.`
+      );
+    }
+  };
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.scrollTo(0, 0);
     }
   }, []);
+
+  useEffect(() => {
+    if (hasClickedPid === true && typeof data?.pid !== 'undefined') {
+      copyToClipboardEffect(data?.pid);
+      copyToast(`Campaign ID successfully copied to your clipboard.`);
+      setHasClickedPid(false);
+    }
+  }, [hasClickedPid]);
+
   return (
     <>
       <div className="inline-flex w-full">
@@ -42,7 +63,12 @@ export function CampaignDetail({
           Back
         </Button>
         <h1 className="mt-auto mx-2 w-full text-center align-text-bottom text-2xl font-bold">
-          {data?.pid || ''}
+          <button
+            className="hover:cursor-copy"
+            onClick={() => setHasClickedPid(true)}
+          >
+            {data?.pid || ''}
+          </button>
         </h1>
         <span className="mt-auto mx-2">
           {!data ? null : <DownloadCampaignButton campaignData={data} />}
