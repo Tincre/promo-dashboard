@@ -66,6 +66,7 @@ export function CampaignDetail({
           <button
             className="hover:cursor-copy"
             onClick={() => setHasClickedPid(true)}
+            id="promo-dashboard-campaign-detail-pid-button"
           >
             {data?.pid || ''}
           </button>
