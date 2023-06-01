@@ -1,9 +1,17 @@
 import { CampaignData } from './types';
 
-const supportDomain = 'tincre.dev';
+const EMAILDOMAIN = 'tincre.dev';
+const EMAILLOCALPART = 'team';
 
-export const getSupportLink = (data: CampaignData) =>
-  `mailto:team@${supportDomain}?subject=${
+export const getSupportLink = (
+  data: CampaignData,
+  emailDomain?: string,
+  emailLocalPart?: string
+) => {
+  const supportDomain = emailDomain || EMAILDOMAIN;
+  const localPart = emailLocalPart || EMAILLOCALPART;
+
+  return `mailto:${localPart}@${supportDomain}?subject=${
     data.pid
   }%20-%20Support%20request%20from%20${supportDomain}&body=Hi!%20I%20am%20reaching%20out%20to%20request%20support%20for%20campaign%20${
     data.pid
@@ -16,3 +24,4 @@ export const getSupportLink = (data: CampaignData) =>
   }%0A%20%20Call%20to%20action%3A%20${
     data?.adCallToAction || ''
   }%0A%20%20Button%20Text%3A%20${data?.buttonText || ''}`;
+};
