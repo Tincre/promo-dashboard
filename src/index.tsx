@@ -235,6 +235,7 @@ export function PromoDashboard({
                     ? handleGeneratePaymentLinkButtonClick
                     : handleGeneratePaymentLinkButtonOnClick
                 }
+                dashboardOptions={dbOptions}
               />
             )}
           </>
@@ -280,4 +281,5 @@ export type {
   DownloadableCampaignMetadataSample,
   PromoApiCampaignStatsData,
   CampaignStatsData,
+  DashboardOptions,
 };
