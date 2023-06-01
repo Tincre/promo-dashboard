@@ -15,6 +15,7 @@ A dashboard for Tincre [Promo](https://tincre.dev/promo). Use it in conjunction 
         - [`handleRepeatButtonClick`](#handlerepeatbuttonclick)
         - [`handleSubmitSaveButtonClick`](#handlesubmitsavebuttonclick)
         - [`profileSettingsData`](#profilesettingsdata)
+        - [`dashboardOptions`](#dashboardoptions)
       - [Backend](#backend)
       - [Styling](#styling)
   - [Support](#support)
@@ -185,7 +186,22 @@ For example,
   }}
 />
 ```
+##### `dashboardOptions`
 
+Users can customize some behavior within the dashboard, such as the support email domain and the local email part. 
+
+> ℹ️ There are two customizable portions in `team@tincre.dev`, the **local part**, i.e. `team` and the **email domain**, i.e. `tincre.dev`.
+
+For example, 
+
+```jsx
+<PromoDashboard
+  dashboardOptions={{
+    emailDomain: 'tincre.com',
+    emailLocalPart: 'awesome-team',
+  }}
+/>
+```
 #### Backend
 
 🚧 Features and documentation content updates coming soon!
