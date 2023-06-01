@@ -80,6 +80,10 @@ describe('PromoDashboard', () => {
         campaignsData={addedReceiptIdsCampaignData}
         handleRepeatButtonClick={handleRepeatButtonOnClick}
         handleSettingsSaveButtonClick={handleSettingsSaveButtonOnClick}
+        dashboardOptions={{
+          emailDomain: 'tincre.com',
+          emailLocalPart: 'test-team',
+        }}
       />
     );
     const repeatButton = screen.getByLabelText(
