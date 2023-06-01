@@ -31,6 +31,9 @@ describe('Campaign', () => {
         data={campaignStubData[5]}
         handleCampaignClick={() => null}
         handleRepeatButtonOnClick={() => null}
+        id="test-campaign-id"
+        emailDomain="tincre.com"
+        emailLocalPart="teamage"
       >
         TestChildren
       </Campaign>
