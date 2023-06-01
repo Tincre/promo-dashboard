@@ -12,7 +12,6 @@ export function infoToast(message: string, icon?: string) {
   return toast(message, { icon: icon || 'ℹ️' });
 }
 
-
 export function copyToast(message: string, icon?: string) {
   return toast(message, { icon: icon || '📋️' });
 }
