@@ -39,6 +39,8 @@ export function Campaign({
   handleCampaignClick,
   handleGeneratePaymentLinkButtonClick,
   id,
+  emailDomain,
+  emailLocalPart,
   children,
 }: {
   data: CampaignData;
@@ -52,6 +54,8 @@ export function Campaign({
     data: CampaignData
   ) => void;
   id?: string;
+  emailDomain?: string;
+  emailLocalPart?: string;
   children?: ReactNode;
 }) {
   const [isActive, setIsActive] = useState<boolean>(data?.isActive || false);
@@ -94,7 +98,7 @@ export function Campaign({
     if (data?.receiptId) {
       setIsPaid(true);
     }
-    setSupportLink(getSupportLink(data));
+    setSupportLink(getSupportLink(data, emailDomain, emailLocalPart));
   }, [data]);
   useEffect(() => {
     setIsActiveClassName(
