@@ -92,3 +92,8 @@ export interface Settings {
   userName?: string;
   email?: string;
 }
+
+export interface DashboardOptions {
+  emailDomain?: string;
+  emailLocalPart?: string;
+}
