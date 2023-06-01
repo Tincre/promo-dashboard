@@ -17,6 +17,7 @@ import {
   DownloadableCampaignStats,
   DownloadableCampaignMetadataSample,
   PromoApiCampaignStatsData,
+  DashboardOptions,
 } from './lib/types';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
@@ -36,6 +37,7 @@ export function PromoDashboard({
   handleRepeatButtonClick,
   handleSettingsSaveButtonClick,
   handleGeneratePaymentLinkButtonClick,
+  dashboardOptions,
 }: {
   campaignsData: CampaignData[];
   campaignDetailData?: CampaignData;
@@ -52,6 +54,7 @@ export function PromoDashboard({
     event: MouseEvent<HTMLButtonElement>,
     campaignData: CampaignData
   ) => void;
+  dashboardOptions?: DashboardOptions;
 }) {
   const [promoData, setPromoData] = useState<CampaignData | undefined>(
     undefined
@@ -77,6 +80,9 @@ export function PromoDashboard({
   );
   const [profileData, setProfileData] = useState<undefined | Settings>(
     profileSettingsData
+  );
+  const [dbOptions, setDbOptions] = useState<undefined | DashboardOptions>(
+    dashboardOptions
   );
   useEffect(() => {
     if (typeof campaignsData !== 'undefined') {
