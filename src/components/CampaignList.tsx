@@ -6,13 +6,14 @@
  */
 import { MouseEvent } from 'react';
 import { Campaign } from './Campaign';
-import { CampaignData } from '../lib/types';
+import { CampaignData, DashboardOptions } from '../lib/types';
 
 export function CampaignList({
   data,
   handleRepeatButtonOnClick,
   handleCampaignClick,
   handleGeneratePaymentLinkButtonClick,
+  dashboardOptions,
 }: {
   data: CampaignData[];
   handleRepeatButtonOnClick: (
@@ -24,6 +25,7 @@ export function CampaignList({
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
   ) => void;
+  dashboardOptions?: DashboardOptions;
 }) {
   return (
     <ul
@@ -43,6 +45,8 @@ export function CampaignList({
             handleGeneratePaymentLinkButtonClick={
               handleGeneratePaymentLinkButtonClick
             }
+            emailDomain={dashboardOptions?.emailDomain}
+            emailLocalPart={dashboardOptions?.emailLocalPart}
           />
         );
       })}
