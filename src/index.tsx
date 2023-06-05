@@ -211,12 +211,43 @@ export function PromoDashboard({
       setHasUpdatedSettings(false);
     }, 2000);
   };
-  const handleDeleteButtonOnClick = (
+  const handleDeleteButtonOnClick = async (
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
   ) => {
     event.preventDefault();
-    setDeletedCampaigns((current) => [...current, `${data.pid}`]);
+    try {
+      if (!data?.pid)
+        throw new Error(
+          'Payment ID pid not present therefore no payment link can be generated.'
+        );
+      setDeletedCampaigns((current) => [...current, `${data.pid}`]);
+
+      const response = await fetch('/api/promo', {
+        body: JSON.stringify([data.pid]),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'DELETE',
+      });
+      if (response?.status !== 200) {
+        console.warn(
+          `promo-dashboard::PromoDashboard::Delete for ${data.pid} failed.`
+        );
+        // reset the deleted campaign array by removing the failed pid request
+        setDeletedCampaigns((current) =>
+          current.map((pid) => (pid !== data?.pid ? pid : ''))
+        );
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error(`promo-dashboard::PromoDashboard::${error.message}`);
+      } else {
+        console.warn(
+          `promo-dashboard::PromoDashboard::Unknown error after campaign delete request handler.`
+        );
+      }
+    }
   };
   return (
     <>
