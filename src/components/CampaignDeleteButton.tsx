@@ -23,7 +23,7 @@ export function CampaignDeleteButton({
 }) {
   return (
     <button
-      aria-label={`promo-dashboard-campaign-delete-${
+      aria-label={`campaign-delete-${
         data?.pid || 'default'
       }-button`}
       type="button"
@@ -35,10 +35,10 @@ export function CampaignDeleteButton({
             );
       }}
       id={id}
-      className="absolute inset-x-0 bottom-8 sm:bottom-10 mx-auto z-10"
+      className="absolute inset-x-0 bottom-2 sm:bottom-10 mx-auto z-10"
     >
       <XCircleIcon
-        className="h-8 w-8 sm:h-6 sm:w-6 text-red-500 hover:text-red-800 group-hover:text-red-500 group-hover:bg-slate-800 group-hover:rounded-full"
+        className="h-8 w-8 sm:h-6 sm:w-6 text-red-500 hover:text-red-800 group-hover:text-red-200 group-hover:bg-slate-800 group-hover:rounded-full"
         aria-hidden="true"
       />
     </button>
