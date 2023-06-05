@@ -24,10 +24,16 @@ export function sortCampaignDataOnIsActiveAndReceiptId(data: CampaignData[]) {
   );
   return newArray;
 }
-export const numActiveCampaigns = (sortedCampaignsData: CampaignData[]) => {
+export const numActiveCampaigns = (
+  sortedCampaignsData: CampaignData[],
+  exclusions: string[] = []
+) => {
   let activeCampaigns = 0;
-  sortedCampaignsData.map((campaign) =>
-    campaign.isActive ? (activeCampaigns += 1) : null
-  );
+  sortedCampaignsData.map((campaign) => {
+    const pid = `${campaign.pid}`;
+    if (!exclusions.includes(pid)) {
+      campaign.isActive ? (activeCampaigns += 1) : null;
+    }
+  });
   return activeCampaigns;
 };
