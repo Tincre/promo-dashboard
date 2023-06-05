@@ -14,6 +14,7 @@ export function CampaignList({
   handleCampaignClick,
   handleGeneratePaymentLinkButtonClick,
   handleDeleteButtonOnClick,
+  deletedCampaigns,
   dashboardOptions,
 }: {
   data: CampaignData[];
@@ -30,6 +31,7 @@ export function CampaignList({
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
   ) => void;
+  deletedCampaigns: string[];
   dashboardOptions?: DashboardOptions;
 }) {
   return (
@@ -39,22 +41,25 @@ export function CampaignList({
       id="promo-campaign-list"
     >
       {data.map((campaignData: CampaignData, index) => {
-        const key = `${index}-${campaignData.pid}`;
-        return (
-          <Campaign
-            key={key}
-            id={`campaign-${index}`}
-            data={campaignData}
-            handleRepeatButtonOnClick={handleRepeatButtonOnClick}
-            handleCampaignClick={handleCampaignClick}
-            handleGeneratePaymentLinkButtonClick={
-              handleGeneratePaymentLinkButtonClick
-            }
-            handleDeleteButtonOnClick={handleDeleteButtonOnClick}
-            emailDomain={dashboardOptions?.emailDomain}
-            emailLocalPart={dashboardOptions?.emailLocalPart}
-          />
-        );
+        const pid = `${campaignData.pid}`;
+        if (!deletedCampaigns.includes(pid)) {
+          const key = `${index}-${pid}`;
+          return (
+            <Campaign
+              key={key}
+              id={`campaign-${index}`}
+              data={campaignData}
+              handleRepeatButtonOnClick={handleRepeatButtonOnClick}
+              handleCampaignClick={handleCampaignClick}
+              handleGeneratePaymentLinkButtonClick={
+                handleGeneratePaymentLinkButtonClick
+              }
+              handleDeleteButtonOnClick={handleDeleteButtonOnClick}
+              emailDomain={dashboardOptions?.emailDomain}
+              emailLocalPart={dashboardOptions?.emailLocalPart}
+            />
+          );
+        }
       })}
     </ul>
   );
