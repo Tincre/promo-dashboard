@@ -186,13 +186,14 @@ For example,
   }}
 />
 ```
+
 ##### `dashboardOptions`
 
-Users can customize some behavior within the dashboard, such as the support email domain and the local email part. 
+Users can customize some behavior within the dashboard, such as the support email domain and the local email part.
 
 > ℹ️ There are two customizable portions in `team@tincre.dev`, the **local part**, i.e. `team` and the **email domain**, i.e. `tincre.dev`.
 
-For example, 
+For example,
 
 ```jsx
 <PromoDashboard
@@ -202,38 +203,46 @@ For example,
   }}
 />
 ```
+
 #### Backend
 
 🚧 Features and documentation content updates coming soon!
 
 #### Styling
+
 The Promo dashboard supports limited styling support. Essentially anything
-with a prominent color can be customized within your global imported 
+with a prominent color can be customized within your global imported
 tailwindcss css file.
 
 See the file `/styles/global.css` in the Next.js example:
 
 ```css
 #promo-dashboard-save-button {
-  @apply bg-red-700 hover:bg-red-900
+  @apply bg-red-700 hover:bg-red-900;
 }
 #promo-dashboard-download-campaign-button {
-  @apply bg-red-700 hover:bg-red-900
+  @apply bg-red-700 hover:bg-red-900;
 }
 #promo-dashboard-campaign-detail-back-button {
-  @apply bg-red-700 hover:bg-red-900
+  @apply bg-red-700 hover:bg-red-900;
 }
 #promo-dashboard-save-button {
-  @apply bg-red-700 hover:bg-red-900
+  @apply bg-red-700 hover:bg-red-900;
 }
 #promo-dashboard-line-chart {
-  @apply bg-red-700 hover:bg-red-800
+  @apply bg-red-700 hover:bg-red-800;
 }
 #promo-dashboard-stats-highlights-icon-container {
-  @apply bg-red-700
+  @apply bg-red-700;
 }
 #promo-dashboard-stats-highlights-icon {
-  @apply text-slate-900
+  @apply text-slate-900;
+}
+#promo-dashboard-campaign-delete-button-x-circle-icon {
+  @apply hover:bg-blue-700;
+}
+.promo-dashboard-campaign-delete-button {
+  @apply absolute -top-2 x-inset-0
 }
 ```
 
