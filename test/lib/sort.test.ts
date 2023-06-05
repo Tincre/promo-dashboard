@@ -33,4 +33,11 @@ describe('numActiveCampaigns', () => {
     const numActive = numActiveCampaigns(campaignStubData);
     expect(numActive).toBe(activeCampaigns);
   });
+  it('returns the number of active campaigns without crashing with exclusions', () => {
+    const activeCampaigns = 3;
+    const numActive = numActiveCampaigns(campaignStubData, [
+      campaignStubData[1].pid,
+    ]);
+    expect(numActive).toBe(activeCampaigns);
+  });
 });
