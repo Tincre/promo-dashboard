@@ -37,6 +37,7 @@ export function PromoDashboard({
   handleRepeatButtonClick,
   handleSettingsSaveButtonClick,
   handleGeneratePaymentLinkButtonClick,
+  handleDeleteButtonClick,
   dashboardOptions,
 }: {
   campaignsData: CampaignData[];
@@ -51,6 +52,10 @@ export function PromoDashboard({
     settingsData: Settings
   ) => void;
   handleGeneratePaymentLinkButtonClick?: (
+    event: MouseEvent<HTMLButtonElement>,
+    campaignData: CampaignData
+  ) => void;
+  handleDeleteButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
     campaignData: CampaignData
   ) => void;
@@ -203,6 +208,12 @@ export function PromoDashboard({
       setHasUpdatedSettings(false);
     }, 2000);
   };
+  const handleDeleteButtonOnClick = (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData
+  ) => {
+    alert(`Delete ${data.pid} clicked!`); // TODO remove this dummy line
+  };
   return (
     <>
       <DashboardContainer>
@@ -234,6 +245,11 @@ export function PromoDashboard({
                   typeof handleGeneratePaymentLinkButtonClick !== 'undefined'
                     ? handleGeneratePaymentLinkButtonClick
                     : handleGeneratePaymentLinkButtonOnClick
+                }
+                handleDeleteButtonOnClick={
+                  typeof handleDeleteButtonClick !== 'undefined'
+                    ? handleDeleteButtonClick
+                    : handleDeleteButtonOnClick
                 }
                 dashboardOptions={dbOptions}
               />
