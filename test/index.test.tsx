@@ -26,10 +26,19 @@ describe('PromoDashboard', () => {
     fireEvent.click(dashboardButton);
   });
   it('renders the dashboard payment button without crashing', () => {
+    let isDeleteButtonClicked = false;
+    const handleDeleteButtonClick = (
+      event: React.MouseEvent<HTMLButtonElement>,
+      data: CampaignData
+    ) => {
+      isDeleteButtonClicked = true;
+    };
+
     render(
       <PromoDashboard
         campaignsData={campaignStubData}
         handleGeneratePaymentLinkButtonClick={() => null}
+        handleDeleteButtonClick={handleDeleteButtonClick}
       />
     );
     const dashboard = screen.getByLabelText('campaign-fghijklm');
@@ -39,6 +48,14 @@ describe('PromoDashboard', () => {
     );
     expect(dashboardPaymentButton).toBeDefined();
     fireEvent.click(dashboardPaymentButton);
+    // find campaign with no receiptId parameter
+    const dashboardInactiveDeleteButton = screen.getByLabelText(
+      `campaign-delete-${campaignStubData[1].pid}-button`
+    );
+    // delete button
+    expect(dashboardInactiveDeleteButton).toBeDefined();
+    fireEvent.click(dashboardInactiveDeleteButton);
+    expect(isDeleteButtonClicked).toBeTruthy();
   });
   it('renders full data without crashing', () => {
     let testEvent: MouseEvent<HTMLButtonElement> | undefined = undefined;
