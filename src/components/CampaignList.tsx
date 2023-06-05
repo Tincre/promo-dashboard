@@ -13,6 +13,7 @@ export function CampaignList({
   handleRepeatButtonOnClick,
   handleCampaignClick,
   handleGeneratePaymentLinkButtonClick,
+  handleDeleteButtonOnClick,
   dashboardOptions,
 }: {
   data: CampaignData[];
@@ -22,6 +23,10 @@ export function CampaignList({
   ) => void;
   handleCampaignClick: Function;
   handleGeneratePaymentLinkButtonClick: (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData
+  ) => void;
+  handleDeleteButtonOnClick: (
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
   ) => void;
@@ -45,6 +50,7 @@ export function CampaignList({
             handleGeneratePaymentLinkButtonClick={
               handleGeneratePaymentLinkButtonClick
             }
+            handleDeleteButtonOnClick={handleDeleteButtonOnClick}
             emailDomain={dashboardOptions?.emailDomain}
             emailLocalPart={dashboardOptions?.emailLocalPart}
           />
