@@ -10,6 +10,7 @@ import { IsPaidPill } from './IsPaidPill';
 import { CampaignData } from '../lib/types';
 import { CampaignRepeatButton } from './CampaignRepeatButton';
 import { CampaignSupportButton } from './CampaignSupportButton';
+import { CampaignDeleteButton } from './CampaignDeleteButton';
 import { CampaignPaymentButton } from './CampaignPaymentButton';
 import { getSupportLink } from '../lib/support';
 
@@ -38,6 +39,7 @@ export function Campaign({
   handleRepeatButtonOnClick,
   handleCampaignClick,
   handleGeneratePaymentLinkButtonClick,
+  handleDeleteButtonOnClick,
   id,
   emailDomain,
   emailLocalPart,
@@ -50,6 +52,10 @@ export function Campaign({
   ) => void;
   handleCampaignClick: Function;
   handleGeneratePaymentLinkButtonClick?: (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData
+  ) => void;
+  handleDeleteButtonOnClick?: (
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
   ) => void;
@@ -103,8 +109,8 @@ export function Campaign({
   useEffect(() => {
     setIsActiveClassName(
       isActive
-        ? 'group col-span-1 flex flex-col divide-y divide-slate-200 rounded-b-lg rounded-t-sm bg-slate-100 text-center shadow-md'
-        : 'group col-span-1 flex flex-col divide-y divide-slate-200 rounded-b-lg rounded-t-sm bg-slate-50 text-center shadow-md'
+        ? 'group col-span-1 flex flex-col divide-y divide-slate-200 rounded-b-lg rounded-t-sm bg-slate-100 text-center shadow-md relative'
+        : 'group col-span-1 flex flex-col divide-y divide-slate-200 rounded-b-lg rounded-t-sm bg-slate-50 text-center shadow-md relative'
     );
   }, [isActive]);
   useEffect(() => {
@@ -119,6 +125,15 @@ export function Campaign({
       aria-label={`campaign-${data.pid}`}
       className={isActiveClassName}
     >
+      {isPaid ? null : (
+        <CampaignDeleteButton
+          handleDeleteButtonOnClick={handleDeleteButtonOnClick}
+          data={data}
+          id={`promo-dashboard-campaign-delete-${
+            data?.pid || 'default'
+          }-button`}
+        />
+      )}
       <button
         onClick={() => handleCampaignClick(data)}
         aria-label={`campaign-${data?.pid || 'default'}-button`}
