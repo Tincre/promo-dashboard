@@ -12,6 +12,7 @@ describe('CampaignList', () => {
         handleRepeatButtonOnClick={() => null}
         handleGeneratePaymentLinkButtonClick={() => null}
         handleDeleteButtonOnClick={() => null}
+        deletedCampaigns={[campaignStubData[1].pid]}
       />
     );
     const campaignListItem = screen.getByText(campaignStubData[0].pid);
