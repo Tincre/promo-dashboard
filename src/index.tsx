@@ -222,7 +222,7 @@ export function PromoDashboard({
           'Payment ID pid not present therefore no payment link can be generated.'
         );
       setDeletedCampaigns((current) => [...current, `${data.pid}`]);
-
+      successToast(`${data.pid} successfully deleted.`);
       const response = await fetch('/api/promo', {
         body: JSON.stringify([data.pid]),
         headers: {
@@ -238,6 +238,7 @@ export function PromoDashboard({
         setDeletedCampaigns((current) =>
           current.map((pid) => (pid !== data?.pid ? pid : ''))
         );
+        failureToast(`${data.pid} was not deleted. Try again.`);
       }
     } catch (error) {
       if (error instanceof Error) {
