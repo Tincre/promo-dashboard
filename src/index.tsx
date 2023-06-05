@@ -89,6 +89,7 @@ export function PromoDashboard({
   const [dbOptions, setDbOptions] = useState<undefined | DashboardOptions>(
     dashboardOptions
   );
+  const [deletedCampaigns, setDeletedCampaigns] = useState<string[]>([]);
   useEffect(() => {
     if (typeof campaignsData !== 'undefined') {
       setSortedCampaignsData(
@@ -107,9 +108,11 @@ export function PromoDashboard({
 
   useEffect(() => {
     if (sortedCampaignsData?.length) {
-      setNumberOfActiveCampaigns(numActiveCampaigns(sortedCampaignsData));
+      setNumberOfActiveCampaigns(
+        numActiveCampaigns(sortedCampaignsData, deletedCampaigns)
+      );
     }
-  }, [sortedCampaignsData]);
+  }, [sortedCampaignsData, deletedCampaigns]);
 
   useEffect(() => {
     if (hasUpdatedSettings) successToast('Settings successfully updated.');
@@ -212,7 +215,8 @@ export function PromoDashboard({
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
   ) => {
-    alert(`Delete ${data.pid} clicked!`); // TODO remove this dummy line
+    event.preventDefault();
+    setDeletedCampaigns((current) => [...current, `${data.pid}`]);
   };
   return (
     <>
@@ -251,6 +255,7 @@ export function PromoDashboard({
                     ? handleDeleteButtonClick
                     : handleDeleteButtonOnClick
                 }
+                deletedCampaigns={deletedCampaigns}
                 dashboardOptions={dbOptions}
               />
             )}
