@@ -4,7 +4,7 @@ import { CampaignPaymentButton } from '../../src/components/CampaignPaymentButto
 import { campaignStubData } from '../cms.data';
 import { CampaignData } from '../../src/lib/types';
 
-describe('CampaignRepeatButton', () => {
+describe('CampaignPaymentButton', () => {
   let testData = campaignStubData[0];
   it('renders without crashing', () => {
     testData.receiptId = undefined;
@@ -24,7 +24,7 @@ describe('CampaignRepeatButton', () => {
     fireEvent.click(button);
     expect(button).toBeDefined();
   });
-  it('renders with handleRepeatButtonOnClick without crashing', () => {
+  it('renders with handleGeneratePaymentLinkButtonClick without crashing', () => {
     let testLocalData: CampaignData | undefined = undefined;
     let testEvent: MouseEvent<HTMLButtonElement> | undefined = undefined;
     let testFlag: boolean = false;
