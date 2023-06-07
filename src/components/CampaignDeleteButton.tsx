@@ -18,7 +18,6 @@ export function CampaignDeleteButton({
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
   ) => void;
-  children?: ReactNode;
   id?: string;
 }) {
   return (
