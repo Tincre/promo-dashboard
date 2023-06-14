@@ -38,6 +38,7 @@ export function PromoDashboard({
   handleSettingsSaveButtonClick,
   handleGeneratePaymentLinkButtonClick,
   handleDeleteButtonClick,
+  handleCampaignClick,
   handleCampaignDetailBackClick,
   dashboardOptions,
 }: {
@@ -59,6 +60,10 @@ export function PromoDashboard({
   handleDeleteButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
     campaignData: CampaignData
+  ) => void;
+  handleCampaignClick?: (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData
   ) => void;
   handleCampaignDetailBackClick?: (
     event: MouseEvent<HTMLButtonElement>
@@ -189,7 +194,10 @@ export function PromoDashboard({
       setIsPaymentButtonClicked(!isPaymentButtonClicked);
     }
   };
-  const handleCampaignClick = (data: CampaignData) => {
+  const handleCampaignOnClick = (event: MouseEvent<HTMLButtonElement>, data: CampaignData) => {
+    if (typeof handleCampaignClick !== 'undefined') {
+      handleCampaignClick(event, data);
+    }
     setPromoData(data);
     setIsCampaignClicked(true);
     if (data?.data?.length) {
@@ -285,7 +293,7 @@ export function PromoDashboard({
                     ? handleRepeatButtonClick
                     : handleRepeatButtonOnClick
                 }
-                handleCampaignClick={handleCampaignClick}
+                handleCampaignClick={handleCampaignOnClick}
                 handleGeneratePaymentLinkButtonClick={
                   typeof handleGeneratePaymentLinkButtonClick !== 'undefined'
                     ? handleGeneratePaymentLinkButtonClick
