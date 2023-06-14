@@ -38,6 +38,7 @@ export function PromoDashboard({
   handleSettingsSaveButtonClick,
   handleGeneratePaymentLinkButtonClick,
   handleDeleteButtonClick,
+  handleCampaignDetailBackClick,
   dashboardOptions,
 }: {
   campaignsData: CampaignData[];
@@ -58,6 +59,9 @@ export function PromoDashboard({
   handleDeleteButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
     campaignData: CampaignData
+  ) => void;
+  handleCampaignDetailBackClick?: (
+    event: MouseEvent<HTMLButtonElement>
   ) => void;
   dashboardOptions?: DashboardOptions;
 }) {
@@ -197,7 +201,12 @@ export function PromoDashboard({
     }
   };
 
-  const handleCampaignDetailBackOnClick = () => {
+  const handleCampaignDetailBackOnClick = (
+    event: MouseEvent<HTMLButtonElement>
+  ) => {
+    if (typeof handleCampaignDetailBackClick !== 'undefined') {
+      handleCampaignDetailBackClick(event);
+    }
     setIsCampaignClicked(false);
     setClickedStatsClassName(options.defaultStatName); // default
   };
