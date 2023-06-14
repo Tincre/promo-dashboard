@@ -57,7 +57,7 @@ export function CampaignDetail({
         <Button
           className="mx-2 mt-2 inline"
           onClick={handleCampaignDetailBackOnClick}
-          aria-label={`campaign-detail-back-${data?.pid || ''}`}
+          aria-label="promo-dashboard-campaign-detail-back-button"
           id="promo-dashboard-campaign-detail-back-button"
         >
           Back
