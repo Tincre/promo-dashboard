@@ -86,7 +86,6 @@ export function CampaignDetail({
         handleStatsHighlightClick={handleStatsHighlightClick}
         statsHighlightMetricsName={statsHighlightMetricName || 'Spend'}
       />
-      {/*@ts-ignore*/}
       <Button
         className="mx-2 mt-4 mb-2 sm:hidden"
         onClick={handleCampaignDetailBackOnClick}
