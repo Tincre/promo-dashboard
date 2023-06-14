@@ -133,6 +133,7 @@ describe('PromoDashboard', () => {
     const setPromoData = (data: any) => data;
     const isRepeatButtonClicked = false;
     const setIsRepeatButtonClicked = (tf: boolean) => tf;
+    let isCampaignClicked = false;
     const handleSettingsSaveButtonOnClick = (
       event: MouseEvent<HTMLButtonElement>,
       data: Settings
@@ -140,11 +141,20 @@ describe('PromoDashboard', () => {
       testEvent = event;
       testData = data;
     };
+    const handleCampaignClick = (
+      event: MouseEvent<HTMLButtonElement>,
+      data: Settings
+    ) => {
+      testEvent = event;
+      testData = data;
+      isCampaignClicked = true;
+    };
 
     render(
       <PromoDashboard
         campaignsData={campaignStubData}
         handleSettingsSaveButtonClick={handleSettingsSaveButtonOnClick}
+        handleCampaignClick={handleCampaignClick}
         profileSettingsData={{
           userName: 'testUserName',
           fullName: 'Test McTesterson',
@@ -152,6 +162,10 @@ describe('PromoDashboard', () => {
         }}
       />
     );
+    let campaign = screen.getByLabelText(
+      `campaign-${campaignStubData[5].pid}-button`
+    );
+
     const imageInput = screen.getByRole('textbox', { name: 'Avatar' });
     expect(imageInput).toBeDefined();
     // @ts-ignore
@@ -166,5 +180,8 @@ describe('PromoDashboard', () => {
     expect(fullNameInput).toBeDefined();
     // @ts-ignore
     expect(fullNameInput.value).toBe('Test McTesterson');
+    fireEvent.click(campaign);
+    expect(campaign).toBeDefined();
+    expect(isCampaignClicked).toBeTruthy();
   });
 });
