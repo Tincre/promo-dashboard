@@ -134,6 +134,7 @@ describe('PromoDashboard', () => {
     const isRepeatButtonClicked = false;
     const setIsRepeatButtonClicked = (tf: boolean) => tf;
     let isCampaignClicked = false;
+    let isCampaignDetailBackClicked = false;
     const handleSettingsSaveButtonOnClick = (
       event: MouseEvent<HTMLButtonElement>,
       data: Settings
@@ -150,11 +151,19 @@ describe('PromoDashboard', () => {
       isCampaignClicked = true;
     };
 
+    const handleCampaignDetailBackClick = (
+      event: MouseEvent<HTMLButtonElement>
+    ) => {
+      testEvent = event;
+      isCampaignDetailBackClicked = true;
+    };
+
     render(
       <PromoDashboard
         campaignsData={campaignStubData}
         handleSettingsSaveButtonClick={handleSettingsSaveButtonOnClick}
         handleCampaignClick={handleCampaignClick}
+        handleCampaignDetailBackClick={handleCampaignDetailBackClick}
         profileSettingsData={{
           userName: 'testUserName',
           fullName: 'Test McTesterson',
@@ -165,7 +174,6 @@ describe('PromoDashboard', () => {
     let campaign = screen.getByLabelText(
       `campaign-${campaignStubData[5].pid}-button`
     );
-
     const imageInput = screen.getByRole('textbox', { name: 'Avatar' });
     expect(imageInput).toBeDefined();
     // @ts-ignore
@@ -183,5 +191,12 @@ describe('PromoDashboard', () => {
     fireEvent.click(campaign);
     expect(campaign).toBeDefined();
     expect(isCampaignClicked).toBeTruthy();
+
+    let campaignDetailBackButton = screen.getAllByRole('button', {
+      name: 'Back',
+    })[0];
+    fireEvent.click(campaignDetailBackButton);
+    expect(campaignDetailBackButton).toBeDefined();
+    expect(isCampaignDetailBackClicked).toBeTruthy();
   });
 });
