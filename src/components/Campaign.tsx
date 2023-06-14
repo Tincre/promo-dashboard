@@ -50,7 +50,10 @@ export function Campaign({
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
   ) => void;
-  handleCampaignClick: Function;
+  handleCampaignClick: (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData
+  ) => void;
   handleGeneratePaymentLinkButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
@@ -135,7 +138,7 @@ export function Campaign({
         />
       )}
       <button
-        onClick={() => handleCampaignClick(data)}
+        onClick={(event) => handleCampaignClick(event, data)}
         aria-label={`campaign-${data?.pid || 'default'}-button`}
       >
         <div className="relative flex flex-1 flex-col px-2 pt-10 pb-6 group-hover:rounded-tr-md group-hover:rounded-tl-sm group-hover:bg-slate-900">

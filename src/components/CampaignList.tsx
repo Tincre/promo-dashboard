@@ -22,7 +22,10 @@ export function CampaignList({
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
   ) => void;
-  handleCampaignClick: Function;
+  handleCampaignClick: (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData
+  ) => void;
   handleGeneratePaymentLinkButtonClick: (
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
