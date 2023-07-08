@@ -26,7 +26,7 @@ describe('prepareChartData', () => {
     const spend = prepared[0];
     expect(spend.id).toBe(1);
     expect(spend.name).toBe('Spend');
-    expect(spend.change).toBe(0);
+    expect(spend.change).toBe("0.00");
     expect(spend.chartData.labels.length > 0).toBeTruthy();
   });
 });
