@@ -94,7 +94,10 @@ export function computeChange(data: (string | number | null)[]) {
   return 0;
 }
 export function computeChangeType(changeAmount: number) {
-  return changeAmount < 0 ? 'decrease' : 'increase';
+  if (changeAmount !== 0) {
+    return changeAmount < 0 ? 'decrease' : 'increase';
+  }
+  return 'same';
 }
 export function prepareChartData(chartJsData: {
   updatedTime: (string | null)[];
