@@ -194,7 +194,10 @@ export function PromoDashboard({
       setIsPaymentButtonClicked(!isPaymentButtonClicked);
     }
   };
-  const handleCampaignOnClick = (event: MouseEvent<HTMLButtonElement>, data: CampaignData) => {
+  const handleCampaignOnClick = (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData
+  ) => {
     if (typeof handleCampaignClick !== 'undefined') {
       handleCampaignClick(event, data);
     }
