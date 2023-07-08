@@ -1,6 +1,6 @@
 {
   "name": "@tincre/promo-dashboard",
-  "version": "0.8.13",
+  "version": "0.9.0",
   "license": "MPL-2.0",
   "author": "Jason R. Stevens, CFA on behalf of Tincre <jason@tincre.com> (https://tincre.com)",
   "main": "dist/index.js",
