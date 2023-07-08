@@ -10,7 +10,9 @@ describe('coercePromoApiDataForChartJs', () => {
     const coerced = coercePromoApiDataForChartJs(
       testPromoApiTimeseriesData.data.totals
     );
-    expect(coerced.updatedTime[0]).toBe('2023-02-19');
+    expect(coerced.updatedTime[coerced.updatedTime.length - 1]).toBe(
+      '2023-02-19'
+    );
   });
 });
 
