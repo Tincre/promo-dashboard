@@ -66,7 +66,9 @@ export function StatsHighlights({
                   className={classNames(
                     item.changeType === 'increase'
                       ? 'text-green-600'
-                      : 'text-red-600',
+                      : item.changeType !== 'same'
+                      ? 'text-red-600'
+                      : 'text-gray-600',
                     'ml-2 flex items-baseline text-sm font-semibold sm:text-md md:text-lg lg:text-xl xl:text-2xl'
                   )}
                 >
@@ -75,18 +77,20 @@ export function StatsHighlights({
                       className="h-5 w-5 flex-shrink-0 self-center text-green-600"
                       aria-hidden="true"
                     />
-                  ) : (
+                  ) : item.changeType !== 'same' ? (
                     <ArrowDownIcon
                       className="h-5 w-5 flex-shrink-0 self-center text-red-600"
                       aria-hidden="true"
                     />
-                  )}
+                  ) : null}
 
                   <span className="sr-only">
                     {' '}
                     {item.changeType === 'increase'
                       ? 'Increased'
-                      : 'Decreased'}{' '}
+                      : item.changeType !== 'same'
+                      ? 'Decreased'
+                      : 'Unchanged'}{' '}
                     by{' '}
                   </span>
                   {item.change}
