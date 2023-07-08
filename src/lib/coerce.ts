@@ -60,7 +60,8 @@ export function coercePromoApiDataForChartJs(
 ) {
   let chartJsData = generateEmptyPromoApiDataForChartJs();
   if (typeof data !== 'undefined') {
-    data.forEach((pckg) => {
+    for (let index = data.length - 1; index >= 0; index--) {
+      let pckg = data[index];
       chartJsData.updatedTime.push(pckg?.updated_time?.slice(0, 10) || null);
       chartJsData.spend.push(
         typeof pckg?.spend !== 'undefined' ? pckg.spend : null
@@ -78,7 +79,7 @@ export function coercePromoApiDataForChartJs(
       chartJsData.clicks.push(
         typeof pckg?.clicks !== 'undefined' ? pckg.clicks : null
       );
-    });
+    }
   }
   return chartJsData;
 }
