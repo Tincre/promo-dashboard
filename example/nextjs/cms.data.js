@@ -544,7 +544,7 @@ export const campaignStubData = [
         stat: '0',
         icon: VideoCameraIcon,
         change: '0',
-        changeType: 'increase',
+        changeType: 'same',
         chartData: {
           data: generateViews(0, 0),
           labels: generateDates(13, new Date('2023-02-22')),
