@@ -99,6 +99,35 @@ export function computeChangeType(changeAmount: number) {
   }
   return 'same';
 }
+function getLatestStatValues(chartJsData: {
+  updatedTime: (string | null)[];
+  spend: (number | string | null)[];
+  reach: (number | string | null)[];
+  views: (number | string | null)[];
+  clicks: (number | string | null)[];
+  cpc: (number | string | null)[];
+  cpm: (number | string | null)[];
+  ctr: (number | string | null)[];
+  cpv: (number | string | null)[];
+}) {
+  return {
+    spendStat: `$${chartJsData.spend[chartJsData.spend.length - 1] || '0'}`,
+    clickStat: `${chartJsData.clicks[chartJsData.clicks.length - 1] || '0'}`,
+    viewStat: `${chartJsData.views[chartJsData.views.length - 1] || '0'}`,
+    cpmStat:
+      `$` + `${chartJsData.cpm[chartJsData.cpm.length - 1] || '0'}`.slice(0, 4),
+    ctrStat:
+      `${chartJsData.ctr[chartJsData.ctr.length - 1] || '0'}`.slice(0, 4) + '%',
+    cpcStat: `$${chartJsData.cpc[chartJsData.cpc.length - 1] || '0'}`.slice(
+      0,
+      4
+    ),
+    cpvStat: `$${chartJsData.cpv[chartJsData.cpv.length - 1] || '0'}`.slice(
+      0,
+      4
+    ),
+  };
+}
 export function prepareChartData(chartJsData: {
   updatedTime: (string | null)[];
   spend: (number | string | null)[];
@@ -110,13 +139,16 @@ export function prepareChartData(chartJsData: {
   ctr: (number | string | null)[];
   cpv: (number | string | null)[];
 }) {
+  const { spendStat, clickStat, viewStat, cpmStat, ctrStat, cpcStat, cpvStat } =
+    getLatestStatValues(chartJsData);
+
   return [
     {
       id: 1,
       name: 'Spend',
-      stat: `$${chartJsData.spend[chartJsData.spend.length - 1] || '0'}`,
+      stat: spendStat,
       icon: CurrencyDollarIcon,
-      change: computeChange(chartJsData.spend),
+      change: computeChange(chartJsData.spend).toFixed(2),
       changeType: computeChangeType(computeChange(chartJsData.spend)),
       chartData: {
         labels: chartJsData.updatedTime,
@@ -126,7 +158,7 @@ export function prepareChartData(chartJsData: {
     {
       id: 2,
       name: 'Clicks',
-      stat: `${chartJsData.clicks[chartJsData.clicks.length - 1] || '0'}`,
+      stat: clickStat,
       icon: CursorArrowRaysIcon,
       change: computeChange(chartJsData.clicks),
       changeType: computeChangeType(computeChange(chartJsData.clicks)),
@@ -138,7 +170,7 @@ export function prepareChartData(chartJsData: {
     {
       id: 3,
       name: 'Views',
-      stat: `${chartJsData.views[chartJsData.views.length - 1] || '0'}`,
+      stat: viewStat,
       icon: FilmIcon,
       change: computeChange(chartJsData.views),
       changeType: computeChangeType(computeChange(chartJsData.views)),
@@ -150,9 +182,9 @@ export function prepareChartData(chartJsData: {
     {
       id: 4,
       name: 'CPM',
-      stat: `$${chartJsData.cpm[chartJsData.cpm.length - 1] || '0'}`,
+      stat: cpmStat,
       icon: EnvelopeOpenIcon,
-      change: computeChange(chartJsData.cpm),
+      change: computeChange(chartJsData.cpm).toFixed(2),
       changeType: computeChangeType(computeChange(chartJsData.cpm)),
       chartData: {
         labels: chartJsData.updatedTime,
@@ -162,9 +194,9 @@ export function prepareChartData(chartJsData: {
     {
       id: 5,
       name: 'CTR',
-      stat: `${chartJsData.ctr[chartJsData.ctr.length - 1] || '0'}%`,
+      stat: ctrStat,
       icon: UsersIcon,
-      change: computeChange(chartJsData.ctr),
+      change: computeChange(chartJsData.ctr).toFixed(2),
       changeType: computeChangeType(computeChange(chartJsData.ctr)),
       chartData: {
         labels: chartJsData.updatedTime,
@@ -174,9 +206,9 @@ export function prepareChartData(chartJsData: {
     {
       id: 6,
       name: 'CPC',
-      stat: `$${chartJsData.cpc[chartJsData.cpc.length - 1] || '0'}`,
+      stat: cpcStat,
       icon: CursorArrowRaysIcon,
-      change: computeChange(chartJsData.cpc),
+      change: computeChange(chartJsData.cpc).toFixed(2),
       changeType: computeChangeType(computeChange(chartJsData.cpc)),
       chartData: {
         labels: chartJsData.updatedTime,
@@ -186,9 +218,9 @@ export function prepareChartData(chartJsData: {
     {
       id: 7,
       name: 'CPV',
-      stat: `$${chartJsData.cpv[chartJsData.cpv.length - 1] || '0'}`,
+      stat: cpvStat,
       icon: VideoCameraIcon,
-      change: computeChange(chartJsData.cpv),
+      change: computeChange(chartJsData.cpv).toFixed(2),
       changeType: computeChangeType(computeChange(chartJsData.cpv)),
       chartData: {
         labels: chartJsData.updatedTime,
