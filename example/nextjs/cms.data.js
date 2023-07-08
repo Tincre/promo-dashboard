@@ -375,12 +375,12 @@ export const campaignStubData = [
       {
         id: 5,
         name: 'CTR',
-        stat: '3.33%',
+        stat: '3.333333333333'.slice(0, 3) + '%',
         icon: UsersIcon,
         change: '.3%',
         changeType: 'decrease',
         chartData: {
-          data: generateCTR(3.33 + 0.3, 3.33),
+          data: generateCTR(3.333333 + 0.3, 3.333333),
           labels: generateDates(13),
         },
       },

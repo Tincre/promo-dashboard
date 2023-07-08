@@ -3809,7 +3809,7 @@ export const campaignStubData = [
           reach: 5751,
           cpc: 0.23,
           cpm: 4.4,
-          ctr: 1.92,
+          ctr: 1.93121212,
           cpv: 0,
           cpp: 6.57,
           views: 0,
