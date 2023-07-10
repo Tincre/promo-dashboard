@@ -254,7 +254,8 @@ export function modifyMultiCampaignsDataForDownload(
   campaignsData.forEach((pckg) => {
     let data = modifySingleCampaignDataForDownload(pckg);
     if (typeof data !== 'undefined') {
-      let { updatedTime, spend, views, clicks, cpc, cpm, ctr, cpv } = data[0];
+      let { updatedTime, spend, views, clicks, cpc, cpm, ctr, cpv } =
+        data[data.length - 1];
       let result = {
         pid: pckg?.pid || '',
         updatedTime: updatedTime,
@@ -286,56 +287,25 @@ export function modifySingleCampaignDataForDownload(
 ) {
   let data: CampaignStatsData[] | undefined =
     campaignData?.data || campaignData?.stats;
-  let pid: string[] = [];
+  let pid: string = campaignData.pid || '';
   let chartJsData = generateEmptyPromoApiDataForChartJs();
   let modifiedData: DownloadableCampaignStatsSample[] = [];
   if (typeof data !== 'undefined') {
     data.forEach((pckg: CampaignStatsData) => {
       const chartData = pckg?.chartData;
       chartJsData.updatedTime = chartData.labels;
-      pid.push(campaignData.pid || '');
-      if (pckg.name === 'Spend') {
-        chartJsData.spend = chartData.data;
-        return;
-      }
-      if (pckg.name === 'Reach') {
-        chartJsData.reach = chartData.data;
-        return;
-      }
-      if (pckg.name === 'Views') {
-        chartJsData.views = chartData.data;
-        return;
-      }
-      if (pckg.name === 'Clicks') {
-        chartJsData.clicks = chartData.data;
-        return;
-      }
-      if (pckg.name === 'CPC') {
-        chartJsData.cpc = chartData.data;
-        return;
-      }
-      if (pckg.name === 'CPM') {
-        chartJsData.cpm = chartData.data;
-        return;
-      }
-      if (pckg.name === 'CTR') {
-        chartJsData.ctr = chartData.data;
-        return;
-      }
-      if (pckg.name === 'CPV') {
-        chartJsData.cpv = chartData.data;
-        return;
-      }
+      // @ts-ignore
+      chartJsData[pckg.name.toLowerCase()] = chartData.data;
     });
     let modifiedObject = {
       ...chartJsData,
       pid,
     };
-
-    pid.forEach((pid, index) => {
-      modifiedData.push({
-        pid: pid,
-        updatedTime: modifiedObject.updatedTime[index] || '',
+    let timestamps = modifiedObject.updatedTime;
+    timestamps.forEach((timestamp, index) => {
+      const mdtmp = {
+        pid: pid || '',
+        updatedTime: timestamp || '',
         spend: modifiedObject.spend[index],
         views: modifiedObject?.views[index],
         clicks: modifiedObject?.clicks[index],
@@ -343,7 +313,8 @@ export function modifySingleCampaignDataForDownload(
         cpm: modifiedObject?.cpm[index],
         ctr: modifiedObject?.ctr[index],
         cpv: modifiedObject?.cpv[index],
-      });
+      };
+      modifiedData.push(mdtmp);
     });
     return modifiedData;
   }
