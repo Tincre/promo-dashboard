@@ -56,7 +56,7 @@ export interface DownloadableCampaignStats {
 }
 export interface CampaignStatsData {
   id: number;
-  name: 'Spend' | 'Clicks' | 'Views' | 'CPM' | 'CTR' | 'CPC' | 'CPV';
+  name: 'Spend' | 'Clicks' | 'Views' | 'CPM' | 'CTR' | 'CPC' | 'CPV' | string;
   stat: string;
   change: string | number;
   changeType: string;
