@@ -282,6 +282,7 @@ export function modifyMultiCampaignsDataForDownload(
   });
   return modifiedData;
 }
+
 export function modifySingleCampaignDataForDownload(
   campaignData: CampaignData
 ) {
