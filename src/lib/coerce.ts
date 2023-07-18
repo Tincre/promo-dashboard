@@ -115,14 +115,16 @@ function getLatestStatValues(chartJsData: {
     clickStat: `${chartJsData.clicks[chartJsData.clicks.length - 1] || '0'}`,
     viewStat: `${chartJsData.views[chartJsData.views.length - 1] || '0'}`,
     cpmStat:
-      `$` + `${chartJsData.cpm[chartJsData.cpm.length - 1] || '0'}`.slice(0, 4),
+      `$` +
+      `${chartJsData.cpm[chartJsData.cpm.length - 1] || '0.00'}`.slice(0, 4),
     ctrStat:
-      `${chartJsData.ctr[chartJsData.ctr.length - 1] || '0'}`.slice(0, 4) + '%',
-    cpcStat: `$${chartJsData.cpc[chartJsData.cpc.length - 1] || '0'}`.slice(
+      `${chartJsData.ctr[chartJsData.ctr.length - 1] || '0.00'}`.slice(0, 4) +
+      '%',
+    cpcStat: `$${chartJsData.cpc[chartJsData.cpc.length - 1] || '0.00'}`.slice(
       0,
       4
     ),
-    cpvStat: `$${chartJsData.cpv[chartJsData.cpv.length - 1] || '0'}`.slice(
+    cpvStat: `$${chartJsData.cpv[chartJsData.cpv.length - 1] || '0.00'}`.slice(
       0,
       4
     ),
