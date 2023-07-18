@@ -264,17 +264,17 @@
     cross-fetch ">=3.0"
     jsonwebtoken ">=8"
 
-"@tincre/promo-button@^0.4.18":
-  version "0.4.24"
-  resolved "https://registry.yarnpkg.com/@tincre/promo-button/-/promo-button-0.4.24.tgz#690266d6e6097c509244e7890eab4f2233f05750"
-  integrity sha512-7XD2pIh3Cyo4zqITOcCitTGp1gjjoQOWn0GsVjxKy63OYHaCH8YR4Ik958q9LlPZW8nF61Mwvk+8NGsXuM10pQ==
+"@tincre/promo-button@^0.5.4":
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@tincre/promo-button/-/promo-button-0.5.4.tgz#67305679f19cb6df22f23c567040e6a49fe6ddf3"
+  integrity sha512-476ATs0n9MNCAUpLO0zHXiP4DN/z3Lim/sWyTTy9WXVm4KqyYA9plT26HPUbRN5Pq2C52ufbdBpLKFFJEe2iqw==
   dependencies:
     "@tincre/promo-button-node" "^0.0.6"
 
-"@tincre/promo-dashboard@^0.8.0":
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/@tincre/promo-dashboard/-/promo-dashboard-0.8.4.tgz#3ef0d592e40755e64798b5637e323ccf8bdfb430"
-  integrity sha512-tEFDnLVvljjRY3oHcqjYzCGBoHH5K+6AHCc4WbqnC0m0d3/ItONM3tHk9O04J3g6FaQy+Pz3kJfcSmJn4RFFSA==
+"@tincre/promo-dashboard@^0.9.2":
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/@tincre/promo-dashboard/-/promo-dashboard-0.9.2.tgz#e3023da046a0e000ac06cc7e08df3cfb71d9c99f"
+  integrity sha512-LJAdiPArxgWMBA/5kFVxYWecFjFIn/XdweWmFXOXCVWWpZvpNSFR4sPQX0YsJvRWF3D1dIMX7aJoZf6kw1K97A==
 
 "@types/json5@^0.0.29":
   version "0.0.29"
