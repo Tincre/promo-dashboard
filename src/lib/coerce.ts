@@ -120,14 +120,12 @@ function getLatestStatValues(chartJsData: {
     ctrStat:
       `${chartJsData.ctr[chartJsData.ctr.length - 1] || '0.00'}`.slice(0, 4) +
       '%',
-    cpcStat: `$${chartJsData.cpc[chartJsData.cpc.length - 1] || '0.00'}`.slice(
-      0,
-      4
-    ),
-    cpvStat: `$${chartJsData.cpv[chartJsData.cpv.length - 1] || '0.00'}`.slice(
-      0,
-      4
-    ),
+    cpcStat:
+      `$` +
+      `${chartJsData.cpc[chartJsData.cpc.length - 1] || '0.00'}`.slice(0, 4),
+    cpvStat:
+      '$' +
+      `${chartJsData.cpv[chartJsData.cpv.length - 1] || '0.00'}`.slice(0, 4),
   };
 }
 export function prepareChartData(chartJsData: {
