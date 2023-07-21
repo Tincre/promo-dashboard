@@ -183,7 +183,9 @@ export function Campaign({
       </button>
       <div className="divide-y divide-slate-200 group-hover:bg-slate-900">
         {isPaid ? (
-          <div className="invisible text-transparent h-8">{data?.pid}</div>
+          <div className="invisible text-transparent h-8">
+            {`${data?.adTitle}`.slice(0, 4)}
+          </div>
         ) : (
           <CampaignDeleteButton
             handleDeleteButtonOnClick={handleDeleteButtonOnClick}
