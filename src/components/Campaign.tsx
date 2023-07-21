@@ -112,8 +112,8 @@ export function Campaign({
   useEffect(() => {
     setIsActiveClassName(
       isActive
-        ? 'group col-span-1 flex flex-col divide-y divide-slate-200 rounded-b-lg rounded-t-sm bg-slate-100 text-center shadow-md relative'
-        : 'group col-span-1 flex flex-col divide-y divide-slate-200 rounded-b-lg rounded-t-sm bg-slate-50 text-center shadow-md relative'
+        ? 'group col-span-1 flex flex-col rounded-b-lg rounded-t-sm bg-slate-100 text-center shadow-md relative'
+        : 'group col-span-1 flex flex-col rounded-b-lg rounded-t-sm bg-slate-50 text-center shadow-md relative'
     );
   }, [isActive]);
   useEffect(() => {
@@ -128,15 +128,6 @@ export function Campaign({
       aria-label={`campaign-${data.pid}`}
       className={isActiveClassName}
     >
-      {isPaid ? null : (
-        <CampaignDeleteButton
-          handleDeleteButtonOnClick={handleDeleteButtonOnClick}
-          data={data}
-          id={`promo-dashboard-campaign-delete-${
-            data?.pid || 'default'
-          }-button`}
-        />
-      )}
       <button
         onClick={(event) => handleCampaignClick(event, data)}
         aria-label={`campaign-${data?.pid || 'default'}-button`}
@@ -190,30 +181,43 @@ export function Campaign({
           </dl>
         </div>
       </button>
-      <div>
-        <div className="-mt-px flex divide-x divide-slate-200 group-hover:divide-slate-300 group-hover:bg-slate-200">
-          <CampaignSupportButton id={id} supportLink={supportLink}>
-            Support
-          </CampaignSupportButton>
-          {!!isPaid ? (
-            <CampaignRepeatButton
-              handleRepeatButtonOnClick={handleRepeatButtonOnClick}
-              id={id}
-              data={data}
-            >
-              {children}
-            </CampaignRepeatButton>
-          ) : (
-            <CampaignPaymentButton
-              handleGeneratePaymentLinkButtonClick={
-                handleGeneratePaymentLinkButtonClick
-              }
-              id={id}
-              data={data}
-            >
-              {children}
-            </CampaignPaymentButton>
-          )}
+      <div className="divide-y divide-slate-200 group-hover:bg-slate-900">
+        {isPaid ? (
+          <div className="invisible text-transparent h-8">{data?.pid}</div>
+        ) : (
+          <CampaignDeleteButton
+            handleDeleteButtonOnClick={handleDeleteButtonOnClick}
+            data={data}
+            id={`promo-dashboard-campaign-delete-${
+              data?.pid || 'default'
+            }-button`}
+          />
+        )}
+        <div>
+          <div className="-mt-px flex divide-x divide-slate-200 group-hover:divide-slate-300 group-hover:bg-slate-200">
+            <CampaignSupportButton id={id} supportLink={supportLink}>
+              Support
+            </CampaignSupportButton>
+            {!!isPaid ? (
+              <CampaignRepeatButton
+                handleRepeatButtonOnClick={handleRepeatButtonOnClick}
+                id={id}
+                data={data}
+              >
+                {children}
+              </CampaignRepeatButton>
+            ) : (
+              <CampaignPaymentButton
+                handleGeneratePaymentLinkButtonClick={
+                  handleGeneratePaymentLinkButtonClick
+                }
+                id={id}
+                data={data}
+              >
+                {children}
+              </CampaignPaymentButton>
+            )}
+          </div>
         </div>
       </div>
     </li>
