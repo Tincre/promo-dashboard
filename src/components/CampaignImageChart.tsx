@@ -17,7 +17,7 @@ export function CampaignImageChart({
 }) {
   return (
     <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
-      <div className="relative overflow-hidden rounded-lg bg-slate-50 px-4 py-5 shadow sm:px-6 sm:py-6">
+      <div className="relative overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-700 px-4 py-5 shadow sm:px-6 sm:py-6">
         <AdPreviewDetailImage
           creativeUrl={
             data && data?.creativeUrls && data.creativeUrls.length !== 0
@@ -26,7 +26,7 @@ export function CampaignImageChart({
           }
         />
       </div>
-      <div className="relative overflow-hidden rounded-lg bg-slate-50 px-4 py-5 pb-0 shadow sm:px-6 sm:py-6">
+      <div className="relative overflow-hidden rounded-lg bg-slate-50 px-4 py-5 pb-0 shadow sm:px-6 sm:py-6 dark:bg-slate-700">
         {!data?.data || !statsHighlightTimeseries ? null : (
           <LineChart info={statsHighlightTimeseries || data.data[0]} />
         )}

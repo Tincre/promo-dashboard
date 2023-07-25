@@ -30,7 +30,7 @@ export function LineChart({ info }: { info: any }) {
       <div className="h-full w-full overflow-hidden sm:flex pb-4 sm:pb-0">
         <div
           id="promo-dashboard-line-chart"
-          className="flex w-full items-center rounded-lg bg-blue-600 px-5 pb-4 pt-8 text-white"
+          className="flex w-full items-center rounded-lg bg-blue-600 px-5 pb-4 pt-8 text-white dark:bg-slate-800 dark:text-slate-50"
         >
           {typeof data !== 'undefined' ? (
             <Line data={data} options={options} />

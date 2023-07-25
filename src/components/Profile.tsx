@@ -143,7 +143,7 @@ export function Profile({
                     placeholder="https://www.gravatar.com/avatar/"
                     type="url"
                     pattern="https://.*"
-                    className="inline-block w-4/5 lg:w-3/5 rounded-md border border-gray-300 py-2 pl-1 font-mono text-xs shadow-sm focus:border-blue-700 focus:ring-blue-700 lg:text-sm"
+                    className="inline-block w-4/5 lg:w-3/5 rounded-md border border-gray-300 py-2 pl-1 font-mono text-xs shadow-sm focus:border-blue-700 focus:ring-blue-700 lg:text-sm dark:bg-slate-500 dark:border-slate-300 dark:text-slate-200 dark:focus:border-slate-200"
                     value={settingsData?.image || ''}
                     maxLength={360}
                     onChange={(e) => {
@@ -169,7 +169,7 @@ export function Profile({
                     id="fullName"
                     name="fullName"
                     type="text"
-                    className="block w-full max-w-lg rounded-md border border-gray-300 py-2 pl-1 font-mono text-xs shadow-sm focus:border-blue-700 focus:ring-blue-700 lg:text-sm"
+                    className="block w-full max-w-lg rounded-md border border-gray-300 py-2 pl-1 font-mono text-xs shadow-sm focus:border-blue-700 focus:ring-blue-700 lg:text-sm dark:bg-slate-500 dark:border-slate-300 dark:text-slate-200 dark:focus:border-slate-200"
                     value={settingsData?.fullName || ''}
                     onChange={(e) => {
                       handleChange(e);
@@ -190,7 +190,7 @@ export function Profile({
                     name="userName"
                     type="text"
                     pattern="^[A-Za-z0-9_]{0,15}$"
-                    className="block w-full max-w-lg rounded-md border border-gray-300 py-2 pl-1 font-mono text-xs shadow-sm focus:border-blue-700 focus:ring-blue-700 lg:text-sm"
+                    className="block w-full max-w-lg rounded-md border border-gray-300 py-2 pl-1 font-mono text-xs shadow-sm focus:border-blue-700 focus:ring-blue-700 lg:text-sm dark:bg-slate-500 dark:border-slate-300 dark:text-slate-200 dark:focus:border-slate-200"
                     value={settingsData?.userName || ''}
                     onChange={(e) => {
                       handleChange(e);
@@ -202,7 +202,7 @@ export function Profile({
                   className="block text-sm font-medium text-gray-700 mt-4 sm:pt-2"
                 >
                   Email{' '}
-                  <span className="text-xs text-gray-500 ">no changes</span>
+                  <span className="text-xs text-gray-500 dark:text-slate-600">no changes</span>
                 </label>
                 <div className="mt-2 sm:col-span-2">
                   <input
@@ -211,7 +211,7 @@ export function Profile({
                     placeholder={settingsData?.email || 'example@example.com'}
                     name="email"
                     type="email"
-                    className="block w-full max-w-lg rounded-md border border-gray-300 py-2 pl-1 font-mono text-xs shadow-sm focus:border-blue-700 focus:ring-blue-700 lg:text-sm"
+                    className="block w-full max-w-lg rounded-md border border-gray-300 py-2 pl-1 font-mono text-xs shadow-sm focus:border-blue-700 focus:ring-blue-700 lg:text-sm dark:bg-slate-500 dark:text-slate-600"
                     value={settingsData?.email || ''}
                     onChange={(e) => {
                       handleChange(e);

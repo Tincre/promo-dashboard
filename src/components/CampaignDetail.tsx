@@ -64,7 +64,7 @@ export function CampaignDetail({
         </Button>
         <h1 className="mt-auto mx-2 w-full text-center align-text-bottom text-2xl font-bold">
           <button
-            className="hover:cursor-copy"
+            className="hover:cursor-copy hover:text-bold hover:text-gray-50 dark:text-slate-200 dark:hover:text-slate-100"
             onClick={() => setHasClickedPid(true)}
             id="promo-dashboard-campaign-detail-pid-button"
           >
