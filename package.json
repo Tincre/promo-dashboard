@@ -82,5 +82,8 @@
     "tslib": "^2.4.0",
     "typescript": "^4.8.4",
     "yup": "^0.32.11"
+  },
+  "dependencies": {
+    "@tincre/promo-dashboard": "^0.10.0"
   }
 }
