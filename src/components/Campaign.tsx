@@ -112,8 +112,8 @@ export function Campaign({
   useEffect(() => {
     setIsActiveClassName(
       isActive
-        ? 'group col-span-1 flex flex-col rounded-b-lg rounded-t-sm bg-slate-100 text-center shadow-md relative'
-        : 'group col-span-1 flex flex-col rounded-b-lg rounded-t-sm bg-slate-50 text-center shadow-md relative'
+        ? 'group col-span-1 flex flex-col rounded-b-lg rounded-t-sm bg-slate-100 dark:bg-slate-700 text-center shadow-md relative'
+        : 'group col-span-1 flex flex-col rounded-b-lg rounded-t-sm bg-slate-50 dark:bg-slate-800 text-center shadow-md relative'
     );
   }, [isActive]);
   useEffect(() => {
@@ -151,12 +151,12 @@ export function Campaign({
               <source src={creativeUrl} type="video/mp4" />
             </video>
           )}
-          <h3 className="mt-6 text-sm font-medium text-slate-900 group-hover:text-slate-200 truncate">
+          <h3 className="mt-6 text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-slate-200 truncate">
             {adTitle}
           </h3>
           <dl className="mt-1 flex flex-grow flex-col justify-between">
             <dt className="sr-only">Ad Description</dt>
-            <dd className="text-sm text-slate-500 h-24 text-elipsis">
+            <dd className="text-sm text-slate-500 dark:text-slate-400 h-24 text-elipsis">
               {adCopy}
             </dd>
             <span className="grid grid-cols-2">
