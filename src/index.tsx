@@ -277,7 +277,7 @@ export function PromoDashboard({
           <>
             <div className="inline-flex w-full pb-4">
               {!numberOfActiveCampaigns ? null : (
-                <h1 className="mt-auto mx-2 w-full text-left align-text-middle text-2xl font-bold">
+                <h1 className="mt-auto mx-2 w-full text-left align-text-middle text-2xl font-bold dark:text-slate-200">
                   {numberOfActiveCampaigns} active campaigns
                 </h1>
               )}
