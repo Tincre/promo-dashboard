@@ -29,7 +29,7 @@ const Home: NextPage = () => {
     console.debug(`useEffect::isRepeatButtonClicked::${isRepeatButtonClicked}`);
   }, [isRepeatButtonClicked]);
   return (
-    <div className="" suppressHydrationWarning={true}>
+    <div className="dark:bg-slate-900" suppressHydrationWarning={true}>
       <Head>
         <title>Promo Dashboard Demo</title>
         <meta
