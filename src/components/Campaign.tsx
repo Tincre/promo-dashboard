@@ -14,7 +14,7 @@ import { CampaignDeleteButton } from './CampaignDeleteButton';
 import { CampaignPaymentButton } from './CampaignPaymentButton';
 import { getSupportLink } from '../lib/support';
 
-const VIDEO_EXTENSIONS = [
+const VIDEO_EXTENSIONS = [ // TODO Move to utils func module
   'm3u8',
   'ts',
   'm2ts',
@@ -25,7 +25,7 @@ const VIDEO_EXTENSIONS = [
   'mpeg',
   'mpd',
 ];
-const checkIsVideo = (creativeUrl: string) => {
+const checkIsVideo = (creativeUrl: string) => { // TODO Move to utils func module
   const extension = creativeUrl
     .split('/')
     .slice(-1)[0]
@@ -156,7 +156,7 @@ export function Campaign({
           </h3>
           <dl className="mt-1 flex flex-grow flex-col justify-between">
             <dt className="sr-only">Ad Description</dt>
-            <dd className="text-sm text-slate-500 dark:text-slate-400 h-24 text-elipsis">
+            <dd className="text-sm text-slate-500 dark:text-slate-400 h-24 text-ellipsis overflow-hidden">
               {adCopy}
             </dd>
             <span className="grid grid-cols-2">
