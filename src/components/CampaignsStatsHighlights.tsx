@@ -26,7 +26,7 @@ export function CampaignsStatsHighlights({
 }) {
   return (
     <div>
-      <dl className="pt-5 grid grid-cols-3 gap-5 sm:grid-cols-6 pb-5">
+      <dl className="pt-2 pb-2 gap-1 sm:pt-5 grid grid-cols-3 sm:gap-4 lg:grid-cols-6 sm:pb-5">
         {stats.map((item) => {
           return (
             <button
@@ -45,31 +45,31 @@ export function CampaignsStatsHighlights({
             >
               <dt className="">
                 <div
-                  className="absolute rounded-md bg-blue-600 dark:bg-slate-700 h-8 w-8 top-1/2 -translate-y-1/2"
+                  className="absolute rounded-md bg-blue-600 dark:bg-slate-700 h-6 w-6 sm:h-8 sm:w-8 top-1/2 -translate-y-1/2"
                   id="promo-dashboard-stats-highlights-icon-container"
                 >
                   <item.icon
                     id="promo-dashboard-stats-highlights-icon"
-                    className="inline-block pt-1 h-3 w-3 md:h-4 md:w-4 lg:h-5 lg:w-5 xl:h-6 xl:w-6 text-white text-center align-middle"
+                    className="inline-block pb-1 sm:pb-0 sm:pt-1 h-4 w-4 sm:h-5 sm:w-5 xl:h-6 xl:w-6 text-white text-center align-middle"
                     aria-hidden="true"
                   />
                 </div>
-                <p className="ml-6 lg:ml-12 truncate text-xs font-medium md:text-sm lg:text-md xl:text-lg text-gray-600 text-left bg:text-slate-200 dark:text-slate-400 -pt-2">
+                <p className="ml-8 sm:ml-10 truncate text-xs font-medium md:text-sm lg:text-md xl:text-lg text-gray-600 text-left bg:text-slate-200 dark:text-slate-400 -pt-2">
                   {item.name}
                 </p>
               </dt>
-              <dd className="ml-6 lg:ml-12 flex items-baseline pb-1 sm:pb-2">
-                <p className="text-md font-semibold text-gray-900 dark:text-slate-200">
+              <dd className="ml-8 sm:ml-10 flex items-baseline pb-1 sm:pb-2">
+                <p className="text-[6px] font-semibold text-gray-900 dark:text-slate-200">
                   {item.stat}
                 </p>
                 <p
                   className={classNames(
                     item.changeType === 'increase'
-                      ? 'text-green-600 dark:text-green-400'
+                      ? 'text-green-600 dark:text-green-400 text-[6px]'
                       : item.changeType !== 'same'
                       ? 'text-red-600 dark:text-red-400'
                       : 'text-gray-600 dark:text-slate-400',
-                    'ml-2 flex items-baseline text-xs font-semibold md:text-sm lg:text-md xl:text-lg'
+                    'ml-1 flex items-baseline font-semibold '
                   )}
                 >
                   {item.changeType === 'increase' ? (
