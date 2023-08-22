@@ -841,6 +841,24 @@ export const testPromoApiTimeseriesData = {
     ],
   },
 };
+export const testPromoApiCampaignData = {
+  pid: '3d9c7e84',
+  adTitle: 'GH',
+  budget: 4636,
+  description: 'Accounting made simple for small businesses.',
+  receiptId: 'ijklmnopqr4242',
+  target: 'https://tincre.dev/promo',
+  isActive: true,
+  email: 'janecooper@example.com',
+  adCopy: 'Accounting made simple and illegal for small businesses.',
+  adCallToAction: "🤞 Don't get audited!",
+  buttonText: 'Sign up',
+  creativeUrls: [
+    'https://res.cloudinary.com/tincre/image/upload/v1666907624/tailwindui-salient/taxpal-og_xka3ix_q4ulfc.webp',
+  ],
+
+  ...testPromoApiTimeseriesData.data,
+};
 export const campaignStubData = [
   {
     name: 'Jane Cooper',
