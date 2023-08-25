@@ -19,6 +19,7 @@ import {
   PromoApiCampaignStatsData,
   DashboardOptions,
 } from './lib/types';
+import { CampaignsSummaryStats } from './components/CampaignsSummaryStats';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
 import {
@@ -92,6 +93,12 @@ export function PromoDashboard({
   const [clickedStatsClassName, setClickedStatsClassName] = useState<string>(
     options.defaultStatName
   );
+  const [statsHighlightCampaignsTimeseries, setStatsHighlightCampaignsTimeseries] = useState<
+    CampaignStatsData | undefined
+  >(undefined);
+  const [clickedStatsCampaignsClassName, setClickedStatsCampaignsClassName] = useState<string>(
+    options.defaultStatName
+  );
   const [profileData, setProfileData] = useState<undefined | Settings>(
     profileSettingsData
   );
@@ -131,7 +138,10 @@ export function PromoDashboard({
     setStatsHighlightTimeseries(campaignData);
     setClickedStatsClassName(campaignData.name || 'Spend');
   };
-
+  const handleStatsHighlightCampaignsClick = (campaignData: CampaignStatsData) => {
+    setStatsHighlightCampaignsTimeseries(campaignData);
+    setClickedStatsCampaignsClassName(campaignData.name || 'Spend');
+  }
   const handleRepeatButtonOnClick = (
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
@@ -289,27 +299,38 @@ export function PromoDashboard({
             </div>
 
             {!sortedCampaignsData ? null : (
-              <CampaignList
-                data={sortedCampaignsData}
-                handleRepeatButtonOnClick={
-                  typeof handleRepeatButtonClick !== 'undefined'
-                    ? handleRepeatButtonClick
-                    : handleRepeatButtonOnClick
-                }
-                handleCampaignClick={handleCampaignOnClick}
-                handleGeneratePaymentLinkButtonClick={
-                  typeof handleGeneratePaymentLinkButtonClick !== 'undefined'
-                    ? handleGeneratePaymentLinkButtonClick
-                    : handleGeneratePaymentLinkButtonOnClick
-                }
-                handleDeleteButtonOnClick={
-                  typeof handleDeleteButtonClick !== 'undefined'
-                    ? handleDeleteButtonClick
-                    : handleDeleteButtonOnClick
-                }
-                deletedCampaigns={deletedCampaigns}
-                dashboardOptions={dbOptions}
-              />
+              <>
+                <CampaignsSummaryStats
+                  data={sortedCampaignsData}
+                  statsHighlightTimeseries={statsHighlightCampaignsTimeseries}
+                  statsHighlightMetricName={clickedStatsCampaignsClassName}
+                  handleCampaignDetailBackOnClick={
+                    handleCampaignDetailBackOnClick
+                  }
+                  handleStatsHighlightClick={handleStatsHighlightCampaignsClick}
+                />
+                <CampaignList
+                  data={sortedCampaignsData}
+                  handleRepeatButtonOnClick={
+                    typeof handleRepeatButtonClick !== 'undefined'
+                      ? handleRepeatButtonClick
+                      : handleRepeatButtonOnClick
+                  }
+                  handleCampaignClick={handleCampaignOnClick}
+                  handleGeneratePaymentLinkButtonClick={
+                    typeof handleGeneratePaymentLinkButtonClick !== 'undefined'
+                      ? handleGeneratePaymentLinkButtonClick
+                      : handleGeneratePaymentLinkButtonOnClick
+                  }
+                  handleDeleteButtonOnClick={
+                    typeof handleDeleteButtonClick !== 'undefined'
+                      ? handleDeleteButtonClick
+                      : handleDeleteButtonOnClick
+                  }
+                  deletedCampaigns={deletedCampaigns}
+                  dashboardOptions={dbOptions}
+                />
+              </>
             )}
           </>
         ) : typeof promoData !== 'undefined' ? (
