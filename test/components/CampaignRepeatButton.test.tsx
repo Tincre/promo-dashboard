@@ -1,13 +1,13 @@
 import React, { MouseEvent } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CampaignRepeatButton } from '../../src/components/CampaignRepeatButton';
-import { campaignStubData } from '../cms.data';
+import { testPromoApiCampaignData, campaignStubData } from '../cms.data';
 import { CampaignData } from '../../src/lib/types';
 
 describe('CampaignRepeatButton', () => {
   it('renders without crashing', () => {
     render(
-      <CampaignRepeatButton data={campaignStubData[0]}></CampaignRepeatButton>
+      <CampaignRepeatButton data={testPromoApiCampaignData}></CampaignRepeatButton>
     );
     const button = screen.getByText(/Repeat/i, { exact: true });
     fireEvent.click(button);
