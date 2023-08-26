@@ -6,6 +6,7 @@
  */
 import {
   CampaignData,
+  CampaignDummyData,
   DownloadableCampaignStatsSample,
   DownloadableCampaignMetadataSample,
 } from '../lib/types';
@@ -35,7 +36,7 @@ const SINGLE_CAMPAIGN_DOWNLOAD_HEADERS = [
 export function DownloadAllCampaignsButton({
   campaignsData,
 }: {
-  campaignsData: CampaignData[];
+  campaignsData: CampaignData[] | CampaignDummyData[];
 }) {
   const [localCampaignsData, setLocalCampaignsData] = useState<
     DownloadableCampaignMetadataSample[] | undefined
