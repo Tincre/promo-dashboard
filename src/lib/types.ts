@@ -59,6 +59,13 @@ export interface CampaignStatsData {
   id: number;
   name: 'Spend' | 'Clicks' | 'Views' | 'CPM' | 'CTR' | 'CPC' | 'CPV' | string;
   stat: string;
+
+  icon: React.ForwardRefExoticComponent<
+    Omit<React.SVGProps<SVGSVGElement>, 'ref'> & {
+      title?: string | undefined;
+      titleId?: string | undefined;
+    } & React.RefAttributes<SVGSVGElement>
+  >;
   change: string | number;
   changeType: string;
   chartData: {
