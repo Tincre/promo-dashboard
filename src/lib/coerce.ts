@@ -245,7 +245,7 @@ export function replaceDataParamForChartData(
 }
 
 export function modifyMultiCampaignsDataForDownload(
-  campaignsData: CampaignData[]
+  campaignsData: CampaignData[] | CampaignDummyData[]
 ) {
   let modifiedData: DownloadableCampaignMetadataSample[] = [];
   campaignsData.forEach((pckg) => {
@@ -281,7 +281,7 @@ export function modifyMultiCampaignsDataForDownload(
 }
 
 export function modifySingleCampaignDataForDownload(
-  campaignData: CampaignData
+  campaignData: CampaignData | CampaignDummyData
 ) {
   // @ts-ignore
   let data: CampaignStatsData[] | undefined =

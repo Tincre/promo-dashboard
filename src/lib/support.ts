@@ -1,10 +1,10 @@
-import { CampaignData } from './types';
+import { CampaignData, CampaignDummyData } from './types';
 
 const EMAILDOMAIN = 'tincre.dev';
 const EMAILLOCALPART = 'team';
 
 export const getSupportLink = (
-  data: CampaignData,
+  data: CampaignData | CampaignDummyData,
   emailDomain?: string,
   emailLocalPart?: string
 ) => {
