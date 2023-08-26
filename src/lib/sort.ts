@@ -4,16 +4,20 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
-import { CampaignData } from './types';
+import { CampaignData, CampaignDummyData } from './types';
 
-export function sortCampaignDataOnIsActive(data: CampaignData[]) {
-  let newArray = data.sort((campaign: CampaignData) =>
+export function sortCampaignDataOnIsActive(
+  data: CampaignData[] | CampaignDummyData[]
+) {
+  let newArray = data.sort((campaign: CampaignData | CampaignDummyData) =>
     campaign?.isActive ? -1 : 1
   );
   return newArray;
 }
-export function sortCampaignDataOnIsActiveAndReceiptId(data: CampaignData[]) {
-  let newArray = data.sort((campaign: CampaignData) =>
+export function sortCampaignDataOnIsActiveAndReceiptId(
+  data: CampaignData[] | CampaignDummyData[]
+) {
+  let newArray = data.sort((campaign: CampaignData | CampaignDummyData) =>
     campaign?.isActive && campaign?.receiptId
       ? -1
       : campaign?.isActive
@@ -25,7 +29,7 @@ export function sortCampaignDataOnIsActiveAndReceiptId(data: CampaignData[]) {
   return newArray;
 }
 export const numActiveCampaigns = (
-  sortedCampaignsData: CampaignData[],
+  sortedCampaignsData: CampaignData[] | CampaignDummyData[],
   exclusions: string[] = []
 ) => {
   let activeCampaigns = 0;
