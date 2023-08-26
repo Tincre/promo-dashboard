@@ -5,7 +5,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid';
-
+import { CampaignStatsData } from '../lib/types';
 /* @ts-ignore */
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -20,7 +20,7 @@ export function CampaignsStatsHighlights({
   handleStatsHighlightClick,
   statsHighlightMetricsName,
 }: {
-  stats: any[];
+  stats: CampaignStatsData[];
   handleStatsHighlightClick?: Function;
   statsHighlightMetricsName: string;
 }) {
@@ -31,7 +31,7 @@ export function CampaignsStatsHighlights({
           return (
             <button
               key={item.id}
-              id={item.id}
+              id={`${item.id}`}
               className={
                 item.name !== statsHighlightMetricsName
                   ? isNotHighlightedClassName
