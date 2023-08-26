@@ -2,7 +2,7 @@ import React, { MouseEvent } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CampaignDeleteButton } from '../../src/components/CampaignDeleteButton';
 import { campaignStubData } from '../cms.data';
-import { CampaignData } from '../../src/lib/types';
+import { CampaignData, CampaignDummyData } from '../../src/lib/types';
 
 describe('CampaignDeleteButton', () => {
   let testData = campaignStubData[0];
@@ -26,13 +26,13 @@ describe('CampaignDeleteButton', () => {
     expect(button).toBeDefined();
   });
   it('renders with handleDeleteButtonOnClick without crashing', () => {
-    let testLocalData: CampaignData | undefined = undefined;
+    let testLocalData: CampaignData | CampaignDummyData | undefined = undefined;
     let testEvent: MouseEvent<HTMLButtonElement> | undefined = undefined;
     let testFlag: boolean = false;
     testData.receiptId = undefined;
     const handleDeleteButtonOnClick = (
       event: MouseEvent<HTMLButtonElement>,
-      data: CampaignData
+      data: CampaignData | CampaignDummyData
     ) => {
       testFlag = true;
       testLocalData = data;

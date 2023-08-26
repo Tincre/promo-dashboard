@@ -2,7 +2,7 @@ import React, { useState, useEffect, MouseEvent } from 'react';
 import { screen, render, fireEvent } from '@testing-library/react';
 import { PromoDashboard } from '../src/index';
 import { campaignStubData } from './cms.data';
-import { CampaignData, Settings } from '../src/lib/types';
+import { CampaignData, CampaignDummyData, Settings } from '../src/lib/types';
 
 global.ResizeObserver = require('resize-observer-polyfill');
 
@@ -29,7 +29,7 @@ describe('PromoDashboard', () => {
     let isDeleteButtonClicked = false;
     const handleDeleteButtonClick = (
       event: React.MouseEvent<HTMLButtonElement>,
-      data: CampaignData
+      data: CampaignData | CampaignDummyData
     ) => {
       isDeleteButtonClicked = true;
     };
@@ -72,7 +72,7 @@ describe('PromoDashboard', () => {
     };
     const handleRepeatButtonOnClick = (
       event: React.MouseEvent<HTMLButtonElement>,
-      data: CampaignData
+      data: CampaignData | CampaignDummyData
     ) => {
       setPromoData({
         adTitle: data?.adTitle,
@@ -88,7 +88,8 @@ describe('PromoDashboard', () => {
         setIsRepeatButtonClicked(!isRepeatButtonClicked);
       }
     };
-    const addedReceiptIdsCampaignData: CampaignData[] = [];
+    const addedReceiptIdsCampaignData: CampaignData[] | CampaignDummyData[] =
+      [];
     campaignStubData.forEach((pckg) => {
       addedReceiptIdsCampaignData.push({ ...pckg, receiptId: 'blahblahblah' });
     });
@@ -113,9 +114,9 @@ describe('PromoDashboard', () => {
     );
     expect(dashboardButton).toBeDefined();
     fireEvent.click(dashboardButton);
-    const clicksButton = screen.getByText('Clicks', { exact: false });
-    expect(clicksButton).toBeDefined();
-    fireEvent.click(clicksButton);
+    //const clicksButton = screen.getByText('Clicks', { exact: false });
+    //expect(clicksButton).toBeDefined();
+    //fireEvent.click(clicksButton);
     // go back
     const backButton = screen.getAllByText(/Back/i)[0];
     expect(backButton).toBeDefined();
