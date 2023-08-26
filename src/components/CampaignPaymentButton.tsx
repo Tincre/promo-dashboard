@@ -5,7 +5,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 import { MouseEvent, ReactNode } from 'react';
-import { CampaignData } from '../lib/types';
+import { CampaignData, CampaignDummyData } from '../lib/types';
 import { CreditCardIcon } from '@heroicons/react/20/solid';
 
 export function CampaignPaymentButton({
@@ -14,10 +14,10 @@ export function CampaignPaymentButton({
   id,
   children,
 }: {
-  data: CampaignData;
+  data: CampaignData | CampaignDummyData;
   handleGeneratePaymentLinkButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => void;
   id?: string;
   children?: ReactNode;

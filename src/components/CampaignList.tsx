@@ -6,7 +6,11 @@
  */
 import { MouseEvent } from 'react';
 import { Campaign } from './Campaign';
-import { CampaignData, DashboardOptions } from '../lib/types';
+import {
+  CampaignData,
+  CampaignDummyData,
+  DashboardOptions,
+} from '../lib/types';
 
 export function CampaignList({
   data,
@@ -17,22 +21,22 @@ export function CampaignList({
   deletedCampaigns,
   dashboardOptions,
 }: {
-  data: CampaignData[];
+  data: CampaignData[] | CampaignDummyData[];
   handleRepeatButtonOnClick: (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => void;
   handleCampaignClick: (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => void;
   handleGeneratePaymentLinkButtonClick: (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => void;
   handleDeleteButtonOnClick: (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => void;
   deletedCampaigns: string[];
   dashboardOptions?: DashboardOptions;
@@ -43,7 +47,7 @@ export function CampaignList({
       className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
       id="promo-campaign-list"
     >
-      {data.map((campaignData: CampaignData, index) => {
+      {data.map((campaignData: CampaignData | CampaignDummyData, index) => {
         const pid = `${campaignData.pid}`;
         if (!deletedCampaigns.includes(pid)) {
           const key = `${index}-${pid}`;

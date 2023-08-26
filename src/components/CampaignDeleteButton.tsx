@@ -5,7 +5,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 import { MouseEvent, ReactNode } from 'react';
-import { CampaignData } from '../lib/types';
+import { CampaignData, CampaignDummyData } from '../lib/types';
 import { XCircleIcon } from '@heroicons/react/20/solid';
 
 export function CampaignDeleteButton({
@@ -13,10 +13,10 @@ export function CampaignDeleteButton({
   handleDeleteButtonOnClick,
   id,
 }: {
-  data: CampaignData;
+  data: CampaignData | CampaignDummyData;
   handleDeleteButtonOnClick?: (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => void;
   id?: string;
 }) {

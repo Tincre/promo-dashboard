@@ -5,7 +5,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 import { MouseEvent, ReactNode } from 'react';
-import { CampaignData } from '../lib/types';
+import { CampaignData, CampaignDummyData } from '../lib/types';
 import { ArrowPathIcon } from '@heroicons/react/20/solid';
 
 export function CampaignRepeatButton({
@@ -14,10 +14,10 @@ export function CampaignRepeatButton({
   children,
   id,
 }: {
-  data: CampaignData;
+  data: CampaignData | CampaignDummyData;
   handleRepeatButtonOnClick?: (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => void;
   children?: ReactNode;
   id?: string;

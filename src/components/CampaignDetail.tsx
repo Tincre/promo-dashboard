@@ -7,7 +7,7 @@
 import { useEffect, useState } from 'react';
 import { Button } from './Button';
 import { MouseEventHandler } from 'react';
-import { CampaignData } from '../lib/types';
+import { CampaignData, CampaignDummyData } from '../lib/types';
 import { StatsHighlights } from './StatsHighlights';
 import { CampaignImageChart } from './CampaignImageChart';
 import { DownloadCampaignButton } from './DownloadButton';
@@ -20,9 +20,9 @@ export function CampaignDetail({
   handleCampaignDetailBackOnClick,
   handleStatsHighlightClick,
 }: {
-  data?: CampaignData;
-  statsHighlightTimeseries?: object;
-  statsHighlightMetricName?: string;
+  data?: CampaignData | CampaignDummyData;
+  statsHighlightTimeseries?: object; // TODO improve typing
+  statsHighlightMetricName?: string; // TODO improve typing
   handleCampaignDetailBackOnClick: MouseEventHandler<HTMLButtonElement>;
   handleStatsHighlightClick?: Function;
 }) {
@@ -81,7 +81,7 @@ export function CampaignDetail({
           statsHighlightTimeseries={statsHighlightTimeseries}
         />
       )}
-      <StatsHighlights
+      <StatsHighlights /* @ts-ignore */
         stats={data?.data || data?.stats || []}
         handleStatsHighlightClick={handleStatsHighlightClick}
         statsHighlightMetricsName={statsHighlightMetricName || 'Spend'}

@@ -6,15 +6,16 @@
  */
 import { AdPreviewDetailImage } from './AdPreviewDetailImage';
 import { LineChart } from './LineChart';
-import { CampaignData } from '../lib/types';
+import { CampaignData, CampaignDummyData } from '../lib/types';
 
 export function CampaignImageChart({
   data,
   statsHighlightTimeseries,
 }: {
-  data: CampaignData;
+  data: CampaignData | CampaignDummyData;
   statsHighlightTimeseries?: object; // TODO add typing
 }) {
+  const defaultData = Array.isArray(data?.data) ? data.data[0] : undefined;
   return (
     <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
       <div className="relative overflow-hidden rounded-lg bg-slate-50 dark:bg-slate-700 px-4 py-5 shadow sm:px-6 sm:py-6">
@@ -28,7 +29,7 @@ export function CampaignImageChart({
       </div>
       <div className="relative overflow-hidden rounded-lg bg-slate-50 px-4 py-5 pb-0 shadow sm:px-6 sm:py-6 dark:bg-slate-700">
         {!data?.data || !statsHighlightTimeseries ? null : (
-          <LineChart info={statsHighlightTimeseries || data.data[0]} />
+          <LineChart info={statsHighlightTimeseries || defaultData} />
         )}
       </div>
     </div>

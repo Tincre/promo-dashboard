@@ -4,6 +4,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
+import { CampaignStatsData } from '../lib/types';
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid';
 
 /* @ts-ignore */
@@ -20,7 +21,7 @@ export function StatsHighlights({
   handleStatsHighlightClick,
   statsHighlightMetricsName,
 }: {
-  stats: any[];
+  stats: CampaignStatsData[];
   handleStatsHighlightClick?: Function;
   statsHighlightMetricsName: string;
 }) {
@@ -31,7 +32,7 @@ export function StatsHighlights({
           return (
             <button
               key={item.id}
-              id={item.id}
+              id={`${item.id}`}
               className={
                 item.name !== statsHighlightMetricsName
                   ? isNotHighlightedClassName

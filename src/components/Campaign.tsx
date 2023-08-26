@@ -7,14 +7,15 @@
 import { useState, useEffect, MouseEvent, ReactNode } from 'react';
 import { IsActivePill } from './IsActivePill';
 import { IsPaidPill } from './IsPaidPill';
-import { CampaignData } from '../lib/types';
+import { CampaignData, CampaignDummyData } from '../lib/types';
 import { CampaignRepeatButton } from './CampaignRepeatButton';
 import { CampaignSupportButton } from './CampaignSupportButton';
 import { CampaignDeleteButton } from './CampaignDeleteButton';
 import { CampaignPaymentButton } from './CampaignPaymentButton';
 import { getSupportLink } from '../lib/support';
 
-const VIDEO_EXTENSIONS = [ // TODO Move to utils func module
+const VIDEO_EXTENSIONS = [
+  // TODO Move to utils func module
   'm3u8',
   'ts',
   'm2ts',
@@ -25,7 +26,8 @@ const VIDEO_EXTENSIONS = [ // TODO Move to utils func module
   'mpeg',
   'mpd',
 ];
-const checkIsVideo = (creativeUrl: string) => { // TODO Move to utils func module
+const checkIsVideo = (creativeUrl: string) => {
+  // TODO Move to utils func module
   const extension = creativeUrl
     .split('/')
     .slice(-1)[0]
@@ -45,22 +47,22 @@ export function Campaign({
   emailLocalPart,
   children,
 }: {
-  data: CampaignData;
+  data: CampaignData | CampaignDummyData;
   handleRepeatButtonOnClick?: (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => void;
   handleCampaignClick: (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => void;
   handleGeneratePaymentLinkButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => void;
   handleDeleteButtonOnClick?: (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => void;
   id?: string;
   emailDomain?: string;

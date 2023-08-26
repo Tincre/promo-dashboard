@@ -69,7 +69,7 @@ export function DownloadAllCampaignsButton({
 export function DownloadCampaignButton({
   campaignData,
 }: {
-  campaignData: CampaignData;
+  campaignData: CampaignData | CampaignDummyData;
 }) {
   const [localCampaignData, setLocalCampaignData] = useState<
     DownloadableCampaignStatsSample[] | undefined
