@@ -18,6 +18,7 @@ import {
   DownloadableCampaignMetadataSample,
   PromoApiCampaignStatsData,
   DashboardOptions,
+  CampaignDummyData,
 } from './lib/types';
 import { CampaignsSummaryStats } from './components/CampaignsSummaryStats';
 import { CampaignList } from './components/CampaignList';
@@ -82,7 +83,7 @@ export function PromoDashboard({
   const [hasUpdatedSettings, setHasUpdatedSettings] = useState<boolean>(false);
   const [isUpdatingSettings, setIsUpdatingSettings] = useState<boolean>(false);
   const [sortedCampaignsData, setSortedCampaignsData] = useState<
-    CampaignData[]
+    CampaignData[] | CampaignDummyData[]
   >([]);
   const [numberOfActiveCampaigns, setNumberOfActiveCampaigns] = useState<
     number | undefined
@@ -93,12 +94,12 @@ export function PromoDashboard({
   const [clickedStatsClassName, setClickedStatsClassName] = useState<string>(
     options.defaultStatName
   );
-  const [statsHighlightCampaignsTimeseries, setStatsHighlightCampaignsTimeseries] = useState<
-    CampaignStatsData | undefined
-  >(undefined);
-  const [clickedStatsCampaignsClassName, setClickedStatsCampaignsClassName] = useState<string>(
-    options.defaultStatName
-  );
+  const [
+    statsHighlightCampaignsTimeseries,
+    setStatsHighlightCampaignsTimeseries,
+  ] = useState<CampaignStatsData | undefined>(undefined);
+  const [clickedStatsCampaignsClassName, setClickedStatsCampaignsClassName] =
+    useState<string>(options.defaultStatName);
   const [profileData, setProfileData] = useState<undefined | Settings>(
     profileSettingsData
   );
@@ -138,10 +139,12 @@ export function PromoDashboard({
     setStatsHighlightTimeseries(campaignData);
     setClickedStatsClassName(campaignData.name || 'Spend');
   };
-  const handleStatsHighlightCampaignsClick = (campaignData: CampaignStatsData) => {
+  const handleStatsHighlightCampaignsClick = (
+    campaignData: CampaignStatsData
+  ) => {
     setStatsHighlightCampaignsTimeseries(campaignData);
     setClickedStatsCampaignsClassName(campaignData.name || 'Spend');
-  }
+  };
   const handleRepeatButtonOnClick = (
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData
@@ -213,7 +216,7 @@ export function PromoDashboard({
     }
     setPromoData(data);
     setIsCampaignClicked(true);
-    if (data?.data?.length) {
+    if (Array.isArray(data?.data)) {
       data.data.map((campaignStats: CampaignStatsData) => {
         if (campaignStats.name === options.defaultStatName) {
           setStatsHighlightTimeseries(campaignStats);
