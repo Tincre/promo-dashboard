@@ -44,12 +44,12 @@ export function PromoDashboard({
   handleCampaignDetailBackClick,
   dashboardOptions,
 }: {
-  campaignsData: CampaignData[];
-  campaignDetailData?: CampaignData;
+  campaignsData: CampaignData[] | CampaignDummyData[];
+  campaignDetailData?: CampaignData | CampaignDummyData;
   profileSettingsData?: Settings;
   handleRepeatButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
-    campaignDetailData: CampaignData
+    campaignDetailData: CampaignData | CampaignDummyData
   ) => void;
   handleSettingsSaveButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
@@ -57,24 +57,24 @@ export function PromoDashboard({
   ) => void;
   handleGeneratePaymentLinkButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
-    campaignData: CampaignData
+    campaignData: CampaignData | CampaignDummyData
   ) => void;
   handleDeleteButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
-    campaignData: CampaignData
+    campaignData: CampaignData | CampaignDummyData
   ) => void;
   handleCampaignClick?: (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => void;
   handleCampaignDetailBackClick?: (
     event: MouseEvent<HTMLButtonElement>
   ) => void;
   dashboardOptions?: DashboardOptions;
 }) {
-  const [promoData, setPromoData] = useState<CampaignData | undefined>(
-    undefined
-  );
+  const [promoData, setPromoData] = useState<
+    CampaignData | CampaignDummyData | undefined
+  >(undefined);
   const [isRepeatButtonClicked, setIsRepeatButtonClicked] =
     useState<boolean>(false);
   const [isPaymentButtonClicked, setIsPaymentButtonClicked] =
@@ -147,7 +147,7 @@ export function PromoDashboard({
   };
   const handleRepeatButtonOnClick = (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => {
     setPromoData({
       adTitle: data?.adTitle,
@@ -164,7 +164,7 @@ export function PromoDashboard({
   };
   const handleGeneratePaymentLinkButtonOnClick = async (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => {
     event.preventDefault();
     try {
@@ -209,7 +209,7 @@ export function PromoDashboard({
   };
   const handleCampaignOnClick = (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => {
     if (typeof handleCampaignClick !== 'undefined') {
       handleCampaignClick(event, data);
@@ -246,7 +246,7 @@ export function PromoDashboard({
   };
   const handleDeleteButtonOnClick = async (
     event: MouseEvent<HTMLButtonElement>,
-    data: CampaignData
+    data: CampaignData | CampaignDummyData
   ) => {
     event.preventDefault();
     try {
