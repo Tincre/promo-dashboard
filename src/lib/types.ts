@@ -21,7 +21,8 @@ export interface DownloadableCampaignMetadataSample
 }
 
 export interface PromoApiCampaignStatsSample {
-  updatedTime: string;
+  updatedTime?: string;
+  updated_time?: string;
   spend?: number | string | null;
   reach?: number | string | null;
   views?: number | string | null;
@@ -37,9 +38,9 @@ export interface CampaignStatsSample {
 }
 
 export interface PromoApiCampaignStatsData {
-  totals?: CampaignStatsSample[];
-  google?: CampaignStatsSample[];
-  meta?: CampaignStatsSample[];
+  totals?: PromoApiCampaignStatsSample[];
+  google?: PromoApiCampaignStatsSample[];
+  meta?: PromoApiCampaignStatsSample[];
 }
 
 export interface DownloadableCampaignStats {
@@ -66,7 +67,7 @@ export interface CampaignStatsData {
   };
 }
 
-export interface CampaignData {
+export interface CampaignMetadata {
   pid?: string;
   email?: string;
   adTitle?: string;
@@ -82,10 +83,17 @@ export interface CampaignData {
   currency?: string;
   isFlat?: boolean;
   usageFee?: string | number;
+}
+
+export interface CampaignData extends CampaignMetadata {
+  stats?: CampaignStatsData[];
+  data?: PromoApiCampaignStatsData;
+}
+
+export interface CampaignDummyData extends CampaignMetadata {
   stats?: CampaignStatsData[];
   data?: CampaignStatsData[];
 }
-
 export interface Settings {
   fullName?: string;
   image?: string;
