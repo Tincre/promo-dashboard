@@ -11,6 +11,9 @@ import {
   DownloadableCampaignStatsSample,
   DownloadableCampaignMetadataSample,
   CampaignStatsData,
+  PromoApiCampaignStatsSample,
+  PromoApiCampaignStatsData,
+  CampaignDummyData,
 } from './types';
 
 function generateEmptyPromoApiDataForChartJs(): {
@@ -46,17 +49,7 @@ function generateEmptyPromoApiDataForChartJs(): {
  * separately coerced via this function.
  */
 export function coercePromoApiDataForChartJs(
-  data?: {
-    updated_time?: string;
-    spend?: number;
-    reach?: number;
-    views?: number;
-    clicks?: number;
-    cpc?: number;
-    ctr?: number;
-    cpm?: number;
-    cpv?: number;
-  }[]
+  data?: PromoApiCampaignStatsSample[]
 ) {
   let chartJsData = generateEmptyPromoApiDataForChartJs();
   if (typeof data !== 'undefined') {
@@ -230,17 +223,21 @@ export function prepareChartData(chartJsData: {
   ];
 }
 
-export function replaceDataParamForChartData(campaignsData: CampaignData[]) {
-  const resultArray: CampaignData[] = [];
+export function replaceDataParamForChartData(
+  campaignsData: CampaignData[] | CampaignDummyData[]
+) {
+  const resultArray: CampaignData[] | CampaignDummyData[] = [];
   campaignsData.forEach((pckg) => {
+    let totalsData: PromoApiCampaignStatsSample[] | undefined;
+    if (!Array.isArray(pckg?.data)) {
+      totalsData = pckg?.data?.totals;
+    }
     resultArray.push({
-      ...pckg, // @ts-ignore
-      data: pckg?.data?.totals
-        ? prepareChartData(
-            // @ts-ignore
-            coercePromoApiDataForChartJs(pckg.data.totals)
-          )
-        : pckg?.data || pckg?.stats,
+      ...pckg,
+      data:
+        typeof totalsData !== 'undefined'
+          ? prepareChartData(coercePromoApiDataForChartJs(totalsData))
+          : pckg?.stats,
     });
   });
 
@@ -286,6 +283,7 @@ export function modifyMultiCampaignsDataForDownload(
 export function modifySingleCampaignDataForDownload(
   campaignData: CampaignData
 ) {
+  // @ts-ignore
   let data: CampaignStatsData[] | undefined =
     campaignData?.data || campaignData?.stats;
   let pid: string = campaignData.pid || '';
