@@ -20,8 +20,8 @@ describe('CampaignDetail', () => {
     render(
       <CampaignDetail
         data={campaignStubData[0]}
-        statsHighlightMetricName={campaignStubData[0].data[0].name}
-        statsHighlightTimeseries={campaignStubData[0].data[0]}
+        statsHighlightMetricName={campaignStubData[0].stats[0].name}
+        statsHighlightTimeseries={campaignStubData[0].stats[0]}
         handleCampaignDetailBackOnClick={() => null}
       />
     );

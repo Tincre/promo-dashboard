@@ -8,7 +8,7 @@ describe('CampaignRepeatButton', () => {
   it('renders without crashing', () => {
     render(
       <CampaignRepeatButton
-        data={testPromoApiCampaignData}
+        data={testPromoApiCampaignData[0]}
       ></CampaignRepeatButton>
     );
     const button = screen.getByText(/Repeat/i, { exact: true });

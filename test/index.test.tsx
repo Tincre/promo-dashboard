@@ -114,9 +114,9 @@ describe('PromoDashboard', () => {
     );
     expect(dashboardButton).toBeDefined();
     fireEvent.click(dashboardButton);
-    //const clicksButton = screen.getByText('Clicks', { exact: false });
-    //expect(clicksButton).toBeDefined();
-    //fireEvent.click(clicksButton);
+    const clicksButton = screen.getByText('Clicks', { exact: false });
+    expect(clicksButton).toBeDefined();
+    fireEvent.click(clicksButton);
     // go back
     const backButton = screen.getAllByText(/Back/i)[0];
     expect(backButton).toBeDefined();
