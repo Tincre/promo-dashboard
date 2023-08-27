@@ -373,6 +373,7 @@ export {
 };
 export type {
   CampaignData,
+  CampaignDummyData,
   Settings,
   DownloadableCampaignStats,
   DownloadableCampaignMetadataSample,
