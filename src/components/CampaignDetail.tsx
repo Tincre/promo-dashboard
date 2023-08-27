@@ -7,7 +7,11 @@
 import { useEffect, useState } from 'react';
 import { Button } from './Button';
 import { MouseEventHandler } from 'react';
-import { CampaignData, CampaignDummyData } from '../lib/types';
+import {
+  CampaignData,
+  CampaignDummyData,
+  CampaignStatsData,
+} from '../lib/types';
 import { StatsHighlights } from './StatsHighlights';
 import { CampaignImageChart } from './CampaignImageChart';
 import { DownloadCampaignButton } from './DownloadButton';
@@ -21,7 +25,7 @@ export function CampaignDetail({
   handleStatsHighlightClick,
 }: {
   data?: CampaignData | CampaignDummyData;
-  statsHighlightTimeseries?: object; // TODO improve typing
+  statsHighlightTimeseries?: CampaignStatsData;
   statsHighlightMetricName?: string; // TODO improve typing
   handleCampaignDetailBackOnClick: MouseEventHandler<HTMLButtonElement>;
   handleStatsHighlightClick?: Function;
