@@ -11,6 +11,7 @@ import {
   CampaignData,
   CampaignDummyData,
   CampaignStatsData,
+  CampaignMetrics,
 } from '../lib/types';
 import { StatsHighlights } from './StatsHighlights';
 import { CampaignImageChart } from './CampaignImageChart';
@@ -26,7 +27,7 @@ export function CampaignDetail({
 }: {
   data?: CampaignData | CampaignDummyData;
   statsHighlightTimeseries?: CampaignStatsData;
-  statsHighlightMetricName?: string; // TODO improve typing
+  statsHighlightMetricName?: CampaignMetrics;
   handleCampaignDetailBackOnClick: MouseEventHandler<HTMLButtonElement>;
   handleStatsHighlightClick?: Function;
 }) {
