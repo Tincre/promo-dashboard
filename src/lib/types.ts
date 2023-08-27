@@ -55,9 +55,21 @@ export interface DownloadableCampaignStats {
   cpv?: (number | string | null)[];
   pid: (string | null)[];
 }
+
+export type CampaignMetrics =
+  | 'Spend'
+  | 'Clicks'
+  | 'Views'
+  | 'Reach'
+  | 'CPM'
+  | 'CTR'
+  | 'CPC'
+  | 'CPV'
+  | string;
+
 export interface CampaignStatsData {
   id: number;
-  name: 'Spend' | 'Clicks' | 'Views' | 'CPM' | 'CTR' | 'CPC' | 'CPV' | string;
+  name: CampaignMetrics;
   stat: string;
 
   icon: React.ForwardRefExoticComponent<

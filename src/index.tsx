@@ -19,6 +19,7 @@ import {
   PromoApiCampaignStatsData,
   DashboardOptions,
   CampaignDummyData,
+  CampaignMetrics,
 } from './lib/types';
 import { CampaignsSummaryStats } from './components/CampaignsSummaryStats';
 import { CampaignList } from './components/CampaignList';
@@ -374,6 +375,7 @@ export {
 export type {
   CampaignData,
   CampaignDummyData,
+  CampaignMetrics,
   Settings,
   DownloadableCampaignStats,
   DownloadableCampaignMetadataSample,
