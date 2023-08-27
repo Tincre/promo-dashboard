@@ -12,6 +12,7 @@ import {
   CampaignDummyData,
   CampaignStatsData,
   CampaignMetrics,
+  PromoApiCampaignStatsSample,
 } from '../lib/types';
 import { StatsHighlights } from './StatsHighlights';
 import { CampaignImageChart } from './CampaignImageChart';
@@ -25,7 +26,7 @@ export function CampaignDetail({
   handleCampaignDetailBackOnClick,
   handleStatsHighlightClick,
 }: {
-  data?: CampaignData | CampaignDummyData;
+  data?: CampaignDummyData | CampaignData;
   statsHighlightTimeseries?: CampaignStatsData;
   statsHighlightMetricName?: CampaignMetrics;
   handleCampaignDetailBackOnClick: MouseEventHandler<HTMLButtonElement>;
@@ -87,7 +88,11 @@ export function CampaignDetail({
         />
       )}
       <StatsHighlights /* @ts-ignore */
-        stats={data?.data || data?.stats || []}
+        stats={
+          Array.isArray(data?.data)
+            ? data?.data || data?.stats
+            : data?.stats || data?.stats || []
+        }
         handleStatsHighlightClick={handleStatsHighlightClick}
         statsHighlightMetricsName={statsHighlightMetricName || 'Spend'}
       />
