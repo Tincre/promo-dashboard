@@ -6,14 +6,18 @@
  */
 import { AdPreviewDetailImage } from './AdPreviewDetailImage';
 import { LineChart } from './LineChart';
-import { CampaignData, CampaignDummyData } from '../lib/types';
+import {
+  CampaignData,
+  CampaignDummyData,
+  CampaignStatsData,
+} from '../lib/types';
 
 export function CampaignImageChart({
   data,
   statsHighlightTimeseries,
 }: {
   data: CampaignData | CampaignDummyData;
-  statsHighlightTimeseries?: object; // TODO add typing
+  statsHighlightTimeseries?: CampaignStatsData;
 }) {
   const defaultData = Array.isArray(data?.data) ? data.data[0] : undefined;
   return (
