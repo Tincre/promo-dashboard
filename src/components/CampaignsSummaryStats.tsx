@@ -6,7 +6,12 @@
  */
 import { useState } from 'react';
 import { MouseEventHandler } from 'react';
-import { CampaignData, CampaignDummyData } from '../lib/types';
+import {
+  CampaignData,
+  CampaignDummyData,
+  PromoApiCampaignStatsSample,
+  CampaignStatsData,
+} from '../lib/types';
 import { CampaignsStatsHighlights } from './CampaignsStatsHighlights';
 import { CampaignsChart } from './CampaignsChart';
 
@@ -17,8 +22,8 @@ export function CampaignsSummaryStats({
   handleCampaignDetailBackOnClick,
   handleStatsHighlightClick,
 }: {
-  data?: CampaignData[] | CampaignDummyData[];
-  statsHighlightTimeseries?: object;
+  data?: CampaignDummyData[] | CampaignData[];
+  statsHighlightTimeseries?: CampaignStatsData;
   statsHighlightMetricName?: string;
   handleCampaignDetailBackOnClick: MouseEventHandler<HTMLButtonElement>;
   handleStatsHighlightClick?: Function;
