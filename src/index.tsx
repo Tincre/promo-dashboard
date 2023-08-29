@@ -132,7 +132,12 @@ export function PromoDashboard({
       );
     }
   }, [sortedCampaignsData, deletedCampaigns]);
-
+  useEffect(() => {
+    const data = sortedCampaignsData[0]?.data;
+    if (typeof data !== 'undefined') {
+      setStatsHighlightCampaignsTimeseries(data[0]); // TODO add aggregation func here
+    }
+  }, [sortedCampaignsData]);
   useEffect(() => {
     if (hasUpdatedSettings) successToast('Settings successfully updated.');
   }, [hasUpdatedSettings]);
