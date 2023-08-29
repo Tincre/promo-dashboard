@@ -113,6 +113,9 @@ export interface CampaignDummyData extends CampaignMetadata {
   stats?: CampaignStatsData[];
   data?: CampaignStatsData[];
 }
+
+export interface CampaignSortedData extends CampaignDummyData {}
+
 export interface Settings {
   fullName?: string;
   image?: string;
