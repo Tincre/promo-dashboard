@@ -238,7 +238,7 @@ export function replaceDataParamForChartData(
       data:
         typeof totalsData !== 'undefined'
           ? prepareChartData(coercePromoApiDataForChartJs(totalsData))
-          : pckg?.stats,
+          : pckg?.stats || (pckg?.data as CampaignStatsData[]),
     });
   });
 
