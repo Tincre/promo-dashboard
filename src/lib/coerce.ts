@@ -14,6 +14,7 @@ import {
   PromoApiCampaignStatsSample,
   PromoApiCampaignStatsData,
   CampaignDummyData,
+  CampaignSortedData,
 } from './types';
 
 function generateEmptyPromoApiDataForChartJs(): {
@@ -226,7 +227,7 @@ export function prepareChartData(chartJsData: {
 export function replaceDataParamForChartData(
   campaignsData: CampaignData[] | CampaignDummyData[]
 ) {
-  const resultArray: CampaignData[] | CampaignDummyData[] = [];
+  const resultArray: CampaignSortedData[] = [];
   campaignsData.forEach((pckg) => {
     let totalsData: PromoApiCampaignStatsSample[] | undefined;
     if (!Array.isArray(pckg?.data)) {

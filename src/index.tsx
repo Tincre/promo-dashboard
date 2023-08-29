@@ -20,6 +20,7 @@ import {
   DashboardOptions,
   CampaignDummyData,
   CampaignMetrics,
+  CampaignSortedData,
 } from './lib/types';
 import { CampaignsSummaryStats } from './components/CampaignsSummaryStats';
 import { CampaignList } from './components/CampaignList';
@@ -84,7 +85,7 @@ export function PromoDashboard({
   const [hasUpdatedSettings, setHasUpdatedSettings] = useState<boolean>(false);
   const [isUpdatingSettings, setIsUpdatingSettings] = useState<boolean>(false);
   const [sortedCampaignsData, setSortedCampaignsData] = useState<
-    CampaignData[] | CampaignDummyData[]
+    CampaignSortedData[]
   >([]);
   const [numberOfActiveCampaigns, setNumberOfActiveCampaigns] = useState<
     number | undefined
@@ -375,6 +376,7 @@ export {
 export type {
   CampaignData,
   CampaignDummyData,
+  CampaignSortedData,
   CampaignMetrics,
   Settings,
   DownloadableCampaignStats,
