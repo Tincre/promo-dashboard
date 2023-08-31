@@ -58,3 +58,33 @@ describe('generateDateRange', () => {
     ).toBe(testEnd);
   });
 });
+
+describe('generateStringDateRanges', () => {
+  it('returns an array of string ISO dates', () => {
+    const testStart = now();
+    const testLength = 1;
+    const testDates = generateStringDateRanges(testStart);
+    expect(Array.isArray(testDates)).toBe(true);
+    expect(testDates.length).toBe(testLength);
+    expect(testDates[0]).toBe(testStart);
+  });
+  it('returns an array of string ISO dates including end date', () => {
+    const testStart = '2023-01-01';
+    const testEnd = '2023-01-03';
+    const testLength = 2;
+    const testDates = generateStringDateRanges(testStart, testEnd);
+    expect(Array.isArray(testDates)).toBe(true);
+    expect(testDates.length).toBe(testLength);
+    expect(testDates[0]).toBe(testStart);
+  });
+  it('returns an array of Date objects including the end date', () => {
+    const testStart = '2023-01-01';
+    const testEnd = '2023-01-03';
+    const testLength = 3;
+    const testDates = generateStringDateRanges(testStart, testEnd, true);
+    expect(Array.isArray(testDates)).toBe(true);
+    expect(testDates.length).toBe(testLength);
+    expect(testDates[0]).toBe(testStart);
+    expect(testDates[testDates.length - 1]).toBe(testEnd);
+  });
+});
