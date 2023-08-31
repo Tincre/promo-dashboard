@@ -94,7 +94,10 @@ export function StatsHighlights({
                       : 'Unchanged'}{' '}
                     by{' '}
                   </span>
-                  {item.change}
+                  {item.change.toLocaleString(undefined, {
+                    maximumFractionDigits: 2,
+                    minimumFractionDigits: 0,
+                  })}
                 </p>
               </dd>
             </button>
