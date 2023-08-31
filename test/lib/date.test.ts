@@ -30,3 +30,31 @@ describe('generateDates', () => {
     expect(testDates[testLength - 1]).toBe('2023-01-03');
   });
 });
+
+describe('generateDateRange', () => {
+  it('returns an array of Date objects', () => {
+    const testStart = '2023-01-01';
+    const testEnd = '2023-01-03';
+    const testStartDate = new Date(testStart);
+    const testEndDate = new Date(testEnd);
+    const testLength = 2;
+    const testDates = generateDateRange(testStartDate, testEndDate);
+    expect(Array.isArray(testDates)).toBe(true);
+    expect(testDates.length).toBe(testLength);
+    expect((testDates[0] as Date).toISOString().slice(0, 10)).toBe(testStart);
+  });
+  it('returns an array of Date objects including the end date', () => {
+    const testStart = '2023-01-01';
+    const testEnd = '2023-01-03';
+    const testStartDate = new Date(testStart);
+    const testEndDate = new Date(testEnd);
+    const testLength = 3;
+    const testDates = generateDateRange(testStartDate, testEndDate, true);
+    expect(Array.isArray(testDates)).toBe(true);
+    expect(testDates.length).toBe(testLength);
+    expect((testDates[0] as Date).toISOString().slice(0, 10)).toBe(testStart);
+    expect(
+      (testDates[testDates.length - 1] as Date).toISOString().slice(0, 10)
+    ).toBe(testEnd);
+  });
+});
