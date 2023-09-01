@@ -6,6 +6,7 @@ import {
   VideoCameraIcon,
   FilmIcon,
 } from '@heroicons/react/24/outline';
+import { generateStringDateRanges } from './date';
 import {
   CampaignData,
   DownloadableCampaignStatsSample,
@@ -15,6 +16,7 @@ import {
   PromoApiCampaignStatsData,
   CampaignDummyData,
   CampaignSortedData,
+  CampaignMetrics,
 } from './types';
 
 function generateEmptyPromoApiDataForChartJs(): {
@@ -223,7 +225,107 @@ export function prepareChartData(chartJsData: {
     },
   ];
 }
+/*
+ * Return the value of the chartData.data parameter at the given ISO date string.
+ */
+function getChartDataValueAtDate(pckg: CampaignStatsData, date: string) {
+  return pckg.chartData.data[pckg.chartData.labels.indexOf(date)];
+}
+/*
+ * Given some value cast it to a Number, no matter what.
+ */
+function castChartDataValueToNumber(value: string | number | null) {
+  if (typeof value !== 'number') {
+    if (typeof value !== 'string') {
+      return 0;
+    }
+    return Number(value);
+  }
+  return value;
+}
 
+/* Given a metric and campaign data, return the aggregated value of that metric
+ * for the given data.
+ *
+ */
+export function aggregateChartData(
+  campaignsData: CampaignSortedData[],
+  metric?: CampaignMetrics,
+  id?: number
+) {
+  const logMsg = 'aggregateChartData:';
+  let dates: string[] = [];
+  campaignsData.map((pckg: CampaignSortedData) => {
+    const { data } = pckg;
+    if (typeof data !== 'undefined') {
+      data.map((metricData) => {
+        metricData.chartData.labels.map((date) => {
+          if (date !== null) {
+            dates.push(date);
+          }
+        });
+      });
+    }
+  });
+  let uniqueDates = Array.from(new Set([...dates])).sort();
+  // get full dates for time length selected
+  let allDates = generateStringDateRanges(
+    uniqueDates[0],
+    uniqueDates[uniqueDates.length - 1],
+    true
+  );
+  let dateLength = allDates.length;
+  // loop through each date in allDates via
+  // loop through each campaign in campaignsData w/truthy isActive
+  // loop through metric in campaignsData, for each campaign
+  // if matched in uniqueDates, aggregate metric
+  let localMetric = metric || 'Spend';
+  let localId = id || 0;
+  let aggregateChartData: {
+    labels: string[];
+    data: number[];
+  } = {
+    labels: allDates,
+    data: new Array(allDates.length).fill(0),
+  };
+  allDates.map((date, index) => {
+    let dateIndex = uniqueDates.indexOf(date);
+    if (dateIndex > -1) {
+      campaignsData.map((campaignData) => {
+        typeof campaignData?.data?.length !== 'undefined'
+          ? campaignData?.data.map((pckg) => {
+              if (pckg.name === localMetric) {
+                let value = getChartDataValueAtDate(pckg, date);
+                if (typeof value !== 'undefined') {
+                  let aggValue = aggregateChartData.data[index];
+                  console.debug(
+                    `${logMsg} ${campaignData.pid} - ${pckg.name} - ${date} - ${value} - ${aggValue}`
+                  );
+                  aggregateChartData.data[index] +=
+                    castChartDataValueToNumber(value);
+                }
+              }
+            })
+          : null;
+      });
+    }
+  });
+  return {
+    id: localId,
+    name: localMetric,
+    stat: `${aggregateChartData.data[aggregateChartData.data.length - 1]}`,
+    icon: VideoCameraIcon, // TODO get func to return the correct one based on localMetric value
+    change: computeChange([
+      aggregateChartData.data[aggregateChartData.data.length - 2],
+      aggregateChartData.data[aggregateChartData.data.length - 1],
+    ]).toLocaleString(undefined, {
+      maximumFractionDigits: 2,
+      minimumFractionDigits: 0,
+    }),
+    changeType: 'increase', // TODO add func call
+    chartData: { ...aggregateChartData },
+  };
+}
 export function replaceDataParamForChartData(
   campaignsData: CampaignData[] | CampaignDummyData[]
 ) {
