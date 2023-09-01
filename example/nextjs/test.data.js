@@ -210,7 +210,7 @@ export const campaignStubData = [
     data: {
       totals: [
         {
-          updated_time: '2023-06-20 21:23:38.355777+00:00',
+          updated_time: '2023-07-20 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -221,7 +221,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-19 21:23:38.355777+00:00',
+          updated_time: '2023-07-19 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -232,7 +232,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-18 21:23:38.355777+00:00',
+          updated_time: '2023-07-18 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -243,7 +243,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-17 21:23:38.355777+00:00',
+          updated_time: '2023-07-17 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -254,7 +254,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-16 21:23:38.355777+00:00',
+          updated_time: '2023-07-16 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -265,7 +265,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-15 21:23:38.355777+00:00',
+          updated_time: '2023-07-15 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -276,7 +276,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-14 21:23:38.355777+00:00',
+          updated_time: '2023-07-14 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -287,7 +287,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-13 21:23:38.355777+00:00',
+          updated_time: '2023-07-13 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -298,7 +298,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-12 21:23:38.355777+00:00',
+          updated_time: '2023-07-12 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -309,7 +309,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-11 21:23:38.355777+00:00',
+          updated_time: '2023-07-11 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -320,7 +320,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-10 21:23:38.355777+00:00',
+          updated_time: '2023-07-10 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -331,7 +331,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-09 21:23:38.355777+00:00',
+          updated_time: '2023-07-09 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -342,7 +342,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-08 21:23:38.355777+00:00',
+          updated_time: '2023-07-08 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -353,7 +353,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-07 21:23:38.355777+00:00',
+          updated_time: '2023-07-07 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -364,7 +364,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-06 21:23:38.355777+00:00',
+          updated_time: '2023-07-06 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -375,7 +375,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-05 21:23:38.355777+00:00',
+          updated_time: '2023-07-05 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -386,7 +386,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-04 21:23:38.355777+00:00',
+          updated_time: '2023-07-04 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -397,7 +397,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-03 21:23:38.355777+00:00',
+          updated_time: '2023-07-03 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -408,7 +408,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-02 21:23:38.355777+00:00',
+          updated_time: '2023-07-02 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -419,7 +419,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-01 21:23:38.355777+00:00',
+          updated_time: '2023-07-01 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -430,7 +430,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-31 21:23:38.355777+00:00',
+          updated_time: '2023-07-31 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -441,7 +441,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-30 21:23:38.355777+00:00',
+          updated_time: '2023-07-30 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -452,7 +452,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-29 21:23:38.355777+00:00',
+          updated_time: '2023-07-29 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -463,7 +463,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-28 21:23:38.355777+00:00',
+          updated_time: '2023-07-28 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -474,7 +474,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-27 21:23:38.355777+00:00',
+          updated_time: '2023-07-27 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -485,7 +485,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-26 21:23:38.355777+00:00',
+          updated_time: '2023-07-26 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -496,7 +496,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-25 21:23:38.355777+00:00',
+          updated_time: '2023-07-25 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -507,7 +507,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-24 21:23:38.355777+00:00',
+          updated_time: '2023-07-24 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -518,7 +518,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-23 21:23:38.355777+00:00',
+          updated_time: '2023-07-23 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -529,7 +529,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-22 21:23:38.355777+00:00',
+          updated_time: '2023-07-22 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -540,7 +540,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-21 21:23:38.355777+00:00',
+          updated_time: '2023-07-21 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -551,7 +551,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-20 21:23:38.355777+00:00',
+          updated_time: '2023-07-20 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -562,7 +562,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-19 21:23:38.355777+00:00',
+          updated_time: '2023-07-19 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -575,7 +575,7 @@ export const campaignStubData = [
       ],
       meta: [
         {
-          updated_time: '2023-06-20 21:23:38.355777+00:00',
+          updated_time: '2023-07-20 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -586,7 +586,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-19 21:23:38.355777+00:00',
+          updated_time: '2023-07-19 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -597,7 +597,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-18 21:23:38.355777+00:00',
+          updated_time: '2023-07-18 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -608,7 +608,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-17 21:23:38.355777+00:00',
+          updated_time: '2023-07-17 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -619,7 +619,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-16 21:23:38.355777+00:00',
+          updated_time: '2023-07-16 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -630,7 +630,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-15 21:23:38.355777+00:00',
+          updated_time: '2023-07-15 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -641,7 +641,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-14 21:23:38.355777+00:00',
+          updated_time: '2023-07-14 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -652,7 +652,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-13 21:23:38.355777+00:00',
+          updated_time: '2023-07-13 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -663,7 +663,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-12 21:23:38.355777+00:00',
+          updated_time: '2023-07-12 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -674,7 +674,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-11 21:23:38.355777+00:00',
+          updated_time: '2023-07-11 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -685,7 +685,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-10 21:23:38.355777+00:00',
+          updated_time: '2023-07-10 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -696,7 +696,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-09 21:23:38.355777+00:00',
+          updated_time: '2023-07-09 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -707,7 +707,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-08 21:23:38.355777+00:00',
+          updated_time: '2023-07-08 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -718,7 +718,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-07 21:23:38.355777+00:00',
+          updated_time: '2023-07-07 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -729,7 +729,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-06 21:23:38.355777+00:00',
+          updated_time: '2023-07-06 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -740,7 +740,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-05 21:23:38.355777+00:00',
+          updated_time: '2023-07-05 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -751,7 +751,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-04 21:23:38.355777+00:00',
+          updated_time: '2023-07-04 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -762,7 +762,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-03 21:23:38.355777+00:00',
+          updated_time: '2023-07-03 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -773,7 +773,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-02 21:23:38.355777+00:00',
+          updated_time: '2023-07-02 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -784,7 +784,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-01 21:23:38.355777+00:00',
+          updated_time: '2023-07-01 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -795,7 +795,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-31 21:23:38.355777+00:00',
+          updated_time: '2023-07-31 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -806,7 +806,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-30 21:23:38.355777+00:00',
+          updated_time: '2023-07-30 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -817,7 +817,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-29 21:23:38.355777+00:00',
+          updated_time: '2023-07-29 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -828,7 +828,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-28 21:23:38.355777+00:00',
+          updated_time: '2023-07-28 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -839,7 +839,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-27 21:23:38.355777+00:00',
+          updated_time: '2023-07-27 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -850,7 +850,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-26 21:23:38.355777+00:00',
+          updated_time: '2023-07-26 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -861,7 +861,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-25 21:23:38.355777+00:00',
+          updated_time: '2023-07-25 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -872,7 +872,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-24 21:23:38.355777+00:00',
+          updated_time: '2023-07-24 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -883,7 +883,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-23 21:23:38.355777+00:00',
+          updated_time: '2023-07-23 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -894,7 +894,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-22 21:23:38.355777+00:00',
+          updated_time: '2023-07-22 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -905,7 +905,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-21 21:23:38.355777+00:00',
+          updated_time: '2023-07-21 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -916,7 +916,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-20 21:23:38.355777+00:00',
+          updated_time: '2023-07-20 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -927,7 +927,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-19 21:23:38.355777+00:00',
+          updated_time: '2023-07-19 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -940,7 +940,7 @@ export const campaignStubData = [
       ],
       google: [
         {
-          updated_time: '2023-06-20 21:23:38.355777+00:00',
+          updated_time: '2023-07-20 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -951,7 +951,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-19 21:23:38.355777+00:00',
+          updated_time: '2023-07-19 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -962,7 +962,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-18 21:23:38.355777+00:00',
+          updated_time: '2023-07-18 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -973,7 +973,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-17 21:23:38.355777+00:00',
+          updated_time: '2023-07-17 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -984,7 +984,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-16 21:23:38.355777+00:00',
+          updated_time: '2023-07-16 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -995,7 +995,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-15 21:23:38.355777+00:00',
+          updated_time: '2023-07-15 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1006,7 +1006,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-14 21:23:38.355777+00:00',
+          updated_time: '2023-07-14 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1017,7 +1017,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-13 21:23:38.355777+00:00',
+          updated_time: '2023-07-13 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1028,7 +1028,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-12 21:23:38.355777+00:00',
+          updated_time: '2023-07-12 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1039,7 +1039,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-11 21:23:38.355777+00:00',
+          updated_time: '2023-07-11 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1050,7 +1050,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-10 21:23:38.355777+00:00',
+          updated_time: '2023-07-10 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1061,7 +1061,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-09 21:23:38.355777+00:00',
+          updated_time: '2023-07-09 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1072,7 +1072,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-08 21:23:38.355777+00:00',
+          updated_time: '2023-07-08 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1083,7 +1083,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-07 21:23:38.355777+00:00',
+          updated_time: '2023-07-07 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1094,7 +1094,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-06 21:23:38.355777+00:00',
+          updated_time: '2023-07-06 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1105,7 +1105,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-05 21:23:38.355777+00:00',
+          updated_time: '2023-07-05 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1116,7 +1116,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-04 21:23:38.355777+00:00',
+          updated_time: '2023-07-04 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1127,7 +1127,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-03 21:23:38.355777+00:00',
+          updated_time: '2023-07-03 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1138,7 +1138,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-02 21:23:38.355777+00:00',
+          updated_time: '2023-07-02 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1149,7 +1149,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-01 21:23:38.355777+00:00',
+          updated_time: '2023-07-01 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1160,7 +1160,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-31 21:23:38.355777+00:00',
+          updated_time: '2023-07-31 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1171,7 +1171,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-30 21:23:38.355777+00:00',
+          updated_time: '2023-07-30 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1182,7 +1182,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-29 21:23:38.355777+00:00',
+          updated_time: '2023-07-29 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1193,7 +1193,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-28 21:23:38.355777+00:00',
+          updated_time: '2023-07-28 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1204,7 +1204,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-27 21:23:38.355777+00:00',
+          updated_time: '2023-07-27 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1215,7 +1215,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-26 21:23:38.355777+00:00',
+          updated_time: '2023-07-26 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1226,7 +1226,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-25 21:23:38.355777+00:00',
+          updated_time: '2023-07-25 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1237,7 +1237,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-24 21:23:38.355777+00:00',
+          updated_time: '2023-07-24 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1248,7 +1248,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-23 21:23:38.355777+00:00',
+          updated_time: '2023-07-23 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1259,7 +1259,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-22 21:23:38.355777+00:00',
+          updated_time: '2023-07-22 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1270,7 +1270,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-21 21:23:38.355777+00:00',
+          updated_time: '2023-07-21 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1281,7 +1281,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-20 21:23:38.355777+00:00',
+          updated_time: '2023-07-20 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1292,7 +1292,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-19 21:23:38.355777+00:00',
+          updated_time: '2023-07-19 21:23:38.355777+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1322,7 +1322,7 @@ export const campaignStubData = [
     data: {
       totals: [
         {
-          updated_time: '2023-06-20 21:23:38.357613+00:00',
+          updated_time: '2023-07-20 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1333,7 +1333,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-19 21:23:38.357613+00:00',
+          updated_time: '2023-07-19 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1344,7 +1344,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-18 21:23:38.357613+00:00',
+          updated_time: '2023-07-18 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1355,7 +1355,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-17 21:23:38.357613+00:00',
+          updated_time: '2023-07-17 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1366,7 +1366,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-16 21:23:38.357613+00:00',
+          updated_time: '2023-07-16 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1377,7 +1377,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-15 21:23:38.357613+00:00',
+          updated_time: '2023-07-15 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1388,7 +1388,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-14 21:23:38.357613+00:00',
+          updated_time: '2023-07-14 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1399,7 +1399,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-13 21:23:38.357613+00:00',
+          updated_time: '2023-07-13 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1410,7 +1410,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-12 21:23:38.357613+00:00',
+          updated_time: '2023-07-12 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1421,7 +1421,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-11 21:23:38.357613+00:00',
+          updated_time: '2023-07-11 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1432,7 +1432,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-10 21:23:38.357613+00:00',
+          updated_time: '2023-07-10 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1443,7 +1443,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-09 21:23:38.357613+00:00',
+          updated_time: '2023-07-09 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1454,7 +1454,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-08 21:23:38.357613+00:00',
+          updated_time: '2023-07-08 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1465,7 +1465,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-07 21:23:38.357613+00:00',
+          updated_time: '2023-07-07 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1476,7 +1476,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-06 21:23:38.357613+00:00',
+          updated_time: '2023-07-06 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1487,7 +1487,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-05 21:23:38.357613+00:00',
+          updated_time: '2023-07-05 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1498,7 +1498,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-04 21:23:38.357613+00:00',
+          updated_time: '2023-07-04 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1509,7 +1509,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-03 21:23:38.357613+00:00',
+          updated_time: '2023-07-03 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1520,7 +1520,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-02 21:23:38.357613+00:00',
+          updated_time: '2023-07-02 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1531,7 +1531,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-01 21:23:38.357613+00:00',
+          updated_time: '2023-07-01 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1542,7 +1542,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-31 21:23:38.357613+00:00',
+          updated_time: '2023-07-31 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1553,7 +1553,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-30 21:23:38.357613+00:00',
+          updated_time: '2023-07-30 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1564,7 +1564,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-29 21:23:38.357613+00:00',
+          updated_time: '2023-07-29 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1575,7 +1575,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-28 21:23:38.357613+00:00',
+          updated_time: '2023-07-28 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1586,7 +1586,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-27 21:23:38.357613+00:00',
+          updated_time: '2023-07-27 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1597,7 +1597,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-26 21:23:38.357613+00:00',
+          updated_time: '2023-07-26 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1608,7 +1608,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-25 21:23:38.357613+00:00',
+          updated_time: '2023-07-25 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1619,7 +1619,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-24 21:23:38.357613+00:00',
+          updated_time: '2023-07-24 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1630,7 +1630,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-23 21:23:38.357613+00:00',
+          updated_time: '2023-07-23 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1641,7 +1641,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-22 21:23:38.357613+00:00',
+          updated_time: '2023-07-22 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1652,7 +1652,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-21 21:23:38.357613+00:00',
+          updated_time: '2023-07-21 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1663,7 +1663,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-20 21:23:38.357613+00:00',
+          updated_time: '2023-07-20 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1674,7 +1674,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-19 21:23:38.357613+00:00',
+          updated_time: '2023-07-19 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1685,7 +1685,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-18 21:23:38.357613+00:00',
+          updated_time: '2023-07-18 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1698,7 +1698,7 @@ export const campaignStubData = [
       ],
       meta: [
         {
-          updated_time: '2023-06-20 21:23:38.357613+00:00',
+          updated_time: '2023-07-20 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1709,7 +1709,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-19 21:23:38.357613+00:00',
+          updated_time: '2023-07-19 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1720,7 +1720,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-18 21:23:38.357613+00:00',
+          updated_time: '2023-07-18 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1731,7 +1731,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-17 21:23:38.357613+00:00',
+          updated_time: '2023-07-17 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1742,7 +1742,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-16 21:23:38.357613+00:00',
+          updated_time: '2023-07-16 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1753,7 +1753,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-15 21:23:38.357613+00:00',
+          updated_time: '2023-07-15 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1764,7 +1764,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-14 21:23:38.357613+00:00',
+          updated_time: '2023-07-14 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1775,7 +1775,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-13 21:23:38.357613+00:00',
+          updated_time: '2023-07-13 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1786,7 +1786,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-12 21:23:38.357613+00:00',
+          updated_time: '2023-07-12 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1797,7 +1797,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-11 21:23:38.357613+00:00',
+          updated_time: '2023-07-11 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1808,7 +1808,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-10 21:23:38.357613+00:00',
+          updated_time: '2023-07-10 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1819,7 +1819,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-09 21:23:38.357613+00:00',
+          updated_time: '2023-07-09 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1830,7 +1830,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-08 21:23:38.357613+00:00',
+          updated_time: '2023-07-08 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1841,7 +1841,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-07 21:23:38.357613+00:00',
+          updated_time: '2023-07-07 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1852,7 +1852,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-06 21:23:38.357613+00:00',
+          updated_time: '2023-07-06 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1863,7 +1863,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-05 21:23:38.357613+00:00',
+          updated_time: '2023-07-05 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1874,7 +1874,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-04 21:23:38.357613+00:00',
+          updated_time: '2023-07-04 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1885,7 +1885,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-03 21:23:38.357613+00:00',
+          updated_time: '2023-07-03 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1896,7 +1896,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-02 21:23:38.357613+00:00',
+          updated_time: '2023-07-02 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1907,7 +1907,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-01 21:23:38.357613+00:00',
+          updated_time: '2023-07-01 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1918,7 +1918,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-31 21:23:38.357613+00:00',
+          updated_time: '2023-07-31 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1929,7 +1929,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-30 21:23:38.357613+00:00',
+          updated_time: '2023-07-30 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1940,7 +1940,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-29 21:23:38.357613+00:00',
+          updated_time: '2023-07-29 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1951,7 +1951,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-28 21:23:38.357613+00:00',
+          updated_time: '2023-07-28 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1962,7 +1962,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-27 21:23:38.357613+00:00',
+          updated_time: '2023-07-27 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1973,7 +1973,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-26 21:23:38.357613+00:00',
+          updated_time: '2023-07-26 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1984,7 +1984,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-25 21:23:38.357613+00:00',
+          updated_time: '2023-07-25 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -1995,7 +1995,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-24 21:23:38.357613+00:00',
+          updated_time: '2023-07-24 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2006,7 +2006,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-23 21:23:38.357613+00:00',
+          updated_time: '2023-07-23 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2017,7 +2017,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-22 21:23:38.357613+00:00',
+          updated_time: '2023-07-22 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2028,7 +2028,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-21 21:23:38.357613+00:00',
+          updated_time: '2023-07-21 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2039,7 +2039,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-20 21:23:38.357613+00:00',
+          updated_time: '2023-07-20 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2050,7 +2050,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-19 21:23:38.357613+00:00',
+          updated_time: '2023-07-19 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2061,7 +2061,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-18 21:23:38.357613+00:00',
+          updated_time: '2023-07-18 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2074,7 +2074,7 @@ export const campaignStubData = [
       ],
       google: [
         {
-          updated_time: '2023-06-20 21:23:38.357613+00:00',
+          updated_time: '2023-07-20 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2085,7 +2085,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-19 21:23:38.357613+00:00',
+          updated_time: '2023-07-19 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2096,7 +2096,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-18 21:23:38.357613+00:00',
+          updated_time: '2023-07-18 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2107,7 +2107,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-17 21:23:38.357613+00:00',
+          updated_time: '2023-07-17 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2118,7 +2118,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-16 21:23:38.357613+00:00',
+          updated_time: '2023-07-16 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2129,7 +2129,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-15 21:23:38.357613+00:00',
+          updated_time: '2023-07-15 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2140,7 +2140,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-14 21:23:38.357613+00:00',
+          updated_time: '2023-07-14 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2151,7 +2151,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-13 21:23:38.357613+00:00',
+          updated_time: '2023-07-13 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2162,7 +2162,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-12 21:23:38.357613+00:00',
+          updated_time: '2023-07-12 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2173,7 +2173,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-11 21:23:38.357613+00:00',
+          updated_time: '2023-07-11 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2184,7 +2184,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-10 21:23:38.357613+00:00',
+          updated_time: '2023-07-10 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2195,7 +2195,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-09 21:23:38.357613+00:00',
+          updated_time: '2023-07-09 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2206,7 +2206,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-08 21:23:38.357613+00:00',
+          updated_time: '2023-07-08 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2217,7 +2217,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-07 21:23:38.357613+00:00',
+          updated_time: '2023-07-07 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2228,7 +2228,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-06 21:23:38.357613+00:00',
+          updated_time: '2023-07-06 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2239,7 +2239,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-05 21:23:38.357613+00:00',
+          updated_time: '2023-07-05 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2250,7 +2250,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-04 21:23:38.357613+00:00',
+          updated_time: '2023-07-04 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2261,7 +2261,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-03 21:23:38.357613+00:00',
+          updated_time: '2023-07-03 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2272,7 +2272,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-02 21:23:38.357613+00:00',
+          updated_time: '2023-07-02 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2283,7 +2283,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-06-01 21:23:38.357613+00:00',
+          updated_time: '2023-07-01 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2294,7 +2294,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-31 21:23:38.357613+00:00',
+          updated_time: '2023-07-31 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2305,7 +2305,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-30 21:23:38.357613+00:00',
+          updated_time: '2023-07-30 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2316,7 +2316,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-29 21:23:38.357613+00:00',
+          updated_time: '2023-07-29 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2327,7 +2327,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-28 21:23:38.357613+00:00',
+          updated_time: '2023-07-28 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2338,7 +2338,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-27 21:23:38.357613+00:00',
+          updated_time: '2023-07-27 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2349,7 +2349,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-26 21:23:38.357613+00:00',
+          updated_time: '2023-07-26 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2360,7 +2360,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-25 21:23:38.357613+00:00',
+          updated_time: '2023-07-25 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2371,7 +2371,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-24 21:23:38.357613+00:00',
+          updated_time: '2023-07-24 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2382,7 +2382,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-23 21:23:38.357613+00:00',
+          updated_time: '2023-07-23 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2393,7 +2393,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-22 21:23:38.357613+00:00',
+          updated_time: '2023-07-22 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2404,7 +2404,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-21 21:23:38.357613+00:00',
+          updated_time: '2023-07-21 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2415,7 +2415,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-20 21:23:38.357613+00:00',
+          updated_time: '2023-07-20 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2426,7 +2426,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-19 21:23:38.357613+00:00',
+          updated_time: '2023-07-19 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2437,7 +2437,7 @@ export const campaignStubData = [
           clicks: 0,
         },
         {
-          updated_time: '2023-05-18 21:23:38.357613+00:00',
+          updated_time: '2023-07-18 21:23:38.357613+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -2467,7 +2467,7 @@ export const campaignStubData = [
     data: {
       totals: [
         {
-          updated_time: '2023-06-14 16:00:40.743600',
+          updated_time: '2023-07-19 16:00:40.743600',
           spend: 37.77,
           reach: 5751,
           cpc: 0.23,
@@ -2479,7 +2479,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-13 22:00:27.600009',
+          updated_time: '2023-07-18 22:00:27.600009',
           spend: 37.77,
           reach: 5751,
           cpc: 0.23,
@@ -2491,7 +2491,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-12 22:00:27.998464',
+          updated_time: '2023-07-17 22:00:27.998464',
           spend: 37.77,
           reach: 5751,
           cpc: 0.23,
@@ -2503,7 +2503,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-11 22:00:31.683617',
+          updated_time: '2023-07-16 22:00:31.683617',
           spend: 37.77,
           reach: 5751,
           cpc: 0.23,
@@ -2515,7 +2515,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-10 22:00:27.312364',
+          updated_time: '2023-07-15 22:00:27.312364',
           spend: 37.77,
           reach: 5751,
           cpc: 0.23,
@@ -2527,7 +2527,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-09 22:00:28.874692',
+          updated_time: '2023-07-14 22:00:28.874692',
           spend: 37.76,
           reach: 5751,
           cpc: 0.23,
@@ -2539,7 +2539,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-08 22:00:18.465261',
+          updated_time: '2023-07-13 22:00:18.465261',
           spend: 37.73,
           reach: 5751,
           cpc: 0.23,
@@ -2551,7 +2551,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-07 22:00:26.612957',
+          updated_time: '2023-07-12 22:00:26.612957',
           spend: 37.72,
           reach: 5749,
           cpc: 0.23,
@@ -2563,7 +2563,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-06 22:00:25.890131',
+          updated_time: '2023-07-11 22:00:25.890131',
           spend: 37.69,
           reach: 5749,
           cpc: 0.23,
@@ -2575,7 +2575,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-05 22:00:16.304401',
+          updated_time: '2023-07-10 22:00:16.304401',
           spend: 37.62,
           reach: 5747,
           cpc: 0.23,
@@ -2587,7 +2587,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-04 22:00:27.177784',
+          updated_time: '2023-07-09 22:00:27.177784',
           spend: 37.53,
           reach: 5737,
           cpc: 0.23,
@@ -2599,7 +2599,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-03 22:00:26.319488',
+          updated_time: '2023-07-08 22:00:26.319488',
           spend: 35.11,
           reach: 5375,
           cpc: 0.22,
@@ -2611,7 +2611,7 @@ export const campaignStubData = [
           clicks: 157,
         },
         {
-          updated_time: '2023-06-02 22:00:34.601907',
+          updated_time: '2023-07-07 22:00:34.601907',
           spend: 33.75,
           reach: 5219,
           cpc: 0.22,
@@ -2623,7 +2623,7 @@ export const campaignStubData = [
           clicks: 153,
         },
         {
-          updated_time: '2023-06-01 22:00:31.218807',
+          updated_time: '2023-07-06 22:00:31.218807',
           spend: 32.26,
           reach: 4953,
           cpc: 0.22,
@@ -2635,7 +2635,7 @@ export const campaignStubData = [
           clicks: 149,
         },
         {
-          updated_time: '2023-05-30 23:45:03.471100',
+          updated_time: '2023-07-30 23:45:03.471100',
           spend: 28.41,
           reach: 4349,
           cpc: 0.22,
@@ -2647,7 +2647,7 @@ export const campaignStubData = [
           clicks: 130,
         },
         {
-          updated_time: '2023-05-29 22:00:19.062574',
+          updated_time: '2023-07-29 22:00:19.062574',
           spend: 26.37,
           reach: 4037,
           cpc: 0.22,
@@ -2659,7 +2659,7 @@ export const campaignStubData = [
           clicks: 119,
         },
         {
-          updated_time: '2023-05-28 22:00:28.746017',
+          updated_time: '2023-07-28 22:00:28.746017',
           spend: 24.42,
           reach: 3757,
           cpc: 0.22,
@@ -2671,7 +2671,7 @@ export const campaignStubData = [
           clicks: 109,
         },
         {
-          updated_time: '2023-05-27 22:00:26.229125',
+          updated_time: '2023-07-27 22:00:26.229125',
           spend: 22.1,
           reach: 3420,
           cpc: 0.24,
@@ -2683,7 +2683,7 @@ export const campaignStubData = [
           clicks: 93,
         },
         {
-          updated_time: '2023-05-26 22:00:26.542882',
+          updated_time: '2023-07-26 22:00:26.542882',
           spend: 19.78,
           reach: 3132,
           cpc: 0.25,
@@ -2695,7 +2695,7 @@ export const campaignStubData = [
           clicks: 80,
         },
         {
-          updated_time: '2023-05-25 22:00:29.113605',
+          updated_time: '2023-07-25 22:00:29.113605',
           spend: 17.68,
           reach: 2830,
           cpc: 0.25,
@@ -2707,7 +2707,7 @@ export const campaignStubData = [
           clicks: 72,
         },
         {
-          updated_time: '2023-05-24 22:00:22.379549',
+          updated_time: '2023-07-24 22:00:22.379549',
           spend: 15.52,
           reach: 2483,
           cpc: 0.24,
@@ -2719,7 +2719,7 @@ export const campaignStubData = [
           clicks: 64,
         },
         {
-          updated_time: '2023-05-23 22:00:29.870900',
+          updated_time: '2023-07-23 22:00:29.870900',
           spend: 13.3,
           reach: 2088,
           cpc: 0.26,
@@ -2731,7 +2731,7 @@ export const campaignStubData = [
           clicks: 51,
         },
         {
-          updated_time: '2023-05-22 22:00:39.126407',
+          updated_time: '2023-07-22 22:00:39.126407',
           spend: 11.16,
           reach: 1720,
           cpc: 0.25,
@@ -2743,7 +2743,7 @@ export const campaignStubData = [
           clicks: 44,
         },
         {
-          updated_time: '2023-05-21 22:00:27.988059',
+          updated_time: '2023-07-21 22:00:27.988059',
           spend: 10.46,
           reach: 1610,
           cpc: 0.26,
@@ -2755,7 +2755,7 @@ export const campaignStubData = [
           clicks: 40,
         },
         {
-          updated_time: '2023-05-20 22:00:25.222026',
+          updated_time: '2023-07-20 22:00:25.222026',
           spend: 8.37,
           reach: 1282,
           cpc: 0.3,
@@ -2767,7 +2767,7 @@ export const campaignStubData = [
           clicks: 28,
         },
         {
-          updated_time: '2023-05-19 22:00:26.391798',
+          updated_time: '2023-07-19 22:00:26.391798',
           spend: 6.56,
           reach: 1004,
           cpc: 0.33,
@@ -2779,7 +2779,7 @@ export const campaignStubData = [
           clicks: 20,
         },
         {
-          updated_time: '2023-05-18 22:00:27.656796',
+          updated_time: '2023-07-18 22:00:27.656796',
           spend: 4.56,
           reach: 757,
           cpc: 0.35,
@@ -2791,7 +2791,7 @@ export const campaignStubData = [
           clicks: 13,
         },
         {
-          updated_time: '2023-05-17 22:00:28.739941',
+          updated_time: '2023-07-17 22:00:28.739941',
           spend: 2.71,
           reach: 473,
           cpc: 0.54,
@@ -2803,7 +2803,7 @@ export const campaignStubData = [
           clicks: 5,
         },
         {
-          updated_time: '2023-05-16 22:00:33.185994',
+          updated_time: '2023-07-16 22:00:33.185994',
           spend: 0.67,
           reach: 133,
           cpc: 0,
@@ -2817,7 +2817,7 @@ export const campaignStubData = [
       ],
       meta: [
         {
-          updated_time: '2023-06-14 16:00:40.743600',
+          updated_time: '2023-07-14 16:00:40.743600',
           spend: 37.77,
           reach: 5751,
           cpc: 0.23,
@@ -2829,7 +2829,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-13 22:00:27.600009',
+          updated_time: '2023-07-13 22:00:27.600009',
           spend: 37.77,
           reach: 5751,
           cpc: 0.23,
@@ -2841,7 +2841,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-12 22:00:27.998464',
+          updated_time: '2023-07-12 22:00:27.998464',
           spend: 37.77,
           reach: 5751,
           cpc: 0.23,
@@ -2853,7 +2853,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-11 22:00:31.683617',
+          updated_time: '2023-07-11 22:00:31.683617',
           spend: 37.77,
           reach: 5751,
           cpc: 0.23,
@@ -2865,7 +2865,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-10 22:00:27.312364',
+          updated_time: '2023-07-10 22:00:27.312364',
           spend: 37.77,
           reach: 5751,
           cpc: 0.23,
@@ -2877,7 +2877,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-09 22:00:28.874692',
+          updated_time: '2023-07-09 22:00:28.874692',
           spend: 37.76,
           reach: 5751,
           cpc: 0.23,
@@ -2889,7 +2889,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-08 22:00:18.465261',
+          updated_time: '2023-07-08 22:00:18.465261',
           spend: 37.73,
           reach: 5751,
           cpc: 0.23,
@@ -2901,7 +2901,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-07 22:00:26.612957',
+          updated_time: '2023-07-07 22:00:26.612957',
           spend: 37.72,
           reach: 5749,
           cpc: 0.23,
@@ -2913,7 +2913,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-06 22:00:25.890131',
+          updated_time: '2023-07-06 22:00:25.890131',
           spend: 37.69,
           reach: 5749,
           cpc: 0.23,
@@ -2925,7 +2925,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-05 22:00:16.304401',
+          updated_time: '2023-07-05 22:00:16.304401',
           spend: 37.62,
           reach: 5747,
           cpc: 0.23,
@@ -2937,7 +2937,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-04 22:00:27.177784',
+          updated_time: '2023-07-04 22:00:27.177784',
           spend: 37.53,
           reach: 5737,
           cpc: 0.23,
@@ -2949,7 +2949,7 @@ export const campaignStubData = [
           clicks: 165,
         },
         {
-          updated_time: '2023-06-03 22:00:26.319488',
+          updated_time: '2023-07-03 22:00:26.319488',
           spend: 35.11,
           reach: 5375,
           cpc: 0.22,
@@ -2961,7 +2961,7 @@ export const campaignStubData = [
           clicks: 157,
         },
         {
-          updated_time: '2023-06-02 22:00:34.601907',
+          updated_time: '2023-07-02 22:00:34.601907',
           spend: 33.75,
           reach: 5219,
           cpc: 0.22,
@@ -2973,7 +2973,7 @@ export const campaignStubData = [
           clicks: 153,
         },
         {
-          updated_time: '2023-06-01 22:00:31.218807',
+          updated_time: '2023-07-01 22:00:31.218807',
           spend: 32.26,
           reach: 4953,
           cpc: 0.22,
@@ -2985,7 +2985,7 @@ export const campaignStubData = [
           clicks: 149,
         },
         {
-          updated_time: '2023-05-30 23:45:03.471100',
+          updated_time: '2023-06-30 23:45:03.471100',
           spend: 28.41,
           reach: 4349,
           cpc: 0.22,
@@ -2997,7 +2997,7 @@ export const campaignStubData = [
           clicks: 130,
         },
         {
-          updated_time: '2023-05-29 22:00:19.062574',
+          updated_time: '2023-06-29 22:00:19.062574',
           spend: 26.37,
           reach: 4037,
           cpc: 0.22,
@@ -3009,7 +3009,7 @@ export const campaignStubData = [
           clicks: 119,
         },
         {
-          updated_time: '2023-05-28 22:00:28.746017',
+          updated_time: '2023-06-28 22:00:28.746017',
           spend: 24.42,
           reach: 3757,
           cpc: 0.22,
@@ -3021,7 +3021,7 @@ export const campaignStubData = [
           clicks: 109,
         },
         {
-          updated_time: '2023-05-27 22:00:26.229125',
+          updated_time: '2023-06-27 22:00:26.229125',
           spend: 22.1,
           reach: 3420,
           cpc: 0.24,
@@ -3033,7 +3033,7 @@ export const campaignStubData = [
           clicks: 93,
         },
         {
-          updated_time: '2023-05-26 22:00:26.542882',
+          updated_time: '2023-06-26 22:00:26.542882',
           spend: 19.78,
           reach: 3132,
           cpc: 0.25,
@@ -3045,7 +3045,7 @@ export const campaignStubData = [
           clicks: 80,
         },
         {
-          updated_time: '2023-05-25 22:00:29.113605',
+          updated_time: '2023-06-25 22:00:29.113605',
           spend: 17.68,
           reach: 2830,
           cpc: 0.25,
@@ -3057,7 +3057,7 @@ export const campaignStubData = [
           clicks: 72,
         },
         {
-          updated_time: '2023-05-24 22:00:22.379549',
+          updated_time: '2023-06-24 22:00:22.379549',
           spend: 15.52,
           reach: 2483,
           cpc: 0.24,
@@ -3069,7 +3069,7 @@ export const campaignStubData = [
           clicks: 64,
         },
         {
-          updated_time: '2023-05-23 22:00:29.870900',
+          updated_time: '2023-06-23 22:00:29.870900',
           spend: 13.3,
           reach: 2088,
           cpc: 0.26,
@@ -3081,7 +3081,7 @@ export const campaignStubData = [
           clicks: 51,
         },
         {
-          updated_time: '2023-05-22 22:00:39.126407',
+          updated_time: '2023-06-22 22:00:39.126407',
           spend: 11.16,
           reach: 1720,
           cpc: 0.25,
@@ -3093,7 +3093,7 @@ export const campaignStubData = [
           clicks: 44,
         },
         {
-          updated_time: '2023-05-21 22:00:27.988059',
+          updated_time: '2023-06-21 22:00:27.988059',
           spend: 10.46,
           reach: 1610,
           cpc: 0.26,
@@ -3105,7 +3105,7 @@ export const campaignStubData = [
           clicks: 40,
         },
         {
-          updated_time: '2023-05-20 22:00:25.222026',
+          updated_time: '2023-06-20 22:00:25.222026',
           spend: 8.37,
           reach: 1282,
           cpc: 0.3,
@@ -3117,7 +3117,7 @@ export const campaignStubData = [
           clicks: 28,
         },
         {
-          updated_time: '2023-05-19 22:00:26.391798',
+          updated_time: '2023-06-19 22:00:26.391798',
           spend: 6.56,
           reach: 1004,
           cpc: 0.33,
@@ -3129,7 +3129,7 @@ export const campaignStubData = [
           clicks: 20,
         },
         {
-          updated_time: '2023-05-18 22:00:27.656796',
+          updated_time: '2023-06-18 22:00:27.656796',
           spend: 4.56,
           reach: 757,
           cpc: 0.35,
@@ -3141,7 +3141,7 @@ export const campaignStubData = [
           clicks: 13,
         },
         {
-          updated_time: '2023-05-17 22:00:28.739941',
+          updated_time: '2023-06-17 22:00:28.739941',
           spend: 2.71,
           reach: 473,
           cpc: 0.54,
@@ -3153,7 +3153,7 @@ export const campaignStubData = [
           clicks: 5,
         },
         {
-          updated_time: '2023-05-16 22:00:33.185994',
+          updated_time: '2023-06-16 22:00:33.185994',
           spend: 0.67,
           reach: 133,
           cpc: 0,
@@ -3185,7 +3185,7 @@ export const campaignStubData = [
     data: {
       totals: [
         {
-          updated_time: '2023-06-20 21:23:38.361248+00:00',
+          updated_time: '2023-07-20 21:23:38.361248+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -3198,7 +3198,7 @@ export const campaignStubData = [
       ],
       meta: [
         {
-          updated_time: '2023-06-20 21:23:38.361248+00:00',
+          updated_time: '2023-07-20 21:23:38.361248+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
@@ -3211,7 +3211,7 @@ export const campaignStubData = [
       ],
       google: [
         {
-          updated_time: '2023-06-20 21:23:38.361248+00:00',
+          updated_time: '2023-07-20 21:23:38.361248+00:00',
           spend: 0,
           reach: 0,
           cpc: 0,
