@@ -310,19 +310,20 @@ export function aggregateChartData(
       });
     }
   });
+  let change = computeChange([
+    aggregateChartData.data[aggregateChartData.data.length - 2],
+    aggregateChartData.data[aggregateChartData.data.length - 1],
+  ]);
   return {
     id: localId,
     name: localMetric,
     stat: `${aggregateChartData.data[aggregateChartData.data.length - 1]}`,
     icon: getIconForMetric(localMetric),
-    change: computeChange([
-      aggregateChartData.data[aggregateChartData.data.length - 2],
-      aggregateChartData.data[aggregateChartData.data.length - 1],
-    ]).toLocaleString(undefined, {
+    change: change.toLocaleString(undefined, {
       maximumFractionDigits: 2,
       minimumFractionDigits: 0,
     }),
-    changeType: 'increase', // TODO add func call
+    changeType: computeChangeType(change),
     chartData: { ...aggregateChartData },
   };
 }
