@@ -4,14 +4,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
-import { useState } from 'react';
 import { MouseEventHandler } from 'react';
-import {
-  CampaignData,
-  CampaignDummyData,
-  PromoApiCampaignStatsSample,
-  CampaignStatsData,
-} from '../lib/types';
+import { CampaignStatsData } from '../lib/types';
 import { CampaignsStatsHighlights } from './CampaignsStatsHighlights';
 import { CampaignsChart } from './CampaignsChart';
 
@@ -19,10 +13,9 @@ export function CampaignsSummaryStats({
   data,
   statsHighlightTimeseries,
   statsHighlightMetricName,
-  handleCampaignDetailBackOnClick,
   handleStatsHighlightClick,
 }: {
-  data?: CampaignDummyData[] | CampaignData[];
+  data?: CampaignStatsData[];
   statsHighlightTimeseries?: CampaignStatsData;
   statsHighlightMetricName?: string;
   handleCampaignDetailBackOnClick: MouseEventHandler<HTMLButtonElement>;
@@ -32,12 +25,9 @@ export function CampaignsSummaryStats({
     <>
       {!data ? null : (
         <>
-          <CampaignsChart
-            data={data[0]}
-            statsHighlightTimeseries={statsHighlightTimeseries}
-          />
-          <CampaignsStatsHighlights /* @ts-ignore */
-            stats={data[0]?.data || data[0]?.stats || []}
+          <CampaignsChart statsHighlightTimeseries={statsHighlightTimeseries} />
+          <CampaignsStatsHighlights
+            stats={data}
             handleStatsHighlightClick={handleStatsHighlightClick}
             statsHighlightMetricsName={statsHighlightMetricName || 'Spend'}
           />
