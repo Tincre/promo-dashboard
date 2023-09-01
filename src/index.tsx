@@ -29,7 +29,7 @@ import {
   sortCampaignDataOnIsActiveAndReceiptId,
   numActiveCampaigns,
 } from './lib/sort';
-import { replaceDataParamForChartData } from './lib/coerce';
+import { aggregateChartData, replaceDataParamForChartData } from './lib/coerce';
 import { options } from './lib/options';
 import { DownloadAllCampaignsButton } from './components/DownloadButton';
 import { tourSteps } from './lib/tourSteps';
@@ -93,6 +93,9 @@ export function PromoDashboard({
   const [statsHighlightTimeseries, setStatsHighlightTimeseries] = useState<
     CampaignStatsData | undefined
   >(undefined);
+  const [statsCampaignsData, setStatsCampaignsData] = useState<
+    CampaignStatsData[] | undefined
+  >();
   const [clickedStatsClassName, setClickedStatsClassName] = useState<string>(
     options.defaultStatName
   );
@@ -133,11 +136,30 @@ export function PromoDashboard({
     }
   }, [sortedCampaignsData, deletedCampaigns]);
   useEffect(() => {
-    const data = sortedCampaignsData[0]?.data;
-    if (typeof data !== 'undefined') {
-      setStatsHighlightCampaignsTimeseries(data[0]); // TODO add aggregation func here
+    // set initial timeseries aggregated data
+    if (typeof sortedCampaignsData !== 'undefined') {
+      let localStats: CampaignStatsData[] = [];
+      ['Spend', 'Views', 'Clicks', 'CPM', 'CPC', 'CTR', 'CPV'].map(
+        (metric, index) => {
+          localStats.push(
+            aggregateChartData(sortedCampaignsData, metric, index)
+          );
+        }
+      );
+      setStatsCampaignsData(localStats);
+      //console.log(
+      //  `useEffect: Setting statsHighlightCampaignsTimeseries: ${JSON.stringify(
+      //    toSet
+      //  )}`
+      //);
     }
   }, [sortedCampaignsData]);
+  useEffect(() => {
+    // set initial Spend timeseries aggregated data
+    if (typeof statsCampaignsData !== 'undefined') {
+      setStatsHighlightCampaignsTimeseries(statsCampaignsData[0]);
+    }
+  }, [statsCampaignsData]);
   useEffect(() => {
     if (hasUpdatedSettings) successToast('Settings successfully updated.');
   }, [hasUpdatedSettings]);
@@ -311,7 +333,7 @@ export function PromoDashboard({
             {!sortedCampaignsData ? null : (
               <>
                 <CampaignsSummaryStats
-                  data={sortedCampaignsData}
+                  data={statsCampaignsData}
                   statsHighlightTimeseries={statsHighlightCampaignsTimeseries}
                   statsHighlightMetricName={clickedStatsCampaignsClassName}
                   handleCampaignDetailBackOnClick={
