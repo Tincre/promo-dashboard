@@ -7,6 +7,7 @@ import {
   FilmIcon,
 } from '@heroicons/react/24/outline';
 import { generateStringDateRanges } from './date';
+import { getIconForMetric } from './metricsDisplay';
 import {
   CampaignData,
   DownloadableCampaignStatsSample,
@@ -274,7 +275,6 @@ export function aggregateChartData(
     uniqueDates[uniqueDates.length - 1],
     true
   );
-  let dateLength = allDates.length;
   // loop through each date in allDates via
   // loop through each campaign in campaignsData w/truthy isActive
   // loop through metric in campaignsData, for each campaign
@@ -314,7 +314,7 @@ export function aggregateChartData(
     id: localId,
     name: localMetric,
     stat: `${aggregateChartData.data[aggregateChartData.data.length - 1]}`,
-    icon: VideoCameraIcon, // TODO get func to return the correct one based on localMetric value
+    icon: getIconForMetric(localMetric),
     change: computeChange([
       aggregateChartData.data[aggregateChartData.data.length - 2],
       aggregateChartData.data[aggregateChartData.data.length - 1],
