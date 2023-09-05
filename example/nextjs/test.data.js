@@ -1323,9 +1323,9 @@ export const campaignStubData = [
       totals: [
         {
           updated_time: '2023-07-20 21:23:38.357613+00:00',
-          spend: 0,
+          spend: 3451,
           reach: 0,
-          cpc: 0,
+          cpc: 2,
           cpm: 0,
           ctr: 0,
           cpv: 0,
@@ -1334,9 +1334,9 @@ export const campaignStubData = [
         },
         {
           updated_time: '2023-07-19 21:23:38.357613+00:00',
-          spend: 0,
+          spend: 3450,
           reach: 0,
-          cpc: 0,
+          cpc: 3,
           cpm: 0,
           ctr: 0,
           cpv: 0,
@@ -2768,9 +2768,9 @@ export const campaignStubData = [
         },
         {
           updated_time: '2023-07-19 22:00:26.391798',
-          spend: 6.56,
+          spend: 3000.00,
           reach: 1004,
-          cpc: 0.33,
+          cpc: 1.33,
           cpm: 5.44,
           ctr: 1.66,
           cpv: 0,
