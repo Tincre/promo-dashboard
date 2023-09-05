@@ -253,7 +253,7 @@ export function aggregateChartData(
   campaignsData: CampaignSortedData[],
   metric?: CampaignMetrics,
   id?: number
-) {
+): CampaignStatsData {
   const logMsg = 'aggregateChartData:';
   let dates: string[] = [];
   campaignsData.map((pckg: CampaignSortedData) => {
@@ -281,6 +281,7 @@ export function aggregateChartData(
   // if matched in uniqueDates, aggregate metric
   let localMetric = metric || 'Spend';
   let localId = id || 0;
+  let spendWeightedMetrics = ['CPC', 'CPM', 'CTR', 'CPV'];
   let aggregateChartData: {
     labels: string[];
     data: number[];
@@ -290,23 +291,56 @@ export function aggregateChartData(
   };
   allDates.map((date, index) => {
     let dateIndex = uniqueDates.indexOf(date);
+
     if (dateIndex > -1) {
-      campaignsData.map((campaignData) => {
-        typeof campaignData?.data?.length !== 'undefined'
-          ? campaignData?.data.map((pckg) => {
-              if (pckg.name === localMetric) {
-                let value = getChartDataValueAtDate(pckg, date);
-                if (typeof value !== 'undefined') {
-                  let aggValue = aggregateChartData.data[index];
-                  console.debug(
-                    `${logMsg} ${campaignData.pid} - ${pckg.name} - ${date} - ${value} - ${aggValue}`
+      let totalSpend: number = 0;
+
+      campaignsData.map((dailyCampaignData) => {
+        if (typeof dailyCampaignData?.data?.length !== 'undefined') {
+          dailyCampaignData?.data.map((pckg) => {
+            if (pckg.name === 'Spend') {
+              let value = getChartDataValueAtDate(pckg, date);
+              if (value) {
+                totalSpend += castChartDataValueToNumber(value);
+              }
+            }
+          });
+        }
+      });
+      campaignsData.map((dailyCampaignData) => {
+        let dailyCampaignSpend: number = 0;
+        let spendProportion = 0;
+
+        if (typeof dailyCampaignData?.data?.length !== 'undefined') {
+          dailyCampaignData?.data?.map((pckg) => {
+            if (pckg.name === 'Spend') {
+              let value = getChartDataValueAtDate(pckg, date);
+              dailyCampaignSpend += castChartDataValueToNumber(value);
+              if (value) {
+                spendProportion = !totalSpend
+                  ? 0
+                  : dailyCampaignSpend / totalSpend;
+              }
+            }
+          });
+          dailyCampaignData?.data.map((pckg) => {
+            if (pckg.name === localMetric) {
+              let value = getChartDataValueAtDate(pckg, date);
+              if (value) {
+                value = castChartDataValueToNumber(value);
+                if (spendWeightedMetrics.includes(localMetric)) {
+                  aggregateChartData.data[index] += value * spendProportion;
+                  console.log(
+                    `${logMsg} proportional ${date} ${dailyCampaignData.pid} ${pckg.name} ${aggregateChartData.data[index]} at ${spendProportion} spend proportion and ${totalSpend} total spend`
                   );
+                } else {
                   aggregateChartData.data[index] +=
                     castChartDataValueToNumber(value);
                 }
               }
-            })
-          : null;
+            }
+          });
+        }
       });
     }
   });
