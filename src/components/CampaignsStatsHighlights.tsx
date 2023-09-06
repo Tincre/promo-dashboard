@@ -28,6 +28,9 @@ export function CampaignsStatsHighlights({
     <div>
       <dl className="pt-2 pb-2 gap-1 sm:pt-5 grid grid-cols-3 sm:gap-4 lg:grid-cols-6 sm:pb-5">
         {stats.map((item) => {
+          console.log(
+            `CampaignsStatsHighlights: ${item.name} ${item.stat} ${item.change}`
+          );
           return (
             <button
               key={item.id}
@@ -60,7 +63,10 @@ export function CampaignsStatsHighlights({
               </dt>
               <dd className="ml-8 sm:ml-10 flex items-baseline pb-1 sm:pb-2">
                 <p className="text-[6px] font-semibold text-gray-900 dark:text-slate-200">
-                  {item.stat}
+                  {parseFloat(item.stat).toLocaleString(undefined, {
+                    maximumFractionDigits: 2,
+                    minimumFractionDigits: 0,
+                  })}
                 </p>
                 <p
                   className={classNames(
@@ -93,7 +99,10 @@ export function CampaignsStatsHighlights({
                       : 'Unchanged'}{' '}
                     by{' '}
                   </span>
-                  {item.change}
+                  {item.change.toLocaleString(undefined, {
+                    maximumFractionDigits: 2,
+                    minimumFractionDigits: 0,
+                  })}
                 </p>
               </dd>
             </button>
