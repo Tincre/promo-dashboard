@@ -330,9 +330,6 @@ export function aggregateChartData(
                 value = castChartDataValueToNumber(value);
                 if (spendWeightedMetrics.includes(localMetric)) {
                   aggregateChartData.data[index] += value * spendProportion;
-                  console.log(
-                    `${logMsg} proportional ${date} ${dailyCampaignData.pid} ${pckg.name} ${aggregateChartData.data[index]} at ${spendProportion} spend proportion and ${totalSpend} total spend`
-                  );
                 } else {
                   aggregateChartData.data[index] +=
                     castChartDataValueToNumber(value);
