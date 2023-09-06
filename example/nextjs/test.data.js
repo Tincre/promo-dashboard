@@ -120,7 +120,7 @@ export const campaignStubData = [
       totals: [
         {
           cpc: 0.84,
-          cpm: 7.56,
+          cpm: 7.56000333281,
           cpp: 0.23,
           cpv: 0.01,
           ctr: 1.07,
