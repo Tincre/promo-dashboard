@@ -14,9 +14,17 @@ import {
   LinearScale,
   Title,
   CategoryScale,
+  Tooltip,
 } from 'chart.js';
 
-ChartJS.register(LineElement, PointElement, LinearScale, Title, CategoryScale);
+ChartJS.register(
+  LineElement,
+  PointElement,
+  LinearScale,
+  Title,
+  CategoryScale,
+  Tooltip
+);
 
 export function CampaignsLineChart({ info }: { info: any }) {
   const [data, setData] = useState<any | undefined>();
@@ -40,20 +48,28 @@ export function CampaignsLineChart({ info }: { info: any }) {
     </>
   );
 }
-export const buildData = ({ chartData }: { chartData: any }) => ({
-  labels: chartData?.labels,
-  datasets: [
-    {
-      label: '',
-      data: chartData?.data,
-      backgroundColor: 'rgba(255, 255, 255, 0.1)',
-      borderColor: 'rgba(255, 255, 255, 1)',
-      pointBackgroundColor: 'rgba(255, 255, 255, 1)',
-      fill: 'start',
-      tension: 0.4,
-    },
-  ],
-});
+export const buildData = ({ chartData }: { chartData: any }) => {
+  let hoverSensitivity =
+    chartData?.data?.length < 30 ? 10 : chartData?.data?.length < 45 ? 5 : 2;
+
+  return {
+    labels: chartData?.labels,
+    datasets: [
+      {
+        label: '',
+        data: chartData?.data,
+        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        borderColor: 'rgba(255, 255, 255, 1)',
+        pointBackgroundColor: 'rgba(255, 255, 255, 1)',
+        fill: 'start',
+        tension: 0.4,
+        pointRadius: hoverSensitivity < 10 ? 0 : 2,
+        pointHitRadius: hoverSensitivity,
+        pointHoverRadius: hoverSensitivity,
+      },
+    ],
+  };
+};
 
 const options = {
   maintainAspectRatio: false,
@@ -61,6 +77,9 @@ const options = {
   plugins: {
     legend: {
       display: false,
+    },
+    tooltip: {
+      displayColors: false,
     },
   },
   scales: {
