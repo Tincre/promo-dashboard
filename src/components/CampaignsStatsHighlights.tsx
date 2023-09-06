@@ -28,9 +28,6 @@ export function CampaignsStatsHighlights({
     <div>
       <dl className="pt-2 pb-2 gap-1 sm:pt-5 grid grid-cols-3 sm:gap-4 lg:grid-cols-6 sm:pb-5">
         {stats.map((item) => {
-          console.log(
-            `CampaignsStatsHighlights: ${item.name} ${item.stat} ${item.change}`
-          );
           return (
             <button
               key={item.id}
