@@ -321,7 +321,7 @@ export function PromoDashboard({
   };
   return (
     <>
-      <DashboardContainer>
+      <DashboardContainer isLoading={internalIsLoading}>
         {!isCampaignClicked ? (
           <>
             <div className="inline-flex w-full pb-4">
