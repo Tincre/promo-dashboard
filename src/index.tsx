@@ -23,6 +23,7 @@ import {
   CampaignSortedData,
 } from './lib/types';
 import { CampaignsSummaryStats } from './components/CampaignsSummaryStats';
+import { Spinner } from './components/Spinner';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
 import {
@@ -324,13 +325,18 @@ export function PromoDashboard({
       <DashboardContainer isLoading={internalIsLoading}>
         {!isCampaignClicked ? (
           <>
-            <div className="inline-flex w-full pb-4">
+            <div className="inline-flex w-full pb-4 justify-between">
               {!numberOfActiveCampaigns ? null : (
-                <h1 className="mt-auto mx-2 w-full text-left align-text-middle text-2xl font-bold dark:text-slate-200">
+                <h1 className="mt-auto mx-2 text-left align-text-middle text-2xl font-bold dark:text-slate-200">
                   {numberOfActiveCampaigns} active campaigns
                 </h1>
               )}
-              <span className="mt-auto mx-2">
+              {isLoading ? (
+                <span className="mt-auto text-center text-2xl ">
+                  <Spinner />
+                </span>
+              ) : null}
+              <span className="mt-auto mx-2 text-center">
                 <DownloadAllCampaignsButton
                   campaignsData={sortedCampaignsData}
                 />
