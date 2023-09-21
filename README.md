@@ -252,6 +252,9 @@ See the file `/styles/global.css` in the Next.js example:
 #promo-dashboard-campaign-delete-button-x-circle-icon {
   @apply hover:bg-blue-700;
 }
+#promo-dashboard-loading-spinner {
+  @apply w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-red-700;
+}
 .promo-dashboard-campaign-delete-button {
   @apply absolute -top-2 x-inset-0;
 }
