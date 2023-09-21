@@ -85,6 +85,7 @@ const Home: NextPage = () => {
           <PromoDashboard
             campaignsData={campaignStubData /* @ts-ignore */}
             handleRepeatButtonClick={handleRepeatButtonClick}
+            isLoading={false}
           />
         </div>
       </main>
