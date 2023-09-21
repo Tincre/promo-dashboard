@@ -134,9 +134,6 @@ export function PromoDashboard({
     }
   }, [campaignDetailData, setPromoData]);
   useEffect(() => {
-    setInternalIsLoading(isLoading || false);
-  }, [isLoading]);
-  useEffect(() => {
     if (sortedCampaignsData?.length) {
       setNumberOfActiveCampaigns(
         numActiveCampaigns(sortedCampaignsData, deletedCampaigns)
@@ -155,11 +152,6 @@ export function PromoDashboard({
         }
       );
       setStatsCampaignsData(localStats);
-      //console.log(
-      //  `useEffect: Setting statsHighlightCampaignsTimeseries: ${JSON.stringify(
-      //    toSet
-      //  )}`
-      //);
     }
   }, [sortedCampaignsData]);
   useEffect(() => {
@@ -322,7 +314,7 @@ export function PromoDashboard({
   };
   return (
     <>
-      <DashboardContainer isLoading={internalIsLoading}>
+      <DashboardContainer isLoading={isLoading}>
         {!isCampaignClicked ? (
           <>
             <div className="inline-flex w-full pb-4 justify-between">
