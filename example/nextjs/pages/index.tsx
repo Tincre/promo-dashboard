@@ -10,6 +10,7 @@ import { useTour } from '@reactour/tour';
 const Home: NextPage = () => {
   const [isRepeatButtonClicked, setIsRepeatButtonClicked] = useState(false);
   const [promoData, setPromoData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const { setIsOpen } = useTour();
   const handleRepeatButtonClick = (
     event: MouseEvent<HTMLButtonElement>,
@@ -82,10 +83,18 @@ const Home: NextPage = () => {
               Start tour
             </button>
           </p>
+          <p className="py-4">
+            <button
+              onClick={() => setIsLoading(!isLoading)}
+              className="text-indigo-50 hover:text-indigo-900 border border-1 border-indigo-700 hover:border-indigo-300 py-3 px-5 rounded-md hover:bg-indigo-100 hover:text-indigo-700 bg-indigo-700"
+            >
+              isLoading
+            </button>
+          </p>
           <PromoDashboard
             campaignsData={campaignStubData /* @ts-ignore */}
             handleRepeatButtonClick={handleRepeatButtonClick /* @ts-ignore */}
-            isLoading={false}
+            isLoading={isLoading}
           />
         </div>
       </main>
