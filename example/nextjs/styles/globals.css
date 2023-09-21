@@ -1,24 +1,27 @@
 @tailwind base;
 @tailwind components;
 #promo-dashboard-save-button {
-  @apply bg-red-700 hover:bg-red-900
+  @apply bg-red-700 hover:bg-red-900;
 }
 #promo-dashboard-download-campaign-button {
-  @apply bg-red-700 hover:bg-red-900
+  @apply bg-red-700 hover:bg-red-900;
 }
 #promo-dashboard-campaign-detail-back-button {
-  @apply bg-red-700 hover:bg-red-900
+  @apply bg-red-700 hover:bg-red-900;
 }
 #promo-dashboard-save-button {
-  @apply bg-red-700 hover:bg-red-900
+  @apply bg-red-700 hover:bg-red-900;
 }
 #promo-dashboard-line-chart {
-  @apply bg-red-700 hover:bg-red-800
+  @apply bg-red-700 hover:bg-red-800;
 }
 #promo-dashboard-stats-highlights-icon-container {
-  @apply bg-red-700
+  @apply bg-red-700;
 }
 #promo-dashboard-stats-highlights-icon {
-  @apply text-slate-900
+  @apply text-slate-900;
+}
+#promo-dashboard-loading-spinner {
+  @apply w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-red-700;
 }
 @tailwind utilities;
