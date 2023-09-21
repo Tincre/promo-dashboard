@@ -11,6 +11,7 @@ A dashboard for Tincre [Promo](https://tincre.dev/promo). Use it in conjunction 
     - [Usage](#usage)
       - [Frontend](#frontend)
         - [`campaignsData`](#campaignsdata)
+        - [`isLoading`](#isLoading)
         - [`campaignDetailData`](#campaigndetaildata)
         - [`handleRepeatButtonClick`](#handlerepeatbuttonclick)
         - [`handleSubmitSaveButtonClick`](#handlesubmitsavebuttonclick)
@@ -80,6 +81,7 @@ import { PromoDashboard } from '@tincre/promo-dashboard';
 <PromoDashboard
   campaignsData={campaignsData}
   campaignDetailData={campaignDetailData || undefined}
+  isLoading={false}
   handleRepeatButtonClick={handleRepeatButtonClick || undefined}
 />;
 ```
@@ -109,6 +111,15 @@ interface CampaignData {
   stats?: object[];
 }
 ```
+
+##### `isLoading`
+
+The Promo Dashboard accepts an optional loading boolean property. Not including
+the prop or giving `isLoading` a value of `false` will render the dashboard
+in full.
+
+If the `isLoading` prop is set to `true` the rendered dashboard frame will be
+shown.
 
 ##### `handleRepeatButtonClick`
 
@@ -242,7 +253,7 @@ See the file `/styles/global.css` in the Next.js example:
   @apply hover:bg-blue-700;
 }
 .promo-dashboard-campaign-delete-button {
-  @apply absolute -top-2 x-inset-0
+  @apply absolute -top-2 x-inset-0;
 }
 ```
 
