@@ -15,6 +15,7 @@ describe('PromoDashboard', () => {
       <PromoDashboard
         campaignsData={campaignStubData}
         handleGeneratePaymentLinkButtonClick={() => null}
+        isLoading={false}
       />
     );
     const dashboard = screen.getByLabelText('campaign-fghijklm');
@@ -25,6 +26,23 @@ describe('PromoDashboard', () => {
     expect(dashboardButton).toBeDefined();
     fireEvent.click(dashboardButton);
   });
+  it('renders full data without crashing and isLoading', () => {
+    render(
+      <PromoDashboard
+        campaignsData={campaignStubData}
+        handleGeneratePaymentLinkButtonClick={() => null}
+        isLoading={true}
+      />
+    );
+    const dashboard = screen.getByLabelText('campaign-fghijklm');
+    expect(dashboard).toBeDefined();
+    const dashboardButton = screen.getByLabelText(
+      `campaign-${campaignStubData[0].pid}-button`
+    );
+    expect(dashboardButton).toBeDefined();
+    fireEvent.click(dashboardButton);
+  });
+
   it('renders the dashboard payment button without crashing', () => {
     let isDeleteButtonClicked = false;
     const handleDeleteButtonClick = (
