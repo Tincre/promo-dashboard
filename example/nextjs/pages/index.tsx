@@ -84,7 +84,7 @@ const Home: NextPage = () => {
           </p>
           <PromoDashboard
             campaignsData={campaignStubData /* @ts-ignore */}
-            handleRepeatButtonClick={handleRepeatButtonClick}
+            handleRepeatButtonClick={handleRepeatButtonClick /* @ts-ignore */}
             isLoading={false}
           />
         </div>
