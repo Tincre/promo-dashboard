@@ -13,11 +13,18 @@ export function DashboardContainer({
   children?: ReactNode;
   isLoading?: boolean;
 }) {
-  const className = isLoading
-    ? 'animate-pulse opacity-25 mx-auto max-w-7xl px-2 py-2 sm:px-6 sm:py-6 lg:px-8 lg:py-8'
-    : 'mx-auto max-w-7xl px-2 py-2 sm:px-6 sm:py-6 lg:px-8 lg:py-8';
-  return (
-    <div className={className} id="promo-dashboard-container">
+  return isLoading ? (
+    <div
+      className="transition ease-out duration-300 animate-pulse opacity-25 mx-auto max-w-7xl px-2 py-2 sm:px-6 sm:py-6 lg:px-8 lg:py-8"
+      id="promo-dashboard-container"
+    >
+      {children}
+    </div>
+  ) : (
+    <div
+      className="transition ease-in-out duration-500 mx-auto max-w-7xl px-2 py-2 sm:px-6 sm:py-6 lg:px-8 lg:py-8"
+      id="promo-dashboard-container"
+    >
       {children}
     </div>
   );
