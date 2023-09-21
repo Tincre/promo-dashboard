@@ -38,6 +38,7 @@ export function PromoDashboard({
   campaignsData = [],
   campaignDetailData,
   profileSettingsData,
+  isLoading,
   handleRepeatButtonClick,
   handleSettingsSaveButtonClick,
   handleGeneratePaymentLinkButtonClick,
@@ -49,6 +50,7 @@ export function PromoDashboard({
   campaignsData: CampaignData[] | CampaignDummyData[];
   campaignDetailData?: CampaignData | CampaignDummyData;
   profileSettingsData?: Settings;
+  isLoading?: boolean;
   handleRepeatButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
     campaignDetailData: CampaignData | CampaignDummyData
@@ -77,6 +79,9 @@ export function PromoDashboard({
   const [promoData, setPromoData] = useState<
     CampaignData | CampaignDummyData | undefined
   >(undefined);
+  const [internalIsLoading, setInternalIsLoading] = useState<boolean>(
+    isLoading || false
+  );
   const [isRepeatButtonClicked, setIsRepeatButtonClicked] =
     useState<boolean>(false);
   const [isPaymentButtonClicked, setIsPaymentButtonClicked] =
@@ -127,7 +132,9 @@ export function PromoDashboard({
       setPromoData(campaignDetailData);
     }
   }, [campaignDetailData, setPromoData]);
-
+  useEffect(() => {
+    setInternalIsLoading(isLoading || false);
+  }, [isLoading]);
   useEffect(() => {
     if (sortedCampaignsData?.length) {
       setNumberOfActiveCampaigns(
