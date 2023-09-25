@@ -44,6 +44,7 @@ export function generateStringDateRanges(
         return date.toISOString().slice(0, 10);
       }
     }
+    return new Date().toISOString().slice(0, 10);
   });
 }
 export function generateDates(length: number, endDate?: Date) {
