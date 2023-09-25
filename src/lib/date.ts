@@ -38,7 +38,13 @@ export function generateStringDateRanges(
           includeEndDate
         )
       : generateDateRange(new Date(startDate), undefined, includeEndDate);
-  return tmpDates.map((date) => date.toISOString().slice(0, 10));
+  return tmpDates.map((date) => {
+    if (Object.prototype.toString.call(date) === '[object Date]') {
+      if (!Number.isNaN(date.valueOf())) {
+        return date.toISOString().slice(0, 10);
+      }
+    }
+  });
 }
 export function generateDates(length: number, endDate?: Date) {
   const dates: string[] = [];
