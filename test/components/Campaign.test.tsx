@@ -1,17 +1,29 @@
 import React from 'react';
+import {
+  mockAllIsIntersecting,
+  setupIntersectionMocking,
+  resetIntersectionMocking,
+} from 'react-intersection-observer/test-utils';
 import { screen, render, fireEvent } from '@testing-library/react';
 import { Campaign } from '../../src/components/Campaign';
 import { campaignStubData } from '../cms.data';
 
+beforeEach(() => {
+  setupIntersectionMocking(jest.fn);
+});
+afterEach(() => {
+  resetIntersectionMocking();
+});
 describe('Campaign', () => {
   it('renders full data active without crashing', () => {
+    mockAllIsIntersecting(true);
     expect(campaignStubData[0].isActive).toBeTruthy();
-
     render(
       <Campaign
         data={campaignStubData[0]}
         handleCampaignClick={() => null}
         handleRepeatButtonOnClick={() => null}
+        shouldShowCampaign={true}
       >
         TestChildren
       </Campaign>
@@ -35,6 +47,7 @@ describe('Campaign', () => {
         id="test-campaign-id"
         emailDomain="tincre.com"
         emailLocalPart="teamage"
+        shouldShowCampaign={true}
       >
         TestChildren
       </Campaign>
@@ -62,6 +75,7 @@ describe('Campaign', () => {
         id="test-campaign-id"
         emailDomain="tincre.com"
         emailLocalPart="teamage"
+        shouldShowCampaign={true}
       >
         TestChildren
       </Campaign>
