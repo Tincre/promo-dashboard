@@ -46,6 +46,7 @@ export function Campaign({
   id,
   emailDomain,
   emailLocalPart,
+  shouldShowCampaign = false,
   children,
 }: {
   data: CampaignData | CampaignDummyData;
@@ -68,6 +69,7 @@ export function Campaign({
   id?: string;
   emailDomain?: string;
   emailLocalPart?: string;
+  shouldShowCampaign?: boolean;
   children?: ReactNode;
 }) {
   const [isActive, setIsActive] = useState<boolean>(data?.isActive || false);
@@ -85,7 +87,8 @@ export function Campaign({
   const [dollarAmount, setDollarAmount] = useState<string>('');
   const [supportLink, setSupportLink] = useState<string>('');
   const [isVideo, setIsVideo] = useState<boolean | undefined>(undefined);
-  const [shouldShowCampaign, setShouldShowCampaign] = useState<boolean>(false);
+  const [shouldShowCampaignInternal, setShouldShowCampaignInternal] =
+    useState<boolean>(shouldShowCampaign || false);
   useEffect(() => {
     if (data?.isActive && typeof data?.isActive) {
       setIsActive(data?.isActive);
@@ -128,7 +131,7 @@ export function Campaign({
   return (
     <InView
       onChange={(inView, entry) => {
-        if (inView) setShouldShowCampaign(true);
+        if (inView) setShouldShowCampaignInternal(true);
       }}
       triggerOnce={true}
       as="li"
@@ -137,7 +140,7 @@ export function Campaign({
       aria-label={`campaign-${data.pid}`}
       className={isActiveClassName}
     >
-      {shouldShowCampaign ? (
+      {shouldShowCampaignInternal ? (
         <>
           <button
             onClick={(event) => handleCampaignClick(event, data)}
