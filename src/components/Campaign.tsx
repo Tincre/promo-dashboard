@@ -130,6 +130,7 @@ export function Campaign({
       onChange={(inView, entry) => {
         if (inView) setShouldShowCampaign(true);
       }}
+      triggerOnce={true}
       as="li"
       key={`campaign-${data.pid}`}
       id={id || `campaign-${data.pid}`}
