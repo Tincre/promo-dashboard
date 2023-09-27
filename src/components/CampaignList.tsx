@@ -51,6 +51,7 @@ export function CampaignList({
         const pid = `${campaignData.pid}`;
         if (!deletedCampaigns.includes(pid)) {
           const key = `${index}-${pid}`;
+          const shouldShowCampaign = index < 4 ? true : false;
           return (
             <Campaign
               key={key}
@@ -64,6 +65,7 @@ export function CampaignList({
               handleDeleteButtonOnClick={handleDeleteButtonOnClick}
               emailDomain={dashboardOptions?.emailDomain}
               emailLocalPart={dashboardOptions?.emailLocalPart}
+              shouldShowCampaign={shouldShowCampaign}
             />
           );
         }
