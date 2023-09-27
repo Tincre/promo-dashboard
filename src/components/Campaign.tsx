@@ -13,6 +13,7 @@ import { CampaignSupportButton } from './CampaignSupportButton';
 import { CampaignDeleteButton } from './CampaignDeleteButton';
 import { CampaignPaymentButton } from './CampaignPaymentButton';
 import { getSupportLink } from '../lib/support';
+import { InView } from 'react-intersection-observer';
 
 const VIDEO_EXTENSIONS = [
   // TODO Move to utils func module
@@ -84,6 +85,7 @@ export function Campaign({
   const [dollarAmount, setDollarAmount] = useState<string>('');
   const [supportLink, setSupportLink] = useState<string>('');
   const [isVideo, setIsVideo] = useState<boolean | undefined>(undefined);
+  const [shouldShowCampaign, setShouldShowCampaign] = useState<boolean>(false);
   useEffect(() => {
     if (data?.isActive && typeof data?.isActive) {
       setIsActive(data?.isActive);
@@ -124,106 +126,115 @@ export function Campaign({
     }
   }, [isVideo]);
   return (
-    <li
+    <InView
+      onChange={(inView, entry) => {
+        if (inView) setShouldShowCampaign(true);
+      }}
+      as="li"
       key={`campaign-${data.pid}`}
       id={id || `campaign-${data.pid}`}
       aria-label={`campaign-${data.pid}`}
       className={isActiveClassName}
     >
-      <button
-        onClick={(event) => handleCampaignClick(event, data)}
-        aria-label={`campaign-${data?.pid || 'default'}-button`}
-      >
-        <div className="relative flex flex-1 flex-col px-2 pt-10 pb-6 group-hover:rounded-tr-md group-hover:rounded-tl-sm group-hover:bg-slate-900">
-          <IsActivePill isActive={isActive} />
-          <IsPaidPill isPaid={isPaid} />
-          {!isVideo ? (
-            <img
-              suppressHydrationWarning={true}
-              className="mx-auto h-32 w-full flex-shrink-0 rounded-b-md rounded-t-sm object-cover px-2"
-              src={creativeUrl}
-              alt={adTitle}
-            />
-          ) : (
-            <video
-              muted
-              controls
-              className="mx-auto h-32 w-full flex-shrink-0 rounded-b-md rounded-t-sm object-cover px-2"
-            >
-              <source src={creativeUrl} type="video/mp4" />
-            </video>
-          )}
-          <h3 className="mt-6 text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-slate-200 truncate">
-            {adTitle}
-          </h3>
-          <dl className="mt-1 flex flex-grow flex-col justify-between">
-            <dt className="sr-only">Ad Description</dt>
-            <dd className="text-sm text-slate-500 dark:text-slate-400 h-24 text-ellipsis overflow-hidden">
-              {adCopy}
-            </dd>
-            <span className="grid grid-cols-2">
-              {' '}
-              <dt className="sr-only">Promo ID</dt>
-              <dd className="mt-3">
-                <span className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800">
-                  {promoId}
-                </span>
-              </dd>
-              {dollarAmount !== '' ? (
-                <>
-                  <dt className="sr-only">Budget</dt>
+      {shouldShowCampaign ? (
+        <>
+          <button
+            onClick={(event) => handleCampaignClick(event, data)}
+            aria-label={`campaign-${data?.pid || 'default'}-button`}
+          >
+            <div className="relative flex flex-1 flex-col px-2 pt-10 pb-6 group-hover:rounded-tr-md group-hover:rounded-tl-sm group-hover:bg-slate-900">
+              <IsActivePill isActive={isActive} />
+              <IsPaidPill isPaid={isPaid} />
+              {!isVideo ? (
+                <img
+                  suppressHydrationWarning={true}
+                  className="mx-auto h-32 w-full flex-shrink-0 rounded-b-md rounded-t-sm object-cover px-2"
+                  src={creativeUrl}
+                  alt={adTitle}
+                  loading="lazy"
+                />
+              ) : (
+                <video
+                  muted
+                  controls
+                  className="mx-auto h-32 w-full flex-shrink-0 rounded-b-md rounded-t-sm object-cover px-2"
+                >
+                  <source src={creativeUrl} type="video/mp4" />
+                </video>
+              )}
+              <h3 className="mt-6 text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-slate-200 truncate">
+                {adTitle}
+              </h3>
+              <dl className="mt-1 flex flex-grow flex-col justify-between">
+                <dt className="sr-only">Ad Description</dt>
+                <dd className="text-sm text-slate-500 dark:text-slate-400 h-24 text-ellipsis overflow-hidden">
+                  {adCopy}
+                </dd>
+                <span className="grid grid-cols-2">
+                  {' '}
+                  <dt className="sr-only">Promo ID</dt>
                   <dd className="mt-3">
-                    <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-800">
-                      {dollarAmount}{' '}
+                    <span className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800">
+                      {promoId}
                     </span>
                   </dd>
-                </>
-              ) : null}
-            </span>
-          </dl>
-        </div>
-      </button>
-      <div className="divide-y divide-slate-200 group-hover:bg-slate-900">
-        {isPaid ? (
-          <div className="invisible text-transparent h-8">
-            {`${data?.adTitle}`.slice(0, 4)}
-          </div>
-        ) : (
-          <CampaignDeleteButton
-            handleDeleteButtonOnClick={handleDeleteButtonOnClick}
-            data={data}
-            id={`promo-dashboard-campaign-delete-${
-              data?.pid || 'default'
-            }-button`}
-          />
-        )}
-        <div>
-          <div className="-mt-px flex divide-x divide-slate-200 group-hover:divide-slate-300 group-hover:bg-slate-200">
-            <CampaignSupportButton id={id} supportLink={supportLink}>
-              Support
-            </CampaignSupportButton>
-            {!!isPaid ? (
-              <CampaignRepeatButton
-                handleRepeatButtonOnClick={handleRepeatButtonOnClick}
-                id={id}
-                data={data}
-              >
-                {children}
-              </CampaignRepeatButton>
+                  {dollarAmount !== '' ? (
+                    <>
+                      <dt className="sr-only">Budget</dt>
+                      <dd className="mt-3">
+                        <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-800">
+                          {dollarAmount}{' '}
+                        </span>
+                      </dd>
+                    </>
+                  ) : null}
+                </span>
+              </dl>
+            </div>
+          </button>
+          <div className="divide-y divide-slate-200 group-hover:bg-slate-900">
+            {isPaid ? (
+              <div className="invisible text-transparent h-8">
+                {`${data?.adTitle}`.slice(0, 4)}
+              </div>
             ) : (
-              <CampaignPaymentButton
-                handleGeneratePaymentLinkButtonClick={
-                  handleGeneratePaymentLinkButtonClick
-                }
-                id={id}
+              <CampaignDeleteButton
+                handleDeleteButtonOnClick={handleDeleteButtonOnClick}
                 data={data}
-              >
-                {children}
-              </CampaignPaymentButton>
+                id={`promo-dashboard-campaign-delete-${
+                  data?.pid || 'default'
+                }-button`}
+              />
             )}
+            <div>
+              <div className="-mt-px flex divide-x divide-slate-200 group-hover:divide-slate-300 group-hover:bg-slate-200">
+                <CampaignSupportButton id={id} supportLink={supportLink}>
+                  Support
+                </CampaignSupportButton>
+                {!!isPaid ? (
+                  <CampaignRepeatButton
+                    handleRepeatButtonOnClick={handleRepeatButtonOnClick}
+                    id={id}
+                    data={data}
+                  >
+                    {children}
+                  </CampaignRepeatButton>
+                ) : (
+                  <CampaignPaymentButton
+                    handleGeneratePaymentLinkButtonClick={
+                      handleGeneratePaymentLinkButtonClick
+                    }
+                    id={id}
+                    data={data}
+                  >
+                    {children}
+                  </CampaignPaymentButton>
+                )}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </li>
+        </>
+      ) : null}
+    </InView>
   );
 }
