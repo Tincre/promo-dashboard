@@ -3,14 +3,34 @@ import { screen, render, fireEvent } from '@testing-library/react';
 import { PromoDashboard } from '../src/index';
 import { campaignStubData } from './cms.data';
 import { CampaignData, CampaignDummyData, Settings } from '../src/lib/types';
+import {
+  mockAllIsIntersecting,
+  setupIntersectionMocking,
+  resetIntersectionMocking,
+} from 'react-intersection-observer/test-utils';
 
+window.scrollTo = jest.fn();
+
+beforeEach(() => {
+  setupIntersectionMocking(jest.fn);
+});
+afterEach(() => {
+  resetIntersectionMocking();
+});
+afterAll(() => {
+  jest.clearAllMocks();
+});
 global.ResizeObserver = require('resize-observer-polyfill');
 
 describe('PromoDashboard', () => {
   it('renders empty array prop without crashing', () => {
+    mockAllIsIntersecting(true);
+
     render(<PromoDashboard campaignsData={[]} />);
   });
   it('renders full data without crashing', () => {
+    mockAllIsIntersecting(true);
+
     render(
       <PromoDashboard
         campaignsData={campaignStubData}
@@ -27,6 +47,8 @@ describe('PromoDashboard', () => {
     fireEvent.click(dashboardButton);
   });
   it('renders full data without crashing and isLoading', () => {
+    mockAllIsIntersecting(true);
+
     render(
       <PromoDashboard
         campaignsData={campaignStubData}
@@ -44,6 +66,8 @@ describe('PromoDashboard', () => {
   });
 
   it('renders the dashboard payment button without crashing', () => {
+    mockAllIsIntersecting(true);
+
     let isDeleteButtonClicked = false;
     const handleDeleteButtonClick = (
       event: React.MouseEvent<HTMLButtonElement>,
@@ -76,6 +100,8 @@ describe('PromoDashboard', () => {
     expect(isDeleteButtonClicked).toBeTruthy();
   });
   it('renders full data without crashing', () => {
+    mockAllIsIntersecting(true);
+
     let testEvent: MouseEvent<HTMLButtonElement> | undefined = undefined;
     let testData: Settings | undefined = undefined;
     const setPromoData = (data: any) => data;
@@ -147,6 +173,8 @@ describe('PromoDashboard', () => {
   });
 
   it('renders full data and settings data without crashing', () => {
+    mockAllIsIntersecting(true);
+
     let testEvent: MouseEvent<HTMLButtonElement> | undefined = undefined;
     let testData: Settings | undefined = undefined;
     const setPromoData = (data: any) => data;
@@ -191,7 +219,7 @@ describe('PromoDashboard', () => {
       />
     );
     let campaign = screen.getByLabelText(
-      `campaign-${campaignStubData[5].pid}-button`
+      `campaign-${campaignStubData[2].pid}-button`
     );
     const imageInput = screen.getByRole('textbox', { name: 'Avatar' });
     expect(imageInput).toBeDefined();
