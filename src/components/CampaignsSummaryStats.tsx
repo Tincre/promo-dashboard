@@ -5,22 +5,24 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 import { MouseEventHandler, MouseEvent, useState, useEffect } from 'react';
-import { CampaignStatsData } from '../lib/types';
+import { CampaignStatsData, CampaignData } from '../lib/types';
 import { CampaignsStatsHighlights } from './CampaignsStatsHighlights';
 import { CampaignsChart } from './CampaignsChart';
 import { merge } from '../lib/merge';
 import { options } from '../lib/options';
 import { disectChartData } from '../lib/disectChartData';
-
+import { CampaignsTable } from './CampaignsTable';
 export function CampaignsSummaryStats({
   data,
   statsHighlightTimeseries,
   statsHighlightMetricName,
+  campaignData,
   handleStatsHighlightClick,
 }: {
   data?: CampaignStatsData[];
   statsHighlightTimeseries?: CampaignStatsData;
   statsHighlightMetricName?: string;
+  campaignData: CampaignData[];
   handleCampaignDetailBackOnClick: MouseEventHandler<HTMLButtonElement>;
   handleStatsHighlightClick?: Function /* TODO type this */;
 }) {
@@ -79,6 +81,7 @@ export function CampaignsSummaryStats({
             handleStatsHighlightClick={handleStatsHighlightClick}
             statsHighlightMetricsName={statsHighlightMetricName || 'Spend'}
           />
+          <CampaignsTable data={campaignData} />
         </>
       )}
     </>
