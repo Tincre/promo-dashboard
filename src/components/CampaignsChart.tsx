@@ -7,11 +7,7 @@
 import { MouseEvent, useState } from 'react';
 import { CampaignsLineChart } from './CampaignsLineChart';
 import { ChartButton } from './ChartButton';
-import {
-  CampaignData,
-  CampaignDummyData,
-  CampaignStatsData,
-} from '../lib/types';
+import { CampaignStatsData } from '../lib/types';
 
 export function CampaignsChart({
   timePeriods,
@@ -29,9 +25,10 @@ export function CampaignsChart({
 }) {
   return (
     <>
-      <div className="inline-flex flex-nowrap w-full justify-center sm:justify-items-start">
+      <div className="inline-flex flex-nowrap w-full justify-center sm:justify-start">
         {timePeriods.map((timePeriod, index) => (
           <ChartButton
+            key={`${timePeriod}-${index}`}
             isSelected={selectedChartButton === timePeriod}
             onClick={handleChartButtonOnClick}
           >
