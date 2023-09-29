@@ -11,19 +11,17 @@ const isNotHighlightedClassName =
   'relative overflow-hidden rounded-lg bg-slate-50 px-1 py-2 text-xs md:text-sm shadow sm:px-2 sm:py-3 hover:bg-slate-200 hover:shadow-lg border border-1 border-transparent dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600 mx-1';
 
 export function ChartButton({
-  key,
   isSelected = false,
   onClick,
   children,
 }: {
-  key: string;
   isSelected?: Boolean;
   onClick?: (event: MouseEvent<HTMLButtonElement>, buttonType: string) => void;
   children?: string;
 }) {
   return (
     <button
-      key={key}
+      key={children}
       onClick={(e) =>
         typeof onClick !== 'undefined'
           ? onClick(e, children || '1 month')
