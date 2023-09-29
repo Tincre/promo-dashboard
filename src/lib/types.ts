@@ -75,7 +75,7 @@ export type CampaignMetrics =
   | string;
 
 export interface CampaignStatsData {
-  id: number;
+  id: number | undefined;
   name: CampaignMetrics;
   stat: string;
 
