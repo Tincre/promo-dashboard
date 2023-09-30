@@ -38,7 +38,7 @@ export function CampaignsTable({ data }: { data: CampaignMetadata[] }) {
                           scope="col"
                           className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 md:table-cell sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md"
                         >
-                          Start date
+                          Campaign ID
                         </th>
                         <th
                           scope="col"
@@ -60,9 +60,9 @@ export function CampaignsTable({ data }: { data: CampaignMetadata[] }) {
                           <td className="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-normal text-gray-800 sm:w-auto sm:max-w-none sm:pl-0 text-left">
                             {campaign.adTitle}
                             <dl className="font-normal md:hidden">
-                              <dt className="sr-only">Start date</dt>
+                              <dt className="sr-only">Campaign ID</dt>
                               <dd className="mt-1 truncate text-gray-700 text-left md:hidden">
-                                {new Date().toISOString().slice(0, 10)}
+                                {campaign.pid}
                               </dd>
                               <dt className="sr-only sm:hidden">Budget</dt>
                               <dd className="mt-1 truncate text-gray-500 sm:hidden">
@@ -71,7 +71,7 @@ export function CampaignsTable({ data }: { data: CampaignMetadata[] }) {
                             </dl>
                           </td>
                           <td className="hidden px-3 py-4 text-sm text-gray-500 md:table-cell text-left">
-                            {new Date().toISOString().slice(0, 10)}
+                            {campaign.pid}
                           </td>
                           <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell text-left">
                             {campaign.budget}
