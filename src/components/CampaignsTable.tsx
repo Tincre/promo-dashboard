@@ -20,7 +20,7 @@ export function CampaignsTable({ data }: { data: CampaignMetadata[] }) {
           <div className="group rounded-md">
             <div
               className={
-                'h-[400px] overflow-y-auto overflow-x-hidden border border-gray-50 bg-gray-50 shadow-lg rounded-md group-hover:bg-gray-100 group-hover:shadow-lg'
+                'h-[380px] overflow-y-auto overflow-x-hidden border border-gray-50 bg-gray-50 shadow-lg rounded-md group-hover:bg-gray-100 group-hover:shadow-lg'
               }
             >
               <div className={'px-4 sm:px-6 lg:px-8 block'}>
