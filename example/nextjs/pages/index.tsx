@@ -1,10 +1,10 @@
 import { useState, useEffect, MouseEvent } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { PromoDashboard } from '@tincre/promo-dashboard';
-//import { PromoDashboard } from '../../../dist';
-import { campaignStubData } from '../cms.data';
-//import { campaignStubData } from '../test.data';
+//import { PromoDashboard } from '@tincre/promo-dashboard';
+import { PromoDashboard } from '../../../dist';
+//import { campaignStubData } from '../cms.data';
+import { campaignStubData } from '../test.data';
 import { useTour } from '@reactour/tour';
 
 const Home: NextPage = () => {
@@ -17,7 +17,6 @@ const Home: NextPage = () => {
     data: any
   ) => {
     setIsRepeatButtonClicked(true);
-    console.debug(`handleRepeatButtonClick::type ${event.type}`);
     console.debug(
       `handleRepeatButtonClick::Repeat button was clicked, updating state.`
     );

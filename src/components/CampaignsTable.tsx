@@ -1,10 +1,15 @@
-import { useState } from 'react';
+import { useState, MouseEvent } from 'react';
 import { CampaignDummyData, CampaignData } from '../lib/types';
 
 export function CampaignsTable({
   data,
+  handleCampaignClick,
 }: {
   data: CampaignData[] | CampaignDummyData[];
+  handleCampaignClick: (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData | CampaignDummyData
+  ) => void;
 }) {
   const [isShowing, setIsShowing] = useState(true);
   return (
@@ -34,33 +39,41 @@ export function CampaignsTable({
                       <tr className="">
                         <th
                           scope="col"
-                          className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0 sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md select-none"
+                          className="py-3.5 pl-4 pr-3 pb-2 text-left text-sm font-semibold text-gray-900 sm:pl-0 sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md select-none"
                         >
                           Ads
                         </th>
                         <th
                           scope="col"
-                          className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 md:table-cell sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md select-none"
+                          className="hidden px-3 py-3.5 pb-2 text-left text-sm font-semibold text-gray-900 md:table-cell sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md select-none"
                         >
                           Campaign ID
                         </th>
                         <th
                           scope="col"
-                          className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md select-none"
+                          className="hidden px-3 py-3.5 pb-2 text-left text-sm font-semibold text-gray-900 sm:table-cell sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md select-none"
                         >
                           Budget
                         </th>
                         <th
                           scope="col"
-                          className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md select-none"
+                          className="px-3 py-3.5 pb-2 text-left text-sm font-semibold text-gray-900 sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md select-none"
                         >
                           Status
                         </th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200 bg-gray-50 group-hover:bg-gray-100 rounded-md">
-                      {data.map((campaign) => (
-                        <tr key={campaign.adTitle}>
+                      {data.map((campaign, index) => (
+                        <tr
+                          className="cursor-pointer hover:text-gray-200"
+                          key={`${campaign.adTitle}-${index}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            /* @ts-ignore */
+                            handleCampaignClick(e, campaign);
+                          }}
+                        >
                           <td className="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-normal text-gray-800 sm:w-auto sm:max-w-none sm:pl-0 text-left">
                             {campaign.adTitle}
                             <dl className="font-normal md:hidden">

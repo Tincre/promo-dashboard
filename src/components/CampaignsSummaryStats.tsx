@@ -23,6 +23,7 @@ export function CampaignsSummaryStats({
   statsHighlightMetricName,
   campaignData,
   handleStatsHighlightClick,
+  handleCampaignClick,
 }: {
   data?: CampaignStatsData[];
   statsHighlightTimeseries?: CampaignStatsData;
@@ -30,6 +31,10 @@ export function CampaignsSummaryStats({
   campaignData: CampaignData[] | CampaignDummyData[];
   handleCampaignDetailBackOnClick: MouseEventHandler<HTMLButtonElement>;
   handleStatsHighlightClick?: Function /* TODO type this */;
+  handleCampaignClick: (
+    event: MouseEvent<HTMLButtonElement>,
+    data: CampaignData | CampaignDummyData
+  ) => void;
 }) {
   const [selectedChartButton, setSelectedChartButton] = useState(
     options.timePeriods[0]
@@ -86,7 +91,10 @@ export function CampaignsSummaryStats({
             handleStatsHighlightClick={handleStatsHighlightClick}
             statsHighlightMetricsName={statsHighlightMetricName || 'Spend'}
           />
-          <CampaignsTable data={campaignData} />
+          <CampaignsTable
+            data={campaignData}
+            handleCampaignClick={handleCampaignClick}
+          />
         </>
       )}
     </>
