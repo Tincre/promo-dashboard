@@ -1,7 +1,11 @@
 import { useState } from 'react';
-import { CampaignMetadata } from '../lib/types';
+import { CampaignDummyData, CampaignData } from '../lib/types';
 
-export function CampaignsTable({ data }: { data: CampaignMetadata[] }) {
+export function CampaignsTable({
+  data,
+}: {
+  data: CampaignData[] | CampaignDummyData[];
+}) {
   const [isShowing, setIsShowing] = useState(true);
   return (
     <>
