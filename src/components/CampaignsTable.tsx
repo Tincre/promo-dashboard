@@ -34,25 +34,25 @@ export function CampaignsTable({
                       <tr className="">
                         <th
                           scope="col"
-                          className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0 sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md"
+                          className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0 sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md select-none"
                         >
                           Ads
                         </th>
                         <th
                           scope="col"
-                          className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 md:table-cell sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md"
+                          className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 md:table-cell sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md select-none"
                         >
                           Campaign ID
                         </th>
                         <th
                           scope="col"
-                          className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md"
+                          className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md select-none"
                         >
                           Budget
                         </th>
                         <th
                           scope="col"
-                          className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md"
+                          className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sticky top-0 bg-gray-50 group-hover:bg-gray-100 rounded-md select-none"
                         >
                           Status
                         </th>
