@@ -341,7 +341,7 @@ export function PromoDashboard({
                   data={statsCampaignsData}
                   statsHighlightTimeseries={statsHighlightCampaignsTimeseries}
                   statsHighlightMetricName={clickedStatsCampaignsClassName}
-                  campaignData={campaignsData as CampaignData[]}
+                  campaignData={campaignsData}
                   handleCampaignDetailBackOnClick={
                     handleCampaignDetailBackOnClick
                   }
