@@ -240,6 +240,7 @@ export function PromoDashboard({
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData | CampaignDummyData
   ) => {
+    console.log(`handleCampaignOnClick::${JSON.stringify(data)}`);
     if (typeof handleCampaignClick !== 'undefined') {
       handleCampaignClick(event, data);
     }
@@ -341,7 +342,7 @@ export function PromoDashboard({
                   data={statsCampaignsData}
                   statsHighlightTimeseries={statsHighlightCampaignsTimeseries}
                   statsHighlightMetricName={clickedStatsCampaignsClassName}
-                  campaignData={campaignsData}
+                  campaignData={sortedCampaignsData}
                   handleCampaignClick={handleCampaignOnClick}
                   handleCampaignDetailBackOnClick={
                     handleCampaignDetailBackOnClick
