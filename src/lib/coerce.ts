@@ -425,33 +425,31 @@ export function modifySingleCampaignDataForDownload(
   let chartJsData = generateEmptyPromoApiDataForChartJs();
   let modifiedData: DownloadableCampaignStatsSample[] = [];
   if (typeof data !== 'undefined') {
-    if (Array.isArray(data)) {
-      data.forEach((pckg: CampaignStatsData) => {
-        const chartData = pckg?.chartData;
-        chartJsData.updatedTime = chartData.labels;
-        // @ts-ignore
-        chartJsData[pckg.name.toLowerCase()] = chartData.data;
-      });
-      let modifiedObject = {
-        ...chartJsData,
-        pid,
+    data.forEach((pckg: CampaignStatsData) => {
+      const chartData = pckg?.chartData;
+      chartJsData.updatedTime = chartData.labels;
+      // @ts-ignore
+      chartJsData[pckg.name.toLowerCase()] = chartData.data;
+    });
+    let modifiedObject = {
+      ...chartJsData,
+      pid,
+    };
+    let timestamps = modifiedObject.updatedTime;
+    timestamps.forEach((timestamp, index) => {
+      const mdtmp = {
+        pid: pid || '',
+        updatedTime: timestamp || '',
+        spend: modifiedObject.spend[index],
+        views: modifiedObject?.views[index],
+        clicks: modifiedObject?.clicks[index],
+        cpc: modifiedObject?.cpc[index],
+        cpm: modifiedObject?.cpm[index],
+        ctr: modifiedObject?.ctr[index],
+        cpv: modifiedObject?.cpv[index],
       };
-      let timestamps = modifiedObject.updatedTime;
-      timestamps.forEach((timestamp, index) => {
-        const mdtmp = {
-          pid: pid || '',
-          updatedTime: timestamp || '',
-          spend: modifiedObject.spend[index],
-          views: modifiedObject?.views[index],
-          clicks: modifiedObject?.clicks[index],
-          cpc: modifiedObject?.cpc[index],
-          cpm: modifiedObject?.cpm[index],
-          ctr: modifiedObject?.ctr[index],
-          cpv: modifiedObject?.cpv[index],
-        };
-        modifiedData.push(mdtmp);
-      });
-      return modifiedData;
-    }
+      modifiedData.push(mdtmp);
+    });
+    return modifiedData;
   }
 }
