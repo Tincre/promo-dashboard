@@ -240,7 +240,6 @@ export function PromoDashboard({
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData | CampaignDummyData
   ) => {
-    console.log(`handleCampaignOnClick::${JSON.stringify(data)}`);
     if (typeof handleCampaignClick !== 'undefined') {
       handleCampaignClick(event, data);
     }
