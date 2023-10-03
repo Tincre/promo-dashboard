@@ -160,6 +160,7 @@ export function Campaign({
               ) : (
                 <video
                   muted
+                  preload="none"
                   controls
                   className="mx-auto h-32 w-full flex-shrink-0 rounded-b-md rounded-t-sm object-cover px-2"
                 >
