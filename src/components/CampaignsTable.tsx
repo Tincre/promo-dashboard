@@ -3,15 +3,17 @@ import { CampaignDummyData, CampaignData } from '../lib/types';
 
 export function CampaignsTable({
   data,
+  isCollapsed,
   handleCampaignClick,
 }: {
   data: CampaignData[] | CampaignDummyData[];
+  isCollapsed?: boolean;
   handleCampaignClick: (
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData | CampaignDummyData
   ) => void;
 }) {
-  const [isShowing, setIsShowing] = useState(true);
+  const [isShowing, setIsShowing] = useState<boolean>(isCollapsed || true);
   return (
     <>
       <div className="w-full text-left">
