@@ -109,6 +109,7 @@ export interface CampaignMetadata {
   currency?: string;
   isFlat?: boolean;
   usageFee?: string | number;
+  startDate?: string;
 }
 
 export interface CampaignData extends CampaignMetadata {
