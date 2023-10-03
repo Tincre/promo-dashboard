@@ -130,7 +130,8 @@ export interface Settings {
   email?: string;
 }
 
-export interface DashboardOptions {
+export type DashboardOptions = {
   emailDomain?: string;
   emailLocalPart?: string;
-}
+  isTableCollapsed?: boolean;
+};
