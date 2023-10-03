@@ -9,12 +9,12 @@ export function disectChartData(
   data: (string | number | null)[],
   length: number
 ) {
-  const endLabelIdx = labels.length - 1;
-  const endDataIdx = data.length - 1;
-  const startLabelIdx = Math.max(0, endLabelIdx - length);
-  const startDataIdx = Math.max(0, endDataIdx - length);
+  const endLabelSliceIdx = labels.length;
+  const endDataSliceIdx = data.length;
+  const startLabelIdx = Math.max(0, endLabelSliceIdx - length);
+  const startDataIdx = Math.max(0, endDataSliceIdx - length);
   return {
-    labels: labels.slice(startLabelIdx, endLabelIdx),
-    data: data.slice(startDataIdx, endDataIdx),
+    labels: labels.slice(startLabelIdx, endLabelSliceIdx),
+    data: data.slice(startDataIdx, endDataSliceIdx),
   };
 }
