@@ -13,7 +13,9 @@ export function CampaignsTable({
     data: CampaignData | CampaignDummyData
   ) => void;
 }) {
-  const [isShowing, setIsShowing] = useState<boolean>(isCollapsed || true);
+  const [isShowing, setIsShowing] = useState<boolean>(
+    typeof isCollapsed !== 'undefined' ? !isCollapsed : true
+  );
   return (
     <>
       <div className="w-full text-left">
