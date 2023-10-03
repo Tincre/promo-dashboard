@@ -192,6 +192,7 @@ export const campaignStubData = [
         },
       ],
     },
+    startDate: '2023-07-15',
     target: 'https://b00st.com',
     creativeUrls: [
       'https://res.cloudinary.com/b00st/image/upload/v1683411202/B00STButton/f4tcvy2rfc5p5vbftkv9.jpg',
@@ -207,6 +208,7 @@ export const campaignStubData = [
     pid: 'fdfb0066',
     adTitle: 'Music marketing TEST flat pricing',
     budget: 45,
+    startDate: '2023-07-19',
     data: {
       totals: [
         {
@@ -1319,6 +1321,7 @@ export const campaignStubData = [
     pid: '6cb703dd',
     adTitle: 'Music marketing TEST 2',
     budget: 45,
+    startDate: '2023-07-18',
     data: {
       totals: [
         {
@@ -2464,6 +2467,7 @@ export const campaignStubData = [
     pid: '7e91fb85',
     adTitle: '🆕 Born and Raised b00st.com TEST',
     budget: 50,
+    startDate: '2023-07-16',
     data: {
       totals: [
         {
@@ -3182,6 +3186,7 @@ export const campaignStubData = [
     pid: '1d73d2d1',
     adTitle: '✅ TEST check flat payment do not run',
     budget: 135,
+    startDate: '2023-07-20',
     data: {
       totals: [
         {
@@ -3238,6 +3243,7 @@ export const campaignStubData = [
     pid: '3d9c7e84',
     adTitle: 'GH',
     budget: 4636,
+    startDate: '2023-07-18',
     data: {
       meta: [
         {
@@ -3442,6 +3448,8 @@ export const campaignStubData = [
     pid: '3d9c7e84',
     adTitle: 'GH',
     budget: 4636,
+    startDate: '2023-07-18',
+
     data: {
       meta: [
         {
@@ -3646,6 +3654,8 @@ export const campaignStubData = [
     pid: '3d9c7e84',
     adTitle: 'GH',
     budget: 4636,
+    startDate: '2023-07-15',
+
     data: {
       meta: [
         {
@@ -3850,6 +3860,8 @@ export const campaignStubData = [
     pid: '3d9c7e84',
     adTitle: 'GH',
     budget: 4636,
+    startDate: '2023-07-15',
+
     data: {
       meta: [
         {
@@ -4054,6 +4066,8 @@ export const campaignStubData = [
     pid: '3d9c7e84',
     adTitle: 'GH',
     budget: 4636,
+    startDate: '2023-07-15',
+
     data: {
       meta: [
         {
@@ -4258,6 +4272,8 @@ export const campaignStubData = [
     pid: '3d9c7e84',
     adTitle: 'GH',
     budget: 4636,
+    startDate: '2023-07-15',
+
     data: {
       meta: [
         {
@@ -4462,6 +4478,8 @@ export const campaignStubData = [
     pid: '3d9c7e84',
     adTitle: 'GH',
     budget: 4636,
+    startDate: '2023-07-15',
+
     data: {
       meta: [
         {
