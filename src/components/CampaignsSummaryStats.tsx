@@ -22,6 +22,7 @@ export function CampaignsSummaryStats({
   statsHighlightTimeseries,
   statsHighlightMetricName,
   campaignData,
+  isTableCollapsed,
   handleStatsHighlightClick,
   handleCampaignClick,
 }: {
@@ -29,6 +30,7 @@ export function CampaignsSummaryStats({
   statsHighlightTimeseries?: CampaignStatsData;
   statsHighlightMetricName?: string;
   campaignData: CampaignData[] | CampaignDummyData[];
+  isTableCollapsed?: boolean;
   handleCampaignDetailBackOnClick: MouseEventHandler<HTMLButtonElement>;
   handleStatsHighlightClick?: Function /* TODO type this */;
   handleCampaignClick: (
@@ -93,6 +95,7 @@ export function CampaignsSummaryStats({
           />
           <CampaignsTable
             data={campaignData}
+            isCollapsed={isTableCollapsed}
             handleCampaignClick={handleCampaignClick}
           />
         </>
