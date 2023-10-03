@@ -27,7 +27,7 @@ import { Spinner } from './components/Spinner';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
 import {
-  sortCampaignDataOnIsActiveAndReceiptId,
+  sortCampaignDataOnIsActiveAndReceiptIdByDate,
   numActiveCampaigns,
 } from './lib/sort';
 import { aggregateChartData, replaceDataParamForChartData } from './lib/coerce';
@@ -122,12 +122,11 @@ export function PromoDashboard({
     if (typeof campaignsData !== 'undefined') {
       setSortedCampaignsData(
         replaceDataParamForChartData(
-          sortCampaignDataOnIsActiveAndReceiptId(campaignsData)
+          sortCampaignDataOnIsActiveAndReceiptIdByDate(campaignsData)
         )
       );
     }
   }, [campaignsData, setSortedCampaignsData]);
-
   useEffect(() => {
     if (typeof campaignDetailData !== 'undefined') {
       setPromoData(campaignDetailData);
