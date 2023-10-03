@@ -14,7 +14,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@headlessui/react": "^1.7.4",
+    "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.13",
     "@nastyox/rando.js": "^2.0.5",
     "@react-icons/all-files": "^4.1.0",
