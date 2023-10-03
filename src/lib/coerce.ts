@@ -82,11 +82,13 @@ export function coercePromoApiDataForChartJs(
 }
 export function computeChange(data: (string | number | null)[]) {
   let last = data[data.length - 1];
+  let result: number;
   if (typeof last !== 'number') last = Number(last);
   if (data.length > 1) {
     let nextToLast = data[data.length - 2];
     if (typeof nextToLast !== 'number') nextToLast = Number(nextToLast);
-    return nextToLast !== null ? last - nextToLast : 0;
+    result = nextToLast !== null ? last - nextToLast : 0;
+    return Number.isNaN(result) ? 0 : result;
   }
   return 0;
 }
