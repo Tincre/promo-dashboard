@@ -4474,7 +4474,7 @@ export const campaignStubData = [
           spend: 138.14,
           views: 0,
           clicks: 1497,
-          updated_time: '2023-07-20 22:00:25.793666',
+          updated_time: '2023-06-20 22:00:25.793666',
         },
         {
           cpc: 0.15,
@@ -4486,7 +4486,7 @@ export const campaignStubData = [
           spend: 54.14,
           views: 0,
           clicks: 355,
-          updated_time: '2023-07-19 22:00:59.810620',
+          updated_time: '2023-06-19 22:00:59.810620',
         },
         {
           cpc: 0.14,
@@ -4498,7 +4498,7 @@ export const campaignStubData = [
           spend: 18.27,
           views: 0,
           clicks: 135,
-          updated_time: '2023-07-18 22:00:20.911083',
+          updated_time: '2023-06-18 22:00:20.911083',
         },
       ],
       google: [
@@ -4512,7 +4512,7 @@ export const campaignStubData = [
           spend: 3858.19,
           views: 284538,
           clicks: 4447,
-          updated_time: '2023-07-20 18:00:15.858249',
+          updated_time: '2023-06-20 18:00:15.858249',
         },
         {
           cpc: 0.88,
@@ -4524,7 +4524,7 @@ export const campaignStubData = [
           spend: 3343.75,
           views: 240844,
           clicks: 3794,
-          updated_time: '2023-07-19 18:00:14.979376',
+          updated_time: '2023-06-19 18:00:14.979376',
         },
         {
           cpc: 0.89,
@@ -4536,7 +4536,7 @@ export const campaignStubData = [
           spend: 3058.02,
           views: 215218,
           clicks: 3422,
-          updated_time: '2023-07-18 18:00:23.374450',
+          updated_time: '2023-06-18 18:00:23.374450',
         },
         {
           cpc: 0.9,
@@ -4548,7 +4548,7 @@ export const campaignStubData = [
           spend: 2502.5,
           views: 169371,
           clicks: 2773,
-          updated_time: '2023-07-17 18:00:22.444817',
+          updated_time: '2023-06-17 18:00:22.444817',
         },
         {
           cpc: 1.03,
@@ -4560,7 +4560,7 @@ export const campaignStubData = [
           spend: 1506.65,
           views: 85370,
           clicks: 1469,
-          updated_time: '2023-07-16 18:00:21.839588',
+          updated_time: '2023-06-16 18:00:21.839588',
         },
         {
           cpc: 1.45,
@@ -4572,7 +4572,7 @@ export const campaignStubData = [
           spend: 510.78,
           views: 22075,
           clicks: 352,
-          updated_time: '2023-07-15 18:00:22.420984',
+          updated_time: '2023-06-15 18:00:22.420984',
         },
       ],
       tiktok: null,
@@ -4587,7 +4587,7 @@ export const campaignStubData = [
           spend: 3996.33,
           views: 274702,
           clicks: 4344,
-          updated_time: '2023-07-20 18:00:15.858249',
+          updated_time: '2023-06-20 18:00:15.858249',
         },
         {
           cpc: 0.87,
@@ -4599,7 +4599,7 @@ export const campaignStubData = [
           spend: 3397.89,
           views: 237006,
           clicks: 3738,
-          updated_time: '2023-07-19 18:00:14.979376',
+          updated_time: '2023-06-19 18:00:14.979376',
         },
         {
           cpc: 0.89,
@@ -4611,7 +4611,7 @@ export const campaignStubData = [
           spend: 3076.29,
           views: 213939,
           clicks: 3401,
-          updated_time: '2023-07-18 18:00:23.374450',
+          updated_time: '2023-06-18 18:00:23.374450',
         },
         {
           cpc: 0.88,
@@ -4623,7 +4623,7 @@ export const campaignStubData = [
           spend: 2556.64,
           views: 165784,
           clicks: 2721,
-          updated_time: '2023-07-17 18:00:22.444817',
+          updated_time: '2023-06-17 18:00:22.444817',
         },
         {
           cpc: 1,
@@ -4635,7 +4635,7 @@ export const campaignStubData = [
           spend: 1560.7900000000002,
           views: 82408,
           clicks: 1430,
-          updated_time: '2023-07-16 18:00:21.839588',
+          updated_time: '2023-06-16 18:00:21.839588',
         },
         {
           cpc: 1.33,
@@ -4647,7 +4647,7 @@ export const campaignStubData = [
           spend: 564.92,
           views: 19959,
           clicks: 352,
-          updated_time: '2023-07-15 18:00:22.420984',
+          updated_time: '2023-06-15 18:00:22.420984',
         },
       ],
     },
