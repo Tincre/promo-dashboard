@@ -215,6 +215,18 @@ For example,
 />
 ```
 
+You can also control whether the table is initially collapsed or not via the optional
+`isTableCollapsed` prop. The example below will collapse the table by default.
+
+```jsx
+<PromoDashboard
+  dashboardOptions={{
+    isTableCollapsed: true,
+  }}
+/>
+```
+
+
 #### Backend
 
 🚧 Features and documentation content updates coming soon!
