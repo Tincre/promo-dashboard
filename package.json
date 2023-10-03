@@ -34,6 +34,7 @@
     "testEnvironment": "jsdom"
   },
   "peerDependencies": {
+    "@headlessui/react": "^1.7.17",
     "@heroicons/react": ">=2.0",
     "chart.js": ">=3.9",
     "react": ">=16",
