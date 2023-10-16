@@ -185,6 +185,7 @@ export function PromoDashboard({
       adCopy: data?.adCopy || data?.description,
       adCallToAction: data?.adCallToAction,
       buttonText: data?.buttonText,
+      creativeUrls: data?.creativeUrls,
     });
     if (typeof setIsRepeatButtonClicked !== 'undefined') {
       setIsRepeatButtonClicked(!isRepeatButtonClicked);
