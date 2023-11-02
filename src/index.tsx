@@ -9,6 +9,7 @@ import { useState, useEffect, MouseEvent } from 'react';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
 import { Toaster } from 'react-hot-toast';
+import { PromoChat } from '@tincre/promo-chat';
 import { successToast, failureToast, infoToast } from './lib/notifications';
 import {
   CampaignData,
@@ -382,6 +383,8 @@ export function PromoDashboard({
               handleCampaignDetailBackOnClick={handleCampaignDetailBackOnClick}
               handleStatsHighlightClick={handleStatsHighlightClick}
             />
+            {/* @ts-ignore */}
+            <PromoChat promoData={promoData} apiRoute="/api/chat" />
           </>
         ) : null}
         <Profile
