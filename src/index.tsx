@@ -11,6 +11,7 @@ import { CampaignDetail } from './components/CampaignDetail';
 import { Toaster } from 'react-hot-toast';
 import { PromoChat } from '@tincre/promo-chat';
 import { successToast, failureToast, infoToast } from './lib/notifications';
+import { modifyMultiCampaignsDataForDownload } from './lib/coerce';
 import {
   CampaignData,
   Settings,
@@ -370,6 +371,12 @@ export function PromoDashboard({
                   }
                   deletedCampaigns={deletedCampaigns}
                   dashboardOptions={dbOptions}
+                />
+                <PromoChat
+                  promoData={
+                    modifyMultiCampaignsDataForDownload(campaignsData)[0]
+                  }
+                  apiRoute="/api/chat"
                 />
               </>
             )}
