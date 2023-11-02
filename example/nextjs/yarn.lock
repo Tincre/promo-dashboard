@@ -271,6 +271,11 @@
   dependencies:
     "@tincre/promo-node" "^0.1.0"
 
+"@tincre/promo-chat@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@tincre/promo-chat/-/promo-chat-0.0.7.tgz#61db3f305f1ce7255120c51f8dc23830e1daeae6"
+  integrity sha512-ZIRgaJGYpTZwsRY5Hi84Je5vWcSpGLo6t2houqZs1z9rxY9rqYvTZ8WPd1dgOlprgCgkA+f5aNXzd0TwZue/dw==
+
 "@tincre/promo-dashboard@^0.10.0":
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/@tincre/promo-dashboard/-/promo-dashboard-0.10.1.tgz#43b902784b1b03c131ab3b90b4ca7c843fcf22bd"
