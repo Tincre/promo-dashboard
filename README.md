@@ -34,13 +34,13 @@ Use your favorite package manager to rock installation of `promo-dashboard`.
 ### Yarn
 
 ```
-yarn add @tincre/promo-dashboard# -D if you want this as a dev dep
+yarn add @tincre/promo-dashboard @tincre/promo-chat # -D if you want this as a dev dep
 ```
 
 ### Npm
 
 ```
-npm install @tincre/promo-dashboard # --save-dev if you want it as a dev dep
+npm install @tincre/promo-dashboard @tincre/promo-chat # --save-dev if you want it as a dev dep
 ```
 
 ### Environment variables
