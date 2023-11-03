@@ -135,4 +135,9 @@ export type DashboardOptions = {
   emailDomain?: string;
   emailLocalPart?: string;
   isTableCollapsed?: boolean;
+  promoChatApiRoute?: string;
+  promoChatStartingAgentMessage?: string;
+  promoChatAgentName?: string;
+  promoChatInputMessagePlaceholder?: string;
+  promoChatExecuteRecaptcha?: (action: string) => Promise<string>;
 };
