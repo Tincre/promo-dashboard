@@ -211,6 +211,11 @@ For example,
   dashboardOptions={{
     emailDomain: 'tincre.com',
     emailLocalPart: 'awesome-team',
+    promoChatApiRoute?: string;
+    promoChatStartingAgentMessage?: string;
+    promoChatAgentName?: string;
+    promoChatInputMessagePlaceholder?: string;
+    promoChatExecuteRecaptcha?: (action: string) => Promise<string>;
   }}
 />
 ```
@@ -225,7 +230,6 @@ You can also control whether the table is initially collapsed or not via the opt
   }}
 />
 ```
-
 
 #### Backend
 
