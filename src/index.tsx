@@ -373,9 +373,7 @@ export function PromoDashboard({
                   dashboardOptions={dbOptions}
                 />
                 <PromoChat
-                  promoData={
-                    modifyMultiCampaignsDataForDownload(campaignsData)[0]
-                  }
+                  promoData={modifyMultiCampaignsDataForDownload(campaignsData)}
                   apiRoute="/api/chat"
                 />
               </>
