@@ -26,6 +26,8 @@ const checkIsVideo = (creativeUrl: string) => {
   return VIDEO_EXTENSIONS.includes(extension) ? true : false;
 };
 
+const getVideoPoster = (creativeUrl: string) =>
+  `${creativeUrl.substring(0, creativeUrl.lastIndexOf('.'))}.webp`;
 export function AdPreviewDetailImage({ creativeUrl }: { creativeUrl: string }) {
   const [isVideo, setIsVideo] = useState<boolean | undefined>(undefined);
   useEffect(() => {
@@ -46,6 +48,7 @@ export function AdPreviewDetailImage({ creativeUrl }: { creativeUrl: string }) {
           muted
           controls
           className="rounded-lg object-cover w-full h-56 sm:h-72 md:h-96"
+          poster={getVideoPoster(creativeUrl)}
         >
           <source src={creativeUrl} type="video/mp4" />
         </video>

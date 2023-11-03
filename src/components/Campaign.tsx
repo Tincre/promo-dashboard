@@ -27,12 +27,8 @@ const VIDEO_EXTENSIONS = [
   'mpeg',
   'mpd',
 ];
-const getVideoPoster = (creativeUrl: string) => {
-  let index = creativeUrl.lastIndexOf('.');
-  let urlNoExtension = creativeUrl.substring(0, index);
-  console.debug(`getVideoPoster::${urlNoExtension}`);
-  return `${urlNoExtension}.webp`;
-};
+const getVideoPoster = (creativeUrl: string) =>
+  `${creativeUrl.substring(0, creativeUrl.lastIndexOf('.'))}.webp`;
 const checkIsVideo = (creativeUrl: string) => {
   // TODO Move to utils func module
   const extension = creativeUrl
