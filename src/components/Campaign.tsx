@@ -27,6 +27,12 @@ const VIDEO_EXTENSIONS = [
   'mpeg',
   'mpd',
 ];
+const getVideoPoster = (creativeUrl: string) => {
+  let index = creativeUrl.lastIndexOf('.');
+  let urlNoExtension = creativeUrl.substring(0, index);
+  console.debug(`getVideoPoster::${urlNoExtension}`);
+  return `${urlNoExtension}.webp`;
+};
 const checkIsVideo = (creativeUrl: string) => {
   // TODO Move to utils func module
   const extension = creativeUrl
@@ -163,6 +169,7 @@ export function Campaign({
                   preload="none"
                   controls
                   className="mx-auto h-32 w-full flex-shrink-0 rounded-b-md rounded-t-sm object-cover px-2"
+                  poster={getVideoPoster(creativeUrl)}
                 >
                   <source src={creativeUrl} type="video/mp4" />
                 </video>
