@@ -374,7 +374,15 @@ export function PromoDashboard({
                 />
                 <PromoChat
                   promoData={modifyMultiCampaignsDataForDownload(campaignsData)}
-                  apiRoute="/api/chat"
+                  apiRoute={dashboardOptions?.promoChatApiRoute || '/api/chat'}
+                  startingAgentMessage={
+                    dashboardOptions?.promoChatStartingAgentMessage
+                  }
+                  agentName={dashboardOptions?.promoChatAgentName}
+                  inputMessagePlaceholder={
+                    dashboardOptions?.promoChatInputMessagePlaceholder
+                  }
+                  executeRecaptcha={dashboardOptions?.promoChatExecuteRecaptcha}
                 />
               </>
             )}
@@ -388,8 +396,18 @@ export function PromoDashboard({
               handleCampaignDetailBackOnClick={handleCampaignDetailBackOnClick}
               handleStatsHighlightClick={handleStatsHighlightClick}
             />
-            {/* @ts-ignore */}
-            <PromoChat promoData={promoData} apiRoute="/api/chat" />
+            <PromoChat // @ts-ignore
+              promoData={promoData}
+              apiRoute={dashboardOptions?.promoChatApiRoute || '/api/chat'}
+              startingAgentMessage={
+                dashboardOptions?.promoChatStartingAgentMessage
+              }
+              agentName={dashboardOptions?.promoChatAgentName}
+              inputMessagePlaceholder={
+                dashboardOptions?.promoChatInputMessagePlaceholder
+              }
+              executeRecaptcha={dashboardOptions?.promoChatExecuteRecaptcha}
+            />
           </>
         ) : null}
         <Profile
