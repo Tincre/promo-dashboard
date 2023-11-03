@@ -372,18 +372,26 @@ export function PromoDashboard({
                   deletedCampaigns={deletedCampaigns}
                   dashboardOptions={dbOptions}
                 />
-                <PromoChat
-                  promoData={modifyMultiCampaignsDataForDownload(campaignsData)}
-                  apiRoute={dashboardOptions?.promoChatApiRoute || '/api/chat'}
-                  startingAgentMessage={
-                    dashboardOptions?.promoChatStartingAgentMessage
-                  }
-                  agentName={dashboardOptions?.promoChatAgentName}
-                  inputMessagePlaceholder={
-                    dashboardOptions?.promoChatInputMessagePlaceholder
-                  }
-                  executeRecaptcha={dashboardOptions?.promoChatExecuteRecaptcha}
-                />
+                {typeof campaignsData !== 'undefined' ? (
+                  <PromoChat
+                    promoData={modifyMultiCampaignsDataForDownload(
+                      sortedCampaignsData
+                    )}
+                    apiRoute={
+                      dashboardOptions?.promoChatApiRoute || '/api/chat'
+                    }
+                    startingAgentMessage={
+                      dashboardOptions?.promoChatStartingAgentMessage
+                    }
+                    agentName={dashboardOptions?.promoChatAgentName}
+                    inputMessagePlaceholder={
+                      dashboardOptions?.promoChatInputMessagePlaceholder
+                    }
+                    executeRecaptcha={
+                      dashboardOptions?.promoChatExecuteRecaptcha
+                    }
+                  />
+                ) : null}
               </>
             )}
           </>
