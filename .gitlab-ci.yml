@@ -16,7 +16,7 @@ stages:
   - test
 unit-test:
   stage: unit-test
-  image: node:16
+  image: node:18
   tags:
     - cicd
     - test
