@@ -78,7 +78,7 @@ export interface CampaignStatsData {
   id: number | undefined;
   name: CampaignMetrics;
   stat: string;
-
+  isActive?: boolean;
   icon: React.ForwardRefExoticComponent<
     Omit<React.SVGProps<SVGSVGElement>, 'ref'> & {
       title?: string | undefined;
