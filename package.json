@@ -65,7 +65,7 @@
     "@nastyox/rando.js": "^2.0.5",
     "@size-limit/preset-small-lib": "^8.1.0",
     "@testing-library/react": "^13.4.0",
-    "@tincre/promo-chat": "^0.0.8",
+    "@tincre/promo-chat": "^0.0.9",
     "@tsconfig/create-react-app": "^1.0.2",
     "@tsconfig/recommended": "^1.0.1",
     "@types/node": "^18.11.9",

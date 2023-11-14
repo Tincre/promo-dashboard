@@ -1558,10 +1558,10 @@
     "@testing-library/dom" "^8.5.0"
     "@types/react-dom" "^18.0.0"
 
-"@tincre/promo-chat@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@tincre/promo-chat/-/promo-chat-0.0.8.tgz#8d418fb6a8caf33b01b5f1dd4c4363902f0d42cd"
-  integrity sha512-/3Fleiz6cDhJ+LjHBvKjHnQsz6NIIYKRL786OqLYti/dFPsMNWFyn3Y+SsEDn9+vbca1o/hmFzieR0dIko0B6Q==
+"@tincre/promo-chat@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@tincre/promo-chat/-/promo-chat-0.0.9.tgz#fb8a1d3b9777358b880e5cea15e9a377f1aa5181"
+  integrity sha512-VAsadzjU7SPt86W61VPM2LUtOca6Ntt0GNDir7eCRWbnLQ3GSpTlrRTzQAfHpmGtFCWvQinC8Jm1rqLjs6ZEjA==
 
 "@tootallnate/once@1":
   version "1.1.2"
