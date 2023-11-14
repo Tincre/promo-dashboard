@@ -374,9 +374,7 @@ export function PromoDashboard({
                 />
                 {typeof campaignsData !== 'undefined' ? (
                   <PromoChat
-                    promoData={modifyMultiCampaignsDataForDownload(
-                      sortedCampaignsData
-                    )}
+                    promoData={sortedCampaignsData}
                     apiRoute={
                       dashboardOptions?.promoChatApiRoute || '/api/chat'
                     }
@@ -404,7 +402,7 @@ export function PromoDashboard({
               handleCampaignDetailBackOnClick={handleCampaignDetailBackOnClick}
               handleStatsHighlightClick={handleStatsHighlightClick}
             />
-            <PromoChat // @ts-ignore
+            <PromoChat
               promoData={promoData}
               apiRoute={dashboardOptions?.promoChatApiRoute || '/api/chat'}
               startingAgentMessage={
