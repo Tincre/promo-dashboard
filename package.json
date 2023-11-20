@@ -31,7 +31,11 @@
     "trailingComma": "es5"
   },
   "jest": {
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "react-markdown": "<rootDir>/mocks/react-markdown.tsx",
+      "remark-*": "<rootDir>/mocks/remark-gfm.ts"
+    }
   },
   "peerDependencies": {
     "@headlessui/react": "^1.7.17",
