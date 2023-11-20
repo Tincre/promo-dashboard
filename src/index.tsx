@@ -388,6 +388,7 @@ export function PromoDashboard({
                     executeRecaptcha={
                       dashboardOptions?.promoChatExecuteRecaptcha
                     }
+                    supportEmail={`${dashboardOptions?.emailLocalPart}@${dashboardOptions?.emailDomain}`}
                   />
                 ) : null}
               </>
