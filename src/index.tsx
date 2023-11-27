@@ -9,7 +9,6 @@ import { useState, useEffect, MouseEvent } from 'react';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
 import { Toaster } from 'react-hot-toast';
-import { PromoChat } from '@tincre/promo-chat';
 import { successToast, failureToast, infoToast } from './lib/notifications';
 import { modifyMultiCampaignsDataForDownload } from './lib/coerce';
 import {
@@ -48,6 +47,7 @@ export function PromoDashboard({
   handleDeleteButtonClick,
   handleCampaignClick,
   handleCampaignDetailBackClick,
+  PromoChat,
   dashboardOptions,
 }: {
   campaignsData: CampaignData[] | CampaignDummyData[];
@@ -77,6 +77,7 @@ export function PromoDashboard({
   handleCampaignDetailBackClick?: (
     event: MouseEvent<HTMLButtonElement>
   ) => void;
+  PromoChat: React.FC<any>;
   dashboardOptions?: DashboardOptions;
 }) {
   const [promoData, setPromoData] = useState<
