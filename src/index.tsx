@@ -373,23 +373,7 @@ export function PromoDashboard({
                   dashboardOptions={dbOptions}
                 />
                 {typeof campaignsData !== 'undefined' ? (
-                  <PromoChat
-                    promoData={sortedCampaignsData}
-                    apiRoute={
-                      dashboardOptions?.promoChatApiRoute || '/api/chat'
-                    }
-                    startingAgentMessage={
-                      dashboardOptions?.promoChatStartingAgentMessage
-                    }
-                    agentName={dashboardOptions?.promoChatAgentName}
-                    inputMessagePlaceholder={
-                      dashboardOptions?.promoChatInputMessagePlaceholder
-                    }
-                    executeRecaptcha={
-                      dashboardOptions?.promoChatExecuteRecaptcha
-                    }
-                    supportEmail={`${dashboardOptions?.emailLocalPart}@${dashboardOptions?.emailDomain}`}
-                  />
+                  <div className=""></div>
                 ) : null}
               </>
             )}
@@ -402,18 +386,6 @@ export function PromoDashboard({
               statsHighlightMetricName={clickedStatsClassName}
               handleCampaignDetailBackOnClick={handleCampaignDetailBackOnClick}
               handleStatsHighlightClick={handleStatsHighlightClick}
-            />
-            <PromoChat
-              promoData={promoData}
-              apiRoute={dashboardOptions?.promoChatApiRoute || '/api/chat'}
-              startingAgentMessage={
-                dashboardOptions?.promoChatStartingAgentMessage
-              }
-              agentName={dashboardOptions?.promoChatAgentName}
-              inputMessagePlaceholder={
-                dashboardOptions?.promoChatInputMessagePlaceholder
-              }
-              executeRecaptcha={dashboardOptions?.promoChatExecuteRecaptcha}
             />
           </>
         ) : null}
@@ -431,6 +403,30 @@ export function PromoDashboard({
           email={profileData?.email}
         />
       </DashboardContainer>
+      {!isCampaignClicked ? (
+        <PromoChat
+          promoData={sortedCampaignsData}
+          apiRoute={dashboardOptions?.promoChatApiRoute || '/api/chat'}
+          startingAgentMessage={dashboardOptions?.promoChatStartingAgentMessage}
+          agentName={dashboardOptions?.promoChatAgentName}
+          inputMessagePlaceholder={
+            dashboardOptions?.promoChatInputMessagePlaceholder
+          }
+          executeRecaptcha={dashboardOptions?.promoChatExecuteRecaptcha}
+          supportEmail={`${dashboardOptions?.emailLocalPart}@${dashboardOptions?.emailDomain}`}
+        />
+      ) : typeof promoData !== 'undefined' ? (
+        <PromoChat
+          promoData={promoData}
+          apiRoute={dashboardOptions?.promoChatApiRoute || '/api/chat'}
+          startingAgentMessage={dashboardOptions?.promoChatStartingAgentMessage}
+          agentName={dashboardOptions?.promoChatAgentName}
+          inputMessagePlaceholder={
+            dashboardOptions?.promoChatInputMessagePlaceholder
+          }
+          executeRecaptcha={dashboardOptions?.promoChatExecuteRecaptcha}
+        />
+      ) : null}
       <Toaster position="bottom-center" />
     </>
   );
