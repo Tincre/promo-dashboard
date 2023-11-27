@@ -1566,6 +1566,11 @@
     "@testing-library/dom" "^8.5.0"
     "@types/react-dom" "^18.0.0"
 
+"@tincre/promo-chat@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@tincre/promo-chat/-/promo-chat-0.0.15.tgz#952977f911810cb747675814f79185d433b7bfce"
+  integrity sha512-Xc+FOKxS4xv1fjWSMMp5FHT1wd+J7O9HuvjzH3SUI9wMmU3BjIDXx3a5GaeVT8aBMtc9lXlNytr1cl5pALwnHA==
+
 "@tincre/promo-types@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@tincre/promo-types/-/promo-types-0.0.2.tgz#e4ae7dd425ba00eca432f4fc8091cbf90f1126ff"
