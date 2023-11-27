@@ -77,14 +77,19 @@ PROMO_CLIENT_SECRET=
 
 ```jsx
 import { PromoDashboard } from '@tincre/promo-dashboard';
+import { PromoChat } from '@tincre/promo-chat';
 
 <PromoDashboard
   campaignsData={campaignsData}
   campaignDetailData={campaignDetailData || undefined}
   isLoading={false}
   handleRepeatButtonClick={handleRepeatButtonClick || undefined}
+  PromoChat={PromoChat}
 />;
 ```
+
+> `PromoChat` is required to be passed in as a prop so that this library itself
+> doesn't require the explicit dependency.
 
 ##### `campaignsData`
 
