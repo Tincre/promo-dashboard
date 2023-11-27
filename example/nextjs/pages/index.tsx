@@ -1,8 +1,9 @@
 import { useState, useEffect, MouseEvent } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { PromoDashboard } from '@tincre/promo-dashboard';
-//import { PromoDashboard } from '../../../dist';
+//import { PromoDashboard } from '@tincre/promo-dashboard';
+import { PromoDashboard } from '../../../dist';
+import { PromoChat } from '@tincre/promo-chat';
 //import { campaignStubData } from '../cms.data';
 import { campaignStubData } from '../test.data';
 import { useTour } from '@reactour/tour';
@@ -41,7 +42,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="my-8" id="main">
+      <div className="my-8" id="main">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-center">
             Welcome to the{' '}
@@ -68,13 +69,13 @@ const Home: NextPage = () => {
             </a>
           </p>
         </div>
-        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+        <div className="text-center" id="main">
           <p style={{ marginTop: '20px', marginBottom: '10px' }}>
             <code className="font-bold">
               npm install @tincre/promo-dashboard
             </code>
           </p>
-          <p className="py-4">
+          <p className="pt-4">
             <button
               onClick={() => setIsOpen(true)}
               className="text-indigo-50 hover:text-indigo-900 border border-1 border-indigo-700 hover:border-indigo-300 py-3 px-5 rounded-md hover:bg-indigo-100 hover:text-indigo-700 bg-indigo-700"
@@ -82,7 +83,7 @@ const Home: NextPage = () => {
               Start tour
             </button>
           </p>
-          <p className="py-4">
+          <p className="pt-4">
             <button
               onClick={() => setIsLoading(!isLoading)}
               className="text-indigo-50 hover:text-indigo-900 border border-1 border-indigo-700 hover:border-indigo-300 py-3 px-5 rounded-md hover:bg-indigo-100 hover:text-indigo-700 bg-indigo-700"
@@ -90,13 +91,14 @@ const Home: NextPage = () => {
               isLoading
             </button>
           </p>
-          <PromoDashboard
-            campaignsData={campaignStubData /* @ts-ignore */}
-            handleRepeatButtonClick={handleRepeatButtonClick /* @ts-ignore */}
-            isLoading={isLoading}
-          />
         </div>
-      </main>
+        <PromoDashboard
+          campaignsData={campaignStubData /* @ts-ignore */}
+          handleRepeatButtonClick={handleRepeatButtonClick /* @ts-ignore */}
+          isLoading={isLoading}
+          PromoChat={PromoChat}
+        />
+      </div>
 
       <footer className="text-center w-full bottom-0 pb-12">
         <a
