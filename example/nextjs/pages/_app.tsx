@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { AppProps } from 'next/app';
 //import '../../../dist/promo-button.esm.css'; // @tincre/promo-button/bundle.css
 import { TourProvider } from '@reactour/tour';
