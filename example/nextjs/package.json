@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "@tincre/promo-types": "^0.0.2",
     "markdown-to-jsx": "^7.3.2",
     "next": "^13.0.0",
     "react": "^18.2.0",
@@ -22,8 +24,8 @@
     "@reactour/tour": "^3.2.1",
     "@tincre/promo-button": "^0.7.2",
     "@tincre/promo-button-node": "^0.0.6",
-    "@tincre/promo-chat": "^0.0.7",
-    "@tincre/promo-dashboard": "^0.11.3",
+    "@tincre/promo-chat": "^0.0.15",
+    "@tincre/promo-dashboard": "^0.12.2",
     "@types/node": "^17.0.25",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
@@ -38,7 +40,7 @@
     "react-hot-toast": "^2.4.0",
     "react-intersection-observer": "^9.5.2",
     "react-json-to-csv": "^1.1.0",
-    "tailwindcss": "^3.2.1",
+    "tailwindcss": "^3.3.5",
     "typescript": "^4.6.3",
     "yup": "^0.32.11"
   }

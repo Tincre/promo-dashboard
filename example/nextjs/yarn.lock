@@ -255,6 +255,16 @@
   dependencies:
     tslib "^2.4.0"
 
+"@tailwindcss/typography@^0.5.10":
+  version "0.5.10"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/typography/-/typography-0.5.10.tgz#2abde4c6d5c797ab49cf47610830a301de4c1e0a"
+  integrity sha512-Pe8BuPJQJd3FfRnm6H0ulKIGoMEQS+Vq01R6M5aCrFB/ccR/shT+0kXLjouGC1gFLm9hopTFN+DMP0pfwRWzPw==
+  dependencies:
+    lodash.castarray "^4.4.0"
+    lodash.isplainobject "^4.0.6"
+    lodash.merge "^4.6.2"
+    postcss-selector-parser "6.0.10"
+
 "@tincre/promo-button-node@^0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@tincre/promo-button-node/-/promo-button-node-0.0.6.tgz#68a8520d7c63db86b2c911fc7213ffb1a954b073"
@@ -271,15 +281,15 @@
   dependencies:
     "@tincre/promo-node" "^0.1.0"
 
-"@tincre/promo-chat@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@tincre/promo-chat/-/promo-chat-0.0.7.tgz#61db3f305f1ce7255120c51f8dc23830e1daeae6"
-  integrity sha512-ZIRgaJGYpTZwsRY5Hi84Je5vWcSpGLo6t2houqZs1z9rxY9rqYvTZ8WPd1dgOlprgCgkA+f5aNXzd0TwZue/dw==
+"@tincre/promo-chat@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@tincre/promo-chat/-/promo-chat-0.0.15.tgz#952977f911810cb747675814f79185d433b7bfce"
+  integrity sha512-Xc+FOKxS4xv1fjWSMMp5FHT1wd+J7O9HuvjzH3SUI9wMmU3BjIDXx3a5GaeVT8aBMtc9lXlNytr1cl5pALwnHA==
 
-"@tincre/promo-dashboard@^0.11.3":
-  version "0.11.13"
-  resolved "https://registry.yarnpkg.com/@tincre/promo-dashboard/-/promo-dashboard-0.11.13.tgz#c1da62333d82ad74af4c37cc2d265172cbc262f5"
-  integrity sha512-xpxS625+HabzyO6XxNZccMz/mpYG485w1QyOjXzyxVjycd2uPCduG6s0K+n85jniUxrRyNNe2DVj0ekVmI2bmA==
+"@tincre/promo-dashboard@^0.12.2":
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/@tincre/promo-dashboard/-/promo-dashboard-0.12.2.tgz#2dfca5c271bc925969b40ea1c2d2182554ee01d8"
+  integrity sha512-tTQl0y37RJCirBRnABeqURATj9iuBmY2clsm8RwY/RNyPHcy56oxD0JpWUL5WEDA8F6Dp1doGIqZztYH/5uBAQ==
 
 "@tincre/promo-node@^0.1.0":
   version "0.1.1"
@@ -289,6 +299,11 @@
     "@types/jsonwebtoken" ">=9"
     cross-fetch ">=3.0"
     jsonwebtoken ">=9"
+
+"@tincre/promo-types@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@tincre/promo-types/-/promo-types-0.0.2.tgz#e4ae7dd425ba00eca432f4fc8091cbf90f1126ff"
+  integrity sha512-jAeRIuZTzl54g/fybtYb9mtfwVzSMdascYczW5MJjpTa9mlmQbuCo/omtySWCmZTp0GGZWRi61kpSagcwN4yvQ==
 
 "@types/json5@^0.0.29":
   version "0.0.29"
@@ -1809,6 +1824,11 @@ lodash-es@^4.17.21:
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
   integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
+lodash.castarray@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.castarray/-/lodash.castarray-4.4.0.tgz#c02513515e309daddd4c24c60cfddcf5976d9115"
+  integrity sha512-aVx8ztPv7/2ULbArGJ2Y42bG1mEQ5mGjpdvrbJcJFU3TbYybe+QlLS4pst9zV52ymy2in1KpFPiZnAOATxD4+Q==
+
 lodash.includes@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.includes/-/lodash.includes-4.3.0.tgz#60bb98a87cb923c68ca1e51325483314849f553f"
@@ -2181,6 +2201,14 @@ postcss-nested@^6.0.1:
   integrity sha512-mEp4xPMi5bSWiMbsgoPfcP74lsWLHkQbZc3sY+jWYd65CUwXrUaTp0fmNpa01ZcETKlIgUdFN/MpS2xZtqL9dQ==
   dependencies:
     postcss-selector-parser "^6.0.11"
+
+postcss-selector-parser@6.0.10:
+  version "6.0.10"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.10.tgz#79b61e2c0d1bfc2602d549e11d0876256f8df88d"
+  integrity sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==
+  dependencies:
+    cssesc "^3.0.0"
+    util-deprecate "^1.0.2"
 
 postcss-selector-parser@^6.0.11:
   version "6.0.13"
@@ -2558,7 +2586,7 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-tailwindcss@^3.2.1:
+tailwindcss@^3.3.5:
   version "3.3.5"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.3.5.tgz#22a59e2fbe0ecb6660809d9cc5f3976b077be3b8"
   integrity sha512-5SEZU4J7pxZgSkv7FP1zY8i2TIAOooNZ1e/OGtxIEv6GltpoiXUqWvLy89+a10qYTB1N5Ifkuw9lqQkN9sscvA==
