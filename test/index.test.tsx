@@ -1,6 +1,7 @@
 import React, { useState, useEffect, MouseEvent } from 'react';
 import { screen, render, fireEvent } from '@testing-library/react';
 import { PromoDashboard } from '../src/index';
+import { PromoChat } from '@tincre/promo-chat';
 import { campaignStubData } from './cms.data';
 import { CampaignData, CampaignDummyData, Settings } from '../src/lib/types';
 import {
@@ -26,13 +27,14 @@ describe('PromoDashboard', () => {
   it('renders empty array prop without crashing', () => {
     mockAllIsIntersecting(true);
 
-    render(<PromoDashboard campaignsData={[]} />);
+    render(<PromoDashboard campaignsData={[]} PromoChat={PromoChat} />);
   });
   it('renders full data without crashing', () => {
     mockAllIsIntersecting(true);
 
     render(
       <PromoDashboard
+        PromoChat={PromoChat}
         campaignsData={campaignStubData}
         handleGeneratePaymentLinkButtonClick={() => null}
         isLoading={false}
@@ -51,6 +53,7 @@ describe('PromoDashboard', () => {
 
     render(
       <PromoDashboard
+        PromoChat={PromoChat}
         campaignsData={campaignStubData}
         handleGeneratePaymentLinkButtonClick={() => null}
         isLoading={true}
@@ -78,6 +81,7 @@ describe('PromoDashboard', () => {
 
     render(
       <PromoDashboard
+        PromoChat={PromoChat}
         campaignsData={campaignStubData}
         handleGeneratePaymentLinkButtonClick={() => null}
         handleDeleteButtonClick={handleDeleteButtonClick}
@@ -139,6 +143,7 @@ describe('PromoDashboard', () => {
     });
     render(
       <PromoDashboard
+        PromoChat={PromoChat}
         campaignsData={addedReceiptIdsCampaignData}
         handleRepeatButtonClick={handleRepeatButtonOnClick}
         handleSettingsSaveButtonClick={handleSettingsSaveButtonOnClick}
@@ -207,6 +212,7 @@ describe('PromoDashboard', () => {
 
     render(
       <PromoDashboard
+        PromoChat={PromoChat}
         campaignsData={campaignStubData}
         handleSettingsSaveButtonClick={handleSettingsSaveButtonOnClick}
         handleCampaignClick={handleCampaignClick}
