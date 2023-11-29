@@ -22,7 +22,7 @@ afterAll(() => {
 
 describe('CampaignList', () => {
   it('renders full data without crashing', () => {
-    mockAllIsIntersecting(true); 
+    mockAllIsIntersecting(true);
     render(
       <CampaignList
         data={campaignStubData}

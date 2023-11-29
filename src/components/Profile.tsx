@@ -202,7 +202,9 @@ export function Profile({
                   className="block text-sm font-medium text-gray-700 mt-4 sm:pt-2"
                 >
                   Email{' '}
-                  <span className="text-xs text-gray-500 dark:text-slate-600">no changes</span>
+                  <span className="text-xs text-gray-500 dark:text-slate-600">
+                    no changes
+                  </span>
                 </label>
                 <div className="mt-2 sm:col-span-2">
                   <input
