@@ -5,12 +5,11 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-import { useState, useEffect, MouseEvent, FunctionComponent } from 'react';
+import { useState, useEffect, MouseEvent } from 'react';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
 import { Toaster } from 'react-hot-toast';
 import { successToast, failureToast, infoToast } from './lib/notifications';
-import { modifyMultiCampaignsDataForDownload } from './lib/coerce';
 import {
   CampaignData,
   Settings,
