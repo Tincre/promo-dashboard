@@ -4,7 +4,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
-import { MouseEvent, ReactNode } from 'react';
+import { MouseEvent } from 'react';
 import { CampaignData, CampaignDummyData } from '../lib/types';
 import { XCircleIcon } from '@heroicons/react/20/solid';
 
