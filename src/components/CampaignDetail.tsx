@@ -12,7 +12,6 @@ import {
   CampaignDummyData,
   CampaignStatsData,
   CampaignMetrics,
-  PromoApiCampaignStatsSample,
 } from '../lib/types';
 import { StatsHighlights } from './StatsHighlights';
 import { CampaignImageChart } from './CampaignImageChart';
