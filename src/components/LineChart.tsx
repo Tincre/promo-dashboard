@@ -77,7 +77,7 @@ const options = {
     },
     tooltip: {
       displayColors: false,
-    }
+    },
   },
   scales: {
     y: {
