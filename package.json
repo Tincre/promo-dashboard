@@ -31,17 +31,13 @@
     "trailingComma": "es5"
   },
   "jest": {
-    "testEnvironment": "jsdom",
-    "moduleNameMapper": {
-      "react-markdown": "<rootDir>/mocks/react-markdown.tsx",
-      "remark-*": "<rootDir>/mocks/remark-gfm.ts"
-    }
+    "testEnvironment": "jsdom"
   },
   "peerDependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": ">=2.0",
     "@tincre/promo-chat": ">=0.0.12",
-    "@tincre/promo-types": "^0.0.2",
+    "@tincre/promo-types": ">=0.0.2",
     "chart.js": ">=3.9",
     "react": ">=16",
     "react-chartjs-2": ">=4.3",
