@@ -82,9 +82,6 @@ export function PromoDashboard({
   const [promoData, setPromoData] = useState<
     CampaignData | CampaignDummyData | undefined
   >(undefined);
-  const [internalIsLoading, setInternalIsLoading] = useState<boolean>(
-    isLoading || false
-  );
   const [isRepeatButtonClicked, setIsRepeatButtonClicked] =
     useState<boolean>(false);
   const [isPaymentButtonClicked, setIsPaymentButtonClicked] =
@@ -116,9 +113,6 @@ export function PromoDashboard({
   const [profileData, setProfileData] = useState<undefined | Settings>(
     profileSettingsData
   );
-  const [dbOptions, setDbOptions] = useState<undefined | DashboardOptions>(
-    dashboardOptions
-  );
   const [deletedCampaigns, setDeletedCampaigns] = useState<string[]>([]);
   useEffect(() => {
     if (typeof campaignsData !== 'undefined') {
@@ -145,7 +139,7 @@ export function PromoDashboard({
     // set initial timeseries aggregated data
     if (typeof sortedCampaignsData !== 'undefined') {
       let localStats: CampaignStatsData[] = [];
-      ['Spend', 'Views', 'Clicks', 'CPM', 'CPC', 'CTR', 'CPV'].map(
+      ['Spend', 'Views', 'Clicks', 'CPM', 'CPC', 'CTR', 'CPV'].forEach(
         (metric, index) => {
           localStats.push(
             aggregateChartData(sortedCampaignsData, metric, index)
@@ -215,8 +209,7 @@ export function PromoDashboard({
         },
         method: 'PUT',
       });
-      if (response?.status === 200) {
-      } else {
+      if (response?.status !== 200) {
         console.warn(
           `promo-dashboard::PromoDashboard::Payment link for ${data.pid} not received`
         );
@@ -248,7 +241,7 @@ export function PromoDashboard({
     setPromoData(data);
     setIsCampaignClicked(true);
     if (Array.isArray(data?.data)) {
-      data.data.map((campaignStats: CampaignStatsData) => {
+      data.data.forEach((campaignStats: CampaignStatsData) => {
         if (campaignStats.name === options.defaultStatName) {
           setStatsHighlightTimeseries(campaignStats);
         }
@@ -370,7 +363,7 @@ export function PromoDashboard({
                       : handleDeleteButtonOnClick
                   }
                   deletedCampaigns={deletedCampaigns}
-                  dashboardOptions={dbOptions}
+                  dashboardOptions={dashboardOptions}
                 />
                 {typeof campaignsData !== 'undefined' ? (
                   <div className=""></div>
