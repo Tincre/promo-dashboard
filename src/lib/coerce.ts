@@ -14,7 +14,6 @@ import {
   DownloadableCampaignMetadataSample,
   CampaignStatsData,
   PromoApiCampaignStatsSample,
-  PromoApiCampaignStatsData,
   CampaignDummyData,
   CampaignSortedData,
   CampaignMetrics,
@@ -256,13 +255,12 @@ export function aggregateChartData(
   metric?: CampaignMetrics,
   id?: number
 ): CampaignStatsData {
-  const logMsg = 'aggregateChartData:';
   let dates: string[] = [];
-  campaignsData.map((pckg: CampaignSortedData) => {
+  campaignsData.forEach((pckg: CampaignSortedData) => {
     const { data } = pckg;
     if (typeof data !== 'undefined') {
-      data.map((metricData) => {
-        metricData.chartData.labels.map((date) => {
+      data.forEach((metricData) => {
+        metricData.chartData.labels.forEach((date) => {
           if (date !== null) {
             dates.push(date);
           }
@@ -291,15 +289,15 @@ export function aggregateChartData(
     labels: allDates,
     data: new Array(allDates.length).fill(0),
   };
-  allDates.map((date, index) => {
+  allDates.forEach((date, index) => {
     let dateIndex = uniqueDates.indexOf(date);
 
     if (dateIndex > -1) {
       let totalSpend: number = 0;
 
-      campaignsData.map((dailyCampaignData) => {
+      campaignsData.forEach((dailyCampaignData) => {
         if (typeof dailyCampaignData?.data?.length !== 'undefined') {
-          dailyCampaignData?.data.map((pckg) => {
+          dailyCampaignData?.data.forEach((pckg) => {
             if (pckg.name === 'Spend') {
               let value = getChartDataValueAtDate(pckg, date);
               if (value) {
@@ -309,12 +307,12 @@ export function aggregateChartData(
           });
         }
       });
-      campaignsData.map((dailyCampaignData) => {
+      campaignsData.forEach((dailyCampaignData) => {
         let dailyCampaignSpend: number = 0;
         let spendProportion = 0;
 
         if (typeof dailyCampaignData?.data?.length !== 'undefined') {
-          dailyCampaignData?.data?.map((pckg) => {
+          dailyCampaignData?.data?.forEach((pckg) => {
             if (pckg.name === 'Spend') {
               let value = getChartDataValueAtDate(pckg, date);
               dailyCampaignSpend += castChartDataValueToNumber(value);
@@ -325,7 +323,7 @@ export function aggregateChartData(
               }
             }
           });
-          dailyCampaignData?.data.map((pckg) => {
+          dailyCampaignData?.data.forEach((pckg) => {
             if (pckg.name === localMetric) {
               let value = getChartDataValueAtDate(pckg, date);
               if (value) {
