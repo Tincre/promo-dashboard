@@ -69,10 +69,10 @@ export const numActiveCampaigns = (
   exclusions: string[] = []
 ) => {
   let activeCampaigns = 0;
-  sortedCampaignsData.map((campaign) => {
+  sortedCampaignsData.forEach((campaign) => {
     const pid = `${campaign.pid}`;
     if (!exclusions.includes(pid)) {
-      campaign.isActive ? (activeCampaigns += 1) : null;
+      if (campaign.isActive) activeCampaigns += 1;
     }
   });
   return activeCampaigns;
