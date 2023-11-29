@@ -7,7 +7,7 @@
 import { useState, useEffect, MouseEvent, ReactNode } from 'react';
 import { IsActivePill } from './IsActivePill';
 import { IsPaidPill } from './IsPaidPill';
-import { CampaignData, CampaignDummyData } from '../lib/types';
+import { CampaignData, CampaignDummyData } from '@tincre/promo-types';
 import { CampaignRepeatButton } from './CampaignRepeatButton';
 import { CampaignSupportButton } from './CampaignSupportButton';
 import { CampaignDeleteButton } from './CampaignDeleteButton';

@@ -4,7 +4,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
-import { CampaignStatsData } from '../lib/types';
+import { CampaignStatsData } from '@tincre/promo-types';
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid';
 
 /* @ts-ignore */

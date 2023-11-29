@@ -9,7 +9,7 @@ import {
   CampaignDummyData,
   DownloadableCampaignStatsSample,
   DownloadableCampaignMetadataSample,
-} from '../lib/types';
+} from '@tincre/promo-types';
 import { useState, useEffect } from 'react';
 import CsvDownload from 'react-json-to-csv';
 import { now } from '../lib/date';

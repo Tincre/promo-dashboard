@@ -9,7 +9,7 @@ import {
   CampaignStatsData,
   CampaignData,
   CampaignDummyData,
-} from '../lib/types';
+} from '@tincre/promo-types';
 import { CampaignsStatsHighlights } from './CampaignsStatsHighlights';
 import { CampaignsChart } from './CampaignsChart';
 import { merge } from '../lib/merge';

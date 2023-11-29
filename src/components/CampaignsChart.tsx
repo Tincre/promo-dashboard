@@ -7,7 +7,7 @@
 import { MouseEvent } from 'react';
 import { CampaignsLineChart } from './CampaignsLineChart';
 import { ChartButton } from './ChartButton';
-import { CampaignStatsData } from '../lib/types';
+import { CampaignStatsData } from '@tincre/promo-types';
 
 export function CampaignsChart({
   timePeriods,

@@ -6,7 +6,7 @@
  */
 import { useEffect, useState, Dispatch, MouseEvent, ChangeEvent } from 'react';
 import { settingsDetailSchema } from '../lib/yup';
-import { Settings } from '../lib/types';
+import { Settings } from '@tincre/promo-types';
 import { Button } from '../components/Button';
 
 export function Profile({

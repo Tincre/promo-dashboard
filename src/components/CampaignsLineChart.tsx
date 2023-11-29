@@ -6,7 +6,6 @@
  */
 import { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
-//import { CampaignData } from '../lib/types';
 import {
   Chart as ChartJS,
   LineElement,

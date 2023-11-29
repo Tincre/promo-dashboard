@@ -12,7 +12,7 @@ import {
   CampaignDummyData,
   CampaignStatsData,
   CampaignMetrics,
-} from '../lib/types';
+} from '@tincre/promo-types';
 import { StatsHighlights } from './StatsHighlights';
 import { CampaignImageChart } from './CampaignImageChart';
 import { DownloadCampaignButton } from './DownloadButton';

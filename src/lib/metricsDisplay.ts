@@ -1,4 +1,4 @@
-import { CampaignMetrics, HeroiconIcon } from '../lib/types';
+import { CampaignMetrics, HeroiconIcon } from '@tincre/promo-types';
 import {
   CursorArrowRaysIcon,
   EnvelopeOpenIcon,

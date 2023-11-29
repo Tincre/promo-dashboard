@@ -5,7 +5,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid';
-import { CampaignStatsData } from '../lib/types';
+import { CampaignStatsData } from '@tincre/promo-types';
 /* @ts-ignore */
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');

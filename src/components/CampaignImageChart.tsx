@@ -10,7 +10,7 @@ import {
   CampaignData,
   CampaignDummyData,
   CampaignStatsData,
-} from '../lib/types';
+} from '@tincre/promo-types';
 
 export function CampaignImageChart({
   data,

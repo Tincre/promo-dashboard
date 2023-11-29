@@ -5,7 +5,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 import { MouseEvent, ReactNode } from 'react';
-import { CampaignData, CampaignDummyData } from '../lib/types';
+import { CampaignData, CampaignDummyData } from '@tincre/promo-types';
 import { ArrowPathIcon } from '@heroicons/react/20/solid';
 
 export function CampaignRepeatButton({

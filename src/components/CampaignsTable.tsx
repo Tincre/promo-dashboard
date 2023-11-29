@@ -1,5 +1,5 @@
-import { useState, MouseEvent, Fragment } from 'react';
-import { CampaignDummyData, CampaignData } from '../lib/types';
+import { useState, MouseEvent } from 'react';
+import { CampaignDummyData, CampaignData } from '@tincre/promo-types';
 import { Transition } from '@headlessui/react';
 
 export function CampaignsTable({
