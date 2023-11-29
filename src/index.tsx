@@ -5,7 +5,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-import { useState, useEffect, MouseEvent } from 'react';
+import { useState, useEffect, MouseEvent, FunctionComponent } from 'react';
 import { Profile } from './components/Profile';
 import { CampaignDetail } from './components/CampaignDetail';
 import { Toaster } from 'react-hot-toast';
@@ -76,7 +76,7 @@ export function PromoDashboard({
   handleCampaignDetailBackClick?: (
     event: MouseEvent<HTMLButtonElement>
   ) => void;
-  PromoChat: React.FunctionComponent<any>;
+  PromoChat: FunctionComponent<any>;
   dashboardOptions?: DashboardOptions;
 }) {
   const [promoData, setPromoData] = useState<
