@@ -21,7 +21,7 @@ import {
   CampaignDummyData,
   CampaignMetrics,
   CampaignSortedData,
-} from './lib/types';
+} from '@tincre/promo-types';
 import { CampaignsSummaryStats } from './components/CampaignsSummaryStats';
 import { Spinner } from './components/Spinner';
 import { CampaignList } from './components/CampaignList';
