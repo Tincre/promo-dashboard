@@ -1,4 +1,4 @@
-import { CampaignData, CampaignDummyData } from './types';
+import { CampaignData, CampaignDummyData } from '@tincre/promo-types';
 
 const EMAILDOMAIN = 'tincre.dev';
 const EMAILLOCALPART = 'team';

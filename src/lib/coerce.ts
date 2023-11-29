@@ -17,7 +17,7 @@ import {
   CampaignDummyData,
   CampaignSortedData,
   CampaignMetrics,
-} from './types';
+} from '@tincre/promo-types';
 
 function generateEmptyPromoApiDataForChartJs(): {
   updatedTime: (string | null)[];
