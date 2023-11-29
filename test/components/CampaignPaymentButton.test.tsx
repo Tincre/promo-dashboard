@@ -2,7 +2,7 @@ import React, { MouseEvent } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CampaignPaymentButton } from '../../src/components/CampaignPaymentButton';
 import { campaignStubData } from '../cms.data';
-import { CampaignData, CampaignDummyData } from '../../src/lib/types';
+import { CampaignData, CampaignDummyData } from '@tincre/promo-types';
 
 describe('CampaignPaymentButton', () => {
   let testData = campaignStubData[0];

@@ -3,7 +3,7 @@ import { screen, render, fireEvent } from '@testing-library/react';
 import { PromoDashboard } from '../src/index';
 import { PromoChat } from '@tincre/promo-chat';
 import { campaignStubData } from './cms.data';
-import { CampaignData, CampaignDummyData, Settings } from '../src/lib/types';
+import { CampaignData, CampaignDummyData, Settings } from '@tincre/promo-types';
 import {
   mockAllIsIntersecting,
   setupIntersectionMocking,
