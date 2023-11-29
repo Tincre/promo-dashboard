@@ -4,7 +4,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
-import { useEffect, useState, Dispatch, MouseEvent } from 'react';
+import { useEffect, useState, Dispatch, MouseEvent, ChangeEvent } from 'react';
 import { settingsDetailSchema } from '../lib/yup';
 import { Settings } from '../lib/types';
 import { Button } from '../components/Button';
@@ -39,8 +39,6 @@ export function Profile({
     userName: userName,
     email: email,
   });
-  const [submitEvent, setSubmitEvent] =
-    useState<MouseEvent<HTMLButtonElement>>();
   useEffect(() => {
     if (typeof setHasUpdatedSettings !== 'undefined') {
       setHasUpdatedSettings(hasUpdatedInternalSettings);
@@ -53,7 +51,7 @@ export function Profile({
     }
   }, [isUpdatingInternalSettings, setIsUpdatingSettings]);
 
-  const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = async (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     try {
       setIsUpdatingInternalSettings(true);
@@ -71,7 +69,6 @@ export function Profile({
     }
   };
   const handleSubmit = async (event: MouseEvent<HTMLButtonElement>) => {
-    setSubmitEvent(event);
     settingsDetailSchema.validate({ ...settingsData }).catch((error: any) => {
       if (error instanceof Error) {
         console.error(`${error.name}: ${error.message}`);
