@@ -6,6 +6,7 @@
  */
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid';
 import { CampaignStatsData } from '@tincre/promo-types';
+import { YouTubeIcon } from './YouTubeIcon';
 /* @ts-ignore */
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -55,7 +56,13 @@ export function CampaignsStatsHighlights({
                   />
                 </div>
                 <p className="ml-8 sm:ml-10 truncate text-xs font-medium md:text-sm lg:text-md xl:text-lg text-gray-600 text-left bg:text-slate-200 dark:text-slate-400 -pt-2">
-                  {item.name}
+                  {item.name === 'Views' ? (
+                    <span className="inline-flex">
+                      Views <YouTubeIcon className="inline-flex h-6 w-6" />
+                    </span>
+                  ) : (
+                    item.name
+                  )}
                 </p>
               </dt>
               <dd className="ml-8 sm:ml-10 flex items-baseline pb-1 sm:pb-2">
