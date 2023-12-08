@@ -279,6 +279,63 @@ See the file `/styles/global.css` in the Next.js example:
 .promo-dashboard-campaign-delete-button {
   @apply absolute -top-2 x-inset-0;
 }
+#promo-dashboard-campaigns-table-button-collapse {
+  @apply relative overflow-hidden rounded-md bg-slate-50 px-2 py-1 text-xs md:text-sm shadow sm:px-3 sm:py-2 hover:bg-slate-200 hover:shadow-lg border border-1 border-transparent dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600 mb-2;
+}
+#promo-dashboard-campaigns-table-container {
+  @apply rounded-md;
+}
+#promo-dashboard-campaigns-table-main {
+  @apply h-[380px] overflow-y-auto overflow-x-hidden border border-gray-50 bg-gray-50 shadow-lg rounded-md group-hover:bg-gray-100 dark:group-hover:bg-slate-900 group-hover:shadow-lg dark:bg-slate-800 dark:border-slate-800;
+}
+#promo-dashboard-campaigns-table-content-container {
+  @apply px-4 sm:px-6 lg:px-8 block;
+}
+#promo-dashboard-campaigns-table-content-margin-container {
+  @apply -mx-4 mt-8 sm:-mx-0;
+}
+#promo-dashboard-campaigns-table {
+  @apply min-w-full divide-y divide-gray-300;
+}
+#promo-dashboard-campaigns-table-column-ads {
+  @apply py-3.5 pl-4 pr-3 pb-2 text-left text-sm font-semibold text-gray-900 sm:pl-0 sticky top-0 bg-gray-50 group-hover:bg-gray-100 select-none dark:bg-slate-800 dark:border-slate-700 dark:group-hover:bg-slate-900 dark:text-slate-100;
+}
+#promo-dashboard-campaigns-table-column-campaign-id {
+  @apply hidden px-3 py-3.5 pb-2 text-left text-sm font-semibold text-gray-900 md:table-cell sticky top-0 bg-gray-50 group-hover:bg-gray-100 select-none dark:bg-slate-800 dark:border-slate-700 dark:group-hover:bg-slate-900 dark:text-slate-100;
+}
+#promo-dashboard-campaigns-table-column-budget {
+  @apply hidden px-3 py-3.5 pb-2 text-left text-sm font-semibold text-gray-900 sm:table-cell sticky top-0 bg-gray-50 group-hover:bg-gray-100 select-none dark:bg-slate-800 dark:border-slate-700 dark:group-hover:bg-slate-900 dark:text-slate-100;
+}
+#promo-dashboard-campaigns-table-column-status {
+  @apply px-3 py-3.5 pb-2 text-left text-sm font-semibold text-gray-900 sticky top-0 bg-gray-50 group-hover:bg-gray-100 select-none dark:bg-slate-800 dark:border-slate-700 dark:group-hover:bg-slate-900 dark:text-slate-100;
+}
+#promo-dashboard-campaigns-table-body {
+  @apply divide-y divide-gray-200 bg-gray-50 group-hover:bg-gray-100 dark:bg-slate-800 dark:border-slate-700 dark:group-hover:bg-slate-900 dark:text-slate-100;
+}
+#promo-dashboard-campaigns-table-row {
+  @apply cursor-pointer hover:text-gray-200 dark:bg-slate-800 dark:group-hover:bg-slate-900;
+}
+#promo-dashboard-campaigns-table-cell-ad-title {
+  @apply w-full max-w-0 py-4 pl-4 pr-3 text-sm font-normal text-gray-800 sm:w-auto sm:max-w-none sm:pl-0 text-left dark:bg-slate-800 dark:border-slate-700 dark:group-hover:bg-slate-900 dark:text-slate-100;
+}
+#promo-dashboard-campaigns-table-cell-pid-small {
+  @apply mt-1 truncate text-gray-700 text-left md:hidden dark:text-slate-100;
+}
+#promo-dashboard-campaigns-table-cell-budget-small {
+  @apply mt-1 truncate text-gray-500 sm:hidden dark:text-slate-200;
+}
+#promo-dashboard-campaigns-table-cell-pid-large {
+  @apply hidden px-3 py-4 text-sm text-gray-500 md:table-cell text-left dark:text-slate-200;
+}
+#promo-dashboard-campaigns-table-cell-budget-large {
+  @apply hidden px-3 py-4 text-sm text-gray-500 sm:table-cell text-left dark:text-slate-200;
+}
+#promo-dashboard-campaigns-table-cell-status {
+  @apply px-3 py-4 text-sm text-gray-500 text-left;
+}
+#promo-dashboard-campaigns-table-bottom-padding {
+  @apply pb-12;
+}
 ```
 
 ## Support
