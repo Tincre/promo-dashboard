@@ -167,7 +167,10 @@ export function CampaignsTable({
             </div>
           </div>
         </div>
-        <div id="promo-dashboard-campaigns-table-bottom-padding" className="pb-12" />
+        <div
+          id="promo-dashboard-campaigns-table-bottom-padding"
+          className="pb-12"
+        />
       </Transition>
     </>
   );
