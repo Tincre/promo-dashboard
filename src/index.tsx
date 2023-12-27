@@ -22,14 +22,12 @@ import {
   CampaignMetrics,
   CampaignSortedData,
 } from '@tincre/promo-types';
+import { useActiveCampaignsNumber } from './lib/hooks/useActiveCampaignsNumber';
 import { CampaignsSummaryStats } from './components/CampaignsSummaryStats';
 import { Spinner } from './components/Spinner';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
-import {
-  sortCampaignDataOnIsActiveAndReceiptIdByDate,
-  numActiveCampaigns,
-} from './lib/sort';
+import { sortCampaignDataOnIsActiveAndReceiptIdByDate } from './lib/sort';
 import { aggregateChartData, replaceDataParamForChartData } from './lib/coerce';
 import { options } from './lib/options';
 import { DownloadAllCampaignsButton } from './components/DownloadButton';
@@ -92,9 +90,6 @@ export function PromoDashboard({
   const [sortedCampaignsData, setSortedCampaignsData] = useState<
     CampaignSortedData[]
   >([]);
-  const [numberOfActiveCampaigns, setNumberOfActiveCampaigns] = useState<
-    number | undefined
-  >(undefined);
   const [statsHighlightTimeseries, setStatsHighlightTimeseries] = useState<
     CampaignStatsData | undefined
   >(undefined);
@@ -114,6 +109,10 @@ export function PromoDashboard({
     profileSettingsData
   );
   const [deletedCampaigns, setDeletedCampaigns] = useState<string[]>([]);
+  let numberOfActiveCampaigns = useActiveCampaignsNumber(
+    sortedCampaignsData,
+    deletedCampaigns
+  );
   useEffect(() => {
     if (typeof campaignsData !== 'undefined') {
       setSortedCampaignsData(
@@ -128,13 +127,7 @@ export function PromoDashboard({
       setPromoData(campaignDetailData);
     }
   }, [campaignDetailData, setPromoData]);
-  useEffect(() => {
-    if (sortedCampaignsData?.length) {
-      setNumberOfActiveCampaigns(
-        numActiveCampaigns(sortedCampaignsData, deletedCampaigns)
-      );
-    }
-  }, [sortedCampaignsData, deletedCampaigns]);
+
   useEffect(() => {
     // set initial timeseries aggregated data
     if (typeof sortedCampaignsData !== 'undefined') {
