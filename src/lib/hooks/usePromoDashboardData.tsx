@@ -29,7 +29,7 @@ export function usePromoDashboardData(
           sortCampaignDataOnIsActiveAndReceiptIdByDate(campaignsData)
         )
       );
-    } else setSortedCampaignsData([]);
+    }
   }, [campaignsData]);
   useEffect(() => {
     if (sortedCampaignsData?.length) {
