@@ -22,13 +22,12 @@ import {
   CampaignMetrics,
   CampaignSortedData,
 } from '@tincre/promo-types';
-import { useActiveCampaignsNumber } from './lib/hooks/useActiveCampaignsNumber';
+import { usePromoDashboardData } from './lib/hooks/usePromoDashboardData';
 import { CampaignsSummaryStats } from './components/CampaignsSummaryStats';
 import { Spinner } from './components/Spinner';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
-import { sortCampaignDataOnIsActiveAndReceiptIdByDate } from './lib/sort';
-import { aggregateChartData, replaceDataParamForChartData } from './lib/coerce';
+import { aggregateChartData } from './lib/coerce';
 import { options } from './lib/options';
 import { DownloadAllCampaignsButton } from './components/DownloadButton';
 import { tourSteps } from './lib/tourSteps';
@@ -87,9 +86,6 @@ export function PromoDashboard({
   const [isCampaignClicked, setIsCampaignClicked] = useState<boolean>(false);
   const [hasUpdatedSettings, setHasUpdatedSettings] = useState<boolean>(false);
   const [isUpdatingSettings, setIsUpdatingSettings] = useState<boolean>(false);
-  const [sortedCampaignsData, setSortedCampaignsData] = useState<
-    CampaignSortedData[]
-  >([]);
   const [statsHighlightTimeseries, setStatsHighlightTimeseries] = useState<
     CampaignStatsData | undefined
   >(undefined);
@@ -109,19 +105,11 @@ export function PromoDashboard({
     profileSettingsData
   );
   const [deletedCampaigns, setDeletedCampaigns] = useState<string[]>([]);
-  let numberOfActiveCampaigns = useActiveCampaignsNumber(
-    sortedCampaignsData,
+  let { sortedCampaignsData, numberOfActiveCampaigns } = usePromoDashboardData(
+    campaignsData,
     deletedCampaigns
   );
-  useEffect(() => {
-    if (typeof campaignsData !== 'undefined') {
-      setSortedCampaignsData(
-        replaceDataParamForChartData(
-          sortCampaignDataOnIsActiveAndReceiptIdByDate(campaignsData)
-        )
-      );
-    }
-  }, [campaignsData, setSortedCampaignsData]);
+
   useEffect(() => {
     if (typeof campaignDetailData !== 'undefined') {
       setPromoData(campaignDetailData);
