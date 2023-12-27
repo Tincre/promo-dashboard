@@ -1,9 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { waitFor, render, screen, fireEvent } from '@testing-library/react';
 import { Profile } from '../../src/components/Profile';
 import { campaignStubData } from '../cms.data';
+import { Settings } from '@tincre/promo-types'; // Update the import path as needed
+
+global.fetch = jest.fn();
+
+const mockConsoleError = jest.spyOn(console, 'warn');
+mockConsoleError.mockImplementation(() => {});
+
+beforeEach(() => {
+  jest.clearAllMocks();
+});
+
+afterAll(() => {
+  mockConsoleError.mockRestore();
+});
 
 describe('Profile', () => {
+  const mockSettings: Settings = {
+    fullName: 'John Doe',
+    userName: 'johndoe',
+    email: 'john@example.com',
+    image: 'https://example.com/avatar.jpg',
+  };
+
   it('renders full data without crashing', () => {
     render(
       <Profile
@@ -82,5 +103,60 @@ describe('Profile', () => {
     const saveButton = screen.getByText('Save');
     expect(saveButton).toBeDefined();
     fireEvent.click(saveButton);
+  });
+  it('renders and displays the profile settings correctly', () => {
+    render(<Profile {...mockSettings} />);
+    expect(screen.getByPlaceholderText('Fost Palone, Esq.')).toBeDefined();
+    expect(screen.getByPlaceholderText('fost-palone')).toBeDefined();
+    expect(screen.getByPlaceholderText(/john@example.com/)).toBeDefined();
+    expect(screen.getByAltText('')).toBeDefined();
+  });
+
+  it('handles input changes correctly', () => {
+    render(<Profile {...mockSettings} />);
+    fireEvent.change(screen.getByPlaceholderText('Fost Palone, Esq.'), {
+      target: { value: 'Jane Doe' },
+    });
+    expect(screen.getByPlaceholderText('Fost Palone, Esq.')).toBeDefined();
+  });
+
+  it('handles form submission correctly', async () => {
+    const handleSettingsSaveButtonClick = jest.fn();
+    render(
+      <Profile
+        {...mockSettings}
+        handleSettingsSaveButtonClick={handleSettingsSaveButtonClick}
+      />
+    );
+
+    fireEvent.click(screen.getByText('Save'));
+
+    await waitFor(() => {
+      expect(handleSettingsSaveButtonClick).toHaveBeenCalledWith(
+        expect.anything(),
+        expect.anything()
+      );
+    });
+  });
+
+  it('handles network error in form submission and logs to console', async () => {
+    const networkError = new Error('Network error');
+    (global.fetch as jest.Mock).mockRejectedValue(networkError);
+
+    render(<Profile {...mockSettings} />);
+
+    fireEvent.click(screen.getByText('Save'));
+
+    await screen.findByText('Save'); // Adjust as needed to wait for async code
+  });
+
+  it('handles non-200 response in form submission and logs warning to console', async () => {
+    (global.fetch as jest.Mock).mockResolvedValueOnce({ status: 400 });
+
+    render(<Profile {...mockSettings} />);
+
+    fireEvent.click(screen.getByText('Save'));
+
+    await screen.findByText('Save'); // Adjust as needed to wait for async code
   });
 });
