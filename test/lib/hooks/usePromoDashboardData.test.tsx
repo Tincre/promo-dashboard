@@ -1,7 +1,10 @@
 import { renderHook, act } from '@testing-library/react';
 import { usePromoDashboardData } from '../../../src/lib/hooks/usePromoDashboardData';
 import { sortCampaignDataOnIsActiveAndReceiptIdByDate } from '../../../src/lib/sort';
-import { replaceDataParamForChartData } from '../../../src/lib/coerce';
+import {
+  aggregateChartData,
+  replaceDataParamForChartData,
+} from '../../../src/lib/coerce';
 import { numActiveCampaigns } from '../../../src/lib/sort';
 
 jest.mock('../../../src/lib/sort', () => ({
@@ -11,6 +14,7 @@ jest.mock('../../../src/lib/sort', () => ({
 
 jest.mock('../../../src/lib/coerce', () => ({
   replaceDataParamForChartData: jest.fn(),
+  aggregateChartData: jest.fn(),
 }));
 
 describe('usePromoDashboardData', () => {
@@ -59,6 +63,7 @@ describe('usePromoDashboardData', () => {
 
     expect(result.current.sortedCampaignsData).toEqual(transformedMockData);
     expect(result.current.numberOfActiveCampaigns).toBe(5);
+    expect(result.current.statsCampaignsData).toBeDefined();
   });
 
   // Additional tests can be written for different scenarios, such as:

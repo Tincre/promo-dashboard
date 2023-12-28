@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import {
   CampaignData,
   CampaignDummyData,
+  CampaignStatsData,
   CampaignSortedData,
 } from '@tincre/promo-types';
 import { sortCampaignDataOnIsActiveAndReceiptIdByDate } from '../sort';
-import { replaceDataParamForChartData } from '../coerce';
+import { replaceDataParamForChartData, aggregateChartData } from '../coerce';
 import { numActiveCampaigns } from '../sort';
 
 /**
@@ -22,6 +23,10 @@ export function usePromoDashboardData(
   const [sortedCampaignsData, setSortedCampaignsData] = useState<
     CampaignSortedData[]
   >([]);
+  const [statsCampaignsData, setStatsCampaignsData] = useState<
+    CampaignStatsData[] | undefined
+  >();
+
   useEffect(() => {
     if (typeof campaignsData !== 'undefined') {
       setSortedCampaignsData(
@@ -38,5 +43,19 @@ export function usePromoDashboardData(
       );
     }
   }, [sortedCampaignsData, deletedCampaigns]);
-  return { sortedCampaignsData, numberOfActiveCampaigns };
+  useEffect(() => {
+    // set initial timeseries aggregated data
+    if (typeof sortedCampaignsData !== 'undefined') {
+      let localStats: CampaignStatsData[] = [];
+      ['Spend', 'Views', 'Clicks', 'CPM', 'CPC', 'CTR', 'CPV'].forEach(
+        (metric, index) => {
+          localStats.push(
+            aggregateChartData(sortedCampaignsData, metric, index)
+          );
+        }
+      );
+      setStatsCampaignsData(localStats);
+    }
+  }, [sortedCampaignsData]);
+  return { sortedCampaignsData, statsCampaignsData, numberOfActiveCampaigns };
 }
