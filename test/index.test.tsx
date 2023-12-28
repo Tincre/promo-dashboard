@@ -1,4 +1,4 @@
-import React, { useState, useEffect, MouseEvent } from 'react';
+import React, { MouseEvent } from 'react';
 import { screen, render, fireEvent } from '@testing-library/react';
 import { PromoDashboard } from '../src/index';
 import { PromoChat } from '@tincre/promo-chat';
@@ -111,15 +111,6 @@ describe('PromoDashboard', () => {
   });
   it('renders the dashboard payment button without crashing', () => {
     mockAllIsIntersecting(true);
-
-    let isDeleteButtonClicked = false;
-    const handleDeleteButtonClick = (
-      event: React.MouseEvent<HTMLButtonElement>,
-      data: CampaignData | CampaignDummyData
-    ) => {
-      isDeleteButtonClicked = true;
-    };
-
     render(
       <PromoDashboard
         PromoChat={PromoChat}
@@ -162,6 +153,7 @@ describe('PromoDashboard', () => {
       event: React.MouseEvent<HTMLButtonElement>,
       data: CampaignData | CampaignDummyData
     ) => {
+      event.preventDefault();
       setPromoData({
         adTitle: data?.adTitle,
         budget: data?.budget,
@@ -222,9 +214,6 @@ describe('PromoDashboard', () => {
 
     let testEvent: MouseEvent<HTMLButtonElement> | undefined = undefined;
     let testData: Settings | undefined = undefined;
-    const setPromoData = (data: any) => data;
-    const isRepeatButtonClicked = false;
-    const setIsRepeatButtonClicked = (tf: boolean) => tf;
     let isCampaignClicked = false;
     let isCampaignDetailBackClicked = false;
     const handleSettingsSaveButtonOnClick = (
@@ -291,5 +280,7 @@ describe('PromoDashboard', () => {
     fireEvent.click(campaignDetailBackButton);
     expect(campaignDetailBackButton).toBeDefined();
     expect(isCampaignDetailBackClicked).toBeTruthy();
+    expect(testEvent).toBeDefined();
+    expect(testData).toBeDefined();
   });
 });
