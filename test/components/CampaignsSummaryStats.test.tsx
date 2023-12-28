@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CampaignsSummaryStats } from '../../src/components/CampaignsSummaryStats'; // Adjust the import path as needed
 import { CampaignData, CampaignStatsData } from '@tincre/promo-types';
-import { campaignStubData, testPromoApiCampaignData } from '../cms.data';
+import { testPromoApiCampaignData } from '../cms.data';
 import { sortCampaignDataOnIsActiveAndReceiptIdByDate } from '../../src/lib/sort';
 import {
   aggregateChartData,
@@ -10,9 +10,10 @@ import {
 } from '../../src/lib/coerce';
 
 class ResizeObserverMock {
+  // eslint-disable-next-line
   private callback: ResizeObserverCallback;
   private observations: Set<Element>;
-
+  // eslint-disable-next-line
   constructor(callback: ResizeObserverCallback) {
     this.callback = callback;
     this.observations = new Set();
@@ -40,11 +41,6 @@ class ResizeObserverMock {
       this
     );
   }
-}
-
-// Extend the global Window interface to include the mock
-interface Window {
-  ResizeObserver: typeof ResizeObserverMock;
 }
 
 // Assign the mock to the global object
