@@ -14,31 +14,8 @@ import { CampaignDeleteButton } from './CampaignDeleteButton';
 import { CampaignPaymentButton } from './CampaignPaymentButton';
 import { getSupportLink } from '../lib/support';
 import { InView } from 'react-intersection-observer';
+import { useCreative } from '../lib/hooks/useCreative';
 
-const VIDEO_EXTENSIONS = [
-  // TODO Move to utils func module
-  'm3u8',
-  'ts',
-  'm2ts',
-  'mts',
-  'mov',
-  'mkv',
-  'mp4',
-  'mpeg',
-  'mpd',
-];
-const getVideoPoster = (creativeUrl: string) =>
-  `${creativeUrl.substring(0, creativeUrl.lastIndexOf('.'))}.webp`;
-const checkIsVideo = (creativeUrl: string) => {
-  // TODO Move to utils func module
-  const extension = creativeUrl
-    .split('/')
-    .slice(-1)[0]
-    .split('.')
-    .slice(-1)[0]
-    .toLowerCase();
-  return VIDEO_EXTENSIONS.includes(extension) ? true : false;
-};
 export function Campaign({
   data,
   handleRepeatButtonOnClick,
@@ -88,9 +65,9 @@ export function Campaign({
   const [isActiveClassName, setIsActiveClassName] = useState<string>('');
   const [dollarAmount, setDollarAmount] = useState<string>('');
   const [supportLink, setSupportLink] = useState<string>('');
-  const [isVideo, setIsVideo] = useState<boolean | undefined>(undefined);
   const [shouldShowCampaignInternal, setShouldShowCampaignInternal] =
     useState<boolean>(shouldShowCampaign || false);
+  const { isVideo, videoPosterUrl } = useCreative(creativeUrl);
   useEffect(() => {
     if (data?.isActive && typeof data?.isActive) {
       setIsActive(data?.isActive);
@@ -117,7 +94,7 @@ export function Campaign({
       setIsPaid(true);
     }
     setSupportLink(getSupportLink(data, emailDomain, emailLocalPart));
-  }, [data]);
+  }, [data, emailDomain, emailLocalPart]);
   useEffect(() => {
     setIsActiveClassName(
       isActive
@@ -125,14 +102,10 @@ export function Campaign({
         : 'group col-span-1 flex flex-col rounded-b-lg rounded-t-sm bg-slate-50 dark:bg-slate-800 text-center shadow-md relative'
     );
   }, [isActive]);
-  useEffect(() => {
-    if (typeof isVideo === 'undefined') {
-      setIsVideo(checkIsVideo(creativeUrl));
-    }
-  }, [isVideo]);
+
   return (
     <InView
-      onChange={(inView, entry) => {
+      onChange={(inView) => {
         if (inView) setShouldShowCampaignInternal(true);
       }}
       triggerOnce={true}
@@ -165,7 +138,7 @@ export function Campaign({
                   preload="none"
                   controls
                   className="mx-auto h-32 w-full flex-shrink-0 rounded-b-md rounded-t-sm object-cover px-2"
-                  poster={getVideoPoster(creativeUrl)}
+                  poster={videoPosterUrl}
                 >
                   <source src={creativeUrl} type="video/mp4" />
                 </video>
