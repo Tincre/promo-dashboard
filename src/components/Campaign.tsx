@@ -188,7 +188,7 @@ export function Campaign({
                   </dd>
                   {dollarAmount !== '' ? (
                     <>
-                      <dt className="sr-only">Budget</dt>
+                      <dt className="sr-only">{`Budget ${budget || ''}`}</dt>
                       <dd className="mt-3">
                         <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-800">
                           {dollarAmount}{' '}
