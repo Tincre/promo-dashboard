@@ -61,7 +61,7 @@ export function CampaignsSummaryStats({
         }) as CampaignStatsData
       );
     }
-  }, [statsHighlightTimeseries]);
+  }, [statsHighlightTimeseries, selectedChartButton]);
   const handleChartButtonOnClick = async (
     event: MouseEvent<HTMLButtonElement>,
     buttonType: string
