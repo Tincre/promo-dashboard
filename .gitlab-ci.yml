@@ -12,10 +12,11 @@ cache:
 before_script:
   - apt-get update -qq && apt-get install
 stages:
-  - unit-test
+  - unit-test-18
+  - unit-test-20
   - test
-unit-test:
-  stage: unit-test
+unit-test-18:
+  stage: unit-test-18
   image: node:18
   tags:
     - cicd
@@ -26,6 +27,19 @@ unit-test:
     - yarn install --frozen-lockfile
   script:
     - yarn run test --ci --coverage --maxWorkers=2
+unit-test-20:
+  stage: unit-test-20
+  image: node:20
+  tags:
+    - cicd
+    - test
+    - tincre
+  before_script:
+    - yarn config set cache-folder .yarn
+    - yarn install --frozen-lockfile
+  script:
+    - yarn run test --ci --coverage --maxWorkers=2
+
 sast:
   cache: {}
   stage: test
