@@ -1,10 +1,7 @@
-import { renderHook, act } from '@testing-library/react';
+import { renderHook } from '@testing-library/react';
 import { usePromoDashboardData } from '../../../src/lib/hooks/usePromoDashboardData';
 import { sortCampaignDataOnIsActiveAndReceiptIdByDate } from '../../../src/lib/sort';
-import {
-  aggregateChartData,
-  replaceDataParamForChartData,
-} from '../../../src/lib/coerce';
+import { replaceDataParamForChartData } from '../../../src/lib/coerce';
 import { numActiveCampaigns } from '../../../src/lib/sort';
 
 jest.mock('../../../src/lib/sort', () => ({
