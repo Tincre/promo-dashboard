@@ -24,6 +24,19 @@ afterAll(() => {
 global.ResizeObserver = require('resize-observer-polyfill');
 
 describe('PromoDashboard', () => {
+  beforeAll(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      })),
+    });
+  });
   it('renders empty array prop without crashing', () => {
     mockAllIsIntersecting(true);
 
@@ -67,8 +80,7 @@ describe('PromoDashboard', () => {
     expect(dashboardButton).toBeDefined();
     fireEvent.click(dashboardButton);
   });
-
-  it('renders the dashboard payment button without crashing', () => {
+  it('renders the dashboard when a campaign delete button is clicked', () => {
     mockAllIsIntersecting(true);
 
     let isDeleteButtonClicked = false;
@@ -89,6 +101,34 @@ describe('PromoDashboard', () => {
     );
     const dashboard = screen.getByLabelText('campaign-fghijklm');
     expect(dashboard).toBeDefined();
+    const dashboardInactiveDeleteButton = screen.getByLabelText(
+      `campaign-delete-${campaignStubData[1].pid}-button`
+    );
+    // delete button
+    expect(dashboardInactiveDeleteButton).toBeDefined();
+    fireEvent.click(dashboardInactiveDeleteButton);
+    expect(isDeleteButtonClicked).toBeTruthy();
+  });
+  it('renders the dashboard payment button without crashing', () => {
+    mockAllIsIntersecting(true);
+
+    let isDeleteButtonClicked = false;
+    const handleDeleteButtonClick = (
+      event: React.MouseEvent<HTMLButtonElement>,
+      data: CampaignData | CampaignDummyData
+    ) => {
+      isDeleteButtonClicked = true;
+    };
+
+    render(
+      <PromoDashboard
+        PromoChat={PromoChat}
+        campaignsData={campaignStubData}
+        handleGeneratePaymentLinkButtonClick={() => null}
+      />
+    );
+    const dashboard = screen.getByLabelText('campaign-fghijklm');
+    expect(dashboard).toBeDefined();
     const dashboardPaymentButton = screen.getByLabelText(
       `campaign-${campaignStubData[1].pid}-payment-button`
     );
@@ -101,7 +141,7 @@ describe('PromoDashboard', () => {
     // delete button
     expect(dashboardInactiveDeleteButton).toBeDefined();
     fireEvent.click(dashboardInactiveDeleteButton);
-    expect(isDeleteButtonClicked).toBeTruthy();
+    //expect(isDeleteButtonClicked).toBeTruthy();
   });
   it('renders full data without crashing', () => {
     mockAllIsIntersecting(true);
