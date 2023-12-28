@@ -5,6 +5,7 @@
  * was removed.
  * */
 type OptionalPropertyNames<T> = {
+  // eslint-disable-next-line no-unused-vars
   [K in keyof T]-?: {} extends { [P in K]: T[K] } ? K : never;
 }[keyof T];
 
