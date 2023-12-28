@@ -116,6 +116,9 @@ export function PromoDashboard({
     }
   }, [statsCampaignsData]);
   useEffect(() => {
+    if (isUpdatingSettings) infoToast('Settings are being updated.');
+  }, [isUpdatingSettings]);
+  useEffect(() => {
     if (hasUpdatedSettings) successToast('Settings successfully updated.');
   }, [hasUpdatedSettings]);
 
