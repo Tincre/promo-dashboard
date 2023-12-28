@@ -4,10 +4,21 @@ import {
   CampaignDummyData,
   CampaignStatsData,
   CampaignSortedData,
+  CampaignMetrics,
 } from '@tincre/promo-types';
 import { sortCampaignDataOnIsActiveAndReceiptIdByDate } from '../sort';
 import { replaceDataParamForChartData, aggregateChartData } from '../coerce';
 import { numActiveCampaigns } from '../sort';
+
+const METRICS: CampaignMetrics[] = [
+  'Spend',
+  'Views',
+  'Clicks',
+  'CPM',
+  'CPC',
+  'CTR',
+  'CPV',
+];
 
 /**
  * usePromoDashboardData
@@ -47,13 +58,9 @@ export function usePromoDashboardData(
     // set initial timeseries aggregated data
     if (typeof sortedCampaignsData !== 'undefined') {
       let localStats: CampaignStatsData[] = [];
-      ['Spend', 'Views', 'Clicks', 'CPM', 'CPC', 'CTR', 'CPV'].forEach(
-        (metric, index) => {
-          localStats.push(
-            aggregateChartData(sortedCampaignsData, metric, index)
-          );
-        }
-      );
+      METRICS.forEach((metric, index) => {
+        localStats.push(aggregateChartData(sortedCampaignsData, metric, index));
+      });
       setStatsCampaignsData(localStats);
     }
   }, [sortedCampaignsData]);
