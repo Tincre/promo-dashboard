@@ -27,7 +27,6 @@ import { CampaignsSummaryStats } from './components/CampaignsSummaryStats';
 import { Spinner } from './components/Spinner';
 import { CampaignList } from './components/CampaignList';
 import { DashboardContainer } from './components/DashboardContainer';
-import { aggregateChartData } from './lib/coerce';
 import { options } from './lib/options';
 import { DownloadAllCampaignsButton } from './components/DownloadButton';
 import { tourSteps } from './lib/tourSteps';
@@ -89,9 +88,6 @@ export function PromoDashboard({
   const [statsHighlightTimeseries, setStatsHighlightTimeseries] = useState<
     CampaignStatsData | undefined
   >(undefined);
-  const [statsCampaignsData, setStatsCampaignsData] = useState<
-    CampaignStatsData[] | undefined
-  >();
   const [clickedStatsClassName, setClickedStatsClassName] = useState<string>(
     options.defaultStatName
   );
@@ -105,31 +101,14 @@ export function PromoDashboard({
     profileSettingsData
   );
   const [deletedCampaigns, setDeletedCampaigns] = useState<string[]>([]);
-  let { sortedCampaignsData, numberOfActiveCampaigns } = usePromoDashboardData(
-    campaignsData,
-    deletedCampaigns
-  );
+  let { sortedCampaignsData, statsCampaignsData, numberOfActiveCampaigns } =
+    usePromoDashboardData(campaignsData, deletedCampaigns);
 
   useEffect(() => {
     if (typeof campaignDetailData !== 'undefined') {
       setPromoData(campaignDetailData);
     }
   }, [campaignDetailData, setPromoData]);
-
-  useEffect(() => {
-    // set initial timeseries aggregated data
-    if (typeof sortedCampaignsData !== 'undefined') {
-      let localStats: CampaignStatsData[] = [];
-      ['Spend', 'Views', 'Clicks', 'CPM', 'CPC', 'CTR', 'CPV'].forEach(
-        (metric, index) => {
-          localStats.push(
-            aggregateChartData(sortedCampaignsData, metric, index)
-          );
-        }
-      );
-      setStatsCampaignsData(localStats);
-    }
-  }, [sortedCampaignsData]);
   useEffect(() => {
     // set initial Spend timeseries aggregated data
     if (typeof statsCampaignsData !== 'undefined') {
