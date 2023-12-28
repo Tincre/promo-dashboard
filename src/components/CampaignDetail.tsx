@@ -54,7 +54,7 @@ export function CampaignDetail({
       copyToClipboardEffect(data?.pid);
       copyToast(`Campaign ID successfully copied to your clipboard.`);
     }
-  }, [hasClickedPid]);
+  }, [hasClickedPid, data?.pid]);
 
   return (
     <>
