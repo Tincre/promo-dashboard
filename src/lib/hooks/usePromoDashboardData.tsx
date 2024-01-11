@@ -25,8 +25,8 @@ const METRICS: CampaignMetrics[] = [
  * @description A React hook that returns the sorted dashboard data and number of active campaigns.
  */
 export function usePromoDashboardData(
-  campaignsData: CampaignData[] | CampaignDummyData[],
-  deletedCampaigns: string[]
+  campaignsData?: CampaignData[] | CampaignDummyData[],
+  deletedCampaigns?: string[]
 ) {
   const [numberOfActiveCampaigns, setNumberOfActiveCampaigns] = useState<
     number | undefined
