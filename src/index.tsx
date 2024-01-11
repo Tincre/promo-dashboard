@@ -32,7 +32,7 @@ import { DownloadAllCampaignsButton } from './components/DownloadButton';
 import { tourSteps } from './lib/tourSteps';
 
 export function PromoDashboard({
-  campaignsData = [],
+  campaignsData,
   campaignDetailData,
   profileSettingsData,
   isLoading,
@@ -45,7 +45,7 @@ export function PromoDashboard({
   PromoChat,
   dashboardOptions,
 }: {
-  campaignsData: CampaignData[] | CampaignDummyData[];
+  campaignsData?: CampaignData[] | CampaignDummyData[];
   campaignDetailData?: CampaignData | CampaignDummyData;
   profileSettingsData?: Settings;
   isLoading?: boolean;
