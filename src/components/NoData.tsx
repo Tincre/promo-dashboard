@@ -10,6 +10,16 @@ const campaignTypes = [
   { name: 'Social growth' },
   { name: 'Video release' },
   { name: 'Purchase conversion' },
+  { name: 'Brand Awareness' },
+  { name: 'Lead Generation' },
+  { name: 'Product Launch' },
+  { name: 'Event Promotion' },
+  { name: 'Content Marketing' },
+  { name: 'Retargeting Ads' },
+  { name: 'Influencer Collaboration' },
+  { name: 'Video Engagement' },
+  { name: 'Flash Sales' },
+  { name: 'Customer Loyalty' },
 ];
 
 export function CampaignType({
@@ -20,12 +30,12 @@ export function CampaignType({
   description?: string;
 }) {
   return (
-    <div className="relative -m-2 flex items-center space-x-4 rounded-xl p-2 focus-within:ring-2 focus-within:ring-indigo-500 hover:bg-slate-100">
+    <div className="relative -m-2 flex items-center space-x-4 rounded-xl p-2 focus-within:ring-2 focus-within:ring-indigo-500 hover:bg-slate-100 hover:scale-105 transition ease-in-out duration-300">
       <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-lg">
         {/*<item.icon className="h-6 w-6 text-white" aria-hidden="true" />*/}
       </div>
       <div>
-        <h3 className="text-sm font-medium text-slate-900">
+        <h4 className="text-sm font-medium text-slate-900">
           <a
             onClick={() => alert(`${name} clicked`)}
             className="focus:outline-none cursor-pointer"
@@ -34,7 +44,7 @@ export function CampaignType({
             <span className="cursor-pointer">{name}</span>
             <span aria-hidden="true"> &rarr;</span>
           </a>
-        </h3>
+        </h4>
         <p className="mt-1 text-sm text-slate-600">{description}</p>
       </div>
     </div>
