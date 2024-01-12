@@ -274,86 +274,93 @@ export function PromoDashboard({
   return (
     <>
       <DashboardContainer isLoading={isLoading}>
-        {typeof campaignsData !== 'undefined' ? <>
-          {!isCampaignClicked ? (
-            <>
-              <div className="inline-flex w-full pb-4 justify-between">
-                {!numberOfActiveCampaigns ? null : (
-                  <h1 className="mt-auto mx-2 text-left align-text-middle text-2xl font-bold dark:text-slate-200">
-                    {numberOfActiveCampaigns} active campaigns
-                  </h1>
-                )}
-                {isLoading ? (
-                  <span className="mt-auto text-center text-2xl ">
-                    <Spinner />
-                  </span>
-                ) : null}
-                <span className="mt-auto mx-2 text-center">
-                  <DownloadAllCampaignsButton
-                    campaignsData={sortedCampaignsData}
-                  />
-                </span>
-              </div>
-
-              {!sortedCampaignsData ? null : (
-                <>
-                  <CampaignsSummaryStats
-                    data={statsCampaignsData}
-                    statsHighlightTimeseries={statsHighlightCampaignsTimeseries}
-                    statsHighlightMetricName={clickedStatsCampaignsClassName}
-                    campaignData={sortedCampaignsData}
-                    isTableCollapsed={dashboardOptions?.isTableCollapsed}
-                    handleCampaignClick={handleCampaignOnClick}
-                    handleCampaignDetailBackOnClick={
-                      handleCampaignDetailBackOnClick
-                    }
-                    handleStatsHighlightClick={
-                      handleStatsHighlightCampaignsClick
-                    }
-                  />
-                  <CampaignList
-                    data={sortedCampaignsData}
-                    handleRepeatButtonOnClick={
-                      typeof handleRepeatButtonClick !== 'undefined'
-                        ? handleRepeatButtonClick
-                        : handleRepeatButtonOnClick
-                    }
-                    handleCampaignClick={handleCampaignOnClick}
-                    handleGeneratePaymentLinkButtonClick={
-                      typeof handleGeneratePaymentLinkButtonClick !==
-                      'undefined'
-                        ? handleGeneratePaymentLinkButtonClick
-                        : handleGeneratePaymentLinkButtonOnClick
-                    }
-                    handleDeleteButtonOnClick={
-                      typeof handleDeleteButtonClick !== 'undefined'
-                        ? handleDeleteButtonClick
-                        : handleDeleteButtonOnClick
-                    }
-                    deletedCampaigns={deletedCampaigns}
-                    dashboardOptions={dashboardOptions}
-                  />
-                  {typeof campaignsData !== 'undefined' ? (
-                    <div className=""></div>
+        {typeof campaignsData !== 'undefined' ? (
+          <>
+            {!isCampaignClicked ? (
+              <>
+                <div className="inline-flex w-full pb-4 justify-between">
+                  {!numberOfActiveCampaigns ? null : (
+                    <h1 className="mt-auto mx-2 text-left align-text-middle text-2xl font-bold dark:text-slate-200">
+                      {numberOfActiveCampaigns} active campaigns
+                    </h1>
+                  )}
+                  {isLoading ? (
+                    <span className="mt-auto text-center text-2xl ">
+                      <Spinner />
+                    </span>
                   ) : null}
-                </>
-              )}
-            </>
-          ) : typeof promoData !== 'undefined' ? (
-            <>
-              <CampaignDetail
-                data={promoData}
-                statsHighlightTimeseries={statsHighlightTimeseries}
-                statsHighlightMetricName={clickedStatsClassName}
-                handleCampaignDetailBackOnClick={
-                  handleCampaignDetailBackOnClick
-                }
-                handleStatsHighlightClick={handleStatsHighlightClick}
-              />
-            </>
-          ) : null}
-        </>: <><NoData />
-    </>}
+                  <span className="mt-auto mx-2 text-center">
+                    <DownloadAllCampaignsButton
+                      campaignsData={sortedCampaignsData}
+                    />
+                  </span>
+                </div>
+
+                {!sortedCampaignsData ? null : (
+                  <>
+                    <CampaignsSummaryStats
+                      data={statsCampaignsData}
+                      statsHighlightTimeseries={
+                        statsHighlightCampaignsTimeseries
+                      }
+                      statsHighlightMetricName={clickedStatsCampaignsClassName}
+                      campaignData={sortedCampaignsData}
+                      isTableCollapsed={dashboardOptions?.isTableCollapsed}
+                      handleCampaignClick={handleCampaignOnClick}
+                      handleCampaignDetailBackOnClick={
+                        handleCampaignDetailBackOnClick
+                      }
+                      handleStatsHighlightClick={
+                        handleStatsHighlightCampaignsClick
+                      }
+                    />
+                    <CampaignList
+                      data={sortedCampaignsData}
+                      handleRepeatButtonOnClick={
+                        typeof handleRepeatButtonClick !== 'undefined'
+                          ? handleRepeatButtonClick
+                          : handleRepeatButtonOnClick
+                      }
+                      handleCampaignClick={handleCampaignOnClick}
+                      handleGeneratePaymentLinkButtonClick={
+                        typeof handleGeneratePaymentLinkButtonClick !==
+                        'undefined'
+                          ? handleGeneratePaymentLinkButtonClick
+                          : handleGeneratePaymentLinkButtonOnClick
+                      }
+                      handleDeleteButtonOnClick={
+                        typeof handleDeleteButtonClick !== 'undefined'
+                          ? handleDeleteButtonClick
+                          : handleDeleteButtonOnClick
+                      }
+                      deletedCampaigns={deletedCampaigns}
+                      dashboardOptions={dashboardOptions}
+                    />
+                    {typeof campaignsData !== 'undefined' ? (
+                      <div className=""></div>
+                    ) : null}
+                  </>
+                )}
+              </>
+            ) : typeof promoData !== 'undefined' ? (
+              <>
+                <CampaignDetail
+                  data={promoData}
+                  statsHighlightTimeseries={statsHighlightTimeseries}
+                  statsHighlightMetricName={clickedStatsClassName}
+                  handleCampaignDetailBackOnClick={
+                    handleCampaignDetailBackOnClick
+                  }
+                  handleStatsHighlightClick={handleStatsHighlightClick}
+                />
+              </>
+            ) : null}
+          </>
+        ) : (
+          <>
+            <NoData />
+          </>
+        )}
         <Profile
           setHasUpdatedSettings={setHasUpdatedSettings}
           setIsUpdatingSettings={setIsUpdatingSettings}
