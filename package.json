@@ -37,7 +37,7 @@
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": ">=2.0",
     "@tincre/promo-chat": ">=0.0.12",
-    "@tincre/promo-types": ">=0.0.2",
+    "@tincre/promo-types": ">=0.0.4",
     "chart.js": ">=3.9",
     "react": ">=16",
     "react-chartjs-2": ">=4.3",
