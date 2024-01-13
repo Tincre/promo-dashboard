@@ -32,11 +32,22 @@ const iconMap = new Map([
   ['megaphone', MegaphoneIcon],
 ]);
 
-function NoDataBaseCampaignButton() {
+function NoDataBaseCampaignButton({
+  handleCampaignTypeButtonClick,
+}: {
+  handleCampaignTypeButtonClick?: (
+    event: MouseEvent<HTMLButtonElement>,
+    campaignType?: string
+  ) => void;
+}) {
   return (
     <div className="mt-4 flex text-indigo-600 hover:text-indigo-500">
       <button
-        onClick={() => alert('Base campaign button clicked')}
+        onClick={(event) =>
+          typeof handleCampaignTypeButtonClick !== 'undefined'
+            ? handleCampaignTypeButtonClick(event, 'default')
+            : null
+        }
         className="text-sm font-medium text-indigo-600 hover:text-indigo-500 hover:scale-105 transition ease-in-out duration-300"
       >
         Or run any type of ad campaign <Arrow />
@@ -139,7 +150,9 @@ export function NoData({
             );
           })}
         </ul>
-        <NoDataBaseCampaignButton />
+        <NoDataBaseCampaignButton
+          handleCampaignTypeButtonClick={handleCampaignTypeButtonClick}
+        />
       </div>
     </>
   );
