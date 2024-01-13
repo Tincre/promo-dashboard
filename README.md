@@ -14,6 +14,7 @@ A dashboard for Tincre [Promo](https://tincre.dev/promo). Use it in conjunction 
         - [`isLoading`](#isLoading)
         - [`campaignDetailData`](#campaigndetaildata)
         - [`handleRepeatButtonClick`](#handlerepeatbuttonclick)
+        - [`handleCampaignTypeButtonOnClick`](#handlecampaigntypebuttononclick)
         - [`handleSubmitSaveButtonClick`](#handlesubmitsavebuttonclick)
         - [`profileSettingsData`](#profilesettingsdata)
         - [`dashboardOptions`](#dashboardoptions)
@@ -164,6 +165,43 @@ export default Index() {
   </div>
 };
 
+```
+
+##### `handleCampaignTypeButtonClick`
+
+Applications consuming this library can (and should) customize how the initial
+user screen campaign type buttons are handled. The default behavior is to do nothing.
+
+This handler accepts the button click `event` and an `eventName` string parameter, where the `eventName` event name provided to the function is the modified value of the `name` property on the `CampaignType` type element of the array.
+
+In particular, the name is modified using
+
+```js
+name.toLocaleLowerCase().replace(/(\s)/g, '-');
+```
+
+> For example, the name `"Engagement campaign"` will be passed into the function as `"engagement-campaign"`.
+
+These events can be customized using the `dashboardOptions.campaignTypes` array
+property.
+
+A complete example:
+
+```tsx
+import { MouseEvent } from 'react';
+
+export function MyApp() {
+  const handleCampaignTypeButtonClick = (
+    event: MouseEvent<HTMLButtonElement>,
+    eventName: string,
+  ) => {
+    // do whatevs, like open up the Promo Button
+    console.log(`${eventName} clicked!`);
+  }
+  render <PromoDashboard
+    handleCampaignTypeButtonOnClick={handleCampaignTypeButtonClick}
+  />
+}
 ```
 
 ##### `handleSubmitSaveButtonClick`
