@@ -259,6 +259,7 @@ For example,
     promoChatAgentName?: string;
     promoChatInputMessagePlaceholder?: string;
     promoChatExecuteRecaptcha?: (action: string) => Promise<string>;
+    campaignTypes?: CampaignType[];
   }}
 />
 ```
@@ -272,6 +273,28 @@ You can also control whether the table is initially collapsed or not via the opt
     isTableCollapsed: true,
   }}
 />
+```
+
+The `CampaignType` object above is shaped as follows
+
+```ts
+type CampaignType = {
+  name: string;
+  description?: string;
+  icon?:
+    | 'eye'
+    | 'magnifying-glass'
+    | 'rocket-launch'
+    | 'calendar'
+    | 'newspaper'
+    | 'arrow-uturn-left'
+    | 'user-group'
+    | 'video-camera'
+    | 'tag'
+    | 'heart'
+    | 'megaphone';
+  color?: string;
+};
 ```
 
 #### Backend
