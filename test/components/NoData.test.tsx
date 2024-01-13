@@ -4,7 +4,12 @@ import { NoData } from '../../src/components/NoData';
 
 describe('<NoData />', () => {
   const mockCampaignTypes = [
-    { name: 'Type1', description: 'Description1', icon: 'Icon1', color: 'Color1' },
+    {
+      name: 'Type1',
+      description: 'Description1',
+      icon: 'Icon1',
+      color: 'Color1',
+    },
     { name: 'Type2' },
   ];
 
@@ -13,7 +18,11 @@ describe('<NoData />', () => {
   it('renders without crashing', () => {
     render(<NoData campaignTypes={[]} />);
     expect(screen.getByText('Create a campaign')).toBeDefined();
-    expect(screen.getByText("Press a campaign type to start the easiest ad campaign you've ever run.")).toBeDefined();
+    expect(
+      screen.getByText(
+        "Press a campaign type to start the easiest ad campaign you've ever run."
+      )
+    ).toBeDefined();
   });
 
   it('displays campaign types correctly', () => {
@@ -23,10 +32,35 @@ describe('<NoData />', () => {
   });
 
   it('calls handleCampaignTypeButtonClick when a campaign type button is clicked', () => {
-    render(<NoData campaignTypes={mockCampaignTypes} handleCampaignTypeButtonClick={mockHandleCampaignTypeButtonClick} />);
-    
+    render(
+      <NoData
+        campaignTypes={mockCampaignTypes}
+        handleCampaignTypeButtonClick={mockHandleCampaignTypeButtonClick}
+      />
+    );
+
     // Assuming CampaignType renders a button or clickable element with the campaign name
     fireEvent.click(screen.getByText('Type1'));
-    expect(mockHandleCampaignTypeButtonClick).toHaveBeenCalledWith(expect.anything(), 'type1');
+    expect(mockHandleCampaignTypeButtonClick).toHaveBeenCalledWith(
+      expect.anything(),
+      'type1'
+    );
+  });
+  it('calls handleCampaignTypeButtonClick with "default" when NoDataBaseCampaignButton is clicked', () => {
+    render(
+      <NoData
+        campaignTypes={[]}
+        handleCampaignTypeButtonClick={mockHandleCampaignTypeButtonClick}
+      />
+    );
+
+    // Assuming the button text in NoDataBaseCampaignButton is unique and identifiable
+    const button = screen.getByText(/Or run any type of ad campaign/i);
+    fireEvent.click(button);
+
+    expect(mockHandleCampaignTypeButtonClick).toHaveBeenCalledWith(
+      expect.anything(),
+      'default'
+    );
   });
 });
