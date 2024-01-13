@@ -14,7 +14,7 @@ A dashboard for Tincre [Promo](https://tincre.dev/promo). Use it in conjunction 
         - [`isLoading`](#isLoading)
         - [`campaignDetailData`](#campaigndetaildata)
         - [`handleRepeatButtonClick`](#handlerepeatbuttonclick)
-        - [`handleCampaignTypeButtonOnClick`](#handlecampaigntypebuttononclick)
+        - [`handleCampaignTypeButtonClick`](#handlecampaigntypebuttonclick)
         - [`handleSubmitSaveButtonClick`](#handlesubmitsavebuttonclick)
         - [`profileSettingsData`](#profilesettingsdata)
         - [`dashboardOptions`](#dashboardoptions)
@@ -199,7 +199,7 @@ export function MyApp() {
     console.log(`${eventName} clicked!`);
   }
   render <PromoDashboard
-    handleCampaignTypeButtonOnClick={handleCampaignTypeButtonClick}
+    handleCampaignTypeButtonClick={handleCampaignTypeButtonClick}
   />
 }
 ```
