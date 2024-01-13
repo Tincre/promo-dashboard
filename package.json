@@ -68,7 +68,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@tincre/promo-chat": "^0.0.15",
-    "@tincre/promo-types": "^0.0.2",
+    "@tincre/promo-types": "^0.0.4",
     "@tsconfig/create-react-app": "^1.0.2",
     "@tsconfig/recommended": "^1.0.1",
     "@types/node": "^18.11.9",
