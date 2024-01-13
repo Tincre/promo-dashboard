@@ -4,7 +4,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import {
   EyeIcon,
   MagnifyingGlassIcon,
@@ -18,56 +18,20 @@ import {
   HeartIcon,
   MegaphoneIcon,
 } from '@heroicons/react/24/outline';
-const campaignTypes = [
-  {
-    name: 'Lead Generation',
-    description: 'Attract and acquire potential customers',
-    icon: 'magnifying-glass',
-    color: 'bg-violet-500',
-  },
-  {
-    name: 'Product Launch',
-    description: 'Introduce new products to market',
-    icon: 'rocket-launch',
-    color: 'bg-orange-500',
-  },
-  {
-    name: 'Event Promotion',
-    description: 'Advertise events to increase attendance',
-    icon: 'calendar',
-    color: 'bg-zinc-500',
-  },
-  {
-    name: 'Content Marketing',
-    description: 'Engage audience with valuable content',
-    icon: 'newspaper',
-    color: 'bg-teal-500',
-  },
-  {
-    name: 'Retargeting Ads',
-    description: 'Re-engage visitors with targeted ads',
-    icon: 'arrow-uturn-left',
-    color: 'bg-yellow-400',
-  },
-  {
-    name: 'Video Engagement',
-    description: 'Create engaging video content ads',
-    icon: 'video-camera',
-    color: 'bg-green-500',
-  },
-  {
-    name: 'Flash Sales',
-    description: 'Promote limited-time discount offers',
-    icon: 'tag',
-    color: 'bg-red-600',
-  },
-  {
-    name: 'Brand Awareness',
-    description: 'Boost brand recognition and visibility',
-    icon: 'eye',
-    color: 'bg-blue-500',
-  },
-];
+const iconMap = new Map([
+  ['eye', EyeIcon],
+  ['magnifying-glass', MagnifyingGlassIcon],
+  ['rocket-launch', RocketLaunchIcon],
+  ['calendar', CalendarIcon],
+  ['newspaper', NewspaperIcon],
+  ['arrow-uturn-left', ArrowUturnLeftIcon],
+  ['user-group', UserGroupIcon],
+  ['video-camera', VideoCameraIcon],
+  ['tag', TagIcon],
+  ['heart', HeartIcon],
+  ['megaphone', MegaphoneIcon],
+]);
+
 function NoDataBaseCampaignButton() {
   return (
     <div className="mt-4 flex text-indigo-600 hover:text-indigo-500">
@@ -84,30 +48,21 @@ export function Arrow() {
   return <span aria-hidden="true"> &rarr;</span>;
 }
 
-const iconMap = new Map([
-  ['eye', EyeIcon],
-  ['magnifying-glass', MagnifyingGlassIcon],
-  ['rocket-launch', RocketLaunchIcon],
-  ['calendar', CalendarIcon],
-  ['newspaper', NewspaperIcon],
-  ['arrow-uturn-left', ArrowUturnLeftIcon],
-  ['user-group', UserGroupIcon],
-  ['video-camera', VideoCameraIcon],
-  ['tag', TagIcon],
-  ['heart', HeartIcon],
-  ['megaphone', MegaphoneIcon],
-]);
-
 export function CampaignType({
   name,
   description,
   color,
   icon,
+  handleCampaignTypeButtonClick,
 }: {
   name: string;
   description?: string;
   color?: string;
   icon?: string;
+  handleCampaignTypeButtonClick?: (
+    event: MouseEvent<HTMLButtonElement>,
+    campaignType?: string
+  ) => void;
 }) {
   const iconClassName = color
     ? `${color} flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-lg`
@@ -121,7 +76,14 @@ export function CampaignType({
       <div>
         <h4 className="text-sm font-medium text-slate-900 cursor-pointer">
           <button
-            onClick={() => alert(`${name} clicked`)}
+            onClick={(event) =>
+              handleCampaignTypeButtonClick !== undefined
+                ? handleCampaignTypeButtonClick(
+                    event,
+                    name.toLocaleLowerCase().replace(/(\s)/g, '-')
+                  )
+                : null
+            }
             className="focus:outline-none cursor-pointer"
           >
             <span className="absolute inset-0" aria-hidden="true" />
@@ -136,7 +98,21 @@ export function CampaignType({
     </div>
   );
 }
-export function NoData({}) {
+export function NoData({
+  campaignTypes,
+  handleCampaignTypeButtonClick,
+}: {
+  campaignTypes: {
+    name: string;
+    description?: string;
+    icon?: string;
+    color?: string;
+  }[];
+  handleCampaignTypeButtonClick?: (
+    event: MouseEvent<HTMLButtonElement>,
+    campaignType?: string
+  ) => void;
+}) {
   return (
     <>
       <h3 className="leading-5 text-base font-bold text-slate-900">
@@ -157,6 +133,7 @@ export function NoData({}) {
                   description={campaignType?.description}
                   icon={campaignType?.icon}
                   color={campaignType?.color}
+                  handleCampaignTypeButtonClick={handleCampaignTypeButtonClick}
                 />
               </li>
             );
