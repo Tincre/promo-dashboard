@@ -38,6 +38,7 @@ export function PromoDashboard({
   profileSettingsData,
   isLoading,
   handleRepeatButtonClick,
+  handleCampaignTypeButtonClick,
   handleSettingsSaveButtonClick,
   handleGeneratePaymentLinkButtonClick,
   handleDeleteButtonClick,
@@ -53,6 +54,10 @@ export function PromoDashboard({
   handleRepeatButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
     campaignDetailData: CampaignData | CampaignDummyData
+  ) => void;
+  handleCampaignTypeButtonClick?: (
+    event: MouseEvent<HTMLButtonElement>,
+    campaignType?: string
   ) => void;
   handleSettingsSaveButtonClick?: (
     event: MouseEvent<HTMLButtonElement>,
@@ -89,6 +94,9 @@ export function PromoDashboard({
   const [statsHighlightTimeseries, setStatsHighlightTimeseries] = useState<
     CampaignStatsData | undefined
   >(undefined);
+  const [defaultCampaignTypeContent, setDefaultCampaignTypeContent] = useState<
+    { name: string; description?: string; icon?: string; color?: string }[]
+  >([...options.campaignTypes, ...(dashboardOptions?.campaignTypes || [])]);
   const [clickedStatsClassName, setClickedStatsClassName] = useState<string>(
     options.defaultStatName
   );
@@ -133,6 +141,10 @@ export function PromoDashboard({
     setStatsHighlightCampaignsTimeseries(campaignData);
     setClickedStatsCampaignsClassName(campaignData.name || 'Spend');
   };
+  const handleCampaignTypeButtonOnClick = (
+    event: MouseEvent<HTMLButtonElement>,
+    eventType?: string
+  ) => {};
   const handleRepeatButtonOnClick = (
     event: MouseEvent<HTMLButtonElement>,
     data: CampaignData | CampaignDummyData
@@ -358,7 +370,12 @@ export function PromoDashboard({
           </>
         ) : (
           <>
-            <NoData />
+            <NoData
+              campaignTypes={defaultCampaignTypeContent}
+              handleCampaignTypeButtonClick={
+                handleCampaignTypeButtonClick || handleCampaignTypeButtonOnClick
+              }
+            />
           </>
         )}
         <Profile
