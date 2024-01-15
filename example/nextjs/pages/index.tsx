@@ -1,8 +1,8 @@
 import { useState, useEffect, MouseEvent } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { PromoDashboard } from '@tincre/promo-dashboard';
-//import { PromoDashboard } from '../../../dist';
+//import { PromoDashboard } from '@tincre/promo-dashboard';
+import { PromoDashboard } from '../../../dist';
 import { PromoChat } from '@tincre/promo-chat';
 //import { campaignStubData } from '../cms.data';
 import { campaignStubData } from '../test.data';
@@ -10,8 +10,11 @@ import { useTour } from '@reactour/tour';
 
 const Home: NextPage = () => {
   const [isRepeatButtonClicked, setIsRepeatButtonClicked] = useState(false);
-  const [promoData, setPromoData] = useState({});
+  const [promoData, setPromoData] = useState<
+    undefined | typeof campaignStubData
+  >(undefined);
   const [isLoading, setIsLoading] = useState(true);
+
   const { setIsOpen } = useTour();
   const handleRepeatButtonClick = (
     event: MouseEvent<HTMLButtonElement>,
@@ -24,9 +27,6 @@ const Home: NextPage = () => {
     setPromoData({ ...data });
     console.debug(`handleRepeatButtonClick::data ${JSON.stringify(data)}`);
   };
-  useEffect(() => {
-    console.debug(`useEffect::promoData::${JSON.stringify(promoData)}`);
-  }, [promoData]);
 
   useEffect(() => {
     console.debug(`useEffect::isRepeatButtonClicked::${isRepeatButtonClicked}`);
@@ -91,11 +91,27 @@ const Home: NextPage = () => {
               isLoading
             </button>
           </p>
+          <p className="pt-4">
+            <button
+              onClick={() => {
+                if (typeof promoData === 'undefined')
+                  setPromoData(campaignStubData);
+                else setPromoData(undefined);
+              }}
+              className="text-indigo-50 hover:text-indigo-900 border border-1 border-indigo-700 hover:border-indigo-300 py-3 px-5 rounded-md hover:bg-indigo-100 hover:text-indigo-700 bg-indigo-700"
+            >
+              Toggle data
+            </button>
+          </p>
         </div>
         <PromoDashboard
-          campaignsData={campaignStubData /* @ts-ignore */}
+          campaignsData={promoData}
           handleRepeatButtonClick={handleRepeatButtonClick /* @ts-ignore */}
-          isLoading={isLoading}
+          handleCampaignTypeButtonClick={(event, campaignType) => {
+            event.preventDefault();
+            alert(`${campaignType} clicked!`);
+          }}
+          isLoading={false}
           PromoChat={PromoChat}
         />
       </div>
