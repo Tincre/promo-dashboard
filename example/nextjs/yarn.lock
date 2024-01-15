@@ -316,20 +316,20 @@
   resolved "https://registry.yarnpkg.com/@tincre/promo-chat/-/promo-chat-0.0.15.tgz#952977f911810cb747675814f79185d433b7bfce"
   integrity sha512-Xc+FOKxS4xv1fjWSMMp5FHT1wd+J7O9HuvjzH3SUI9wMmU3BjIDXx3a5GaeVT8aBMtc9lXlNytr1cl5pALwnHA==
 
-"@tincre/promo-dashboard@^0.13.0":
-  version "0.13.3"
-  resolved "https://registry.yarnpkg.com/@tincre/promo-dashboard/-/promo-dashboard-0.13.3.tgz#287a1ddc47969bcbb6d07efb58e395859fc008fc"
-  integrity sha512-QeKsWC2fz0Ks/rjlPsfre3IB/4eOLqujI9yqTYPPWm9KVDQFGRYa6ohpsodg9x+/xSK8wUubJTH8/wiI6KER7Q==
+"@tincre/promo-dashboard@^0.13.4":
+  version "0.13.4"
+  resolved "https://registry.yarnpkg.com/@tincre/promo-dashboard/-/promo-dashboard-0.13.4.tgz#f4d6594fff2f8808e2891efb07ef0c964ce3a788"
+  integrity sha512-K8UcAYHf/GQhhcxP6alXIJEy9s0HEh7yQBT6XHO0AixKItVYmBEHXJY7F3GFhPmhZsDV6wQ0qvFXyBq2+9P4Hw==
 
 "@tincre/promo-types@>=0.0.3":
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@tincre/promo-types/-/promo-types-0.0.3.tgz#98e1529ec818d5ddf2935d12173b751077425a5e"
   integrity sha512-hYKTCRArIbiOEH1CU0I1y7m9rePdZykquZVyOJUg32s0idU90oNfukYdKs4HpeeroPKMlY+jL+2miNuXRrtZ4w==
 
-"@tincre/promo-types@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@tincre/promo-types/-/promo-types-0.0.2.tgz#e4ae7dd425ba00eca432f4fc8091cbf90f1126ff"
-  integrity sha512-jAeRIuZTzl54g/fybtYb9mtfwVzSMdascYczW5MJjpTa9mlmQbuCo/omtySWCmZTp0GGZWRi61kpSagcwN4yvQ==
+"@tincre/promo-types@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@tincre/promo-types/-/promo-types-0.0.4.tgz#39a3a5b14cf11a3c08b7cdb7a94f919c53314f37"
+  integrity sha512-I1dtWuN2qNlHADOnCsSEwraeL58UdKWt0p4NY1jFW6V/ZqIOfp3c/Nt+vyJbBCedS81f9poJhzfzbQ5AD91dsA==
 
 "@types/json5@^0.0.29":
   version "0.0.29"
@@ -2609,6 +2609,7 @@ streamsearch@^1.1.0:
   integrity sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0:
+  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
