@@ -94,7 +94,7 @@ export function PromoDashboard({
   const [statsHighlightTimeseries, setStatsHighlightTimeseries] = useState<
     CampaignStatsData | undefined
   >(undefined);
-  const [defaultCampaignTypeContent, setDefaultCampaignTypeContent] = useState<
+  const [defaultCampaignTypeContent] = useState<
     { name: string; description?: string; icon?: string; color?: string }[]
   >([...options.campaignTypes, ...(dashboardOptions?.campaignTypes || [])]);
   const [clickedStatsClassName, setClickedStatsClassName] = useState<string>(
