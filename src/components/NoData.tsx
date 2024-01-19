@@ -126,10 +126,10 @@ export function NoData({
 }) {
   return (
     <>
-      <h3 className="leading-5 text-base font-bold text-slate-900">
+      <h3 className="leading-5 text-base font-bold text-slate-900 dark:text-slate-100">
         Create a campaign
       </h3>
-      <p className="pb-6">{`Press a campaign type to start the easiest ad campaign you've ever run.`}</p>
+      <p className="pb-6 dark:text-slate-300">{`Press a campaign type to start the easiest ad campaign you've ever run.`}</p>
       <div className="border-t border-gray-200 pb-6 pt-6">
         <ul
           role="list"
