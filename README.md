@@ -1,8 +1,8 @@
-# promo-dashboard, by [Tincre`.dev`](https://tincre.dev/)
+# promo-dashboard, by [Tincre`.dev`](https://tincre.com/)
 
-A dashboard for Tincre [Promo](https://tincre.dev/promo). Use it in conjunction with the [`promo-button`](https://github.com/Tincre/promo-button).
+A dashboard for Tincre [Promo](https://tincre.com/). Use it in conjunction with the [`promo-button`](https://github.com/Tincre/promo-button).
 
-- [promo-dashboard, by Tincre`.dev`](#promo-dashboard-by-tincredev)
+- [promo-dashboard, by Tincre](#promo-dashboard-by-tincre)
   - [Installation](#installation)
     - [Yarn](#yarn)
     - [Npm](#npm)
@@ -11,8 +11,8 @@ A dashboard for Tincre [Promo](https://tincre.dev/promo). Use it in conjunction 
     - [Usage](#usage)
       - [Frontend](#frontend)
         - [`campaignsData`](#campaignsdata)
-        - [`isLoading`](#isLoading)
         - [`campaignDetailData`](#campaigndetaildata)
+        - [`isLoading`](#isloading)
         - [`handleRepeatButtonClick`](#handlerepeatbuttonclick)
         - [`handleCampaignTypeButtonClick`](#handlecampaigntypebuttonclick)
         - [`handleSubmitSaveButtonClick`](#handlesubmitsavebuttonclick)
@@ -245,7 +245,7 @@ For example,
 
 Users can customize some behavior within the dashboard, such as the support email domain and the local email part.
 
-> ℹ️ There are two customizable portions in `team@tincre.dev`, the **local part**, i.e. `team` and the **email domain**, i.e. `tincre.dev`.
+> ℹ️ There are two customizable portions in `team@tincre.com`, the **local part**, i.e. `team` and the **email domain**, i.e. `tincre.com`.
 
 For example,
 
