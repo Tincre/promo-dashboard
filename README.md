@@ -243,13 +243,15 @@ For example,
 
 ##### `dashboardOptions`
 
-Users can customize some behavior within the dashboard, such as the support email domain and the local email part.
+Users can customize some behavior within the dashboard, such as the support email domain and the local email part. The default options object can be imported directly for ease of use.
 
 > ℹ️ There are two customizable portions in `team@tincre.com`, the **local part**, i.e. `team` and the **email domain**, i.e. `tincre.com`.
 
 For example,
 
 ```jsx
+import { options } from '@tincre/promo-dashboard'
+
 <PromoDashboard
   dashboardOptions={{
     emailDomain: 'tincre.com',
@@ -259,7 +261,7 @@ For example,
     promoChatAgentName?: string;
     promoChatInputMessagePlaceholder?: string;
     promoChatExecuteRecaptcha?: (action: string) => Promise<string>;
-    campaignTypes?: CampaignType[];
+    campaignTypes?: options?.campaignTypes;
   }}
 />
 ```
