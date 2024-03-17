@@ -141,6 +141,12 @@ export function Campaign({
                   poster={videoPosterUrl}
                 >
                   <source src={creativeUrl} type="video/mp4" />
+                  {creativeUrl.endsWith('.mov') ? (
+                    <source
+                      src={creativeUrl.replace('.mov', '.mp4') || ''}
+                      type="video/mp4"
+                    />
+                  ) : null}
                 </video>
               )}
               <h3 className="mt-6 text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-slate-200 truncate">

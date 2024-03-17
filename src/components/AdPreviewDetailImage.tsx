@@ -25,6 +25,12 @@ export function AdPreviewDetailImage({ creativeUrl }: { creativeUrl: string }) {
           poster={videoPosterUrl}
         >
           <source src={internalCreativeUrl} type="video/mp4" />
+          {internalCreativeUrl.endsWith('.mov') ? (
+            <source
+              src={internalCreativeUrl.replace('.mov', '.mp4') || ''}
+              type="video/mp4"
+            />
+          ) : null}
         </video>
       )}
     </div>
