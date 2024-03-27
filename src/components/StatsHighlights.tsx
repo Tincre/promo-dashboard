@@ -80,15 +80,29 @@ export function StatsHighlights({
                   )}
                 >
                   {item.changeType === 'increase' ? (
-                    <ArrowUpIcon
-                      className="h-5 w-5 flex-shrink-0 self-center text-green-600 dark:text-green-400"
-                      aria-hidden="true"
-                    />
+                    !['CPM', 'CPC', 'CPV'].includes(item.name) ? (
+                      <ArrowUpIcon
+                        className="h-5 w-5 flex-shrink-0 self-center text-green-600 dark:text-green-400"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <ArrowDownIcon
+                        className="h-5 w-5 flex-shrink-0 self-center text-green-600 dark:text-green-400"
+                        aria-hidden="true"
+                      />
+                    )
                   ) : item.changeType !== 'same' ? (
-                    <ArrowDownIcon
-                      className="h-5 w-5 flex-shrink-0 self-center text-red-600 dark:text-red-400"
-                      aria-hidden="true"
-                    />
+                    !['CPM', 'CPC', 'CPV'].includes(item.name) ? (
+                      <ArrowDownIcon
+                        className="h-5 w-5 flex-shrink-0 self-center text-red-600 dark:text-red-400"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <ArrowUpIcon
+                        className="h-5 w-5 flex-shrink-0 self-center text-red-600 dark:text-red-400"
+                        aria-hidden="true"
+                      />
+                    )
                   ) : null}
 
                   <span className="sr-only">
