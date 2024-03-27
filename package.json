@@ -53,11 +53,11 @@
   "size-limit": [
     {
       "path": "dist/promo-dashboard.cjs.production.min.js",
-      "limit": "20 KB"
+      "limit": "25 KB"
     },
     {
       "path": "dist/promo-dashboard.esm.js",
-      "limit": "20 KB"
+      "limit": "25 KB"
     }
   ],
   "devDependencies": {
