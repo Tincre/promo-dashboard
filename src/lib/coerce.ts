@@ -91,9 +91,15 @@ export function computeChange(data: (string | number | null)[]) {
   }
   return 0;
 }
-export function computeChangeType(changeAmount: number) {
+export function computeChangeType(
+  changeAmount: number,
+  isOpposite: boolean = false
+) {
   if (changeAmount !== 0) {
-    return changeAmount < 0 ? 'decrease' : 'increase';
+    if (!isOpposite) {
+      return changeAmount < 0 ? 'decrease' : 'increase';
+    }
+    return changeAmount < 0 ? 'increase' : 'decrease';
   }
   return 'same';
 }
@@ -183,7 +189,7 @@ export function prepareChartData(chartJsData: {
       stat: cpmStat,
       icon: EnvelopeOpenIcon,
       change: computeChange(chartJsData.cpm).toFixed(2),
-      changeType: computeChangeType(computeChange(chartJsData.cpm)),
+      changeType: computeChangeType(computeChange(chartJsData.cpm), true),
       chartData: {
         labels: chartJsData.updatedTime,
         data: chartJsData.cpm,
@@ -207,7 +213,7 @@ export function prepareChartData(chartJsData: {
       stat: cpcStat,
       icon: CursorArrowRaysIcon,
       change: computeChange(chartJsData.cpc).toFixed(2),
-      changeType: computeChangeType(computeChange(chartJsData.cpc)),
+      changeType: computeChangeType(computeChange(chartJsData.cpc), true),
       chartData: {
         labels: chartJsData.updatedTime,
         data: chartJsData.cpc,
@@ -219,7 +225,7 @@ export function prepareChartData(chartJsData: {
       stat: cpvStat,
       icon: VideoCameraIcon,
       change: computeChange(chartJsData.cpv).toFixed(2),
-      changeType: computeChangeType(computeChange(chartJsData.cpv)),
+      changeType: computeChangeType(computeChange(chartJsData.cpv), true),
       chartData: {
         labels: chartJsData.updatedTime,
         data: chartJsData.cpv,
@@ -354,7 +360,10 @@ export function aggregateChartData(
       maximumFractionDigits: 2,
       minimumFractionDigits: 0,
     }),
-    changeType: computeChangeType(change),
+    changeType: computeChangeType(
+      change,
+      ['CPC', 'CPV', 'CPM'].includes(localMetric)
+    ),
     chartData: { ...aggregateChartData },
   };
 }
