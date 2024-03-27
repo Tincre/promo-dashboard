@@ -7,6 +7,8 @@
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid';
 import { CampaignStatsData } from '@tincre/promo-types';
 import { YouTubeIcon } from './YouTubeIcon';
+
+const costBasedMetrics = ['CPM', 'CPC', 'CPV'];
 /* @ts-ignore */
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -83,15 +85,29 @@ export function CampaignsStatsHighlights({
                   )}
                 >
                   {item.changeType === 'increase' ? (
-                    <ArrowUpIcon
-                      className="h-3 w-3 flex-shrink-0 self-center text-green-600 dark:text-green-400"
-                      aria-hidden="true"
-                    />
+                    !costBasedMetrics.includes(item.name) ? (
+                      <ArrowUpIcon
+                        className="h-5 w-5 flex-shrink-0 self-center text-green-600 dark:text-green-400"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <ArrowDownIcon
+                        className="h-5 w-5 flex-shrink-0 self-center text-green-600 dark:text-green-400"
+                        aria-hidden="true"
+                      />
+                    )
                   ) : item.changeType !== 'same' ? (
-                    <ArrowDownIcon
-                      className="h-3 w-3 flex-shrink-0 self-center text-red-600 dark:text-red-400"
-                      aria-hidden="true"
-                    />
+                    !costBasedMetrics.includes(item.name) ? (
+                      <ArrowDownIcon
+                        className="h-5 w-5 flex-shrink-0 self-center text-red-600 dark:text-red-400"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <ArrowUpIcon
+                        className="h-5 w-5 flex-shrink-0 self-center text-red-600 dark:text-red-400"
+                        aria-hidden="true"
+                      />
+                    )
                   ) : null}
 
                   <span className="sr-only">
